@@ -4,6 +4,7 @@ $descripcion = 'Teatro de arte dramático';
 $keywords = 'Teatro, Miniaturas, Pedagogía, Identidad, Comunidad, Ulalá';
 $url = 'https://www.teatrolaraiz.cl/web/';
 $ga = 'G-CZ6G1N3EBC';
+$video = 'https://www.youtube.com/embed/CENEKx7yfiU?si=yGwb61ka9ZXrA0DR';
 
 header( 'Expires: Sat, 14 May 2016 20:00:00 GMT' );
 header( 'Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0' );
@@ -17,5 +18,6 @@ if (file_exists($archivo)) {
     $texto = str_replace('{url}', $url, $texto);
     $texto = str_replace('{keywords}', $keywords, $texto);
     $texto = str_replace('{ga}', $ga, $texto);
+    $texto = str_replace('{video}', $video, $texto);
 	echo $texto;
 }
