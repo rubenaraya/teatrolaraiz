@@ -36,3 +36,4 @@ if (file_exists($archivo)) {
     $texto = str_replace('{mapa}', $mapa, $texto);
 	echo $texto;
 }
+?>
