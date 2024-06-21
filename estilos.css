@@ -7,6 +7,7 @@
 }
 
 .body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     background-color: var(--body-bg-color);
 }
@@ -23,5 +24,30 @@
 
 .logo {
     width: 256px;
-    margin: 24px auto;
+    margin: 16px auto;
+}
+
+h4 {
+    font-style: italic;
+    margin-bottom: 32px;
+}
+
+h5 {
+    font-style: italic;
+    margin-top: 32px;
+}
+
+.botonera {
+    margin-top: 24px;
+    margin-bottom: 48px;
+}
+
+.contacto {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.derechos {
+    font-size: 12px;
+    font-style: italic;
 }
