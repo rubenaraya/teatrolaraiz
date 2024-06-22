@@ -17,8 +17,8 @@
     border-radius: var(--container-border-radius);
     box-shadow: var(--container-box-shadow);
     width: 90%;
-    max-width: 760px;
-    min-width: 350px;
+    max-width: 800px;
+    min-width: 360px;
     padding: 20px;
 }
 
