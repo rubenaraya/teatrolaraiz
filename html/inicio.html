@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Caché -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Base -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{titulo}</title>
+    <link rel="manifest" href="/web/manifest.json">
+    <!-- Metadatos -->
+    <meta name="title" content="{titulo}">
+    <meta name="description" content="{descripcion}">
+    <meta name="keywords" content="{keywords}">
+	<meta itemprop="name" content="{titulo}">
+	<meta itemprop="description" content="{descripcion}">
+	<meta itemprop="image" content="{url}img/icon-256x256.png">
+	<meta property="og:title" content="{titulo}">
+	<meta property="og:description" content="{descripcion}">
+    <meta property="og:url" content="{url}">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{url}img/icon-256x256.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">
+    <!-- Iconos -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="72x72" href="/web/img/icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/web/img/icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/web/img/icon-152x152.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/web/img/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="48x48" href="/web/img/icon-48x48.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="/web/img/icon-64x64.png">
+	<link rel="icon" type="image/png" sizes="72x72" href="/web/img/icon-72x72.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/web/img/icon-96x96.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="/web/img/icon-128x128.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/web/img/icon-192x192.png">
+    <!-- Bootstrap y complementos -->
+    <link href="/web/css/bootstrap.5.3.3.css?v={uuid}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <!-- Personalizaciones-->
+    <link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
+    <script src="/web/js/base.js?v={uuid}"></script>
+</head>
+<body class="body my-2">
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+
+            <section>
+                <!-- Logo -->
+                <div class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0s">
+                    <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="logo">
+                </div>
+
+                <!-- Titulo -->
+                <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
+                    <h4>Teatro - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
+                </div>
+
+                <!-- Botonera -->
+                <div class="wow fadeInRight botonera" data-wow-duration="2s" data-wow-delay="1s">
+                    <a href="{instagram}" target="_blank" class="boton_rrss" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="{youtube}" target="_blank" class="boton_rrss" title="Youtube"><i class="bi bi-youtube"></i></a>
+                    <a href="{linkedin}" target="_blank" class="boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="{facebook}" target="_blank" class="boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="{twitter}" target="_blank" class="boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </section>
+
+            <section>
+                <!-- Video -->
+                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="3s">
+                    <div class="video_16x9">
+                        <iframe src="{video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <!-- Mapa -->
+                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="1s">
+                    <div class="mapa_75">
+                        <iframe src="{mapa}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <!-- Contacto -->
+                <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
+                    <div class="contacto">Hablemos en <i class="bi bi-envelope-fill"></i> <span id="nombre">info</span></div>
+                </div>
+                <!-- Pie -->
+                <div class="derechos">© 2024 Teatro La Raíz - Todos los derechos reservados</div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- Elementos auxiliares ocultos -->
+<div id="ventanaModal" class="modal fade" tabindex="-10000" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content"></div>
+	</div>
+</div>
+<div id="visorMensajes" class="visor_mensaje" style="display: none;"></div>
+
+<!-- Plantillas -->
+<div id="plantillas" style="display: none;">
+</div>
+
+</body>
+</html>
