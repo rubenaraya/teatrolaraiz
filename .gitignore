@@ -1,6 +1,5 @@
-saas/
-saas/*
-saas/*/*
+saas/@popperjs
+saas/bootstrap
 _recursos/
 _recursos/*
 _recursos/*/*

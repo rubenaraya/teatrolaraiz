@@ -1,0 +1,89 @@
+//saas\personalizados\bootstrap.5.3.3.scss
+/*
+$primary: '';
+$success: '';
+$warning: '';
+$danger: '';
+$info: '';
+$secondary: '';
+*/
+
+@import "../bootstrap/scss/bootstrap";
+
+// CLASES DE BOOTSTRAP
+//bg-primary, bg-success, bg-info, bg-warning, bg-danger, bg-secondary, bg-dark, bg-light
+//text-muted, text-primary, text-success, text-info, text-warning, text-danger, text-secondary, text-white, text-dark, text-body, text-light
+//alert-success, alert-info, alert-warning, alert-danger, alert-primary, alert-secondary, alert-light, alert-dark
+//btn-primary, btn-secondary, btn-success, btn-info, btn-warning, btn-danger, btn-dark, btn-light, btn-link
+
+.container {
+    @extend .text-center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    min-width: 360px;
+    padding: 20px;
+}
+
+// ESTILOS PERSONALIZADOS
+
+.mi_boton_rrss {
+    @extend .btn;
+    @extend .btn-outline-dark;
+    @extend .btn-lg;
+    @extend .me-1;
+}
+
+.mi_video_16x9 {
+    @extend .ratio;
+    @extend .ratio-16x9;
+    @extend .mt-4;
+    @extend .mb-4;
+}
+
+.mi_mapa {
+    @extend .ratio;
+    @extend .ratio-4x3;
+    @extend .mt-4;
+    @extend .mb-4;
+    @extend .w-75;
+    @extend .ms-auto;
+    @extend .me-auto;
+ }
+.mi_alerta {
+    @extend .alert;
+    @extend .alert-dismissible;
+    @extend .text-dark;
+    @extend .fade;
+    @extend .show;
+    @extend .border;
+    @extend .border-3;
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    left: auto;
+    z-index: 10001;
+    transition-duration: 0.5s;
+}
+
+.mi_logo {
+    @extend .mx-auto;
+    @extend .mt-2;
+    @extend .mb-2;
+}
+
+.mi_body {
+    @extend .my-2;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.mi_titulo {
+    font-style: italic;
+    margin-bottom: 32px;
+}
+

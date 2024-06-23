@@ -49,46 +49,55 @@
     <link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
     <script src="/web/js/base.js?v={uuid}"></script>
 </head>
-<body class="body my-2">
-
+<body class="mi_body">
+<!--
++ Crear componentes del sitio: 
+-->
 <div class="container">
     <div class="row">
-        <div class="col text-center">
-
+        <div class="col">
             <section>
                 <!-- Logo -->
-                <div class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0s">
-                    <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="logo">
+                <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
+                    <div class="wow flip" data-wow-delay="60s">
+                        <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="mi_logo" style="width: 256px;">
+                    </div>
                 </div>
 
                 <!-- Titulo -->
                 <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
-                    <h4>Teatro - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
+                    <h4 class="mi_titulo">Teatro - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
                 </div>
 
                 <!-- Botonera -->
                 <div class="wow fadeInRight botonera" data-wow-duration="2s" data-wow-delay="1s">
-                    <a href="{instagram}" target="_blank" class="boton_rrss" title="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="{youtube}" target="_blank" class="boton_rrss" title="Youtube"><i class="bi bi-youtube"></i></a>
-                    <a href="{linkedin}" target="_blank" class="boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                    <a href="{facebook}" target="_blank" class="boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="{twitter}" target="_blank" class="boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
-                </div>
-            </section>
-
-            <section>
-                <!-- Video -->
-                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="3s">
-                    <div class="video_16x9">
-                        <iframe src="{video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="wow heartBeat" data-wow-delay="30s">
+                        <div class="wow heartBeat" data-wow-delay="150s">
+                            <div class="wow heartBeat" data-wow-delay="300s">
+                                <a href="{instagram}" target="_blank" class="mi_boton_rrss" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="{youtube}" target="_blank" class="mi_boton_rrss" title="Youtube"><i class="bi bi-youtube"></i></a>
+                                <a href="{linkedin}" target="_blank" class="mi_boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="{facebook}" target="_blank" class="mi_boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="{twitter}" target="_blank" class="mi_boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section>
+                <!-- Video -->
+                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="5s">
+                    <div class="mi_video_16x9">
+                        <iframe src="{video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+            <section>
                 <!-- Mapa -->
+                <h5 class="mi_titulo">¿Dónde nos encontramos?</h5>
                 <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="mapa_75">
+                    <div class="mi_mapa">
                         <iframe src="{mapa}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -113,7 +122,7 @@
 		<div class="modal-content"></div>
 	</div>
 </div>
-<div id="visorMensajes" class="visor_mensaje" style="display: none;"></div>
+<div id="visorMensajes" class="mi_alerta" style="display: none;"></div>
 
 <!-- Plantillas -->
 <div id="plantillas" style="display: none;">
