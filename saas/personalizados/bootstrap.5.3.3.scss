@@ -74,7 +74,7 @@ $link-color-dark:    $body-color-dark;
     border-radius: 1.2rem;
     
     box-shadow: 0 0 1.2rem rgba($body-color, 0.5);
-    //background-color: shift-color($body-bg, 90%);
+    background-color: color-contrast($body-color);
     
     width: 90%;
     max-width: 800px;
