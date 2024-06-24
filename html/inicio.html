@@ -19,14 +19,20 @@
 data-bs-theme="dark"
 Corregir fondo, texto y borde de botones (para tema oscuro/claro)
 
-Crear componentes de bootstrap: Carousel?, Toast?
+Crear componentes de bootstrap: Toast?
 
 Crear secciones HTML del sitio: 
 -->
 <div class="mi_container">
     <div class="row">
         <div class="col">
+
+            <!-- Encabezado -->
             <section>
+
+                <!-- Spinner -->
+                <div id="spinner" class="spinner-border mt-4"></div>
+
                 <!-- Logo -->
                 <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
                     <div class="wow flip" data-wow-duration="1s" data-wow-delay="60s">
@@ -44,30 +50,101 @@ Crear secciones HTML del sitio:
                     <div class="wow heartBeat" data-wow-delay="30s">
                         <div class="wow heartBeat" data-wow-delay="150s">
                             <div class="wow heartBeat" data-wow-delay="300s">
-                                <a href="{instagram}" target="_blank" class="mi_boton_rrss" title="Instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="{youtube}" target="_blank" class="mi_boton_rrss" title="Youtube"><i class="bi bi-youtube"></i></a>
+                                <a href="{instagram}" target="_blank" class="mi_boton_rrss" title="Instagram"><i class="bi bi-instagram"></i> <small>Instagram</small></a>
+                                <a href="{youtube}" target="_blank" class="mi_boton_rrss" title="Youtube"><i class="bi bi-youtube"></i> <small>Youtube</small></a>
+                                <!--
                                 <a href="{linkedin}" target="_blank" class="mi_boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                                 <a href="{facebook}" target="_blank" class="mi_boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
                                 <a href="{twitter}" target="_blank" class="mi_boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
-
-                                <button type="button" class="mi_boton_rrss" data-bs-toggle="modal" data-bs-target="#ventanaModal">V</button>
-
+                            -->
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Paralaje -->
+            <!--
             <section>
-                <!-- Video -->
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <div class="mi_paralaje" style="background-image: url(/web/img/web/paralaje-01.jpg);">
+                        <div class="mi_letra_oscura" style="color:#009">
+                            Este es un letrero de muestra para ver cómo se aprecian las letras
+                        </div>
+                    </div>
+                </div>
+            </section>
+            -->
+
+            <!-- Carrusel -->
+            <!--
+            <section>
+                <div class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="3s">
+                    <div id="carrusel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carrusel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carrusel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carrusel" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/web/img/web/carrusel-01.jpg" alt="" class="d-block w-100">
+                                <div class="carousel-caption">
+                                    <div class="mi_letra_oscura" style="color:#009">
+                                        Este es un letrero de muestra para ver cómo se aprecian las letras
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/web/img/web/carrusel-02.jpg" alt="" class="d-block w-100">
+                                <div class="carousel-caption">
+                                    <div class="mi_letra_oscura" style="color:#000">
+                                        Este es un letrero de muestra para ver cómo se aprecian las letras
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/web/img/web/carrusel-03.jpg" alt="" class="d-block w-100">
+                                <div class="carousel-caption">
+                                    <div class="mi_letra_clara" style="color:#fff">
+                                        Este es un letrero de muestra para ver cómo se aprecian las letras
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carrusel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            -->
+
+            <!--  -->
+            <section>
+            </section>
+
+            <!--  -->
+            <section>
+            </section>
+
+            <!-- Video -->
+            <!--
+            <section>
                 <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="5s">
                     <div class="mi_video_16x9">
                         <iframe src="{video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
+            -->
+
+            <!-- Mapa -->
+            <!--
             <section>
-                <!-- Mapa -->
                 <h5 class="mi_titulo">¿Dónde nos encontramos?</h5>
                 <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="1s">
                     <div class="mi_mapa">
@@ -75,13 +152,15 @@ Crear secciones HTML del sitio:
                     </div>
                 </div>
             </section>
+            -->
 
+            <!-- Pie -->
             <section>
                 <!-- Contacto -->
                 <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
-                    <div class="contacto">Hablemos en <i class="bi bi-envelope-fill"></i> <span id="nombre">info</span></div>
+                    <div class="contacto">Hablemos en <i class="bi bi-envelope-fill"></i> <span id="contacto">info</span></div>
                 </div>
-                <!-- Pie -->
+                <!-- Derechos -->
                 <div class="derechos">© 2024 Teatro La Raíz - Todos los derechos reservados</div>
             </section>
 
@@ -110,6 +189,6 @@ Crear secciones HTML del sitio:
 <!-- Plantillas -->
 <div id="plantillas" style="display: none;">
 </div>
-((ga))
+(ga)
 </body>
 </html>

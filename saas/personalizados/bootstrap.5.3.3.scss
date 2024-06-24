@@ -58,7 +58,7 @@ $light:      $gray-100;
 $dark:       $gray-900;
 
 $body-color:         $gray-900;
-$body-bg:            #f0f0f0;
+$body-bg:            $gray-200;
 $link-color:         $body-color;
 
 $body-color-dark:    $gray-300;
@@ -84,7 +84,7 @@ $link-color-dark:    $body-color-dark;
 
 .mi_boton_rrss {
     @extend .btn;
-    @extend .btn-secondary;
+    @extend .btn-outline-dark;
     @extend .btn-lg;
     @extend .me-1;
 }
@@ -140,3 +140,38 @@ $link-color-dark:    $body-color-dark;
     margin-bottom: 2rem;
 }
 
+.mi_paralaje {
+    @extend .mt-1;
+    @extend .mb-2;
+	display: table;
+	min-height: 180px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 2rem;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 2rem;
+    width: 100%;
+}
+
+.mi_letra_oscura {
+    color: $black;
+	text-shadow: 0 0 1px $gray-500, -1px -1px 0 $gray-500, 1px -1px 0 $gray-500, -1px 1px 0 $gray-500, 1px 1px 0 $gray-500;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.5rem;
+	font-weight: 600;
+    width: 100%;
+}
+
+.mi_letra_clara {
+    color: $white;
+	text-shadow: 0 0 1px $gray-800, -1px -1px 0 $gray-800, 1px -1px 0 $gray-800, -1px 1px 0 $gray-800, 1px 1px 0 $gray-800;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.5rem;
+	font-weight: 500;
+    width: 100%;
+}
