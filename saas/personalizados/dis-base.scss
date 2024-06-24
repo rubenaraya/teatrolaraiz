@@ -1,0 +1,135 @@
+//saas\personalizados\bootstrap.5.3.3.scss
+
+$modal-sm:   300px;
+$modal-md:   500px;
+$modal-lg:   800px;
+$modal-xl:   1140px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  xxl: 1600px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1220px,
+  xxl: 1520px
+);
+
+$blue:      #0d6efd;
+$indigo:    #6610f2;
+$purple:    #6f42c1;
+$pink:      #d63384;
+$red:       #dc3545;
+$orange:    #fd7e14;
+$yellow:    #ffc107;
+$green:     #198754;
+$teal:      #20c997;
+$cyan:      #0dcaf0;
+$black:     #000;
+$white:     #fff;
+
+$gray-100:  #f8f9fa;
+$gray-200:  #e9ecef;
+$gray-300:  #dee2e6;
+$gray-400:  #ced4da;
+$gray-500:  #adb5bd;
+$gray-600:  #6c757d;
+$gray-700:  #495057;
+$gray-800:  #343a40;
+$gray-900:  #212529;
+
+$primary:    $blue;
+$secondary:  $gray-600;
+$success:    $green;
+$danger:     $red;
+$warning:    $yellow;
+$info:       $cyan;
+$light:      $gray-100;
+$dark:       $gray-900;
+
+$body-color:         $gray-900;
+$body-bg:            $gray-200;
+$link-color:         $body-color;
+
+$body-color-dark:    $gray-300;
+$body-bg-dark:       $gray-900;
+$link-color-dark:    $body-color-dark;
+
+@import "../bootstrap/scss/bootstrap";
+
+// ESTILOS PERSONALIZADOS
+
+.mi_container {
+    @extend .container;
+    @extend .text-center;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 1.2rem rgba($body-color, 0.5);
+    background-color: color-contrast($body-color);
+    width: 90%;
+    max-width: 800px;
+    min-width: 360px;
+    padding: 1.2rem;
+}
+
+.mi_boton_rrss {
+    @extend .btn;
+    @extend .btn-outline-dark;
+    @extend .btn-lg;
+    @extend .me-1;
+}
+
+.mi_video_16x9 {
+    @extend .ratio;
+    @extend .ratio-16x9;
+    @extend .mt-4;
+    @extend .mb-4;
+}
+
+.mi_mapa {
+    @extend .ratio;
+    @extend .ratio-4x3;
+    @extend .mt-4;
+    @extend .mb-4;
+    @extend .w-75;
+    @extend .ms-auto;
+    @extend .me-auto;
+ }
+.mi_alerta {
+    @extend .alert;
+    @extend .alert-dismissible;
+    @extend .text-dark;
+    @extend .fade;
+    @extend .show;
+    @extend .border;
+    @extend .border-3;
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    left: auto;
+    z-index: 10001;
+    transition-duration: 0.5s;
+}
+
+.mi_logo {
+    @extend .mx-auto;
+    @extend .mt-2;
+    @extend .mb-2;
+}
+
+.mi_body {
+    @extend .my-2;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+}
+
+.mi_titulo {
+    font-style: italic;
+    margin-bottom: 2rem;
+}
