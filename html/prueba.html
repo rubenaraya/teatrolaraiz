@@ -12,7 +12,10 @@
     <link href="/web/css/dis-prueba.css?v={uuid}" rel="stylesheet">
 ((bootstrap))
     <link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
-    <script>var dominio = '{dominio}';</script>
+    <script>
+        var dominio = '{dominio}';
+        var cookie = '{cookie}';
+    </script>
     <script src="/web/js/base.js?v={uuid}"></script>
 </head>
 <body class="mi_body">
@@ -58,23 +61,10 @@ Corregir fondo, texto y borde de botones (para tema oscuro/claro)
                 </div>
             </section>
 
-            <!-- Paralaje -->
-            <!--
-            <section>
-                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div class="mi_paralaje" style="background-image: url(/web/img/web/paralaje-01.jpg);">
-                        <div class="mi_letra_oscura" style="color:#009">
-                            Este es un letrero de muestra para ver cómo se aprecian las letras
-                        </div>
-                    </div>
-                </div>
-            </section>
-            -->
-
             <!-- Carrusel -->
             <section>
                 <div class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="3s">
-                    <div id="carrusel" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carrusel" class="mi_carrusel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carrusel" data-bs-slide-to="0" class="active"></button>
                             <button type="button" data-bs-target="#carrusel" data-bs-slide-to="1"></button>
@@ -82,25 +72,25 @@ Corregir fondo, texto y borde de botones (para tema oscuro/claro)
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/web/img/web/carrusel-01.jpg" alt="" class="d-block w-100">
+                                <img src="/web/img/web/carrusel-01.jpg" alt="" class="mi_imagen_carrusel">
                                 <div class="carousel-caption">
-                                    <div class="mi_letra_oscura" style="color:#009">
+                                    <div class="mi_letras_oscuras" style="color:#009">
                                         Este es un letrero de muestra para ver cómo se aprecian las letras
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="/web/img/web/carrusel-02.jpg" alt="" class="d-block w-100">
+                                <img src="/web/img/web/carrusel-02.jpg" alt="" class="mi_imagen_carrusel">
                                 <div class="carousel-caption">
-                                    <div class="mi_letra_oscura" style="color:#000">
+                                    <div class="mi_letras_oscuras" style="color:#000">
                                         Este es un letrero de muestra para ver cómo se aprecian las letras
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="/web/img/web/carrusel-03.jpg" alt="" class="d-block w-100">
+                                <img src="/web/img/web/carrusel-03.jpg" alt="" class="mi_imagen_carrusel">
                                 <div class="carousel-caption">
-                                    <div class="mi_letra_clara" style="color:#fff">
+                                    <div class="mi_letras_claras" style="color:#fff">
                                         Este es un letrero de muestra para ver cómo se aprecian las letras
                                     </div>
                                 </div>
@@ -118,6 +108,17 @@ Corregir fondo, texto y borde de botones (para tema oscuro/claro)
 
             <!--  -->
             <section>
+            </section>
+
+            <!-- Paralaje -->
+            <section>
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <div class="mi_paralaje" style="background-image: url(/web/img/web/paralaje-02.jpg);">
+                        <div class="mi_letras_oscuras" style="color:#009">
+                            Este es un letrero de muestra para ver cómo se aprecian las letras
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!--  -->
@@ -162,6 +163,11 @@ Corregir fondo, texto y borde de botones (para tema oscuro/claro)
 </div>
 
 <!-- Elementos auxiliares ocultos -->
+<div>
+    <a id="scroll_top" class="mi_volver_arriba" href="javascript:void(0)" alt="" title="Volver arriba" onclick="VolverArriba()"></a>
+</div>
+((cookies))
+
 <div id="ventanaModal" class="modal fade" tabindex="-10000" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">

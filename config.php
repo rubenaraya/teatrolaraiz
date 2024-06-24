@@ -5,6 +5,7 @@ $textos = array(
     'keywords'=>'Teatro, Miniaturas, Pedagogía, Identidad, Comunidad',
     'url'=>'https://www.teatrolaraiz.cl/web/',
     'dominio'=>'teatrolaraiz.cl',
+    'cookie'=>'teatrolaraiz',
     'ga'=>'G-CZ6G1N3EBC',
     'video'=>'https://www.youtube.com/embed/videoseries?si=we4GbApZw28NNazU&list=PLWshe2IHPsMUoJ8SwLhoudf97XClkK86N',
     'instagram'=>'https://www.instagram.com/teatrolaraiz/',
@@ -22,6 +23,7 @@ $archivos = array(
     'iconos'=>'_iconos.html',
     'nocache'=>'_nocache.html',
     'metadatos'=>'_metadatos.html',
+    'cookies'=>'_cookies.html',
 );
 
 function reemplazar_textos($texto) {
