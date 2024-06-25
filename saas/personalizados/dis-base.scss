@@ -1,4 +1,4 @@
-//saas\personalizados\bootstrap.5.3.3.scss
+//saas\personalizados\dis-base.scss
 
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/functions";
@@ -164,7 +164,7 @@ $link-color-dark:    $body-color-dark;
     @extend .w-100;
 }
 
-.mi_volver_arriba {
+#mi_scroll_top {
 	display: none;
 	width: 50px;
 	height: 50px;
@@ -184,7 +184,7 @@ $link-color-dark:    $body-color-dark;
 	transition: all 250ms linear;	
 }
 
-.mi_volver_arriba:hover {
+#mi_scroll_top:hover {
 	background-color: $black;
     position: fixed;
     display: inline;

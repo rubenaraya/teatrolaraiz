@@ -1,4 +1,4 @@
-//saas\personalizados\bootstrap.5.3.3.scss
+//saas\personalizados\dis-prueba.scss
 
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/functions";
@@ -180,7 +180,7 @@ $theme-colors: (
     @extend .w-100;
 }
 
-.mi_volver_arriba {
+#mi_scroll_top {
 	display: none;
 	width: 50px;
 	height: 50px;
@@ -200,7 +200,7 @@ $theme-colors: (
 	transition: all 250ms linear;	
 }
 
-.mi_volver_arriba:hover {
+#mi_scroll_top:hover {
 	background-color: $black;
     position: fixed;
     display: inline;
@@ -290,5 +290,16 @@ $theme-colors: (
     @extend .rounded;
     @extend .rounded-0;
     border-color: $gray-500;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.mi_imagen_galeria:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba($black,0.5);
+}
+
+.mi_imagen_galeria:active {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba($black,0.7);
 }
 

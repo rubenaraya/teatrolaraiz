@@ -1,3 +1,5 @@
+//js\base.js
+
 function _ocultarSpinner() {
     const spinner = document.querySelector('#spinner');
     if (spinner) {
@@ -6,10 +8,16 @@ function _ocultarSpinner() {
 }
 
 function _mostrarScrollTop() {
-    const scroll_top = document.querySelector('#scroll_top');
-    if (scroll_top) {
-        scroll_top.style.display = 'block';
-    }
+    const scroll_top = document.querySelector('#mi_scroll_top');
+	window.addEventListener('scroll', function() {
+		let scrollDistance = window.scrollY;
+		let scrollThreshold = window.innerWidth > 800 ? 600 : 400;
+		if (scrollDistance > scrollThreshold) {
+			scroll_top.style.display = 'block';
+		} else {
+			scroll_top.style.display = 'none';
+		}
+	});
 }
 
 function _activarGaleria(nombre) {
@@ -23,6 +31,12 @@ function _activarGaleria(nombre) {
 		const lightbox = new Lightbox(el, options);
 		lightbox.show();
 	}));
+}
+
+function _mostrarContacto() {
+    var nombre = document.querySelector('#contacto');
+    var user = nombre.textContent;
+    nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
 }
 
 /* Adaptado de: Bootstrap Cookie Alert by Wruczek
@@ -72,12 +86,10 @@ function volverArriba() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var nombre = document.querySelector('#contacto');
-    var user = nombre.textContent;
-    nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
     new WOW().init();
+	_mostrarContacto();
 	_ocultarSpinner();
-	_mostrarScrollTop();
 	_activarGaleria('galeria');
+	_mostrarScrollTop();
     _comprobarCookie(cookie);
 });
