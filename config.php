@@ -29,6 +29,7 @@ $archivos = array(
 function reemplazar_textos($texto) {
     global $textos;
     $texto = str_replace('{uuid}', uniqid(), $texto);
+    $texto = str_replace('{año}', date('Y'), $texto);
     foreach ( $textos as $clave => $valor ) {
         $texto = str_replace( '{'.$clave.'}', $valor, $texto );
     }

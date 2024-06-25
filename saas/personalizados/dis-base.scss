@@ -1,5 +1,9 @@
 //saas\personalizados\bootstrap.5.3.3.scss
 
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+
 $modal-sm:   300px;
 $modal-md:   500px;
 $modal-lg:   800px;
@@ -21,29 +25,6 @@ $container-max-widths: (
   xl: 1220px,
   xxl: 1520px
 );
-
-$blue:      #0d6efd;
-$indigo:    #6610f2;
-$purple:    #6f42c1;
-$pink:      #d63384;
-$red:       #dc3545;
-$orange:    #fd7e14;
-$yellow:    #ffc107;
-$green:     #198754;
-$teal:      #20c997;
-$cyan:      #0dcaf0;
-$black:     #000;
-$white:     #fff;
-
-$gray-100:  #f8f9fa;
-$gray-200:  #e9ecef;
-$gray-300:  #dee2e6;
-$gray-400:  #ced4da;
-$gray-500:  #adb5bd;
-$gray-600:  #6c757d;
-$gray-700:  #495057;
-$gray-800:  #343a40;
-$gray-900:  #212529;
 
 $primary:    $blue;
 $secondary:  $gray-600;
@@ -101,6 +82,7 @@ $link-color-dark:    $body-color-dark;
     @extend .ms-auto;
     @extend .me-auto;
  }
+
 .mi_alerta {
     @extend .alert;
     @extend .alert-dismissible;
@@ -127,9 +109,129 @@ $link-color-dark:    $body-color-dark;
     @extend .my-2;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1rem;
+    overflow-x: hidden;
 }
 
 .mi_titulo {
     font-style: italic;
     margin-bottom: 2rem;
 }
+
+.mi_paralaje {
+    @extend .mb-2;
+	display: table;
+	min-height: 180px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 2rem;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 2rem;
+    margin-left: -1.2rem;
+    margin-right: -1.2rem;
+}
+
+.mi_letras_oscuras {
+    color: $black;
+	text-shadow: 0 0 1px $gray-500, -1px -1px 0 $gray-500, 1px -1px 0 $gray-500, -1px 1px 0 $gray-500, 1px 1px 0 $gray-500;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.5rem;
+	font-weight: 600;
+    width: 100%;
+}
+
+.mi_letras_claras {
+    color: $white;
+	text-shadow: 0 0 1px $gray-800, -1px -1px 0 $gray-800, 1px -1px 0 $gray-800, -1px 1px 0 $gray-800, 1px 1px 0 $gray-800;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.5rem;
+	font-weight: 500;
+    width: 100%;
+}
+
+.mi_carrusel {
+    @extend .carousel;
+    margin-left: -1.2rem;
+    margin-right: -1.2rem;
+}
+
+.mi_imagen_carrusel {
+    @extend .d-block;
+    @extend .w-100;
+}
+
+.mi_volver_arriba {
+	display: none;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: 20px;
+	right: 10px;
+	background-image: url(../img/arriba.png);
+	background-repeat: no-repeat;
+	background-position: 50% 48%;
+	background-color: rgba($gray-900, 0.5);
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-o-border-radius: 100%;
+	border-radius: 100%;
+	-webkit-transition: all 250ms linear;
+	-moz-transition: all 250ms linear;
+	transition: all 250ms linear;	
+}
+
+.mi_volver_arriba:hover {
+	background-color: $black;
+    position: fixed;
+    display: inline;
+    z-index: 2147483647;
+}
+
+.mi_alerta_cookies {
+    @extend .alert;
+    @extend .text-center;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 !important;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 0;
+    transform: translateY(100%);
+    transition: all 500ms ease-out;
+    color: $white;
+    background: $black;
+}
+
+.mi_alerta_cookies.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+    transition-delay: 1000ms;
+}
+
+.mi_alerta_cookies a {
+    color: $white;
+    text-decoration: underline
+}
+
+.mi_alerta_cookies .mi_aceptar_cookies {
+    margin-left: 10px;
+    vertical-align: baseline;
+}
+
+.mi_aceptar_cookies {
+    @extend .btn;
+    @extend .btn-light;
+    @extend .btn-sm;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
