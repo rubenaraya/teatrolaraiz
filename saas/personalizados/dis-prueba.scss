@@ -276,3 +276,19 @@ $theme-colors: (
 	border-radius: 1.5rem;
 }
 
+.mi_lightbox {
+    @extend .row-cols-1;
+    @extend .row-cols-md-2;
+    @extend .row-cols-lg-3;
+    @extend .g-4;
+}
+
+.mi_imagen_galeria {
+    @extend .img-fluid;
+    @extend .border;
+    @extend .border-2;
+    @extend .rounded;
+    @extend .rounded-0;
+    border-color: $gray-500;
+}
+

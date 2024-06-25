@@ -1,33 +1,40 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var nombre = document.getElementById('contacto');
-    var user = nombre.textContent;
-    nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
-    new WOW().init();
+function _ocultarSpinner() {
     const spinner = document.querySelector('#spinner');
     if (spinner) {
         spinner.style.display = 'none';
     }
+}
+
+function _mostrarScrollTop() {
     const scroll_top = document.querySelector('#scroll_top');
     if (scroll_top) {
         scroll_top.style.display = 'block';
     }
-    comprobarCookie(cookie);
-});
+}
 
-function VolverArriba() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+function _activarGaleria(nombre) {
+	const options = {
+		keyboard: true,
+		size: 'fullscreen',
+		gallery: nombre,
+	};
+	document.querySelectorAll('.mi_lightbox').forEach((el) => el.addEventListener('click', (e) => {
+		e.preventDefault();
+		const lightbox = new Lightbox(el, options);
+		lightbox.show();
+	}));
 }
 
 /* Adaptado de: Bootstrap Cookie Alert by Wruczek
  * https://github.com/Wruczek/Bootstrap-Cookie-Alert
  * Released under MIT license */
-function escribirCookie(cname, cvalue, exdays) {
+function _escribirCookie(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 	var expires = "expires=" + d.toUTCString();
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-};
-function leerCookie(cname) {
+}
+function _leerCookie(cname) {
 	var name = cname + "=";
 	var decodedCookie = decodeURIComponent(document.cookie);
 	var ca = decodedCookie.split(';');
@@ -41,8 +48,8 @@ function leerCookie(cname) {
 		}
 	}
 	return "";
-};
-function comprobarCookie(cname) {
+}
+function _comprobarCookie(cname) {
     "use strict";
     var cookieAlert = document.querySelector(".mi_alerta_cookies");
     var acceptCookies = document.querySelector(".mi_aceptar_cookies");
@@ -50,13 +57,27 @@ function comprobarCookie(cname) {
        return;
     }
 	cookieAlert.offsetHeight;
-	if (leerCookie(cname).length == 0) {
+	if (_leerCookie(cname).length == 0) {
 		cookieAlert.classList.add("show");
 	}
 	acceptCookies.addEventListener("click", function () {
-		escribirCookie(cname, "0", 365);
+		_escribirCookie(cname, "0", 365);
 		cookieAlert.classList.remove("show");
 		window.dispatchEvent(new Event("cookieAlertAccept"))
 	});
-};
+}
 
+function volverArriba() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var nombre = document.querySelector('#contacto');
+    var user = nombre.textContent;
+    nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
+    new WOW().init();
+	_ocultarSpinner();
+	_mostrarScrollTop();
+	_activarGaleria('galeria');
+    _comprobarCookie(cookie);
+});
