@@ -134,6 +134,11 @@ $theme-colors: (
     margin-bottom: 2rem;
 }
 
+.mi_botonera {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
 .mi_paralaje {
     @extend .mb-2;
 	display: table;
@@ -159,7 +164,6 @@ $theme-colors: (
 	font-weight: 600;
     width: 100%;
 }
-
 .mi_letras_claras {
     color: $white;
 	text-shadow: 0 0 1px $gray-800, -1px -1px 0 $gray-800, 1px -1px 0 $gray-800, -1px 1px 0 $gray-800, 1px 1px 0 $gray-800;
@@ -174,7 +178,6 @@ $theme-colors: (
     margin-left: -1.2rem;
     margin-right: -1.2rem;
 }
-
 .mi_imagen_carrusel {
     @extend .d-block;
     @extend .w-100;
@@ -199,7 +202,6 @@ $theme-colors: (
 	-moz-transition: all 250ms linear;
 	transition: all 250ms linear;	
 }
-
 #mi_scroll_top:hover {
 	background-color: $black;
     position: fixed;
@@ -225,24 +227,20 @@ $theme-colors: (
     color: $white;
     background: $black;
 }
-
 .mi_alerta_cookies.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0%);
     transition-delay: 1000ms;
 }
-
 .mi_alerta_cookies a {
     color: $white;
     text-decoration: underline
 }
-
 .mi_alerta_cookies .mi_aceptar_cookies {
     margin-left: 10px;
     vertical-align: baseline;
 }
-
 .mi_aceptar_cookies {
     @extend .btn;
     @extend .btn-light;
@@ -260,16 +258,9 @@ $theme-colors: (
 .mi_icono_tarjeta {
     font-size: 40px;
 }
-
 .mi_texto_tarjeta {
     font-size: 0.9em;
 }
-
-.mi_botonera {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
 .mi_imagen_tarjeta {
 	margin: 0.8rem 0 1rem 0;
 	width: 60%;
@@ -292,14 +283,155 @@ $theme-colors: (
     border-color: $gray-500;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-
 .mi_imagen_galeria:hover {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba($black,0.5);
 }
-
 .mi_imagen_galeria:active {
     transform: scale(1.2);
     box-shadow: 0 0 20px rgba($black,0.7);
 }
+
+.mi_burbuja {
+    position: relative;
+    height: auto;
+    padding: 0.9rem;
+    background: $gray-300;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.mi_burbuja:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 14px 0;
+    border-color: $gray-300 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 30px;
+}
+
+.mi_avatar {
+    margin-top: 25px;
+    margin-left: 22px;
+    margin-bottom: 25px;
+}
+
+.mi_avatar .nombre {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.mi_avatar .leyenda {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.mi_avatar img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mi_nube_opiniones {
+    @extend .mb-2;
+    background-color: $gray-600;
+    color: $white;
+    margin-left: -1.2rem;
+    margin-right: -1.2rem;
+}
+
+.mi_badge {
+    @extend .badge;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.mi_fondo_amarillo {
+    background: rgba($yellow, 0.5);
+    color: $black;
+}
+.mi_fondo_verde {
+    background: rgba($green, 0.5);
+    color: $white;
+}
+.mi_fondo_rojo {
+    background: rgba($red, 0.5);
+    color: $white;
+}
+.mi_fondo_celeste {
+    background: rgba($cyan, 0.5);
+    color: $black;
+}
+.mi_fondo_naranjo {
+    background: rgba($orange, 0.5);
+    color: $white;
+}
+.mi_fondo_purpura {
+    background: rgba($purple, 0.5);
+    color: $white;
+}
+.mi_fondo_rosado {
+    background: rgba($pink, 0.5);
+    color: $black;
+}
+.mi_fondo_azul {
+    background: rgba($blue, 0.5);
+    color: $white;
+}
+.mi_fondo_indigo {
+    background: rgba($indigo, 0.5);
+    color: $white;
+}
+.mi_fondo_turquesa {
+    background: rgba($teal, 0.5);
+    color: $black;
+}
+.mi_fondo_blanco {
+    background: rgba($white, 0.5);
+    color: $black;
+}
+
+.mi_persona {
+    @extend .mt-2;
+    @extend .mb-3;
+    min-width: 300px;
+}
+.mi_persona .nombre {
+    @extend .mt-2;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.mi_persona .leyenda {
+    @extend .mb-2;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.mi_persona img {
+    @extend .img-fluid;
+    @extend .rounded-circle;
+}
+
+.mi_boton_redondo {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .mt-2;
+    @extend .mb-2;
+    border-radius: 50px;
+}
+
+.mi_columna {
+    @extend .col;
+}
+
 
