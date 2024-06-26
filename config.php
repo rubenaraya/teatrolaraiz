@@ -31,11 +31,16 @@ $archivos = array(
     'seccion_mapa'=>'seccion_mapa.html',
     'seccion_personas'=>'seccion_personas.html',
     'seccion_testimonios'=>'seccion_testimonios.html',
-    'seccion_ideas'=>'seccion_ideas.html',
+    'seccion_etiquetas'=>'seccion_etiquetas.html',
     'seccion_galeria'=>'seccion_galeria.html',
     'seccion_carrusel'=>'seccion_carrusel.html',
     'seccion_acordeon'=>'seccion_acordeon.html',
     'seccion_contactar'=>'seccion_contactar.html',
+    'seccion_menu'=>'seccion_menu.html',
+    'seccion_productos'=>'seccion_productos.html',
+    'seccion_panel_video'=>'seccion_panel_video.html',
+    'seccion_panel_diapo'=>'seccion_panel_diapo.html',
+    'seccion_calendario'=>'seccion_calendario.html',
 );
 
 function reemplazar_textos($texto) {

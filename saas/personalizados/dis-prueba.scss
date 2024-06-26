@@ -343,7 +343,7 @@ $accordion-bg: color-contrast($body-color);
     margin-right: 10px;
 }
 
-.mi_nube_opiniones {
+.mi_etiquetas {
     @extend .mb-2;
     background-color: $gray-600;
     color: $white;
@@ -363,47 +363,47 @@ $accordion-bg: color-contrast($body-color);
     padding-bottom: 4px;
 }
 
-.mi_fondo_amarillo {
+.mi_etiqueta_amarilla {
     background: rgba($yellow, 0.5);
     color: $black;
 }
-.mi_fondo_verde {
+.mi_etiqueta_verde {
     background: rgba($green, 0.5);
     color: $white;
 }
-.mi_fondo_rojo {
+.mi_etiqueta_roja {
     background: rgba($red, 0.5);
     color: $white;
 }
-.mi_fondo_celeste {
+.mi_etiqueta_celeste {
     background: rgba($cyan, 0.5);
     color: $black;
 }
-.mi_fondo_naranjo {
+.mi_etiqueta_naranja {
     background: rgba($orange, 0.5);
     color: $white;
 }
-.mi_fondo_purpura {
+.mi_etiqueta_purpura {
     background: rgba($purple, 0.5);
     color: $white;
 }
-.mi_fondo_rosado {
+.mi_etiqueta_rosada {
     background: rgba($pink, 0.5);
     color: $black;
 }
-.mi_fondo_azul {
+.mi_etiqueta_azul {
     background: rgba($blue, 0.5);
     color: $white;
 }
-.mi_fondo_indigo {
+.mi_etiqueta_indigo {
     background: rgba($indigo, 0.5);
     color: $white;
 }
-.mi_fondo_turquesa {
+.mi_etiqueta_turquesa {
     background: rgba($teal, 0.5);
     color: $black;
 }
-.mi_fondo_blanco {
+.mi_etiqueta_blanca {
     background: rgba($white, 0.5);
     color: $black;
 }
