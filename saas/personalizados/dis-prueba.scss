@@ -487,7 +487,33 @@ $accordion-bg: color-contrast($body-color);
    
 }
 
-#mi_menu_base {
-    display: none;
+#mi_barra_navegacion {
+    @extend .navbar;
+    @extend .sticky-top;
+    @extend .navbar-expand-lg;
+    margin-left: -1.2rem;
+    margin-right: -1.2rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 0.9rem;
+}
+.mi_menu_navegacion {
+    @extend .navbar-nav;
+    @extend .ms-auto;
+    @extend .mb-2;
+    @extend .mb-lg-0;
+    @extend .text-start;
+}
+.mi_item_navegacion {
+    @extend .ps-2;
+    @extend .pe-3;
+    font-size: 0.9rem;
+}
+.mi_marca_navegacion {
+    @extend .navbar-brand;
+    margin-right: 0.4rem;
+    font-size: 1.6rem;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 

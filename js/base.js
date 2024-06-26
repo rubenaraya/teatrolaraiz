@@ -11,16 +11,13 @@ class Web {
 	}
 	_mostrarScrollTop() {
 		const scroll_top = document.querySelector('#mi_scroll_top');
-		//const menu_base = document.querySelector('#mi_menu_base');
 		window.addEventListener('scroll', function() {
 			let scrollDistance = window.scrollY;
 			let scrollThreshold = window.innerWidth > 800 ? 500 : 250;
 			if (scrollDistance > scrollThreshold) {
 				scroll_top.style.display = 'block';
-				//menu_base.style.display = 'block';
 			} else {
 				scroll_top.style.display = 'none';
-				//menu_base.style.display = 'none';
 			}
 		});
 	}
@@ -62,6 +59,12 @@ class Web {
 		let user = nombre.textContent;
 		nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
 	}
+	_cerrarMenu() {
+		const mi_boton_navegacion = document.getElementById('mi_boton_navegacion');
+		if (!mi_boton_navegacion.classList.contains('collapsed')) {
+			mi_boton_navegacion.click();
+		}
+	}
 
 	volverArriba() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -83,13 +86,19 @@ class Web {
 		}
 	}
 	enviarMensaje() {
-		//TODO: Falta que valide el formulario y lo envíe
+		//TODO: Falta que valide el formulario y que lo envíe al servidor
 		const modal = bootstrap.Modal.getInstance('#formContacto');
+		const contacto_nombre = document.getElementById('contacto_nombre');
+		const contacto_email = document.getElementById('contacto_email');
+		const contacto_mensaje = document.getElementById('contacto_mensaje');
+		let tipo = 'EXITO';
+		let respuesta = 'Tu mensaje fue enviado exitosamente, pronto nos contactaremos contigo';
+		if (!contacto_nombre.value || contacto_nombre.value.length == 0) {
+			tipo = 'ERROR';
+			respuesta  = 'No fue posible enviar tu mensaje, intenta nuevamente en otro momento';
+		}
 		modal.hide();
-		//TODO: Falta seleccionar el tipo de notificación según el resultado
-		let exito = 'Tu mensaje fue enviado exitosamente, pronto nos contactaremos contigo';
-		let error = 'No fue posible enviar tu mensaje, intenta nuevamente en otro momento';
-		this.mostrarNotificacion(exito, 'EXITO');
+		this.mostrarNotificacion(respuesta, tipo);
 	}
 }
 
