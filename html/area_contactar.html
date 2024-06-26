@@ -8,12 +8,12 @@
             <div class="modal-body">
                 <form action="javascript:void(0)">
                     <div class="row">
-                        <label class="mi_label">Nombre</label>
-                        <div class="mi_campo"><input type="text" name="nombre" class="form-control" placeholder="Escribe tu nombre"></div>
+                        <label class="mi_label" for="contacto_nombre">Nombre</label>
+                        <div class="mi_campo"><input type="text" id="contacto_nombre" name="nombre" class="form-control" placeholder="Escribe tu nombre"></div>
                     </div>
                     <div class="row">
-                        <label class="mi_label">Correo</label>
-                        <div class="mi_campo"><input type="text" name="email" class="form-control" placeholder="Escribe tu correo electrónico"></div>
+                        <label class="mi_label" for="contacto_email">Correo</label>
+                        <div class="mi_campo"><input type="text" id="contacto_email" name="email" class="form-control" placeholder="Escribe tu correo electrónico" autocomplete="email"></div>
                     </div>
                     <div class="row">
                         <div class="col"><textarea name="contenido" class="form-control" rows="5" placeholder="Escribe aquí el mensaje que quieres enviar"></textarea></div>
@@ -22,7 +22,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-dark" onclick="enviarMensaje()"><i class="bi bi-check-square"></i> &nbsp;Enviar Mensaje</button>
+                <button type="button" class="btn btn-dark" onclick="W.enviarMensaje()"><i class="bi bi-check-square"></i> &nbsp;Enviar Mensaje</button>
             </div>
 	    </div>
     </div>

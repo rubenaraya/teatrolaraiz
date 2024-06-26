@@ -216,6 +216,15 @@ $accordion-bg: color-contrast($body-color);
     z-index: 2147483647;
 }
 
+#mi_spinner {
+    @extend .spinner-border;
+    @extend .mt-4;
+    @extend .mb-4;
+    @extend .text-center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .mi_alerta_cookies {
     @extend .alert;
     @extend .text-center;
@@ -455,7 +464,11 @@ $accordion-bg: color-contrast($body-color);
     line-height: 2;
 }
 
-.mi_notificacion {
+#mi_notificacion {
+    display: block;
 
 }
 
+#mi_menu_base {
+    display: none;
+}
