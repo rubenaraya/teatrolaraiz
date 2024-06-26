@@ -465,10 +465,29 @@ $accordion-bg: color-contrast($body-color);
 }
 
 #mi_notificacion {
-    display: block;
-
+    @extend .pe-2;
+}
+.mi_notificaciones {
+    @extend .toast-container;
+    @extend .position-fixed;
+    @extend .top-0;
+    @extend .end-0;
+    @extend .p-3;
+}
+.mi_cerrar_claro {
+    @extend .btn-close;
+    @extend .btn-close-white;
+    @extend .me-2;
+    @extend .m-auto;
+}
+.mi_cerrar_oscuro {
+    @extend .btn-close;
+    @extend .me-2;
+    @extend .m-auto;
+   
 }
 
 #mi_menu_base {
     display: none;
 }
+
