@@ -57,6 +57,13 @@ $theme-colors: (
 "dark": $dark,
 );
 
+$accordion-button-color: $gray-900;
+$accordion-button-bg: $gray-400;
+$accordion-button-active-color: $black;
+$accordion-button-active-bg: $gray-200;
+$accordion-color: $body-color;
+$accordion-bg: color-contrast($body-color);
+
 @import "../bootstrap/scss/bootstrap";
 
 .mi_container {
@@ -321,7 +328,6 @@ $theme-colors: (
     margin-left: 22px;
     margin-bottom: 25px;
 }
-
 .mi_avatar .nombre {
     font-weight: 600;
     font-size: 0.9rem;
@@ -434,4 +440,22 @@ $theme-colors: (
     @extend .col;
 }
 
+.mi_texto_acordeon {
+    @extend .text-start;
+    font-size: 0.9em;
+}
+
+.mi_label {
+    @extend .col-3;
+    @extend .col-form-label;
+    line-height: 2;
+}
+.mi_campo {
+    @extend .col-9;
+    line-height: 2;
+}
+
+.mi_notificacion {
+
+}
 

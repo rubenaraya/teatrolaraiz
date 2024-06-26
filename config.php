@@ -23,7 +23,19 @@ $archivos = array(
     'iconos'=>'_iconos.html',
     'nocache'=>'_nocache.html',
     'metadatos'=>'_metadatos.html',
-    'cookies'=>'_cookies.html',
+    'seccion_auxiliar'=>'seccion_auxiliar.html',
+    'seccion_tarjetas_ico'=>'seccion_tarjetas_ico.html',
+    'seccion_tarjetas_img'=>'seccion_tarjetas_img.html',
+    'seccion_paralaje'=>'seccion_paralaje.html',
+    'seccion_video'=>'seccion_video.html',
+    'seccion_mapa'=>'seccion_mapa.html',
+    'seccion_personas'=>'seccion_personas.html',
+    'seccion_testimonios'=>'seccion_testimonios.html',
+    'seccion_ideas'=>'seccion_ideas.html',
+    'seccion_galeria'=>'seccion_galeria.html',
+    'seccion_carrusel'=>'seccion_carrusel.html',
+    'seccion_acordeon'=>'seccion_acordeon.html',
+    'seccion_contactar'=>'seccion_contactar.html',
 );
 
 function reemplazar_textos($texto) {

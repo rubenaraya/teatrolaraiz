@@ -2,512 +2,129 @@
 <html lang="es">
 <head>
 ((nocache))
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{titulo}</title>
-    <link rel="manifest" href="/web/manifest.json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>{titulo}</title>
+<link rel="manifest" href="/web/manifest.json">
 ((metadatos))
 ((iconos))
-    <link href="/web/css/dis-prueba.css?v={uuid}" rel="stylesheet">
 ((bootstrap))
-    <link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
-    <script>
-        var dominio = '{dominio}';
-        var cookie = '{cookie}';
-    </script>
-    <script src="/web/js/base.js?v={uuid}"></script>
+<link href="/web/css/dis-prueba.css?v={uuid}" rel="stylesheet">
+<link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
+<script>
+    var dominio = '{dominio}';
+    var cookie = '{cookie}';
+</script>
+<script src="/web/js/base.js?v={uuid}"></script>
 </head>
 <body class="mi_body">
 <!--
-    Lista desplegable de enlaces
+    Cajas con texto e imagen + botón
+    Cajas con imagenes rotando / video de fondo
     Fichas de productos para catálogo
-    Paneles con texto e imagen + botón
-    Formulario contacto
     + Calendario de eventos
     + Menú
 -->
+<div id="spinner" class="spinner-border mt-4"></div>
+
 <div class="mi_container">
     <div class="row">
         <div class="col">
 
-            <!-- Encabezado -->
-            <section>
-
-                <!-- Spinner -->
-                <div id="spinner" class="spinner-border mt-4"></div>
-
-                <!-- Logo -->
-                <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="wow flip" data-wow-duration="1s" data-wow-delay="60s">
-                        <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="mi_logo" style="width: 256px;">
-                    </div>
+<!-- Encabezado -->
+<section>
+    <!-- Logo -->
+    <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
+        <div class="wow flip" data-wow-duration="1s" data-wow-delay="60s">
+            <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="mi_logo" style="width: 256px;">
+        </div>
+    </div>
+    <!-- Titulo -->
+    <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
+        <h4 class="mi_titulo">Teatro - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
+    </div>
+    <!-- Botonera -->
+    <div class="wow fadeInRight mi_botonera" data-wow-duration="2s" data-wow-delay="1s">
+        <div class="wow heartBeat" data-wow-delay="30s">
+            <div class="wow heartBeat" data-wow-delay="150s">
+                <div class="wow heartBeat" data-wow-delay="300s">
+                    <a href="{instagram}" target="_blank" class="mi_boton_rrss" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="{youtube}" target="_blank" class="mi_boton_rrss" title="Youtube"><i class="bi bi-youtube"></i></a>
+                    <a href="{linkedin}" target="_blank" class="mi_boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="{facebook}" target="_blank" class="mi_boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="{twitter}" target="_blank" class="mi_boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
+                    <button class="mi_boton_rrss" data-bs-toggle="modal" data-bs-target="#formContacto"><i class="bi bi-envelope-fill"></i></button>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <!-- Titulo -->
-                <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
-                    <h4 class="mi_titulo">Teatro - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
-                </div>
-
-                <!-- Botonera -->
-                <div class="wow fadeInRight mi_botonera" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="wow heartBeat" data-wow-delay="30s">
-                        <div class="wow heartBeat" data-wow-delay="150s">
-                            <div class="wow heartBeat" data-wow-delay="300s">
-                                <a href="{instagram}" target="_blank" class="mi_boton_rrss" title="Instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="{youtube}" target="_blank" class="mi_boton_rrss" title="Youtube"><i class="bi bi-youtube"></i></a>
-                                <a href="{linkedin}" target="_blank" class="mi_boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                <a href="{facebook}" target="_blank" class="mi_boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="{twitter}" target="_blank" class="mi_boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Carrusel -->
-            <!--
-            <section>
-                <div class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="3s">
-                    <div id="mi_carrusel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#mi_carrusel" data-bs-slide-to="0" class="active"></button>
-                            <button type="button" data-bs-target="#mi_carrusel" data-bs-slide-to="1"></button>
-                            <button type="button" data-bs-target="#mi_carrusel" data-bs-slide-to="2"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="/web/img/web/carrusel-01.jpg" alt="" class="mi_imagen_carrusel">
-                                <div class="carousel-caption">
-                                    <div class="mi_letras_oscuras" style="color:#009">
-                                        Este es un letrero de muestra para ver cómo se aprecian las letras
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="/web/img/web/carrusel-02.jpg" alt="" class="mi_imagen_carrusel">
-                                <div class="carousel-caption">
-                                    <div class="mi_letras_oscuras" style="color:#000">
-                                        Este es un letrero de muestra para ver cómo se aprecian las letras
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="/web/img/web/carrusel-03.jpg" alt="" class="mi_imagen_carrusel">
-                                <div class="carousel-caption">
-                                    <div class="mi_letras_claras" style="color:#fff">
-                                        Este es un letrero de muestra para ver cómo se aprecian las letras
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#mi_carrusel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#mi_carrusel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-            -->
-
-            <!-- Galería -->
-            <!--
-            <section>
-                <div class="wow fadeIn mt-4 mb-4" data-wow-delay="0.5s">
-                    <div class="row mi_lightbox gallery-grid">
-                        <div class="col">
-                            <a href="https://picsum.photos/id/251/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/251/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/678/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/678/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/74/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/74/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/92/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/92/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/62/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/62/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/575/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/575/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/110/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/110/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/177/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/177/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="https://picsum.photos/id/197/1200/800.webp" data-toggle="lightbox" data-gallery="galeria">
-                            <img src="https://picsum.photos/id/197/480/320.webp" class="mi_imagen_galeria" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            -->
-
-            <!-- Testimonios -->
-            <!--
-            <section>
-                <div class="wow fadeInLeft" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="mi_titulo">¿Qué opinan los Terapeutas?</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="wow zoomIn mi_3_columnas text-start" data-wow-delay="1s">
-                            <p class="mi_burbuja">"Cuando conocí EMDR cambié mi forma de hacer terapia. Ahora que uso KitSensorial me ha salvado el brazo, el hombro y el cuello de dolores y lesiones. Puedo tener sesiones durante todo el día sin el desgaste físico de antes y ya no me imagino trabajando sin él"</p>
-                            <div class="mi_avatar">
-                                <a href="javascript:void(0)" class="float-start"><img alt="" src="/web/img/web/usuario.jpg"></a>
-                                <div class="nombre">Jorge Vergara</div>
-                                <div class="leyenda">Terapeuta EMDR</div>
-                            </div>
-                        </div>
-                        <div class="wow zoomIn mi_3_columnas text-start" data-wow-delay="2s">
-                            <p class="mi_burbuja">"KitSensorial es muy útil cuando se trabaja en casos con antecedentes de abuso físico y donde el contacto cercano con el terapeuta podría resultar perturbador o inapropiado. También ayuda mucho con pacientes que tienen problemas de movilidad reducida"</p>
-                            <div class="mi_avatar">
-                                <a href="javascript:void(0)" class="float-start"><img alt="" src="/web/img/web/usuario.jpg"></a>
-                                <div class="nombre">Carolina Rojas</div>
-                                <div class="leyenda">Psicóloga clínica</div>
-                            </div>
-                        </div>
-                        <div class="wow zoomIn mi_3_columnas text-start" data-wow-delay="3s">
-                            <p class="mi_burbuja">"Aunque trabajo principalmente con EMDR, suelo combinar también con otras técnicas que usan estimulación bilateral. El KitSensorial me ha servido en varios casos para estimular aplicando PET, EFT y hasta TIC, sin duda lo recomendaría a todos mis colegas"</p>
-                            <div class="mi_avatar">
-                                <a href="javascript:void(0)" class="float-start"><img alt="" src="/web/img/web/usuario.jpg"></a>
-                                <div class="nombre">Rodrigo Martínez</div>
-                                <div class="leyenda">Psicólogo clínico</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            -->
-
-            <!-- Opiniones -->
-            <!--
-            <section>
-                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div class="mi_nube_opiniones" style="background-image: url('/web/img/web/fondo-01.png');">
-                        <div class="row">
-                            <div class="col">
-                                <h4 class="mi_titulo"><i class="bi bi-chat-quote mi_icono_tarjeta"></i><br>¿Qué dicen los Pacientes?</h4>
-                                <p style="line-height: 2.0;">
-                                    <span class="mi_badge mi_fondo_amarillo">Las luces son agradables</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_rojo">No duele la cabeza</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_verde">Es fácil de seguir</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_celeste">Gran calidad del sonido</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_naranjo">Elijo el color que me agrada</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_blanco">Me ha servido para relajarme</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_purpura">No te cansa la vista</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_rosado">Cambio la velocidad a mi gusto</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_verde">Es genial usarlo en la casa</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_amarillo">Evita la necesidad que te toquen</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_turquesa">Me ha aliviado el dolor</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_indigo">Ayuda a bajar el estrés</span> &nbsp;
-                                    <span class="mi_badge mi_fondo_azul">Tengo el control en mi mano</span> &nbsp;
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            -->
-
-            <!-- Personas -->
-            <!--
-            <section>
-                <div class="wow fadeInUp team" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="mi_titulo">¿Quienes hacemos KitSensorial?</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="wow fadeInUp mi_columna" data-wow-delay="1s">
-                            <div class="mi_persona">
-                                <img src="/web/img/web/mvo.png" alt="">
-                                <div class="nombre">Mónica Villavicencio Ordenes</div>
-                                <div class="leyenda">Directora General</div>
-                                <div class="mi_texto_tarjeta">Psicóloga, Terapeuta en EMDR certificada por EMDRia Latinoamérica. Especializada en Terapias de Avanzada (TIC, EF), Trastornos de Ansiedad, EFT y Creagrama de la Personalidad. Más de 10 años en ejercicio de Psicoterapia y Consultoría Personal en consulta privada para adultos, niños y familia.</div>
-                                <a href="https://www.linkedin.com/in/m%C3%B3nica-villavicencio-ordenes-4686231a" target="_blank" class="mi_boton_redondo"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="wow fadeInUp mi_columna" data-wow-delay="1s">
-                            <div class="mi_persona">
-                                <img src="/web/img/web/rat.png" alt="">
-                                <div class="nombre">Rubén Araya Tagle</div>
-                                <div class="leyenda">Director Tecnológico</div>
-                                <div class="mi_texto_tarjeta">Investigador social, Analista Desarrollador de Aplicaciones y Programador Web con certificación internacional SFIA. Especializado en Arquitectura de información, Análisis de datos, Psicometría Aplicada y Programación de Micro-controladores. Más de 25 años de ejercicio en consultorías y proyectos digitales, públicos, privados y sociales.</div>
-                                <a href="https://www.linkedin.com/in/rubenarayatagle/" target="_blank" class="mi_boton_redondo"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="wow fadeInUp mi_columna" data-wow-delay="1s">
-                            <div class="mi_persona">
-                                <img src="/web/img/web/mvo.png" alt="">
-                                <div class="nombre">Mónica Villavicencio Ordenes</div>
-                                <div class="leyenda">Directora General</div>
-                                <div class="mi_texto_tarjeta">Psicóloga, Terapeuta en EMDR certificada por EMDRia Latinoamérica. Especializada en Terapias de Avanzada (TIC, EF), Trastornos de Ansiedad, EFT y Creagrama de la Personalidad. Más de 10 años en ejercicio de Psicoterapia y Consultoría Personal en consulta privada para adultos, niños y familia.</div>
-                                <a href="https://www.linkedin.com/in/m%C3%B3nica-villavicencio-ordenes-4686231a" target="_blank" class="mi_boton_redondo"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="wow fadeInUp mi_columna" data-wow-delay="1s">
-                            <div class="mi_persona">
-                                <img src="/web/img/web/rat.png" alt="">
-                                <div class="nombre">Rubén Araya Tagle</div>
-                                <div class="leyenda">Director Tecnológico</div>
-                                <div class="mi_texto_tarjeta">Investigador social, Analista Desarrollador de Aplicaciones y Programador Web con certificación internacional SFIA. Especializado en Arquitectura de información, Análisis de datos, Psicometría Aplicada y Programación de Micro-controladores. Más de 25 años de ejercicio en consultorías y proyectos digitales, públicos, privados y sociales.</div>
-                                <a href="https://www.linkedin.com/in/rubenarayatagle/" target="_blank" class="mi_boton_redondo"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            -->
+((seccion_tarjetas_ico))
+((seccion_paralaje))
+((seccion_tarjetas_img))
+((seccion_ideas))
+<!--
+((seccion_carrusel))
+((seccion_galeria))
+((seccion_testimonios))
+((seccion_personas))
+((seccion_acordeon))
+((seccion_video))
+((seccion_mapa))
+-->
 
 
-            <!--
 
-            <section>
-                <div class="ibox m-b-lg collapsed border-bottom">
-                    <div class="ibox-title bg-muted" style="padding: 3px 50px 3px 10px; min-height: 36px; border-radius: 10px 10px 0 0; background-color: #d7d7d7; color: #000">
-                    <div class="row"><div class="col-12 me-clicable text-start" onclick="M.Vista.hacerClic('cat_Chile')"><h3>
-                    <i class="fa fa-external-link" style="font-size: 18px;"></i>&nbsp; <b>Entidades en Chile</b>
-                    </h3></div></div>
-                    <div class="ibox-tools" style="top: 5px;"><a class="collapse-link" id="cat_Chile"><big><i class="fa fa-chevron-down" style="color: black"></i></big></a></div>
-                    </div>
-                    <div class="ibox-content p-sm text-start" id="enl_Chile" style="border-radius: 0px 0px 10px 10px; display: block;">
-                    <div class="row">
-                    <div class="col-sm-4 col-md-3 col-lg-2"><a href="https://emdrchile.com" target="_blank" onclick="M.Web.Contar('1')"><img src="/web/img/web/enlace-01.jpg" alt="" style="width: 90%; max-width: 175px"></a></div>
-                    <div class="col-sm-8 col-md-9 col-lg-10" id="enl_1">
-                    <big><a href="https://emdrchile.com" target="_blank" onclick="M.Web.Contar('1')">Asociación de Psicoterapeutas EMDR Chile</a></big><p><small><i><a href="https://emdrchile.com" target="_blank" onclick="M.Web.Contar('1')">https://emdrchile.com</a></i></small></p>
-                    </div>
-                    <div class="col-12"><hr></div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-4 col-md-3 col-lg-2"><a href="https://www.terapiasdeavanzada.cl" target="_blank" onclick="M.Web.Contar('35')"><img src="/web/img/web/enlace-02.jpg" alt="" style="width: 90%; max-width: 175px"></a></div>
-                    <div class="col-sm-8 col-md-9 col-lg-10" id="enl_35">
-                    <big><a href="https://www.terapiasdeavanzada.cl" target="_blank" onclick="M.Web.Contar('35')">Instituto Chileno de Terapias de Avanzada</a></big><p><small><i><a href="https://www.terapiasdeavanzada.cl" target="_blank" onclick="M.Web.Contar('35')">https://www.terapiasdeavanzada.cl</a></i></small></p>
-                    </div>
-                    <div class="col-12"><hr></div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-4 col-md-3 col-lg-2"><a href="https://www.atept.cl/" target="_blank" onclick="M.Web.Contar('41')"><img src="/web/img/web/enlace-03.jpg" alt="" style="width: 90%; max-width: 175px"></a></div>
-                    <div class="col-sm-8 col-md-9 col-lg-10" id="enl_41">
-                    <big><a href="https://www.atept.cl/" target="_blank" onclick="M.Web.Contar('41')">Asociación Chilena de Terapeutas en EMDR y Psicotrauma</a></big><p><small><i><a href="https://www.atept.cl/" target="_blank" onclick="M.Web.Contar('41')">https://www.atept.cl/</a></i></small></p>
-                    </div>
-                    <div class="col-12"></div>
-                    </div>
-                    </div>
-                    </div>
-            </section>
 
-            <section>
-                <div class="col-sm-6 col-lg-4 wow animated fadeInUp animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><div class="ibox"><div class="ibox-content product-box">
-                    <div class="product-imitation"><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" title="Detalles del Producto"><img src="/web/img/web/prod-2.jpg" alt="Imagen del producto" style="width: 95%"></a></div>
-                    <div class="product-desc text-start" id="prod_P003">
-                    <small class="text-muted">Base</small><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" class="product-name" title="Detalles del Producto">Caja de control VAT-1060 WiFi</a><div class="m-t-xs"></div>
-                    <div class="m-t text-righ"><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" class="btn btn-xs btn-outline btn-success" title="Detalles del Producto">Detalles <i class="fa fa-long-arrow-right"></i></a></div>
-                    </div>
-                    </div></div></div>
-            </section>
+<!--
+<section>
+    <div class="col-sm-6 col-lg-4 wow animated fadeInUp animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><div class="ibox"><div class="ibox-content product-box">
+        <div class="product-imitation"><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" title="Detalles del Producto"><img src="/web/img/web/prod-2.jpg" alt="Imagen del producto" style="width: 95%"></a></div>
+        <div class="product-desc text-start" id="prod_P003">
+        <small class="text-muted">Base</small><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" class="product-name" title="Detalles del Producto">Caja de control VAT-1060 WiFi</a><div class="m-t-xs"></div>
+        <div class="m-t text-righ"><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" class="btn btn-xs btn-outline btn-success" title="Detalles del Producto">Detalles <i class="fa fa-long-arrow-right"></i></a></div>
+        </div>
+        </div></div></div>
+</section>
 
-            <section>
-                <div class="container features me-caja-gris">
-                    <div class="row"><div class="col-lg-12 text-center"><p>  </p></div></div>
-                    <div class="container m-b-md me-blanco-sombra wow slideInRight animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: slideInRight;"><div class="row">
-                    <div class="col-lg-6 text-start features-text p-sm">
-                    <h3 class="me-textoscuro">KitSensorial es nuestra solución</h3>
-                    <p class="me-textoscuro">
-                                    </p><p>¡No más movimientos de brazos en las Terapias! Ahora podrás poner toda tu atención en los Pacientes, dedicarte a observar, tomar notas e intervenir.</p>
-                                    <p>Podrás emplear patrones de estimulación diversos, para usar con distintas técnicas y en diferentes etapas de tus casos, además de organizarlos a tu manera para facilitar su uso con sólo presionar un botón.</p>
-                                    <p>Podrás controlar con precisión y efectividad cada estimulación, a pesar del distanciamiento social e incluso de la separación física si la terapia es virtual, ya que KitSensorial se controla a través de Internet sin importar dónde estés.</p>
-                                <p></p>
-                    <div class="text-start"><a href="javascript:void(0)" onclick="M.Web.Catalogo(1)" class="btn btn-success btn-outline">Ver Catálogo de Productos</a></div>
-                    </div>
-                    <div class="col-lg-6 text-right p-sm"><img src="/web/img/web/prod-1.jpg" alt="" class="img-fluid float-right"></div>
-                    </div></div>
-                </div>
-            </section>
-            -->
+<section>
+    <div class="container features me-caja-gris">
+        <div class="row"><div class="col-lg-12 text-center"><p>  </p></div></div>
+        <div class="container m-b-md me-blanco-sombra wow slideInRight animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: slideInRight;"><div class="row">
+        <div class="col-lg-6 text-start features-text p-sm">
+        <h3 class="me-textoscuro">KitSensorial es nuestra solución</h3>
+        <p class="me-textoscuro">
+                        </p><p>¡No más movimientos de brazos en las Terapias! Ahora podrás poner toda tu atención en los Pacientes, dedicarte a observar, tomar notas e intervenir.</p>
+                        <p>Podrás emplear patrones de estimulación diversos, para usar con distintas técnicas y en diferentes etapas de tus casos, además de organizarlos a tu manera para facilitar su uso con sólo presionar un botón.</p>
+                        <p>Podrás controlar con precisión y efectividad cada estimulación, a pesar del distanciamiento social e incluso de la separación física si la terapia es virtual, ya que KitSensorial se controla a través de Internet sin importar dónde estés.</p>
+                    <p></p>
+        <div class="text-start"><a href="javascript:void(0)" onclick="M.Web.Catalogo(1)" class="btn btn-success btn-outline">Ver Catálogo de Productos</a></div>
+        </div>
+        <div class="col-lg-6 text-right p-sm"><img src="/web/img/web/prod-1.jpg" alt="" class="img-fluid float-right"></div>
+        </div></div>
+    </div>
+</section>
+-->
 
-            <!-- Tarjetas: con iconos -->
-            <section>
-                <div class="wow fadeIn mt-4 mb-4" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="mi_titulo">KitSensorial ¿para qué?</h4>
-                            <p>Las Nuevas Psicoterapias que utilizan técnicas de estimulación sensorial han ido ganando adeptos debido a sus sorprendentes resultados, logrados en menor tiempo que otras terapias tradicionales y abarcando muchas necesidades de salud mental.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="wow fadeIn mi_3_columnas" data-wow-delay="1s">
-                            <i class="bi bi-universal-access-circle mi_icono_tarjeta"></i><h5>Reducir la fatiga y evitar lesiones</h5>
-                            <div class="mi_texto_tarjeta">Los movimientos de brazos durante la estimulación a los Pacientes son desgastadores, limitando las horas que puede atender un/a Terapeuta</div>
-                        </div>
-                        <div class="wow fadeIn mi_3_columnas" data-wow-delay="2s">
-                            <i class="bi bi-yin-yang mi_icono_tarjeta"></i><h5>Ampliar las técnicas disponibles</h5>
-                            <div class="mi_texto_tarjeta">Muchos/as Terapeutas aplican técnicas diversas según el caso, pero la mayoría de los equipos que hay en el mercado sólo se enfocan en EMDR</div>
-                        </div>
-                        <div class="wow fadeIn mi_3_columnas" data-wow-delay="3s">
-                            <i class="bi bi-moon-stars-fill mi_icono_tarjeta"></i><h5>Prevenir contagio por contacto</h5>
-                            <div class="mi_texto_tarjeta">La proximidad y el contacto físico son comunes en estas Terapias, pero esto se dificulta con la prevención para evitar contagios de enfermedades</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Paralaje -->
-            <section>
-                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div class="mi_paralaje" style="background-image: url(/web/img/web/paralaje-02.jpg);">
-                        <div class="mi_letras_oscuras" style="color:#009">
-                            Este es un letrero de muestra para ver cómo se aprecian las letras
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tarjetas: con imagenes -->
-            <section>
-                <div class="wow fadeIn mt-4 mb-4" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="mi_titulo">¿Qué estimulaciones aplica?</h4>
-                            <p>Con KitSensorial puedes aplicar estimulación Visual, Auditiva y Táctil, tanto en forma independiente como combinada, según cuáles sean tus requerimientos y preferencias.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="wow bounceInUp mi_3_columnas" data-wow-delay="1s">
-                            <img src="/web/img/web/03.jpg" alt="" class="mi_imagen_tarjeta">
-                            <h5>Visual</h5>
-                            <div class="mi_texto_tarjeta">Con una lámpara led inteligente, que ejecuta variados patrones y secuencias de iluminación. Se aplica para inducir movimientos oculares, para la visualización de colores y la proyección de efectos de luces.</div>
-                        </div>
-                        <div class="wow bounceInUp mi_3_columnas" data-wow-delay="1s">
-                            <img src="/web/img/web/01.jpg" alt="" class="mi_imagen_tarjeta">
-                            <h5>Auditiva</h5>
-                            <div class="mi_texto_tarjeta">Con un reproductor de audio stereo y audífonos de alta fidelidad, que ejecuta variadas piezas de audio bilateral, sonidos de naturaleza y música. Se aplica para percepción auditiva y estimulación musical.</div>
-                        </div>
-                        <div class="wow bounceInUp mi_3_columnas" data-wow-delay="1s">
-                            <img src="/web/img/web/02.jpg" alt="" class="mi_imagen_tarjeta">
-                            <h5>Táctil</h5>
-                            <div class="mi_texto_tarjeta">Con dos pulsadores de vibración de agarre manual, que ejecutan secuencias de pulsos o zumbidos bilaterales alternados. Se aplica para percepción táctil y pulsaciones en puntos corporales.</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Video -->
-            <!--
-            <section>
-                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="5s">
-                    <div class="mi_video_16x9">
-                        <iframe src="{video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </section>
-            -->
-
-            <!-- Mapa -->
-            <!--
-            <section>
-                <h5 class="mi_titulo">¿Dónde nos encontramos?</h5>
-                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="mi_mapa">
-                        <iframe src="{mapa}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </section>
-            -->
-
-            <!-- Pie -->
-            <section>
-                <!-- Contacto -->
-                <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
-                    <div class="contacto">Hablemos en <i class="bi bi-envelope-fill"></i> <span id="contacto">info</span></div>
-                </div>
-                <!-- Derechos -->
-                <div class="derechos">© 2023-{año} Teatro La Raíz - Todos los derechos reservados</div>
-            </section>
+<!-- Pie -->
+<section>
+    <!-- Contacto -->
+    <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
+        <div class="contacto">Hablemos en <i class="bi bi-envelope-fill"></i> <span id="contacto">info</span></div>
+    </div>
+    <!-- Derechos -->
+    <div class="derechos">© 2023-{año} Teatro La Raíz - Todos los derechos reservados</div>
+</section>
 
         </div>
     </div>
 </div>
-<div>
-    <a id="mi_scroll_top" href="javascript:void(0)" alt="" title="Volver arriba" onclick="volverArriba()"></a>
-</div>
-((cookies))
-
-<!-- Elementos auxiliares ocultos -->
-<div id="ventanaModal" class="modal fade" tabindex="-10000" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"></h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-	</div>
-</div>
-<!--
-<div>
-    <div class="modal-dialog modal-lg"><div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Cerrar</span></button><h4 class="modal-title text-success">
-        <i class="fa fa-envelope-o"></i> &nbsp;Conversemos…</h4>
-        </div>
-        <div class="modal-body">
-        <form action="javascript:void(0)" role="form" id="form_contactar"><div class="row"><div class="col-lg-12" style="width:100%">
-        <div class="form-group row">
-        <label class="col-3 col-form-label">Nombre&nbsp;(*)</label><div class="col-9"><input type="text" name="nombre" value="" class="form-control" placeholder="Escribe tu nombre"></div>
-        </div>
-        <div class="form-group row">
-        <label class="col-3 col-form-label">Correo&nbsp;(*)</label><div class="col-9"><input type="text" name="email" value="" class="form-control" placeholder="Escribe tu correo electrónico"></div>
-        </div>
-        <div class="form-group row"><div class="col-12">Mensaje&nbsp;(*)</div></div>
-        <div class="form-group row"><div class="col-12"><textarea name="contenido" id="area_contenido_" class="form-control" rows="4" placeholder="Escribe aquí el mensaje que quieres enviar"></textarea></div></div>
-        </div></div></form>
-        <p class="text-center">O si prefieres, puedes contactarnos por correo-e en <b>info<i class="fa fa-at"></i>kitsensorial.com</b></p>
-        <div><small>Nos comprometemos a respetar y proteger tu privacidad, y sólo usaremos tu información personal para proporcionarte la información y los servicios que nos solicites.</small></div>
-        </div>
-        <div class="modal-footer" id="pie_agregar">
-        <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-success" onclick="M.Web.Enviar()"><i class="fa fa-check"></i> &nbsp;Enviar Mensaje</button>
-        </div>
-        <div class="me-ocultar h1 text-success text-center" id="img_agregar"><img src="/web/img/espere.gif"></div>
-        </div></div>
-</div>
--->
-<div id="visorMensajes" class="mi_alerta" style="display: none;"></div>
-
-<!-- Plantillas -->
-<div id="plantillas" style="display: none;">
+((seccion_auxiliar))
+((seccion_contactar))
+<div id="notificacionWeb" class="mi_notificacion">
 </div>
 (ga)
 </body>

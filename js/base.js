@@ -11,7 +11,7 @@ function _mostrarScrollTop() {
     const scroll_top = document.querySelector('#mi_scroll_top');
 	window.addEventListener('scroll', function() {
 		let scrollDistance = window.scrollY;
-		let scrollThreshold = window.innerWidth > 800 ? 600 : 400;
+		let scrollThreshold = window.innerWidth > 800 ? 500 : 250;
 		if (scrollDistance > scrollThreshold) {
 			scroll_top.style.display = 'block';
 		} else {
@@ -83,6 +83,12 @@ function _comprobarCookie(cname) {
 
 function volverArriba() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function enviarMensaje() {
+	const modal = bootstrap.Modal.getInstance('#formContacto');
+	modal.hide();
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
