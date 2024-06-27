@@ -128,7 +128,7 @@ $accordion-bg: color-contrast($body-color);
     @extend .mb-2;
 }
 
-.mi_body {
+.mi_cuerpo {
     @extend .my-2;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1rem;
@@ -360,7 +360,7 @@ $accordion-bg: color-contrast($body-color);
     margin-right: -1.2rem;
 }
 
-.mi_badge {
+.mi_insignia {
     @extend .badge;
     font-weight: 400;
     font-style: italic;
@@ -487,7 +487,22 @@ $accordion-bg: color-contrast($body-color);
    
 }
 
-#mi_barra_navegacion {
+#mi_barra_vertical {
+    @extend .navbar;
+    @extend .fixed-top;
+}
+#mi_barra_vertical .mi_menu {
+    @extend .navbar-nav;
+    @extend .justify-content-end;
+    @extend .flex-grow-1;
+    @extend .pe-3;
+    @extend .text-start;
+}
+#mi_barra_vertical .mi_submenu {
+    @extend .text-start;
+}
+
+#mi_barra_horizontal {
     @extend .navbar;
     @extend .sticky-top;
     @extend .navbar-expand-lg;
@@ -496,24 +511,24 @@ $accordion-bg: color-contrast($body-color);
     padding-top: 4px;
     padding-bottom: 4px;
     font-size: 0.9rem;
-    background-color: $gray-200;
 }
-.mi_menu_navegacion {
+#mi_barra_horizontal .mi_menu {
     @extend .navbar-nav;
     @extend .ms-auto;
     @extend .mb-2;
     @extend .mb-lg-0;
     @extend .text-start;
 }
-.mi_submenu_navegacion {
-    background-color: $gray-200;
+#mi_barra_horizontal .mi_submenu {
+    @extend .text-start;
 }
-.mi_item_navegacion {
+
+.mi_item_menu {
     @extend .ps-2;
     @extend .pe-3;
     font-size: 0.9rem;
 }
-.mi_marca_navegacion {
+.mi_marca_menu {
     @extend .navbar-brand;
     margin-right: 0.4rem;
     font-size: 1.6rem;

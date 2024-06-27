@@ -18,15 +18,18 @@
 </script>
 <script src="/web/js/base.js?v={uuid}"></script>
 </head>
-<body class="mi_body">
+<body class="mi_cuerpo">
 <!--
     Panel con imagenes y video de fondo
     Panel diapositivas HTML
     Fichas de productos para catálogo
     Calendario de eventos
+    + Cambiar modo oscuro/luz (con botón en menú)
+    + Buscar cómo hacer "tabs"
     + Mejorar tarjetas usando "cards"
     + Hacer un buen spinner "cargando..."
     * Analizar cómo hacer visible un contenido sólo en cierta resolución con bootstrap
+    ** Hacer un muestrario de los botones, alertas y otros componentes en cada tema
 -->
 
 <div class="mi_container">
@@ -36,10 +39,10 @@
     <div class="row">
         <div class="col">
 
-((area_menu))
+((area_menu_h))
 
 <!-- Encabezado -->
-<section>
+<section id="encabezado">
     <!-- Logo -->
     <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
         <div class="wow flip" data-wow-duration="1s" data-wow-delay="60s">
@@ -59,13 +62,13 @@
 ((area_etiquetas))
 ((area_personas))
 
+<!--
 ((area_carrusel))
 ((area_galeria))
 ((area_testimonios))
 ((area_acordeon))
 ((area_video))
 ((area_mapa))
-<!--
 -->
 
 
@@ -101,7 +104,7 @@
 
 
 <!-- Pie -->
-<section>
+<section id="pie">
     <!-- Contacto -->
     <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
         <div class="contacto">Hablemos en <i class="bi bi-envelope-fill"></i> <span id="contacto">info</span></div>

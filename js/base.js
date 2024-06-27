@@ -39,21 +39,21 @@ class Web {
 		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 	}
 	_activarMenus() {
-		const mi_boton_navegacion = document.getElementById('mi_boton_navegacion');
-		const menu_navegacion = document.querySelector('#mi_barra_navegacion');
+		const mi_alternar_menu = document.getElementById('mi_alternar_menu');
+		const menu_navegacion = document.querySelector('#mi_control_menu');
 		menu_navegacion.addEventListener('click', e => {
 			let elemento = e.target;
 			let esDropdown = false;
 			while (elemento && elemento !== menu_navegacion) {
-				if (elemento.classList.contains('dropdown')) {
+				if (elemento.classList.contains('dropdown')) { // || elemento.classList.contains('navbar-toggler')
 					esDropdown = true;
 					break;
 				}
 				elemento = elemento.parentElement;
 			}
 			const esVentanaPequena = window.innerWidth < 992;
-			if (!esDropdown && esVentanaPequena && !mi_boton_navegacion.classList.contains('collapsed')) {
-				mi_boton_navegacion.click();
+			if (!esDropdown && esVentanaPequena && !mi_alternar_menu.classList.contains('collapsed')) {
+				mi_alternar_menu.click();
 			}
 		});
 	}
