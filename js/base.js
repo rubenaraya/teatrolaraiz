@@ -84,17 +84,15 @@ class Web {
 	volverArriba() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-	mostrarInformacion(mensaje, tipo='success', selector='#mi_notificacion') {
+	mostrarInformacion(mensaje='', tipo='success', selector='#mi_notificacion') {
 		const informacion = document.querySelector(selector);
 		const contenedor = document.querySelector('#mi_mensaje');
 		if (informacion && contenedor) {
 			informacion.classList.remove('text-bg-success');
 			informacion.classList.remove('text-bg-danger');
-			if (tipo=='success') {
-				informacion.classList.add('text-bg-success');
-			} else {
-				informacion.classList.add('text-bg-danger');
-			}
+			informacion.classList.remove('text-bg-warning');
+			informacion.classList.remove('text-bg-info');
+			informacion.classList.add(`text-bg-${tipo}`);
 			contenedor.innerHTML = mensaje;
 			const toast = bootstrap.Toast.getOrCreateInstance(informacion)
 			toast.show();
@@ -123,9 +121,9 @@ class Web {
     }
 
 	// Funciones pendientes
-	abrirVentana(contenido, selector='ventanaModal') {
+	abrirVentana(contenido, selector='mi_ventana') {
 	}
-	cerrarVentana(selector='ventanaModal') {
+	cerrarVentana(selector='mi_ventana') {
 	}
 	alternarPaneles(ocultar, mostrar) {}
 
