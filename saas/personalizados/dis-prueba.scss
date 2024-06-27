@@ -496,6 +496,7 @@ $accordion-bg: color-contrast($body-color);
     padding-top: 4px;
     padding-bottom: 4px;
     font-size: 0.9rem;
+    background-color: $gray-200;
 }
 .mi_menu_navegacion {
     @extend .navbar-nav;
@@ -503,6 +504,9 @@ $accordion-bg: color-contrast($body-color);
     @extend .mb-2;
     @extend .mb-lg-0;
     @extend .text-start;
+}
+.mi_submenu_navegacion {
+    background-color: $gray-200;
 }
 .mi_item_navegacion {
     @extend .ps-2;
