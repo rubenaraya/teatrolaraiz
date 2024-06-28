@@ -81,7 +81,15 @@ class Web {
 		let user = nombre.textContent;
 		nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
 	}
-
+	_ocultarCargador() {
+		const mi_cargador = document.getElementById('mi_cargador');
+		const mi_container = document.getElementById('mi_container');
+		if (mi_cargador && mi_container) {
+			mi_container.classList.remove('mi_oculto');
+			mi_container.classList.add('mi_visible');
+			mi_cargador.classList.add('mi_oculto');
+		}
+	}
 	// Funciones públicas
 	volverArriba() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -159,11 +167,12 @@ function leerCookie(cname) {
 const W = new Web();
 
 document.addEventListener('DOMContentLoaded', function() {
-    new WOW().init();
     W._comprobarCookie(cookie);
 	W._activarContacto(dominio);
 	W._activarGaleria('galeria');
 	W._activarTooltips();
 	W._activarMenus();
 	W._activarScrollTop();
+	new WOW().init();
+	W._ocultarCargador();
 });

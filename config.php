@@ -48,6 +48,7 @@ $archivos = array(
     'area_encabezado'=>'area_encabezado.html',
     'area_pie'=>'area_pie.html',
     'area_temporal'=>'area_temporal.html',
+    'area_cargador'=>'area_cargador.html',
 );
 
 function reemplazar_textos($texto) {
