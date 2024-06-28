@@ -17,7 +17,7 @@
                     <a class="nav-link mi_item_menu" href="#"><i class="bi bi-calendar3"></i> Cartelera</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link mi_item_menu dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-stars"></i> Creaciones</a>
+                    <a class="nav-link dropdown-toggle mi_item_menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-stars"></i> Creaciones</a>
 
                     <ul class="dropdown-menu mi_submenu bg-secondary" data-bs-theme="dark">
 
@@ -30,8 +30,29 @@
                 <li class="nav-item">
                     <a class="nav-link mi_item_menu" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#formContacto"><i class="bi bi-envelope"></i> Contacto</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
 
+                    <a class="nav-link dropdown-toggle mi_item_menu" href="#" role="button" id="bd-theme" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Cambiar tema (auto)">
+                        <svg class="mi_simbolo my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+                        <span class="d-lg-none" id="bd-theme-text">Cambiar tema</span>
+                    </a>
+                    <ul class="dropdown-menu mi_submenu bg-secondary" aria-labelledby="bd-theme-text">
+                        <li>
+                            <button type="button" class="dropdown-item mi_item_menu" data-bs-theme-value="light" aria-pressed="false">
+                                <svg class="mi_simbolo me-2"><use href="#sun-fill"></use></svg>Claro<svg class="mi_simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item mi_item_menu" data-bs-theme-value="dark" aria-pressed="false">
+                                <svg class="mi_simbolo me-2"><use href="#moon-stars-fill"></use></svg>Oscuro<svg class="mi_simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item mi_item_menu active" data-bs-theme-value="auto" aria-pressed="true">
+                                <svg class="mi_simbolo me-2"><use href="#circle-half"></use></svg>Auto<svg class="mi_simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                            </button>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

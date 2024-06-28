@@ -21,6 +21,7 @@ $archivos = array(
     'bootstrap'=>'_bootstrap.html',
     'ga'=>'_ga.html',
     'iconos'=>'_iconos.html',
+    'simbolos'=>'_simbolos.html',
     'nocache'=>'_nocache.html',
     'metadatos'=>'_metadatos.html',
     'area_auxiliar'=>'area_auxiliar.html',

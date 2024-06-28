@@ -72,7 +72,7 @@ $accordion-bg: color-contrast($body-color);
     border-radius: 1.2rem;
     
     box-shadow: 0 0 1.2rem rgba($body-color, 0.5);
-    background-color: color-contrast($body-color);
+    //background-color: color-contrast($body-color);
     
     width: 90%;
     max-width: 800px;
@@ -82,7 +82,7 @@ $accordion-bg: color-contrast($body-color);
 
 .mi_boton_rrss {
     @extend .btn;
-    @extend .btn-outline-dark;
+    @extend .btn-secondary;
     @extend .btn-lg;
     @extend .me-1;
 }
@@ -534,5 +534,11 @@ $accordion-bg: color-contrast($body-color);
     font-size: 1.6rem;
     padding-top: 0;
     padding-bottom: 0;
+}
+
+.mi_simbolo {
+    width: 1rem;
+    height: 1rem;
+    fill: currentcolor;
 }
 
