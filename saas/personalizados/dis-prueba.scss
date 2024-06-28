@@ -57,12 +57,14 @@ $theme-colors: (
 "dark": $dark,
 );
 
+/*
 $accordion-button-color: $gray-900;
 $accordion-button-bg: $gray-400;
 $accordion-button-active-color: $black;
 $accordion-button-active-bg: $gray-200;
 $accordion-color: $body-color;
 $accordion-bg: color-contrast($body-color);
+*/
 
 @import "../bootstrap/scss/bootstrap";
 
@@ -86,6 +88,47 @@ $accordion-bg: color-contrast($body-color);
     @extend .btn-lg;
     @extend .me-1;
 }
+
+#mi_spinner {
+    @extend .spinner-border;
+    @extend .mt-4;
+    @extend .mb-4;
+    @extend .text-center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mi_cerrar {
+    @extend .btn-close;
+    @extend .btn-close-white;
+    @extend .me-2;
+    @extend .m-auto;
+}
+
+.mi_burbuja {
+    position: relative;
+    height: auto;
+    padding: 0.9rem;
+    background: $secondary;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.mi_burbuja:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 14px 0;
+    border-color: $secondary transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 30px;
+}
+
 
 // ESTILOS PERSONALIZADOS
 
@@ -189,6 +232,12 @@ $accordion-bg: color-contrast($body-color);
     @extend .d-block;
     @extend .w-100;
 }
+.mi_boton_carrusel {
+    @extend .bg-secondary;
+    @extend .p-2;
+    border-radius: 1rem;
+
+}
 
 #mi_scroll_top {
 	display: none;
@@ -214,15 +263,6 @@ $accordion-bg: color-contrast($body-color);
     position: fixed;
     display: inline;
     z-index: 2147483647;
-}
-
-#mi_spinner {
-    @extend .spinner-border;
-    @extend .mt-4;
-    @extend .mb-4;
-    @extend .text-center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .mi_alerta_cookies {
@@ -300,36 +340,12 @@ $accordion-bg: color-contrast($body-color);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 .mi_imagen_galeria:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba($black,0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem rgba($yellow,0.7);
 }
 .mi_imagen_galeria:active {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba($black,0.7);
-}
-
-.mi_burbuja {
-    position: relative;
-    height: auto;
-    padding: 0.9rem;
-    background: $gray-300;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-.mi_burbuja:after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 15px 14px 0;
-    border-color: $gray-300 transparent;
-    display: block;
-    width: 0;
-    z-index: 1;
-    bottom: -15px;
-    left: 30px;
+    transform: scale(1.15);
+    box-shadow: 0 0 1.2rem rgba($yellow,1);
 }
 
 .mi_avatar {
@@ -473,18 +489,6 @@ $accordion-bg: color-contrast($body-color);
     @extend .top-0;
     @extend .end-0;
     @extend .p-3;
-}
-.mi_cerrar_claro {
-    @extend .btn-close;
-    @extend .btn-close-white;
-    @extend .me-2;
-    @extend .m-auto;
-}
-.mi_cerrar_oscuro {
-    @extend .btn-close;
-    @extend .me-2;
-    @extend .m-auto;
-   
 }
 
 #mi_barra_vertical {
