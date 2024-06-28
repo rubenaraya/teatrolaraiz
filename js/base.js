@@ -2,13 +2,13 @@
 
 class Web {
     constructor() {
-    }
+		this.sleep = function(ms){
+			return new Promise(resolve => setTimeout(resolve, ms));
+		};
+	}
 	// Funciones privadas
-	_ocultarSpinner() {
-		const spinner = document.querySelector('#mi_spinner');
-		if (spinner) {
-			spinner.style.display = 'none';
-		}
+	async _esperar(tiempo){
+		await this.sleep(tiempo);
 	}
 	_activarScrollTop() {
 		const scroll_top = document.querySelector('#mi_scroll_top');
@@ -40,22 +40,24 @@ class Web {
 	}
 	_activarMenus() {
 		const mi_alternar_menu = document.getElementById('mi_alternar_menu');
-		const menu_navegacion = document.querySelector('#mi_control_menu');
-		menu_navegacion.addEventListener('click', e => {
-			let elemento = e.target;
-			let esDropdown = false;
-			while (elemento && elemento !== menu_navegacion) {
-				if (elemento.classList.contains('dropdown')) { // || elemento.classList.contains('navbar-toggler')
-					esDropdown = true;
-					break;
+		const mi_control_menu = document.querySelector('#mi_control_menu');
+		if (mi_alternar_menu && mi_control_menu) {
+			mi_control_menu.addEventListener('click', e => {
+				let elemento = e.target;
+				let esDropdown = false;
+				while (elemento && elemento !== mi_control_menu) {
+					if (elemento.classList.contains('dropdown')) {
+						esDropdown = true;
+						break;
+					}
+					elemento = elemento.parentElement;
 				}
-				elemento = elemento.parentElement;
-			}
-			const esVentanaPequena = window.innerWidth < 992;
-			if (!esDropdown && esVentanaPequena && !mi_alternar_menu.classList.contains('collapsed')) {
-				mi_alternar_menu.click();
-			}
-		});
+				const esVentanaPequena = window.innerWidth < 992;
+				if (!esDropdown && esVentanaPequena && !mi_alternar_menu.classList.contains('collapsed')) {
+					mi_alternar_menu.click();
+				}
+			});
+		}
 	}
 	_comprobarCookie(nombre) {
 		"use strict";
@@ -158,7 +160,6 @@ const W = new Web();
 
 document.addEventListener('DOMContentLoaded', function() {
     new WOW().init();
-	W._ocultarSpinner();
     W._comprobarCookie(cookie);
 	W._activarContacto(dominio);
 	W._activarGaleria('galeria');

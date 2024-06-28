@@ -45,6 +45,9 @@ $archivos = array(
     'area_panel_diapo'=>'area_panel_diapo.html',
     'area_calendario'=>'area_calendario.html',
     'area_botonera'=>'area_botonera.html',
+    'area_encabezado'=>'area_encabezado.html',
+    'area_pie'=>'area_pie.html',
+    'area_temporal'=>'area_temporal.html',
 );
 
 function reemplazar_textos($texto) {

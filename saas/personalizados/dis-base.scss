@@ -4,28 +4,9 @@
 @import "../bootstrap/scss/functions";
 @import "../bootstrap/scss/variables";
 
-$modal-sm:   300px;
-$modal-md:   500px;
-$modal-lg:   800px;
-$modal-xl:   1140px;
+// PERSONALIZACION DE VARIABLES
 
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1280px,
-  xxl: 1600px
-);
-
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1220px,
-  xxl: 1520px
-);
-
+/*
 $primary:    $blue;
 $secondary:  $gray-600;
 $success:    $green;
@@ -43,6 +24,26 @@ $body-color-dark:    $gray-300;
 $body-bg-dark:       $gray-900;
 $link-color-dark:    $body-color-dark;
 
+$theme-colors: (
+"primary": $primary,
+"secondary": $secondary,
+"success": $success,
+"info": $info,
+"warning": $warning,
+"danger": $danger,
+"light": $light,
+"dark": $dark,
+);
+
+$accordion-button-color: $gray-900;
+$accordion-button-bg: $gray-400;
+$accordion-button-active-color: $black;
+$accordion-button-active-bg: $gray-200;
+$accordion-color: $body-color;
+$accordion-bg: color-contrast($body-color);
+
+*/
+
 @import "../bootstrap/scss/bootstrap";
 
 // ESTILOS PERSONALIZADOS
@@ -51,8 +52,8 @@ $link-color-dark:    $body-color-dark;
     @extend .container;
     @extend .text-center;
     border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem rgba($body-color, 0.5);
-    background-color: color-contrast($body-color);
+    box-shadow: 0 0 1.2rem rgba(var(--bs-body-color-rgb), 0.5);
+    background-color: var(--bs-bg-color);
     width: 90%;
     max-width: 800px;
     min-width: 360px;
@@ -61,9 +62,39 @@ $link-color-dark:    $body-color-dark;
 
 .mi_boton_rrss {
     @extend .btn;
-    @extend .btn-outline-dark;
+    @extend .btn-secondary;
     @extend .btn-lg;
     @extend .me-1;
+}
+
+.mi_cerrar {
+    @extend .btn-close;
+    @extend .me-2;
+    @extend .m-auto;
+}
+
+.mi_burbuja {
+    position: relative;
+    height: auto;
+    padding: 0.9rem;
+    background: var(--bs-tertiary-bg);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.mi_burbuja:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 14px 0;
+    border-color: var(--bs-tertiary-bg) transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 30px;
 }
 
 .mi_video_16x9 {
@@ -105,7 +136,7 @@ $link-color-dark:    $body-color-dark;
     @extend .mb-2;
 }
 
-.mi_body {
+.mi_cuerpo {
     @extend .my-2;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1rem;
@@ -114,7 +145,13 @@ $link-color-dark:    $body-color-dark;
 
 .mi_titulo {
     font-style: italic;
+    margin-top: 1rem;
     margin-bottom: 2rem;
+}
+
+.mi_botonera {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .mi_paralaje {
@@ -142,7 +179,6 @@ $link-color-dark:    $body-color-dark;
 	font-weight: 600;
     width: 100%;
 }
-
 .mi_letras_claras {
     color: $white;
 	text-shadow: 0 0 1px $gray-800, -1px -1px 0 $gray-800, 1px -1px 0 $gray-800, -1px 1px 0 $gray-800, 1px 1px 0 $gray-800;
@@ -153,15 +189,19 @@ $link-color-dark:    $body-color-dark;
     width: 100%;
 }
 
-.mi_carrusel {
-    @extend .carousel;
+#mi_carrusel {
     margin-left: -1.2rem;
     margin-right: -1.2rem;
 }
-
 .mi_imagen_carrusel {
     @extend .d-block;
     @extend .w-100;
+}
+.mi_boton_carrusel {
+    @extend .bg-secondary;
+    @extend .p-2;
+    border-radius: 1rem;
+
 }
 
 #mi_scroll_top {
@@ -183,7 +223,6 @@ $link-color-dark:    $body-color-dark;
 	-moz-transition: all 250ms linear;
 	transition: all 250ms linear;	
 }
-
 #mi_scroll_top:hover {
 	background-color: $black;
     position: fixed;
@@ -209,29 +248,276 @@ $link-color-dark:    $body-color-dark;
     color: $white;
     background: $black;
 }
-
 .mi_alerta_cookies.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0%);
     transition-delay: 1000ms;
 }
-
 .mi_alerta_cookies a {
     color: $white;
     text-decoration: underline
 }
-
 .mi_alerta_cookies .mi_aceptar_cookies {
     margin-left: 10px;
     vertical-align: baseline;
 }
-
 .mi_aceptar_cookies {
     @extend .btn;
     @extend .btn-light;
     @extend .btn-sm;
     padding-top: 2px;
     padding-bottom: 2px;
+}
+
+.mi_3_columnas {
+    @extend .col-sm-6;
+    @extend .col-md-4;
+    @extend .col-lg-4;
+}
+
+.mi_icono_tarjeta {
+    font-size: 40px;
+}
+.mi_texto_tarjeta {
+    font-size: 0.9em;
+}
+.mi_imagen_tarjeta {
+	margin: 0.8rem 0 1rem 0;
+	width: 60%;
+	border-radius: 1.5rem;
+}
+
+.mi_lightbox {
+    @extend .row-cols-1;
+    @extend .row-cols-md-2;
+    @extend .row-cols-lg-3;
+    @extend .g-4;
+}
+
+.mi_imagen_galeria {
+    @extend .img-fluid;
+    @extend .border;
+    @extend .border-2;
+    @extend .rounded;
+    @extend .rounded-0;
+    border-color: $gray-500;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.mi_imagen_galeria:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem rgba($yellow,0.7);
+}
+.mi_imagen_galeria:active {
+    transform: scale(1.15);
+    box-shadow: 0 0 1.2rem rgba($yellow,1);
+}
+
+.mi_avatar {
+    margin-top: 25px;
+    margin-left: 22px;
+    margin-bottom: 25px;
+}
+.mi_avatar .nombre {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.mi_avatar .leyenda {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.mi_avatar img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mi_etiquetas {
+    @extend .mb-2;
+    background-color: $gray-600;
+    color: $white;
+    margin-left: -1.2rem;
+    margin-right: -1.2rem;
+}
+
+.mi_insignia {
+    @extend .badge;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.mi_etiqueta_amarilla {
+    background: rgba($yellow, 0.5);
+    color: $black;
+}
+.mi_etiqueta_verde {
+    background: rgba($green, 0.5);
+    color: $white;
+}
+.mi_etiqueta_roja {
+    background: rgba($red, 0.5);
+    color: $white;
+}
+.mi_etiqueta_celeste {
+    background: rgba($cyan, 0.5);
+    color: $black;
+}
+.mi_etiqueta_naranja {
+    background: rgba($orange, 0.5);
+    color: $white;
+}
+.mi_etiqueta_purpura {
+    background: rgba($purple, 0.5);
+    color: $white;
+}
+.mi_etiqueta_rosada {
+    background: rgba($pink, 0.5);
+    color: $black;
+}
+.mi_etiqueta_azul {
+    background: rgba($blue, 0.5);
+    color: $white;
+}
+.mi_etiqueta_indigo {
+    background: rgba($indigo, 0.5);
+    color: $white;
+}
+.mi_etiqueta_turquesa {
+    background: rgba($teal, 0.5);
+    color: $black;
+}
+.mi_etiqueta_blanca {
+    background: rgba($white, 0.5);
+    color: $black;
+}
+
+.mi_persona {
+    @extend .mt-2;
+    @extend .mb-3;
+    min-width: 300px;
+}
+.mi_persona .nombre {
+    @extend .mt-2;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.mi_persona .leyenda {
+    @extend .mb-2;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.mi_persona img {
+    @extend .img-fluid;
+    @extend .rounded-circle;
+}
+
+.mi_boton_redondo {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .mt-2;
+    @extend .mb-2;
+    border-radius: 50px;
+}
+
+.mi_columna {
+    @extend .col;
+}
+
+.mi_texto_acordeon {
+    @extend .text-start;
+    font-size: 0.9em;
+}
+
+.mi_label {
+    @extend .col-3;
+    @extend .col-form-label;
+    line-height: 2;
+}
+.mi_campo {
+    @extend .col-9;
+    line-height: 2;
+}
+
+#mi_notificacion {
+    @extend .pe-2;
+}
+.mi_notificaciones {
+    @extend .toast-container;
+    @extend .position-fixed;
+    @extend .top-0;
+    @extend .end-0;
+    @extend .p-3;
+}
+
+#mi_barra_vertical {
+    @extend .navbar;
+    @extend .fixed-top;
+}
+#mi_barra_vertical .mi_menu {
+    @extend .navbar-nav;
+    @extend .justify-content-end;
+    @extend .flex-grow-1;
+    @extend .pe-3;
+    @extend .text-start;
+}
+#mi_barra_vertical .mi_submenu {
+    @extend .text-start;
+}
+
+#mi_barra_horizontal {
+    @extend .navbar;
+    @extend .sticky-top;
+    @extend .navbar-expand-lg;
+    margin-left: -1.2rem;
+    margin-right: -1.2rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 0.9rem;
+}
+#mi_barra_horizontal .mi_menu {
+    @extend .navbar-nav;
+    @extend .ms-auto;
+    @extend .mb-2;
+    @extend .mb-lg-0;
+    @extend .text-start;
+}
+#mi_barra_horizontal .mi_submenu {
+    @extend .text-start;
+}
+
+.mi_item_menu {
+    @extend .ps-2;
+    @extend .pe-3;
+    font-size: 0.9rem;
+}
+.mi_marca_menu {
+    @extend .navbar-brand;
+    margin-right: 0.4rem;
+    font-size: 1.6rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.mi_simbolo {
+    width: 1rem;
+    height: 1rem;
+    fill: currentcolor;
+}
+
+.contacto {
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.derechos {
+    font-size: 0.75rem;
+    font-style: italic;
 }
 

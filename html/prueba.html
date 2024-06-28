@@ -10,8 +10,7 @@
 ((metadatos))
 ((iconos))
 ((bootstrap))
-<link href="/web/css/dis-prueba.css?v={uuid}" rel="stylesheet">
-<link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
+<link href="/web/css/dis-base.css?v={uuid}" rel="stylesheet">
 <script>
     const dominio = '{dominio}';
     const cookie = '{cookie}';
@@ -20,40 +19,14 @@
 <script src="/web/js/color-modes.js"></script>
 ((simbolos))
 </head>
-<body class="mi_cuerpo">
-<!--
-    Panel con imagenes y video de fondo
-    Panel diapositivas HTML
-    Fichas de productos para catálogo
-    + Buscar cómo hacer "tabs"
-    + Mejorar tarjetas usando "cards"
-    + Hacer un buen spinner "cargando..."
-    ** Hacer un muestrario de los botones, alertas y otros componentes en cada tema
--->
+<body class="mi_cuerpo wow fadeIn">
 
-<div class="mi_container" style="background-color: var(--bs-bg-color);">
-
-    <div id="mi_spinner"></div>
-    
-    <div class="row">
-        <div class="col">
+<div class="mi_container">
+<div class="row">
+<div class="col">
 
 ((area_menu_h))
-
-<!-- Encabezado -->
-<section id="encabezado">
-    <!-- Logo -->
-    <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
-        <div class="wow flip" data-wow-duration="1s" data-wow-delay="60s">
-            <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="mi_logo" style="width: 256px;">
-        </div>
-    </div>
-    <!-- Titulo -->
-    <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
-        <h4 class="mi_titulo"><span data-bs-toggle="tooltip" data-bs-title="Teatro de arte dramático">Teatro</span> - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
-    </div>
-</section>
-
+((area_encabezado))
 ((area_botonera))
 ((area_tarjetas_ico))
 ((area_paralaje))
@@ -71,53 +44,13 @@
 ((area_mapa))
 -->
 
+((area_pie))
 
-<!--
-<section>
-    <div class="col-sm-6 col-lg-4 wow animated fadeInUp animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><div class="ibox"><div class="ibox-content product-box">
-        <div class="product-imitation"><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" title="Detalles del Producto"><img src="/web/img/web/prod-2.jpg" alt="Imagen del producto" style="width: 95%"></a></div>
-        <div class="product-desc text-start" id="prod_P003">
-        <small class="text-muted">Base</small><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" class="product-name" title="Detalles del Producto">Caja de control VAT-1060 WiFi</a><div class="m-t-xs"></div>
-        <div class="m-t text-righ"><a href="javascript:void(0)" onclick="M.Web.Producto('P003')" class="btn btn-xs btn-outline btn-success" title="Detalles del Producto">Detalles <i class="fa fa-long-arrow-right"></i></a></div>
-        </div>
-        </div></div></div>
-</section>
-
-<section>
-    <div class="container features me-caja-gris">
-        <div class="row"><div class="col-lg-12 text-center"><p>  </p></div></div>
-        <div class="container m-b-md me-blanco-sombra wow slideInRight animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: slideInRight;"><div class="row">
-        <div class="col-lg-6 text-start features-text p-sm">
-        <h3 class="me-textoscuro">KitSensorial es nuestra solución</h3>
-        <p class="me-textoscuro">
-                        </p><p>¡No más movimientos de brazos en las Terapias! Ahora podrás poner toda tu atención en los Pacientes, dedicarte a observar, tomar notas e intervenir.</p>
-                        <p>Podrás emplear patrones de estimulación diversos, para usar con distintas técnicas y en diferentes etapas de tus casos, además de organizarlos a tu manera para facilitar su uso con sólo presionar un botón.</p>
-                        <p>Podrás controlar con precisión y efectividad cada estimulación, a pesar del distanciamiento social e incluso de la separación física si la terapia es virtual, ya que KitSensorial se controla a través de Internet sin importar dónde estés.</p>
-                    <p></p>
-        <div class="text-start"><a href="javascript:void(0)" onclick="M.Web.Catalogo(1)" class="btn btn-success btn-outline">Ver Catálogo de Productos</a></div>
-        </div>
-        <div class="col-lg-6 text-right p-sm"><img src="/web/img/web/prod-1.jpg" alt="" class="img-fluid float-right"></div>
-        </div></div>
-    </div>
-</section>
--->
-
-
-<!-- Pie -->
-<section id="pie">
-    <!-- Contacto -->
-    <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
-        <div class="contacto">Conversemos en <i class="bi bi-envelope-fill"></i> <span id="contacto">info</span></div>
-    </div>
-    <!-- Derechos -->
-    <div class="derechos">© 2023-{año} Teatro La Raíz - Todos los derechos reservados</div>
-</section>
-
-        </div>
-    </div>
 </div>
+</div>
+</div>
+
 ((area_auxiliar))
 ((area_contactar))
-(ga)
 </body>
 </html>

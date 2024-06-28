@@ -1,93 +1,42 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="auto">
 <head>
 ((nocache))
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{titulo}</title>
-    <link rel="manifest" href="/web/manifest.json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>{titulo}</title>
+<link rel="manifest" href="/web/manifest.json">
 ((metadatos))
 ((iconos))
-    <link href="/web/css/dis-base.css?v={uuid}" rel="stylesheet">
 ((bootstrap))
-    <link href="/web/css/estilos.css?v={uuid}" rel="stylesheet">
-    <script>var dominio = '{dominio}';</script>
-    <script src="/web/js/base.js?v={uuid}"></script>
+<link href="/web/css/dis-base.css?v={uuid}" rel="stylesheet">
+<script>
+    const dominio = '{dominio}';
+    const cookie = '{cookie}';
+</script>
+<script src="/web/js/base.js?v={uuid}"></script>
+<script src="/web/js/color-modes.js"></script>
+((simbolos))
 </head>
-<body class="mi_body">
+<body class="mi_cuerpo wow fadeIn">
+
 <div class="mi_container">
-    <div class="row">
-        <div class="col">
+<div class="row">
+<div class="col">
 
-            <!-- Encabezado -->
-            <section>
+((area_encabezado))
+((area_temporal))
+((area_video))
+((area_mapa))
+((area_pie))
 
-                <!-- Spinner -->
-                <div id="spinner" class="spinner-border mt-4"></div>
-
-                <!-- Logo -->
-                <div class="wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="wow flip" data-wow-duration="1s" data-wow-delay="60s">
-                        <img src="/web/img/icon-256x256.png" alt="Logo {titulo}" class="mi_logo" style="width: 256px;">
-                    </div>
-                </div>
-
-                <!-- Titulo -->
-                <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
-                    <h4 class="mi_titulo">Teatro - Miniaturas - Pedagogía - Identidad - Comunidad</h4>
-                </div>
-
-                <!-- Botonera -->
-                <div class="wow fadeInRight botonera" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="wow heartBeat" data-wow-delay="30s">
-                        <div class="wow heartBeat" data-wow-delay="150s">
-                            <div class="wow heartBeat" data-wow-delay="300s">
-                                <a href="{instagram}" target="_blank" class="mi_boton_rrss" title="Instagram"><i class="bi bi-instagram"></i> <small>Instagram</small></a>
-                                <a href="{youtube}" target="_blank" class="mi_boton_rrss" title="Youtube"><i class="bi bi-youtube"></i> <small>Youtube</small></a>
-                                <!--
-                                <a href="{linkedin}" target="_blank" class="mi_boton_rrss" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                <a href="{facebook}" target="_blank" class="mi_boton_rrss" title="Facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="{twitter}" target="_blank" class="mi_boton_rrss" title="X"><i class="bi bi-twitter-x"></i></a>
-                            -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Video -->
-            <section>
-                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="5s">
-                    <div class="mi_video_16x9">
-                        <iframe src="{video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Mapa -->
-            <section>
-                <h5 class="mi_titulo">¿Dónde nos encontramos?</h5>
-                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="mi_mapa">
-                        <iframe src="{mapa}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Pie -->
-            <section>
-                <!-- Contacto -->
-                <div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s">
-                    <div class="contacto">Conversemos en <i class="bi bi-envelope-fill"></i> <span id="contacto">info</span></div>
-                </div>
-                <!-- Derechos -->
-                <div class="derechos">© 2024 Teatro La Raíz - Todos los derechos reservados</div>
-            </section>
-
-        </div>
-    </div>
 </div>
+</div>
+</div>
+
+((area_auxiliar))
+((area_contactar))
 ((ga))
 </body>
 </html>
