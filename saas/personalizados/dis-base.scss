@@ -3,26 +3,34 @@
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/functions";
 @import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/variables-dark";
 
 // PERSONALIZACION DE VARIABLES
 
 /*
-$primary:    $blue;
-$secondary:  $gray-600;
-$success:    $green;
-$danger:     $red;
-$warning:    $yellow;
-$info:       $cyan;
-$light:      $gray-100;
-$dark:       $gray-900;
+$primary:         $blue;
+$secondary:       $gray-600;
+$success:         $green;
+$info:            $cyan;
+$warning:         $yellow;
+$danger:          $red;
+$light:           $gray-100;
+$dark:            $gray-900;
 
-$body-color:         $gray-900;
-$body-bg:            $gray-200;
-$link-color:         $body-color;
+$body-color:      $gray-900;
+$body-bg:         $white;
+$body-color-dark: $gray-300;
+$body-bg-dark:    $gray-900;
 
-$body-color-dark:    $gray-300;
-$body-bg-dark:       $gray-900;
-$link-color-dark:    $body-color-dark;
+$link-color: $primary;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+$link-color-dark: tint-color($primary, 40%);
+$link-hover-color-dark: shift-color($link-color-dark, -$link-shade-percentage);
+*/
+$primary:         $gray-800;
+$body-bg:         $gray-200;
+$link-color:      $body-color;
+$link-color-dark: $body-color-dark;
 
 $theme-colors: (
 "primary": $primary,
@@ -36,13 +44,14 @@ $theme-colors: (
 );
 
 $accordion-button-color: $gray-900;
-$accordion-button-bg: $gray-400;
-$accordion-button-active-color: $black;
-$accordion-button-active-bg: $gray-200;
-$accordion-color: $body-color;
-$accordion-bg: color-contrast($body-color);
-
-*/
+$accordion-button-bg: $gray-500;
+$accordion-button-active-bg: $gray-300;
+$accordion-button-active-color: $body_color;
+$accordion-button-focus-box-shadow: '';
+$accordion-icon-color-dark: $black;
+$accordion-icon-active-color-dark: $black;
+$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
+$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
 
 @import "../bootstrap/scss/bootstrap";
 
@@ -623,13 +632,11 @@ $accordion-bg: color-contrast($body-color);
     }
 }
 
-
-.contacto {
+.mi_contactanos {
     margin-top: 1.5rem;
     margin-bottom: 1.2rem;
 }
-
-.derechos {
+.mi_derechos {
     font-size: 0.75rem;
     font-style: italic;
 }
