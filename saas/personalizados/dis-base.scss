@@ -640,3 +640,63 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     font-size: 0.75rem;
     font-style: italic;
 }
+
+.mi_fondo .carousel-item {
+    height: 100%;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+.mi_fondo .carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mi_fondo_pagina {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.mi_video_pagina {
+    width: 100vw;
+    object-fit: cover;
+}
+
+.seccion-con-video {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+.seccion-con-video .video-fondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+.contenido-sobre-video {
+    color: $white;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 1rem;
+}
+
+.ocultar-pos-animacion {
+    visibility: hidden !important;
+    animation-fill-mode: forwards;
+}
+
