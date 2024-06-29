@@ -65,7 +65,7 @@ function reemplazar_textos($texto) {
 function incluir_archivos($texto) {
     global $archivos;
     foreach ( $archivos as $clave => $valor ) {
-        $ruta_archivo = __DIR__ . '\html\\'. $valor;
+        $ruta_archivo = __DIR__ . '/html//'. $valor;
         if (file_exists($ruta_archivo)) {
             $agregar = file_get_contents($ruta_archivo);
             $texto = str_replace( '(('.$clave.'))', $agregar, $texto );
@@ -80,4 +80,5 @@ function no_cache() {
     header('Pragma: no-cache');
     header('Content-Type: text/html; charset=utf-8');
 }
+
 ?>
