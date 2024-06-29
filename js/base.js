@@ -12,15 +12,17 @@ class Web {
 	}
 	_activarScrollTop() {
 		const scroll_top = document.querySelector('#mi_scroll_top');
-		window.addEventListener('scroll', function() {
-			let scrollDistance = window.scrollY;
-			let scrollThreshold = window.innerWidth > 800 ? 500 : 250;
-			if (scrollDistance > scrollThreshold) {
-				scroll_top.style.display = 'block';
-			} else {
-				scroll_top.style.display = 'none';
-			}
-		});
+		if (scroll_top) {
+			window.addEventListener('scroll', function() {
+				let scrollDistance = window.scrollY;
+				let scrollThreshold = window.innerWidth > 800 ? 500 : 250;
+				if (scrollDistance > scrollThreshold) {
+					scroll_top.style.display = 'block';
+				} else {
+					scroll_top.style.display = 'none';
+				}
+			});
+		}
 	}
 	_activarGaleria(nombre) {
 		const options = {
@@ -31,7 +33,9 @@ class Web {
 		document.querySelectorAll('.mi_lightbox').forEach((el) => el.addEventListener('click', (e) => {
 			e.preventDefault();
 			const lightbox = new Lightbox(el, options);
-			lightbox.show();
+			if (lightbox) {
+				lightbox.show();
+			}
 		}));
 	}
 	_activarTooltips() {
@@ -77,9 +81,11 @@ class Web {
 		});
 	}
 	_activarContacto(dominio) {
-		let nombre = document.querySelector('#contacto');
-		let user = nombre.textContent;
-		nombre.innerHTML = '<a href="mailto:' + user + '@' + dominio + '">' + user + '@' + dominio + '</a>';
+		const nombre = document.querySelector('#contacto');
+		if (nombre) {
+			const casilla = nombre.textContent;
+			nombre.innerHTML = '<a href="mailto:' + casilla + '@' + dominio + '">' + casilla + '@' + dominio + '</a>';
+		}
 	}
 	_ocultarCargador() {
 		const mi_cargador = document.getElementById('mi_cargador');
@@ -108,6 +114,12 @@ class Web {
 			toast.show();
 		}
 	}
+    abrirUrl(url, destino='') {
+        if (!/^https?:\/\//i.test(url)) {
+            url = `https://${url}`;
+        }
+        destino ? window.open(url, destino) : window.location.href = url;
+    }
 	enviarMensaje() {
 		//TODO: Falta que valide el formulario y que lo envíe al servidor
 		const modal = bootstrap.Modal.getInstance('#formContacto');
@@ -123,12 +135,6 @@ class Web {
 		modal.hide();
 		this.mostrarInformacion(mensaje, tipo);
 	}
-    abrirUrl(url, destino='') {
-        if (!/^https?:\/\//i.test(url)) {
-            url = `https://${url}`;
-        }
-        destino ? window.open(url, destino) : window.location.href = url;
-    }
 
 	// Funciones pendientes
 	abrirVentana(contenido, selector='mi_ventana') {

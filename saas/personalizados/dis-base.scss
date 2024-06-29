@@ -68,6 +68,13 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     min-width: 360px;
     padding: 1.2rem;
 }
+.mi_container_2 {
+    @extend .container;
+    @extend .text-center;
+    width: 90%;
+    max-width: 800px;
+    min-width: 480px;
+}
 
 .mi_boton_rrss {
     @extend .btn;

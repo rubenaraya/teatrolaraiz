@@ -1,4 +1,5 @@
 <?php
+
 $textos = array(
     'titulo'=>'Teatro La Raíz',
     'descripcion'=>'Teatro de arte dramático',
@@ -18,56 +19,49 @@ $textos = array(
     'inicio'=>'/web',
 );
 
-$archivos = array(
+$bloques = array(
     '_bootstrap'=>'/html/bloques/_bootstrap.html',
     '_ga'=>'/html/bloques/_ga.html',
     '_iconos'=>'/html/bloques/_iconos.html',
     '_simbolos'=>'/html/bloques/_simbolos.html',
     '_nocache'=>'/html/bloques/_nocache.html',
     '_metadatos'=>'/html/bloques/_metadatos.html',
-    'auxiliar'=>'/html/areas/auxiliar.html',
-    'tarjetas_ico'=>'/html/areas/tarjetas_ico.html',
-    'tarjetas_img'=>'/html/areas/tarjetas_img.html',
-    'paralaje'=>'/html/areas/paralaje.html',
-    'video'=>'/html/areas/video.html',
-    'mapa'=>'/html/areas/mapa.html',
-    'personas'=>'/html/areas/personas.html',
-    'testimonios'=>'/html/areas/testimonios.html',
-    'etiquetas'=>'/html/areas/etiquetas.html',
-    'galeria'=>'/html/areas/galeria.html',
-    'carrusel'=>'/html/areas/carrusel.html',
-    'acordeon'=>'/html/areas/acordeon.html',
-    'form_contacto'=>'/html/areas/form_contacto.html',
-    'menu_h'=>'/html/areas/menu_h.html',
-    'menu_v'=>'/html/areas/menu_v.html',
-    'productos'=>'/html/areas/productos.html',
-    'panel_video'=>'/html/areas/panel_video.html',
-    'panel_diapo'=>'/html/areas/panel_diapo.html',
-    'calendario'=>'/html/areas/calendario.html',
-    'botonera'=>'/html/areas/botonera.html',
-    'encabezado'=>'/html/areas/encabezado.html',
-    'pie'=>'/html/areas/pie.html',
-    'temporal'=>'/html/areas/temporal.html',
-    'cargador'=>'/html/areas/cargador.html',
-    'fondo_video'=>'/html/areas/fondo_video.html',
 );
 
 function reemplazar_textos($texto) {
     global $textos;
     $texto = str_replace('{uuid}', uniqid(), $texto);
     $texto = str_replace('{año}', date('Y'), $texto);
-    foreach ( $textos as $clave => $valor ) {
+    foreach ($textos as $clave => $valor) {
         $texto = str_replace( '{'.$clave.'}', $valor, $texto );
     }
     return $texto;
 }
 
 function incluir_archivos($texto) {
-    global $archivos;
-    foreach ( $archivos as $clave => $valor ) {
+    global $bloques;
+    foreach ($bloques as $clave => $valor) {
         $ruta_archivo = __DIR__ . $valor;
         if (file_exists($ruta_archivo)) {
             $agregar = file_get_contents($ruta_archivo);
+            $texto = str_replace( '(('.$clave.'))', $agregar, $texto );
+        }
+    }
+    $directorio = __DIR__ . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "areas";
+    $archivos = [];
+    if ($manejador = opendir($directorio)) {
+        while (false !== ($archivo = readdir($manejador))) {
+            $rutaCompleta = $directorio . DIRECTORY_SEPARATOR . $archivo;
+            if (is_file($rutaCompleta)) {
+                $info = pathinfo($rutaCompleta);
+                $archivos[$info['filename']] = $rutaCompleta;
+            }
+        }
+        closedir($manejador);
+    }
+    foreach ($archivos as $clave => $valor) {
+        if (file_exists($valor)) {
+            $agregar = file_get_contents($valor);
             $texto = str_replace( '(('.$clave.'))', $agregar, $texto );
         }
     }
@@ -80,5 +74,4 @@ function no_cache() {
     header('Pragma: no-cache');
     header('Content-Type: text/html; charset=utf-8');
 }
-
 ?>
