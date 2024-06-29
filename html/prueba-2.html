@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>{titulo}</title>
-<link rel="manifest" href="/web/manifest.json">
 ((_metadatos))
 ((_iconos))
 ((_bootstrap))
@@ -21,14 +20,18 @@
 </head>
 <body class="mi_cuerpo">
 
-<div class="mi_container wow fadeIn">
+((cargador))
+
+<div id="mi_container" class="mi_container mi_oculto wow fadeIn">
 <div class="row">
 <div class="col">
 
+((menu_h))
 ((encabezado))
-((temporal))
-((video))
-((mapa))
+((botonera))
+
+((galeria))
+
 ((pie))
 
 </div>
@@ -37,6 +40,5 @@
 
 ((auxiliar))
 ((form_contacto))
-((_ga))
 </body>
 </html>
