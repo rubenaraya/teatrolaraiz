@@ -489,6 +489,12 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .pe-3;
     font-size: 0.9rem;
 }
+.mi_item_submenu {
+    @extend .py-3;
+    @extend .ps-2;
+    @extend .pe-3;
+    font-size: 0.9rem;
+}
 .mi_marca_menu {
     @extend .navbar-brand;
     margin-right: 0.4rem;
