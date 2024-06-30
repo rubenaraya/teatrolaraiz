@@ -186,31 +186,18 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_letras_oscuras {
     color: $black;
 	text-shadow: 0 0 1px $gray-500, -1px -1px 0 $gray-500, 1px -1px 0 $gray-500, -1px 1px 0 $gray-500, 1px 1px 0 $gray-500;
-    display: table-cell;
     vertical-align: middle;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 	font-weight: 600;
     width: 100%;
 }
 .mi_letras_claras {
     color: $white;
 	text-shadow: 0 0 1px $gray-800, -1px -1px 0 $gray-800, 1px -1px 0 $gray-800, -1px 1px 0 $gray-800, 1px 1px 0 $gray-800;
-    display: table-cell;
     vertical-align: middle;
     font-size: 1.5rem;
 	font-weight: 500;
     width: 100%;
-}
-
-.mi_imagen_carrusel {
-    @extend .d-block;
-    @extend .w-100;
-}
-.mi_boton_carrusel {
-    @extend .bg-secondary;
-    @extend .p-2;
-    border-radius: 1rem;
-
 }
 
 #mi_scroll_top {
@@ -635,9 +622,26 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     margin-bottom: 1rem;
 }
 
+.mi_carrusel .carousel-item .item {
+    height: 100%;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+.mi_carrusel .carousel-item .imagen {
+    @extend .w-100;
+    display: block;
+    min-height: 250px;
+    object-fit: cover;
+}
+.mi_carrusel .carousel-item .boton {
+    @extend .bg-secondary;
+    @extend .p-2;
+    border-radius: 1rem;
+}
+
 .mi_fondo .carousel-item {
     height: 100%;
-    min-height: 300px;
+    min-height: 250px;
     background: no-repeat center center scroll;
     background-size: cover;
 }
@@ -803,4 +807,3 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .r_men_90 {
     transform: rotate(-90deg);
 }
-
