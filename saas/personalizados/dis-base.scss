@@ -61,7 +61,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_container {
     @extend .container;
     @extend .text-center;
-    @extend .mb-3;
+    @extend .my-3;
     @extend .px-0;
     @extend .py-3;
     border-radius: 1.2rem;
@@ -74,9 +74,9 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_container_2 {
     @extend .container;
     @extend .text-center;
-    width: 95%;
+    @extend .px-0;
+    width: 100%;
     max-width: 960px;
-    min-width: 480px;
 }
 
 .mi_boton_rrss {
@@ -154,7 +154,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 
 .mi_cuerpo {
-    @extend .my-2;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1rem;
     overflow-x: hidden;
@@ -661,8 +660,14 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     z-index: -1;
 }
 .mi_video_pagina {
-    width: 100vw;
-    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    object-fit:cover;
 }
 
 .mi_seccion_con_video {
