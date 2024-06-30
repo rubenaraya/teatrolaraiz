@@ -27,7 +27,8 @@ $link-hover-color: shift-color($link-color, $link-shade-percentage);
 $link-color-dark: tint-color($primary, 40%);
 $link-hover-color-dark: shift-color($link-color-dark, -$link-shade-percentage);
 */
-$primary:         $gray-800;
+$blue:    navy;
+$primary:         $blue;
 $body-bg:         $gray-200;
 $link-color:      $body-color;
 $link-color-dark: $body-color-dark;
@@ -45,7 +46,7 @@ $theme-colors: (
 
 $accordion-button-color: $gray-900;
 $accordion-button-bg: $gray-500;
-$accordion-button-active-bg: $gray-300;
+$accordion-button-active-bg: $gray-200;
 $accordion-button-active-color: $body_color;
 $accordion-button-focus-box-shadow: '';
 $accordion-icon-color-dark: $black;
@@ -694,6 +695,23 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     animation-fill-mode: forwards;
 }
 
+.mi_marco {
+    width: 95%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mi_sombra {
+    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
+}
+.mi_sombra-sm {
+    box-shadow: 0 0.1rem .5rem rgba(var(--bs-body-color-rgb), .25);
+}
+.mi_sombra-lg {
+    box-shadow: 0 0.25rem 2rem rgba(var(--bs-body-color-rgb), .25);
+}
+
 .mi_icono {
     @extend .col-3;
     @extend .border;
@@ -706,5 +724,78 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 .mi_icono i {
     @extend .fs-2;
+}
+
+.r_mas_5 {
+    transform: rotate(+5deg);
+}
+.r_men_5 {
+    transform: rotate(-5deg);
+}
+.r_mas_7 {
+    transform: rotate(+7deg);
+}
+.r_men_7 {
+    transform: rotate(-7deg);
+}
+.r_mas_10 {
+    transform: rotate(+10deg);
+}
+.r_men_10 {
+    transform: rotate(-10deg);
+}
+.r_mas_12 {
+    transform: rotate(+12deg);
+}
+.r_men_12 {
+    transform: rotate(-12deg);
+}
+.r_mas_15 {
+    transform: rotate(+15deg);
+}
+.r_men_15 {
+    transform: rotate(-15deg);
+}
+.r_mas_20 {
+    transform: rotate(+20deg);
+}
+.r_men_20 {
+    transform: rotate(-20deg);
+}
+.r_mas_25 {
+    transform: rotate(+25deg);
+}
+.r_men_25 {
+    transform: rotate(-25deg);
+}
+.r_mas_30 {
+    transform: rotate(+30deg);
+}
+.r_men_30 {
+    transform: rotate(-30deg);
+}
+.r_mas_45 {
+    transform: rotate(+45deg);
+}
+.r_men_45 {
+    transform: rotate(-45deg);
+}
+.r_mas_60 {
+    transform: rotate(+60deg);
+}
+.r_men_60 {
+    transform: rotate(-60deg);
+}
+.r_mas_75 {
+    transform: rotate(+75deg);
+}
+.r_men_75 {
+    transform: rotate(-75deg);
+}
+.r_mas_90 {
+    transform: rotate(+90deg);
+}
+.r_men_90 {
+    transform: rotate(-90deg);
 }
 
