@@ -273,9 +273,11 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 
 .mi_icono_tarjeta {
+    @extend .mt-3;
     font-size: 40px;
 }
 .mi_texto_tarjeta {
+    @extend .mb-3;
     font-size: 0.9em;
 }
 .mi_imagen_tarjeta {
@@ -392,6 +394,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 
 .mi_persona {
+    @extend .my-2;
     min-width: 300px;
 }
 .mi_persona .nombre {
