@@ -707,3 +707,17 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     animation-fill-mode: forwards;
 }
 
+.mi_icono {
+    @extend .col-3;
+    @extend .border;
+    @extend .border-secondary;
+    @extend .mx-1;
+    @extend .my-1;
+    @extend .rounded;
+    font-size: 0.75rem;
+    width: 23%;
+}
+.mi_icono i {
+    @extend .fs-2;
+}
+
