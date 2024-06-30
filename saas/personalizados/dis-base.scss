@@ -60,13 +60,15 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_container {
     @extend .container;
     @extend .text-center;
+    @extend .mb-3;
+    @extend .px-0;
+    @extend .py-3;
     border-radius: 1.2rem;
     box-shadow: 0 0 1.2rem rgba(var(--bs-body-color-rgb), 0.5);
     background-color: var(--bs-bg-color);
     width: 95%;
     max-width: 960px;
     min-width: 360px;
-    padding: 1.2rem;
 }
 .mi_container_2 {
     @extend .container;
@@ -123,8 +125,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_mapa {
     @extend .ratio;
     @extend .ratio-4x3;
-    @extend .mt-4;
-    @extend .mb-4;
     @extend .w-75;
     @extend .ms-auto;
     @extend .me-auto;
@@ -171,7 +171,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 
 .mi_paralaje {
-    @extend .mb-2;
 	display: table;
 	min-height: 180px; 
 	background-attachment: fixed;
@@ -182,8 +181,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 	padding-left: 10%;
 	padding-right: 10%;
 	padding-bottom: 2rem;
-    margin-left: -1.2rem;
-    margin-right: -1.2rem;
 }
 
 .mi_letras_oscuras {
@@ -205,10 +202,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     width: 100%;
 }
 
-#mi_carrusel {
-    margin-left: -1.2rem;
-    margin-right: -1.2rem;
-}
 .mi_imagen_carrusel {
     @extend .d-block;
     @extend .w-100;
@@ -350,11 +343,8 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 
 .mi_etiquetas {
-    @extend .mb-2;
     background-color: $gray-600;
     color: $white;
-    margin-left: -1.2rem;
-    margin-right: -1.2rem;
 }
 
 .mi_insignia {
@@ -415,8 +405,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 }
 
 .mi_persona {
-    @extend .mt-2;
-    @extend .mb-3;
     min-width: 300px;
 }
 .mi_persona .nombre {
@@ -491,8 +479,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .navbar;
     @extend .sticky-top;
     @extend .navbar-expand-lg;
-    margin-left: -1.2rem;
-    margin-right: -1.2rem;
     padding-top: 4px;
     padding-bottom: 4px;
     font-size: 0.9rem;
@@ -646,6 +632,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_derechos {
     font-size: 0.75rem;
     font-style: italic;
+    margin-bottom: 1rem;
 }
 
 .mi_fondo .carousel-item {
