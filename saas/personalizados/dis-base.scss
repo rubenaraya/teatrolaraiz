@@ -56,6 +56,21 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 
 @import "../bootstrap/scss/bootstrap";
 
+// FUENTES INSTALABLES
+
+.shadows-into-light {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+.gochi-hand {
+    font-family: "Gochi Hand", cursive;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+  
 // ESTILOS PERSONALIZADOS
 
 .mi_container {
