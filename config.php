@@ -26,7 +26,6 @@ $bloques = array(
     '_simbolos'=>'/html/bloques/_simbolos.html',
     '_nocache'=>'/html/bloques/_nocache.html',
     '_metadatos'=>'/html/bloques/_metadatos.html',
-    '_fuentes'=>'/html/bloques/_fuentes.html',
 );
 
 function reemplazar_textos($texto) {
