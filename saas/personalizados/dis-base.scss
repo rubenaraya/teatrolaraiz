@@ -27,7 +27,7 @@ $link-hover-color: shift-color($link-color, $link-shade-percentage);
 $link-color-dark: tint-color($primary, 40%);
 $link-hover-color-dark: shift-color($link-color-dark, -$link-shade-percentage);
 */
-$blue:    navy;
+$blue:    indigo;
 
 $primary:         $blue;
 $body-bg:         $gray-200;
