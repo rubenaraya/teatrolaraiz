@@ -87,7 +87,7 @@ class Web {
 			nombre.innerHTML = '<a href="mailto:' + casilla + '@' + dominio + '">' + casilla + '@' + dominio + '</a>';
 		}
 	}
-	_ocultarCargador() {
+	async _ocultarCargador() {
 		const mi_cargador = document.getElementById('mi_cargador');
 		const mi_container = document.getElementById('mi_container');
 		if (mi_cargador && mi_container) {
