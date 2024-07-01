@@ -737,6 +737,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .border-secondary;
     @extend .mx-1;
     @extend .my-1;
+    @extend .pt-2;
     @extend .rounded;
     font-size: 0.75rem;
     width: 22%;
