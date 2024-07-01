@@ -93,6 +93,7 @@ class Web {
 		if (mi_cargador && mi_container) {
 			mi_container.classList.remove('mi_oculto');
 			mi_container.classList.add('mi_visible');
+			await this._esperar(500);
 			mi_cargador.classList.add('mi_oculto');
 		}
 	}
