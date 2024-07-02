@@ -56,21 +56,50 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 
 @import "../bootstrap/scss/bootstrap";
 
+//FUENTES INTEGRADAS
+
+.courier-new {
+    font-family: 'Courier New', Courier, monospace;
+}
+.gill-sans {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.lucida-sans {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.segoe-ui {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.times-new-roman {
+    font-family: 'Times New Roman', Times, serif;
+}
+.trebuchet-ms {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cambria {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.georgia {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.verdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 // FUENTES INSTALABLES
 
 .shadows-into-light {
     font-family: "Shadows Into Light", cursive;
     font-weight: 500;
-    font-style: italic;
-    font-size: 1.4rem;
 }
 .gochi-hand {
     font-family: "Gochi Hand", cursive;
     font-weight: 400;
-    font-style: italic;
-    font-size: 1.4rem;
 }
-  
+
 // ESTILOS PERSONALIZADOS
 
 .mi_container {
@@ -144,22 +173,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .w-75;
     @extend .ms-auto;
     @extend .me-auto;
-}
-
-.mi_alerta {
-    @extend .alert;
-    @extend .alert-dismissible;
-    @extend .text-dark;
-    @extend .fade;
-    @extend .show;
-    @extend .border;
-    @extend .border-3;
-    position: fixed;
-    top: 20px;
-    right: 50px;
-    left: auto;
-    z-index: 10001;
-    transition-duration: 0.5s;
 }
 
 .mi_logo {
@@ -353,14 +366,7 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 
 .mi_insignia {
     @extend .badge;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    @extend .rounded-pill;
 }
 
 .mi_etiqueta_amarilla {
@@ -437,11 +443,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 
 .mi_columna {
     @extend .col;
-}
-
-.mi_texto_acordeon {
-    @extend .text-start;
-    font-size: 0.9em;
 }
 
 .mi_label {
