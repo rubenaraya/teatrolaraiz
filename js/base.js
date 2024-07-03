@@ -174,7 +174,7 @@ function leerCookie(cname) {
 const W = new Web();
 
 document.addEventListener('DOMContentLoaded', function() {
-    W._comprobarCookie(cookie);
+    //W._comprobarCookie(cookie);
 	W._activarContacto(dominio);
 	W._activarGaleria('galeria');
 	W._activarTooltips();
