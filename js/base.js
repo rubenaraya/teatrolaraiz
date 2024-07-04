@@ -91,10 +91,8 @@ class Web {
 		const mi_cargador = document.getElementById('mi_cargador');
 		const mi_container = document.getElementById('mi_container');
 		if (mi_cargador && mi_container) {
-			mi_container.classList.remove('mi_oculto');
-			mi_container.classList.add('mi_visible');
-			//await this._esperar(500);
-			mi_cargador.classList.add('mi_oculto');
+			await this._esperar(100);
+			mi_cargador.style.display = 'none';
 		}
 	}
 	// Funciones públicas

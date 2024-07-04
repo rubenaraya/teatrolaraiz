@@ -1,106 +1,12 @@
-//saas\personalizados\dis-base.scss
-
-@import "../bootstrap/scss/mixins";
-@import "../bootstrap/scss/functions";
-@import "../bootstrap/scss/variables";
-@import "../bootstrap/scss/variables-dark";
-
-// PERSONALIZACION DE VARIABLES
-
-/*
-$primary:         $blue;
-$secondary:       $gray-600;
-$success:         $green;
-$info:            $cyan;
-$warning:         $yellow;
-$danger:          $red;
-$light:           $gray-100;
-$dark:            $gray-900;
-
-$body-color:      $gray-900;
-$body-bg:         $white;
-$body-color-dark: $gray-300;
-$body-bg-dark:    $gray-900;
-
-$link-color: $primary;
-$link-hover-color: shift-color($link-color, $link-shade-percentage);
-$link-color-dark: tint-color($primary, 40%);
-$link-hover-color-dark: shift-color($link-color-dark, -$link-shade-percentage);
-*/
-
-$primary:         $indigo;
-$body-bg:         $gray-200;
-$link-color:      $body-color;
-$link-color-dark: $body-color-dark;
-
-$theme-colors: (
-"primary": $primary,
-"secondary": $secondary,
-"success": $success,
-"info": $info,
-"warning": $warning,
-"danger": $danger,
-"light": $light,
-"dark": $dark,
-);
-
-$accordion-button-color: $gray-900;
-$accordion-button-bg: $gray-500;
-$accordion-button-active-bg: $gray-200;
-$accordion-button-active-color: $body_color;
-$accordion-button-focus-box-shadow: '';
-$accordion-icon-color-dark: $black;
-$accordion-icon-active-color-dark: $black;
-$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
-$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
-
-@import "../bootstrap/scss/bootstrap";
-
-//FUENTES INTEGRADAS
-
-.courier-new {
-    font-family: 'Courier New', Courier, monospace;
-}
-.gill-sans {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.lucida-sans {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.segoe-ui {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.times-new-roman {
-    font-family: 'Times New Roman', Times, serif;
-}
-.trebuchet-ms {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.arial {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.cambria {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.georgia {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.verdana {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-// FUENTES INSTALABLES
-
-.shadows-into-light {
-    font-family: "Shadows Into Light", cursive;
-    font-weight: 500;
-}
-.gochi-hand {
-    font-family: "Gochi Hand", cursive;
-    font-weight: 400;
-}
-
 // ESTILOS PERSONALIZADOS
+
+/* Variables utilizadas: $gray-900, $gray-500, $gray-600, $gray-800, $green, $red, $blue, $cyan, $orange, $purple, $indigo, $pink, $white, $black, $yellow, $teal */
+
+.mi_cuerpo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    overflow-x: hidden;
+}
 
 .mi_container {
     @extend .container;
@@ -130,12 +36,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .me-1;
 }
 
-.mi_cerrar {
-    @extend .btn-close;
-    @extend .me-2;
-    @extend .m-auto;
-}
-
 .mi_burbuja {
     position: relative;
     height: auto;
@@ -160,6 +60,73 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     left: 30px;
 }
 
+#mi_scroll_top {
+	display: none;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: 20px;
+	right: 10px;
+	background-image: url(../img/arriba.png);
+	background-repeat: no-repeat;
+	background-position: 50% 48%;
+	background-color: rgba($gray-900, 0.5);
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-o-border-radius: 100%;
+	border-radius: 100%;
+	-webkit-transition: all 250ms linear;
+	-moz-transition: all 250ms linear;
+	transition: all 250ms linear;	
+}
+#mi_scroll_top:hover {
+	background-color: $black;
+    position: fixed;
+    display: inline;
+    z-index: 2147483647;
+}
+
+.mi_imagen_galeria {
+    @extend .img-fluid;
+    @extend .border;
+    @extend .border-2;
+    @extend .rounded;
+    @extend .rounded-0;
+    border-color: $gray-500;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.mi_imagen_galeria:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem rgba($yellow,0.7);
+}
+.mi_imagen_galeria:active {
+    transform: scale(1.15);
+    box-shadow: 0 0 1.2rem rgba($yellow,1);
+}
+
+.mi_etiquetas {
+    background-color: $gray-600;
+    color: $white;
+}
+
+.mi_sombra {
+    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
+}
+.mi_sombra-sm {
+    box-shadow: 0 0.1rem .5rem rgba(var(--bs-body-color-rgb), .25);
+}
+.mi_sombra-lg {
+    box-shadow: 0 0.25rem 2rem rgba(var(--bs-body-color-rgb), .25);
+}
+
+
+
+.mi_cerrar {
+    @extend .btn-close;
+    @extend .me-2;
+    @extend .m-auto;
+}
+
 .mi_video_16x9 {
     @extend .ratio;
     @extend .ratio-16x9;
@@ -181,21 +148,10 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .mb-2;
 }
 
-.mi_cuerpo {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
-    overflow-x: hidden;
-}
-
 .mi_titulo {
     font-style: italic;
     margin-top: 1rem;
     margin-bottom: 2rem;
-}
-
-.mi_botonera {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 
 .mi_paralaje {
@@ -226,32 +182,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     font-size: 1.5rem;
 	font-weight: 500;
     width: 100%;
-}
-
-#mi_scroll_top {
-	display: none;
-	width: 50px;
-	height: 50px;
-	position: fixed;
-	bottom: 20px;
-	right: 10px;
-	background-image: url(../img/arriba.png);
-	background-repeat: no-repeat;
-	background-position: 50% 48%;
-	background-color: rgba($gray-900, 0.5);
-	-webkit-border-radius: 100%;
-	-moz-border-radius: 100%;
-	-o-border-radius: 100%;
-	border-radius: 100%;
-	-webkit-transition: all 250ms linear;
-	-moz-transition: all 250ms linear;
-	transition: all 250ms linear;	
-}
-#mi_scroll_top:hover {
-	background-color: $black;
-    position: fixed;
-    display: inline;
-    z-index: 2147483647;
 }
 
 .mi_alerta_cookies {
@@ -321,24 +251,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     @extend .g-4;
 }
 
-.mi_imagen_galeria {
-    @extend .img-fluid;
-    @extend .border;
-    @extend .border-2;
-    @extend .rounded;
-    @extend .rounded-0;
-    border-color: $gray-500;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-.mi_imagen_galeria:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 1rem rgba($yellow,0.7);
-}
-.mi_imagen_galeria:active {
-    transform: scale(1.15);
-    box-shadow: 0 0 1.2rem rgba($yellow,1);
-}
-
 .mi_avatar {
     margin-top: 25px;
     margin-left: 22px;
@@ -357,11 +269,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     height: 42px;
     border-radius: 50%;
     margin-right: 10px;
-}
-
-.mi_etiquetas {
-    background-color: $gray-600;
-    color: $white;
 }
 
 .mi_insignia {
@@ -441,10 +348,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     border-radius: 50px;
 }
 
-.mi_columna {
-    @extend .col;
-}
-
 .mi_label {
     @extend .col-3;
     @extend .col-form-label;
@@ -455,9 +358,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     line-height: 2;
 }
 
-#mi_notificacion {
-    @extend .pe-2;
-}
 .mi_notificaciones {
     @extend .toast-container;
     @extend .position-fixed;
@@ -523,13 +423,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     width: 1rem;
     height: 1rem;
     fill: currentcolor;
-}
-
-.mi_oculto {
-    display: none;
-}
-.mi_visible {
-    display: block;
 }
 
 #mi_cargador {
@@ -637,16 +530,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     }
 }
 
-.mi_contactanos {
-    margin-top: 1.5rem;
-    margin-bottom: 1.2rem;
-}
-.mi_derechos {
-    font-size: 0.75rem;
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
 .mi_carrusel .carousel-item .item {
     height: 100%;
     background: no-repeat center center scroll;
@@ -736,16 +619,6 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
     margin-right: auto;
 }
 
-.mi_sombra {
-    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
-}
-.mi_sombra-sm {
-    box-shadow: 0 0.1rem .5rem rgba(var(--bs-body-color-rgb), .25);
-}
-.mi_sombra-lg {
-    box-shadow: 0 0.25rem 2rem rgba(var(--bs-body-color-rgb), .25);
-}
-
 .mi_icono {
     @extend .col-3;
     @extend .border;
@@ -779,21 +652,80 @@ $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://w
 .mi_men-7 {
     transform: rotate(-7deg);
 }
-.mi_mas-10 {
-    transform: rotate(+10deg);
+.mi_mas-9 {
+    transform: rotate(+9deg);
 }
-.mi_men-10 {
-    transform: rotate(-10deg);
+.mi_men-9 {
+    transform: rotate(-9deg);
 }
-.mi_mas-12 {
-    transform: rotate(+12deg);
+.mi_mas-11 {
+    transform: rotate(+11deg);
 }
-.mi_men-12 {
-    transform: rotate(-12deg);
+.mi_men-11 {
+    transform: rotate(-11deg);
+}
+.mi_mas-13 {
+    transform: rotate(+13deg);
+}
+.mi_men-13 {
+    transform: rotate(-13deg);
 }
 .mi_mas-15 {
     transform: rotate(+15deg);
 }
 .mi_men-15 {
     transform: rotate(-15deg);
+}
+
+// ESTILOS EXTENDIDOS
+
+.fs-sm {
+    font-size: 0.9rem;
+}
+.fs-xs {
+    font-size: 0.8rem;
+}
+
+//FUENTES INTEGRADAS
+
+.courier-new {
+    font-family: 'Courier New', Courier, monospace;
+}
+.gill-sans {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.lucida-sans {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.segoe-ui {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.times-new-roman {
+    font-family: 'Times New Roman', Times, serif;
+}
+.trebuchet-ms {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cambria {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.georgia {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.verdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+// FUENTES INSTALABLES
+
+.shadows-into-light {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 500;
+}
+.gochi-hand {
+    font-family: "Gochi Hand", cursive;
+    font-weight: 400;
 }
