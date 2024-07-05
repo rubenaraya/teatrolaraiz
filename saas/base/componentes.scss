@@ -235,7 +235,8 @@
     @extend .border-start;
     @extend .border-end;
     @extend .border-bottom;
-    @extend .rounded-bottom;
+    @extend .rounded-3;
+    @extend .rounded-top-0;
     @extend .px-4;
     @extend .py-3;
     @extend .border-secondary;
