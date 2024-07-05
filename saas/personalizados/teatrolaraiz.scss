@@ -1,7 +1,8 @@
 //saas\personalizados\teatrolaraiz.scss
+
 @import "../base/colores";
 
-// PERSONALIZACION DE VARIABLES
+// PERSONALIZACION DE VARIABLES GLOBALES
 
 $primary:         $indigo;
 $secondary:       $gray-600;
@@ -19,41 +20,54 @@ $body-bg-dark:    $gray-900;
 $link-color:      $body-color;
 $link-color-dark: $body-color-dark;
 
+$accordion-button-focus-box-shadow: '';
+$accordion-icon-color-dark: $white;
+$accordion-icon-active-color-dark: $white;
+$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
+$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
+
+$nav-tabs-border-color: $gray-500;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
+$nav-tabs-link-hover-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
+
 @import "../bootstrap/scss/bootstrap";
 
-// ESTILOS ESPECIFICOS
+// ESTILOS DE LA PLANTILLA (WEB)
 
-$mi_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
-$mi_sombra_color: var(--bs-body-color-rgb);
-$mi_contenedor_sombra_color: var(--bs-body-color-rgb);
-$mi_contenedor_fondo: var(--bs-bg-color);
-$mi_letras_oscuras_sombra: $gray-500;
-$mi_letras_claras_sombra: $gray-800;
-$mi_letras_oscuras_texto: $black;
-$mi_letras_claras_texto: $white;
+$web_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
+$web_sombra_color: var(--bs-body-color-rgb);
+$web_contenedor_sombra_color: var(--bs-body-color-rgb);
+$web_contenedor_fondo: var(--bs-bg-color);
+$web_letras_oscuras_sombra: $gray-500;
+$web_letras_claras_sombra: $gray-800;
+$web_letras_oscuras_texto: $black;
+$web_letras_claras_texto: $white;
 @import "../base/generales";
 
-$mi_volver_arriba_fondo: $gray-900;
-$mi_volver_arriba_sobre: $black;
-$mi_imagen_galeria_borde_normal: $gray-500;
-$mi_imagen_galeria_borde_sobre: $yellow;
-$mi_imagen_galeria_borde_activo: $yellow;
-$mi_llamada_fondo: var(--bs-tertiary-bg);
-$mi_llamada_borde: var(--bs-tertiary-bg);
+$web_volver_arriba_fondo: $gray-900;
+$web_volver_arriba_sobre: $black;
+$web_imagen_galeria_borde_normal: $gray-500;
+$web_imagen_galeria_borde_sobre: $yellow;
+$web_imagen_galeria_borde_activo: $yellow;
+$web_llamada_fondo: var(--bs-tertiary-bg);
+$web_llamada_borde: var(--bs-tertiary-bg);
 @import "../base/componentes";
 
-$mi_cargador_fondo: $gray-800;
+$web_cargador_fondo: $gray-800;
 @import "../base/cargador";
 
-$mi_etiquetas_fondo: $gray-600;
-$mi_etiquetas_texto: $white;
+$web_etiquetas_fondo: $gray-600;
+$web_etiquetas_texto: $white;
 @import "../base/etiquetas";
 
-$mi_alerta_cookies_fondo: $black;
-$mi_alerta_cookies_texto: $white;
+$web_alerta_cookies_fondo: $black;
+$web_alerta_cookies_texto: $white;
 @import "../base/cookies";
 
 @import "../base/formularios";
 @import "../base/menus";
 @import "../base/videos";
 @import "../base/fuentes";
+
+// ESTILOS PERSONALIZADOS ADICIONALES
+

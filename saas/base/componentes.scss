@@ -62,7 +62,7 @@
 	background-image: url(../img/arriba.png);
 	background-repeat: no-repeat;
 	background-position: 50% 48%;
-	background-color: rgba($mi_volver_arriba_fondo, 0.5);
+	background-color: rgba($web_volver_arriba_fondo, 0.5);
 	-webkit-border-radius: 100%;
 	-moz-border-radius: 100%;
 	-o-border-radius: 100%;
@@ -72,7 +72,7 @@
 	transition: all 250ms linear;	
 }
 #web-volver-arriba:hover {
-	background-color: $mi_volver_arriba_sobre;
+	background-color: $web_volver_arriba_sobre;
     position: fixed;
     display: inline;
     z-index: 2147483647;
@@ -92,16 +92,16 @@
     @extend .border-2;
     @extend .rounded;
     @extend .rounded-0;
-    border-color: $mi_imagen_galeria_borde_normal;
+    border-color: $web_imagen_galeria_borde_normal;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 .web-imagen-galeria:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 1rem rgba($mi_imagen_galeria_borde_sobre,0.7);
+    box-shadow: 0 0 1rem rgba($web_imagen_galeria_borde_sobre,0.7);
 }
 .web-imagen-galeria:active {
     transform: scale(1.15);
-    box-shadow: 0 0 1.2rem rgba($mi_imagen_galeria_borde_activo,1);
+    box-shadow: 0 0 1.2rem rgba($web_imagen_galeria_borde_activo,1);
 }
 
 // INSIGNIA (BADGE)
@@ -150,7 +150,7 @@
     position: relative;
     height: auto;
     padding: 0.9rem;
-    background: $mi_llamada_fondo;
+    background: $web_llamada_fondo;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -162,7 +162,7 @@
     position: absolute;
     border-style: solid;
     border-width: 15px 14px 0;
-    border-color: $mi_llamada_borde transparent;
+    border-color: $web_llamada_borde transparent;
     display: block;
     width: 0;
     z-index: 1;
