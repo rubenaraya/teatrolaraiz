@@ -87,11 +87,11 @@ class Web {
 			nombre.innerHTML = '<a href="mailto:' + casilla + '@' + dominio + '">' + casilla + '@' + dominio + '</a>';
 		}
 	}
-	async _ocultarCargador() {
-		const fondo_cargador = document.getElementById('web-fondo-cargador');
-		if (fondo_cargador) {
+	async _ocultarCargando() {
+		const fondo_cargando = document.getElementById('web-fondo-cargando');
+		if (fondo_cargando) {
 			await this._esperar(100);
-			fondo_cargador.style.display = 'none';
+			fondo_cargando.style.display = 'none';
 		}
 	}
 	// Funciones públicas
@@ -178,5 +178,5 @@ document.addEventListener('DOMContentLoaded', function() {
 	W._activarMenus();
 	W._activarScrollTop();
 	new WOW().init();
-	W._ocultarCargador();
+	W._ocultarCargando();
 });

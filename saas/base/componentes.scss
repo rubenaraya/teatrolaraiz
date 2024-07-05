@@ -222,10 +222,22 @@
     font-weight: 400;
     font-size: 0.8rem;
 }
-.web-persona img {
+.web-persona .imagen {
     width: 42px;
     height: 42px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+// PESTAÑAS
+
+.web-tabs-contenido {
+    @extend .border-start;
+    @extend .border-end;
+    @extend .border-bottom;
+    @extend .rounded-bottom;
+    @extend .px-4;
+    @extend .py-3;
+    @extend .border-secondary;
 }
 

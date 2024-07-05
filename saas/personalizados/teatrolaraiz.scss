@@ -26,7 +26,7 @@ $accordion-icon-active-color-dark: $white;
 $accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
 $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
 
-$nav-tabs-border-color: $gray-500;
+$nav-tabs-border-color: $secondary;
 $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
 $nav-tabs-link-hover-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
 
@@ -53,8 +53,8 @@ $web_llamada_fondo: var(--bs-tertiary-bg);
 $web_llamada_borde: var(--bs-tertiary-bg);
 @import "../base/componentes";
 
-$web_cargador_fondo: $gray-800;
-@import "../base/cargador";
+$web_cargando_fondo: $gray-800;
+@import "../base/cargando";
 
 $web_etiquetas_fondo: $gray-600;
 $web_etiquetas_texto: $white;
@@ -65,6 +65,7 @@ $web_alerta_cookies_texto: $white;
 @import "../base/cookies";
 
 @import "../base/formularios";
+@import "../base/tablas";
 @import "../base/menus";
 @import "../base/videos";
 @import "../base/fuentes";
