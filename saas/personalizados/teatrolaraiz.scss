@@ -23,7 +23,15 @@ $link-color-dark: $body-color-dark;
 
 // ESTILOS ESPECIFICOS
 
-@import "../base/comunes";
+$mi_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
+$mi_sombra_color: var(--bs-body-color-rgb);
+$mi_contenedor_sombra_color: var(--bs-body-color-rgb);
+$mi_contenedor_fondo: var(--bs-bg-color);
+$mi_letras_oscuras_sombra: $gray-500;
+$mi_letras_claras_sombra: $gray-800;
+$mi_letras_oscuras_texto: $black;
+$mi_letras_claras_texto: $white;
+@import "../base/generales";
 
 $mi_volver_arriba_fondo: $gray-900;
 $mi_volver_arriba_sobre: $black;
@@ -33,12 +41,6 @@ $mi_imagen_galeria_borde_activo: $yellow;
 $mi_llamada_fondo: var(--bs-tertiary-bg);
 $mi_llamada_borde: var(--bs-tertiary-bg);
 @import "../base/componentes";
-
-$mi_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
-$mi_sombra_color: var(--bs-body-color-rgb);
-$mi_contenedor_sombra_color: var(--bs-body-color-rgb);
-$mi_contenedor_fondo: var(--bs-bg-color);
-@import "../base/generales";
 
 $mi_cargador_fondo: $gray-800;
 @import "../base/cargador";
@@ -53,4 +55,5 @@ $mi_alerta_cookies_texto: $white;
 
 @import "../base/formularios";
 @import "../base/menus";
+@import "../base/videos";
 @import "../base/fuentes";

@@ -144,7 +144,7 @@
 	padding-bottom: 2rem;
 }
 
-// LLAMADA
+// LLAMADAS
 
 .web-llamada {
     position: relative;
@@ -168,5 +168,64 @@
     z-index: 1;
     bottom: -15px;
     left: 30px;
+}
+
+// CAJAS
+
+.web-caja-icono {
+    @extend .mt-3;
+    font-size: 40px;
+}
+.web-caja-texto {
+    @extend .mb-3;
+    font-size: 0.9em;
+}
+.web-caja-imagen {
+	margin: 0.8rem 0 1rem 0;
+	width: 60%;
+	border-radius: 1.5rem;
+}
+
+// MIEMBROS
+
+.web-miembros {
+    @extend .my-2;
+    min-width: 300px;
+}
+.web-miembros .nombre {
+    @extend .mt-2;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.web-miembros .leyenda {
+    @extend .mb-2;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.web-miembros .imagen {
+    @extend .img-fluid;
+    @extend .rounded-circle;
+}
+
+// PERSONAS
+
+.web-persona {
+    margin-top: 25px;
+    margin-left: 22px;
+    margin-bottom: 25px;
+}
+.web-persona .nombre {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.web-persona .leyenda {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.web-persona img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 

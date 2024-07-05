@@ -1,0 +1,41 @@
+//saas\comunes.scss
+
+// VIDEO EN FONDO DE PAGINA
+
+.web-fondo-pagina {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.web-fondo-pagina .web-video-fondo {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    object-fit:cover;
+}
+
+// VIDEO EN FONDO DE SECCION
+
+.web-fondo-seccion {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+}
+.web-fondo-seccion .web-video-fondo {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+}
+
