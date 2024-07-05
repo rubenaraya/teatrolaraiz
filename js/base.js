@@ -30,7 +30,7 @@ class Web {
 			size: 'fullscreen',
 			gallery: nombre,
 		};
-		document.querySelectorAll('.web-lightbox').forEach((el) => el.addEventListener('click', (e) => {
+		document.querySelectorAll('.lightbox').forEach((el) => el.addEventListener('click', (e) => {
 			e.preventDefault();
 			const lightbox = new Lightbox(el, options);
 			if (lightbox) {
@@ -173,7 +173,7 @@ const W = new Web();
 document.addEventListener('DOMContentLoaded', function() {
     //W._comprobarCookie(cookie);
 	W._activarContacto(dominio);
-	W._activarGaleria('galeria');
+	W._activarGaleria(galeria);
 	W._activarTooltips();
 	W._activarMenus();
 	W._activarScrollTop();
