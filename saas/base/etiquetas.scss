@@ -1,0 +1,100 @@
+//saas\base\etiquetas.scss
+
+// AREA ETIQUETAS
+
+.web-etiquetas {
+    background-color: $mi_etiquetas_fondo;
+    color: $mi_etiquetas_texto;
+}
+
+// ETIQUETAS DE COLORES
+
+.web-etiqueta-amarilla {
+    background: rgba($yellow, 0.5);
+    color: $black;
+}
+.web-etiqueta-verde {
+    background: rgba($green, 0.5);
+    color: $white;
+}
+.web-etiqueta-roja {
+    background: rgba($red, 0.5);
+    color: $white;
+}
+.web-etiqueta-celeste {
+    background: rgba($cyan, 0.5);
+    color: $black;
+}
+.web-etiqueta-naranja {
+    background: rgba($orange, 0.5);
+    color: $white;
+}
+.web-etiqueta-purpura {
+    background: rgba($purple, 0.5);
+    color: $white;
+}
+.web-etiqueta-rosada {
+    background: rgba($pink, 0.5);
+    color: $black;
+}
+.web-etiqueta-azul {
+    background: rgba($blue, 0.5);
+    color: $white;
+}
+.web-etiqueta-indigo {
+    background: rgba($indigo, 0.5);
+    color: $white;
+}
+.web-etiqueta-turquesa {
+    background: rgba($teal, 0.5);
+    color: $black;
+}
+.web-etiqueta-blanca {
+    background: rgba($white, 0.5);
+    color: $black;
+}
+
+// INCLINACIONES DE ETIQUETAS
+
+.web-mas-3 {
+    transform: rotate(+3deg);
+}
+.web-men-3 {
+    transform: rotate(-3deg);
+}
+.web-mas-5 {
+    transform: rotate(+5deg);
+}
+.web-men-5 {
+    transform: rotate(-5deg);
+}
+.web-mas-7 {
+    transform: rotate(+7deg);
+}
+.web-men-7 {
+    transform: rotate(-7deg);
+}
+.web-mas-9 {
+    transform: rotate(+9deg);
+}
+.web-men-9 {
+    transform: rotate(-9deg);
+}
+.web-mas-11 {
+    transform: rotate(+11deg);
+}
+.web-men-11 {
+    transform: rotate(-11deg);
+}
+.web-mas-13 {
+    transform: rotate(+13deg);
+}
+.web-men-13 {
+    transform: rotate(-13deg);
+}
+.web-mas-15 {
+    transform: rotate(+15deg);
+}
+.web-men-15 {
+    transform: rotate(-15deg);
+}

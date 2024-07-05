@@ -1,0 +1,60 @@
+//saas\base\menus.scss
+
+// MENU VERTICAL (OFFCANVAS)
+
+#web-barra-vertical {
+    @extend .navbar;
+    @extend .fixed-top;
+}
+#web-barra-vertical .web-menu {
+    @extend .navbar-nav;
+    @extend .justify-content-end;
+    @extend .flex-grow-1;
+    @extend .pe-3;
+    @extend .text-start;
+}
+#web-barra-vertical .web-submenu {
+    @extend .text-start;
+}
+
+// MENU HORIZONTAL (COLLAPSE)
+
+#web-barra-horizontal {
+    @extend .navbar;
+    @extend .sticky-top;
+    @extend .navbar-expand-lg;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 0.9rem;
+}
+#web-barra-horizontal .web-menu {
+    @extend .navbar-nav;
+    @extend .ms-auto;
+    @extend .mb-2;
+    @extend .mb-lg-0;
+    @extend .text-start;
+}
+#web-barra-horizontal .web-submenu {
+    @extend .text-start;
+}
+
+// ELEMENTOS DE MENU
+
+.web-item-menu {
+    @extend .ps-2;
+    @extend .pe-3;
+    font-size: 0.9rem;
+}
+.web-item-submenu {
+    @extend .py-2;
+    @extend .ps-2;
+    @extend .pe-3;
+    font-size: 0.9rem;
+}
+.web-marca-menu {
+    @extend .navbar-brand;
+    margin-right: 0.4rem;
+    font-size: 1.6rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}

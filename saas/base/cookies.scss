@@ -1,0 +1,41 @@
+//saas\base\cookies.scss
+
+.web-alerta-cookies {
+    @extend .alert;
+    @extend .text-center;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 !important;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 0;
+    transform: translateY(100%);
+    transition: all 500ms ease-out;
+    color: $mi_alerta_cookies_texto;
+    background: $mi_alerta_cookies_fondo;
+}
+.web-alerta-cookies.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+    transition-delay: 1000ms;
+}
+.web-alerta-cookies a {
+    color: $mi_alerta_cookies_texto;
+    text-decoration: underline
+}
+.web-alerta-cookies .web-aceptar-cookies {
+    margin-left: 10px;
+    vertical-align: baseline;
+}
+.web-aceptar-cookies {
+    @extend .btn;
+    @extend .btn-light;
+    @extend .btn-sm;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}

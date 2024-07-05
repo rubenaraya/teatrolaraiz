@@ -1,5 +1,5 @@
 //saas\personalizados\teatrolaraiz.scss
-@import "../colores";
+@import "../base/colores";
 
 // PERSONALIZACION DE VARIABLES
 
@@ -20,5 +20,31 @@ $link-color:      $body-color;
 $link-color-dark: $body-color-dark;
 
 @import "../bootstrap/scss/bootstrap";
-@import "../comunes";
-@import "../fuentes";
+
+// ESTILOS ESPECIFICOS
+
+@import "../base/comunes";
+
+$mi_volver_arriba_fondo: $gray-900;
+$mi_volver_arriba_sobre: $black;
+$mi_imagen_galeria_borde_normal: $gray-500;
+$mi_imagen_galeria_borde_sobre: $yellow;
+$mi_imagen_galeria_borde_activo: $yellow;
+@import "../base/componentes";
+
+$mi_sombra_color: var(--bs-body-color-rgb);
+@import "../base/generales";
+
+$mi_cargador_fondo: $gray-800;
+@import "../base/cargador";
+
+$mi_etiquetas_fondo: $gray-600;
+$mi_etiquetas_texto: $white;
+@import "../base/etiquetas";
+
+$mi_alerta_cookies_fondo: $black;
+$mi_alerta_cookies_texto: $white;
+@import "../base/cookies";
+
+@import "../base/menus";
+@import "../base/fuentes";

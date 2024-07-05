@@ -11,15 +11,15 @@ class Web {
 		await this.sleep(tiempo);
 	}
 	_activarScrollTop() {
-		const scroll_top = document.querySelector('#mi_scroll_top');
-		if (scroll_top) {
+		const volver_arriba = document.querySelector('#web-volver-arriba');
+		if (volver_arriba) {
 			window.addEventListener('scroll', function() {
 				let scrollDistance = window.scrollY;
 				let scrollThreshold = window.innerWidth > 800 ? 500 : 250;
 				if (scrollDistance > scrollThreshold) {
-					scroll_top.style.display = 'block';
+					volver_arriba.style.display = 'block';
 				} else {
-					scroll_top.style.display = 'none';
+					volver_arriba.style.display = 'none';
 				}
 			});
 		}
@@ -30,7 +30,7 @@ class Web {
 			size: 'fullscreen',
 			gallery: nombre,
 		};
-		document.querySelectorAll('.mi_lightbox').forEach((el) => el.addEventListener('click', (e) => {
+		document.querySelectorAll('.web-lightbox').forEach((el) => el.addEventListener('click', (e) => {
 			e.preventDefault();
 			const lightbox = new Lightbox(el, options);
 			if (lightbox) {
@@ -43,40 +43,40 @@ class Web {
 		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 	}
 	_activarMenus() {
-		const mi_alternar_menu = document.getElementById('mi_alternar_menu');
-		const mi_control_menu = document.querySelector('#mi_control_menu');
-		if (mi_alternar_menu && mi_control_menu) {
-			mi_control_menu.addEventListener('click', e => {
+		const alternar_menu = document.getElementById('web-alternar-menu');
+		const control_menu = document.querySelector('#web-control-menu');
+		if (alternar_menu && control_menu) {
+			control_menu.addEventListener('click', e => {
 				let elemento = e.target;
-				let esDropdown = false;
-				while (elemento && elemento !== mi_control_menu) {
+				let esDesplegable = false;
+				while (elemento && elemento !== control_menu) {
 					if (elemento.classList.contains('dropdown')) {
-						esDropdown = true;
+						esDesplegable = true;
 						break;
 					}
 					elemento = elemento.parentElement;
 				}
-				const esVentanaPequena = window.innerWidth < 992;
-				if (!esDropdown && esVentanaPequena && !mi_alternar_menu.classList.contains('collapsed')) {
-					mi_alternar_menu.click();
+				const esVentanaChica = window.innerWidth < 992;
+				if (!esDesplegable && esVentanaChica && !alternar_menu.classList.contains('collapsed')) {
+					alternar_menu.click();
 				}
 			});
 		}
 	}
 	_comprobarCookie(nombre) {
 		"use strict";
-		let cookieAlert = document.querySelector(".mi_alerta_cookies");
-		let acceptCookies = document.querySelector(".mi_aceptar_cookies");
-		if (!cookieAlert) {
+		let alertaCookies = document.querySelector(".web-alerta-cookies");
+		let aceptarCookies = document.querySelector(".web-aceptar-cookies");
+		if (!alertaCookies) {
 			return;
 		}
-		cookieAlert.offsetHeight;
+		alertaCookies.offsetHeight;
 		if (leerCookie(nombre).length == 0) {
-			cookieAlert.classList.add("show");
+			alertaCookies.classList.add("show");
 		}
-		acceptCookies.addEventListener("click", function () {
+		aceptarCookies.addEventListener("click", function () {
 			escribirCookie(nombre, "0", 365);
-			cookieAlert.classList.remove("show");
+			alertaCookies.classList.remove("show");
 			window.dispatchEvent(new Event("cookieAlertAccept"))
 		});
 	}
@@ -88,28 +88,27 @@ class Web {
 		}
 	}
 	async _ocultarCargador() {
-		const mi_cargador = document.getElementById('mi_cargador');
-		const mi_container = document.getElementById('mi_container');
-		if (mi_cargador && mi_container) {
+		const fondo_cargador = document.getElementById('web-fondo-cargador');
+		if (fondo_cargador) {
 			await this._esperar(100);
-			mi_cargador.style.display = 'none';
+			fondo_cargador.style.display = 'none';
 		}
 	}
 	// Funciones públicas
 	volverArriba() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-	mostrarInformacion(mensaje='', tipo='success', selector='#mi_notificacion') {
-		const informacion = document.querySelector(selector);
-		const contenedor = document.querySelector('#mi_mensaje');
-		if (informacion && contenedor) {
-			informacion.classList.remove('text-bg-success');
-			informacion.classList.remove('text-bg-danger');
-			informacion.classList.remove('text-bg-warning');
-			informacion.classList.remove('text-bg-info');
-			informacion.classList.add(`text-bg-${tipo}`);
+	mostrarNotificacion(mensaje='', tipo='success', selector='#web-notificacion') {
+		const notificacion = document.querySelector(selector);
+		const contenedor = document.querySelector('#web-notificacion .web-mensaje');
+		if (notificacion && contenedor) {
+			notificacion.classList.remove('text-bg-success');
+			notificacion.classList.remove('text-bg-danger');
+			notificacion.classList.remove('text-bg-warning');
+			notificacion.classList.remove('text-bg-info');
+			notificacion.classList.add(`text-bg-${tipo}`);
 			contenedor.innerHTML = mensaje;
-			const toast = bootstrap.Toast.getOrCreateInstance(informacion)
+			const toast = bootstrap.Toast.getOrCreateInstance(notificacion)
 			toast.show();
 		}
 	}
@@ -132,13 +131,13 @@ class Web {
 			mensaje  = 'No fue posible enviar tu mensaje, intenta nuevamente en otro momento';
 		}
 		modal.hide();
-		this.mostrarInformacion(mensaje, tipo);
+		this.mostrarNotificacion(mensaje, tipo);
 	}
 
 	// Funciones pendientes
-	abrirVentana(contenido, selector='mi_ventana') {
+	abrirVentana(contenido, selector='web-ventana') {
 	}
-	cerrarVentana(selector='mi_ventana') {
+	cerrarVentana(selector='web-ventana') {
 	}
 	alternarPaneles(ocultar, mostrar) {}
 

@@ -1,0 +1,267 @@
+//saas\comunes.scss
+
+// ESTILOS PERSONALIZADOS
+
+/* Variables utilizadas: $gray-900, $gray-500, $gray-600, $gray-800, $green, $red, $blue, $cyan, $orange, $purple, $indigo, $pink, $white, $black, $yellow, $teal */
+
+.mi_cuerpo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    overflow-x: hidden;
+}
+
+.mi_container {
+    @extend .container;
+    @extend .text-center;
+    @extend .my-3;
+    @extend .px-0;
+    @extend .py-3;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 1.2rem rgba(var(--bs-body-color-rgb), 0.5);
+    background-color: var(--bs-bg-color);
+    width: 95%;
+    max-width: 960px;
+    min-width: 360px;
+}
+.mi_container_2 {
+    @extend .container;
+    @extend .text-center;
+    @extend .px-0;
+    width: 100%;
+    max-width: 960px;
+}
+
+.mi_boton_rrss {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .btn-lg;
+    @extend .me-1;
+}
+
+.mi_burbuja {
+    position: relative;
+    height: auto;
+    padding: 0.9rem;
+    background: var(--bs-tertiary-bg);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.mi_burbuja:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 14px 0;
+    border-color: var(--bs-tertiary-bg) transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 30px;
+}
+
+.mi_video_16x9 {
+    @extend .ratio;
+    @extend .ratio-16x9;
+    @extend .mt-4;
+    @extend .mb-4;
+}
+
+.mi_mapa {
+    @extend .ratio;
+    @extend .ratio-4x3;
+    @extend .w-75;
+    @extend .ms-auto;
+    @extend .me-auto;
+}
+
+.mi_logo {
+    @extend .mx-auto;
+    @extend .mt-2;
+    @extend .mb-2;
+}
+
+.mi_titulo {
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mi_paralaje {
+	display: table;
+	min-height: 180px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 2rem;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 2rem;
+}
+
+.mi_letras_oscuras {
+    color: $black;
+	text-shadow: 0 0 1px $gray-500, -1px -1px 0 $gray-500, 1px -1px 0 $gray-500, -1px 1px 0 $gray-500, 1px 1px 0 $gray-500;
+    vertical-align: middle;
+    font-size: 1.4rem;
+	font-weight: 600;
+    width: 100%;
+}
+.mi_letras_claras {
+    color: $white;
+	text-shadow: 0 0 1px $gray-800, -1px -1px 0 $gray-800, 1px -1px 0 $gray-800, -1px 1px 0 $gray-800, 1px 1px 0 $gray-800;
+    vertical-align: middle;
+    font-size: 1.5rem;
+	font-weight: 500;
+    width: 100%;
+}
+
+.mi_3_columnas {
+    @extend .col-sm-6;
+    @extend .col-md-4;
+    @extend .col-lg-4;
+}
+
+.mi_icono_tarjeta {
+    @extend .mt-3;
+    font-size: 40px;
+}
+.mi_texto_tarjeta {
+    @extend .mb-3;
+    font-size: 0.9em;
+}
+.mi_imagen_tarjeta {
+	margin: 0.8rem 0 1rem 0;
+	width: 60%;
+	border-radius: 1.5rem;
+}
+
+.mi_avatar {
+    margin-top: 25px;
+    margin-left: 22px;
+    margin-bottom: 25px;
+}
+.mi_avatar .nombre {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.mi_avatar .leyenda {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.mi_avatar img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mi_persona {
+    @extend .my-2;
+    min-width: 300px;
+}
+.mi_persona .nombre {
+    @extend .mt-2;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.mi_persona .leyenda {
+    @extend .mb-2;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.mi_persona img {
+    @extend .img-fluid;
+    @extend .rounded-circle;
+}
+
+.mi_label {
+    @extend .col-3;
+    @extend .col-form-label;
+    line-height: 2;
+}
+.mi_campo {
+    @extend .col-9;
+    line-height: 2;
+}
+
+.mi_simbolo {
+    width: 1rem;
+    height: 1rem;
+    fill: currentcolor;
+}
+
+.mi_fondo_pagina {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.mi_video_pagina {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    object-fit:cover;
+}
+
+.mi_seccion_con_video {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+}
+.mi_seccion_con_video .mi_video_fondo {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+}
+.mi_contenido_sobre_video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 1;
+    color: $white;
+    text-align: center;
+    padding: 1rem;
+}
+.mi_ocultar_pos_animacion {
+    visibility: hidden !important;
+    animation-fill-mode: forwards;
+}
+
+.mi_marco {
+    width: 95%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mi_icono {
+    @extend .col-3;
+    @extend .border;
+    @extend .border-secondary;
+    @extend .mx-1;
+    @extend .my-1;
+    @extend .pt-2;
+    @extend .rounded;
+    font-size: 0.75rem;
+    width: 22%;
+}
+.mi_icono i {
+    @extend .fs-2;
+}
