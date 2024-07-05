@@ -30,9 +30,14 @@ $mi_volver_arriba_sobre: $black;
 $mi_imagen_galeria_borde_normal: $gray-500;
 $mi_imagen_galeria_borde_sobre: $yellow;
 $mi_imagen_galeria_borde_activo: $yellow;
+$mi_llamada_fondo: var(--bs-tertiary-bg);
+$mi_llamada_borde: var(--bs-tertiary-bg);
 @import "../base/componentes";
 
+$mi_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
 $mi_sombra_color: var(--bs-body-color-rgb);
+$mi_contenedor_sombra_color: var(--bs-body-color-rgb);
+$mi_contenedor_fondo: var(--bs-bg-color);
 @import "../base/generales";
 
 $mi_cargador_fondo: $gray-800;
@@ -46,5 +51,6 @@ $mi_alerta_cookies_fondo: $black;
 $mi_alerta_cookies_texto: $white;
 @import "../base/cookies";
 
+@import "../base/formularios";
 @import "../base/menus";
 @import "../base/fuentes";

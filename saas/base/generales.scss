@@ -1,5 +1,42 @@
 //saas\base\generales.scss
 
+// CONTENEDORES
+
+.web-cuerpo {
+    font-family: $mi_cuerpo_fuente;
+    font-size: 1rem;
+    overflow-x: hidden;
+}
+
+.web-contenedor-caja {
+    @extend .container;
+    @extend .text-center;
+    @extend .my-3;
+    @extend .px-0;
+    @extend .py-3;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 1.2rem rgba($mi_contenedor_sombra_color, 0.5);
+    background-color: $mi_contenedor_fondo;
+    width: 95%;
+    max-width: 960px;
+    min-width: 360px;
+}
+
+.web-contenedor-transp {
+    @extend .container;
+    @extend .text-center;
+    @extend .px-0;
+    width: 100%;
+    max-width: 960px;
+}
+
+.web-marco {
+    width: 95%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 // SOMBRAS
 
 .web-sombra {
@@ -36,4 +73,29 @@
     @extend .mb-2;
     border-radius: 50px;
 }
+
+.web-boton-cuadrado {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .btn-lg;
+    @extend .me-1;
+}
+
+// SIMBOLOS (SVG)
+
+.web-simbolo {
+    width: 1rem;
+    height: 1rem;
+    fill: currentcolor;
+}
+
+// COLUMNAS
+
+.web-columnas-3 {
+    @extend .col-sm-6;
+    @extend .col-md-4;
+    @extend .col-lg-4;
+}
+
+// 
 

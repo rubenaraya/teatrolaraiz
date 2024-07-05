@@ -1,82 +1,5 @@
 //saas\comunes.scss
 
-// ESTILOS PERSONALIZADOS
-
-/* Variables utilizadas: $gray-900, $gray-500, $gray-600, $gray-800, $green, $red, $blue, $cyan, $orange, $purple, $indigo, $pink, $white, $black, $yellow, $teal */
-
-.mi_cuerpo {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
-    overflow-x: hidden;
-}
-
-.mi_container {
-    @extend .container;
-    @extend .text-center;
-    @extend .my-3;
-    @extend .px-0;
-    @extend .py-3;
-    border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem rgba(var(--bs-body-color-rgb), 0.5);
-    background-color: var(--bs-bg-color);
-    width: 95%;
-    max-width: 960px;
-    min-width: 360px;
-}
-.mi_container_2 {
-    @extend .container;
-    @extend .text-center;
-    @extend .px-0;
-    width: 100%;
-    max-width: 960px;
-}
-
-.mi_boton_rrss {
-    @extend .btn;
-    @extend .btn-secondary;
-    @extend .btn-lg;
-    @extend .me-1;
-}
-
-.mi_burbuja {
-    position: relative;
-    height: auto;
-    padding: 0.9rem;
-    background: var(--bs-tertiary-bg);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-.mi_burbuja:after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 15px 14px 0;
-    border-color: var(--bs-tertiary-bg) transparent;
-    display: block;
-    width: 0;
-    z-index: 1;
-    bottom: -15px;
-    left: 30px;
-}
-
-.mi_video_16x9 {
-    @extend .ratio;
-    @extend .ratio-16x9;
-    @extend .mt-4;
-    @extend .mb-4;
-}
-
-.mi_mapa {
-    @extend .ratio;
-    @extend .ratio-4x3;
-    @extend .w-75;
-    @extend .ms-auto;
-    @extend .me-auto;
-}
-
 .mi_logo {
     @extend .mx-auto;
     @extend .mt-2;
@@ -87,19 +10,6 @@
     font-style: italic;
     margin-top: 1rem;
     margin-bottom: 2rem;
-}
-
-.mi_paralaje {
-	display: table;
-	min-height: 180px; 
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding-top: 2rem;
-	padding-left: 10%;
-	padding-right: 10%;
-	padding-bottom: 2rem;
 }
 
 .mi_letras_oscuras {
@@ -117,12 +27,6 @@
     font-size: 1.5rem;
 	font-weight: 500;
     width: 100%;
-}
-
-.mi_3_columnas {
-    @extend .col-sm-6;
-    @extend .col-md-4;
-    @extend .col-lg-4;
 }
 
 .mi_icono_tarjeta {
@@ -178,22 +82,6 @@
     @extend .rounded-circle;
 }
 
-.mi_label {
-    @extend .col-3;
-    @extend .col-form-label;
-    line-height: 2;
-}
-.mi_campo {
-    @extend .col-9;
-    line-height: 2;
-}
-
-.mi_simbolo {
-    width: 1rem;
-    height: 1rem;
-    fill: currentcolor;
-}
-
 .mi_fondo_pagina {
     position: absolute;
     top: 0;
@@ -242,13 +130,6 @@
 .mi_ocultar_pos_animacion {
     visibility: hidden !important;
     animation-fill-mode: forwards;
-}
-
-.mi_marco {
-    width: 95%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .mi_icono {

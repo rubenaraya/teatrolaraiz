@@ -1,0 +1,14 @@
+//saas\base\formularios.scss
+
+// COLUMNAS CONTENEDORAS
+
+.web-form-label {
+    @extend .col-3;
+    @extend .col-form-label;
+    line-height: 2;
+}
+
+.web-form-campo {
+    @extend .col-9;
+    line-height: 2;
+}

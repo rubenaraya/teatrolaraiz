@@ -112,3 +112,61 @@
     font-weight: 500;
 }
 
+// INCRUSTABLES (EMBEDDINGS)
+
+.web-mapa {
+    @extend .ratio;
+    @extend .ratio-4x3;
+    @extend .w-75;
+    @extend .ms-auto;
+    @extend .me-auto;
+}
+
+.web-video-16x9 {
+    @extend .ratio;
+    @extend .ratio-16x9;
+    @extend .mt-4;
+    @extend .mb-4;
+}
+
+// PARALAJE
+
+.web-paralaje {
+	display: table;
+	min-height: 180px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 2rem;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 2rem;
+}
+
+// LLAMADA
+
+.web-llamada {
+    position: relative;
+    height: auto;
+    padding: 0.9rem;
+    background: $mi_llamada_fondo;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.web-llamada:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 14px 0;
+    border-color: $mi_llamada_borde transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 30px;
+}
+
