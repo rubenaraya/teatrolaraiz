@@ -121,30 +121,30 @@ $web_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
 $web_sombra_color: var(--bs-body-color-rgb);
 $web_contenedor_sombra_color: var(--bs-body-color-rgb);
 $web_contenedor_fondo: var(--bs-bg-color);
-$web_letras_oscuras_sombra: $gray-500;
-$web_letras_claras_sombra: $gray-800;
-$web_letras_oscuras_texto: $black;
-$web_letras_claras_texto: $white;
+$web_letras_oscuras_sombra: var(--bs-gray-500);
+$web_letras_claras_sombra: var(--bs-gray-800);
+$web_letras_oscuras_texto: var(--bs-black);
+$web_letras_claras_texto: var(--bs-white);
 @import "../base/generales";
 
-$web_volver_arriba_fondo: $gray-900;
-$web_volver_arriba_sobre: $black;
-$web_imagen_galeria_borde_normal: $gray-500;
-$web_imagen_galeria_borde_sobre: $yellow;
-$web_imagen_galeria_borde_activo: $yellow;
+$web_volver_arriba_fondo: var(--bs-gray-900);
+$web_volver_arriba_sobre: var(--bs-black);
+$web_imagen_galeria_borde_normal: var(--bs-gray-500);
+$web_imagen_galeria_borde_sobre: var(--bs-yellow);
+$web_imagen_galeria_borde_activo: var(--bs-yellow);
 $web_llamada_fondo: var(--bs-tertiary-bg);
 $web_llamada_borde: var(--bs-tertiary-bg);
 @import "../base/componentes";
 
-$web_cargando_fondo: $gray-800;
+$web_cargando_fondo: var(--bs-gray-800);
 @import "../base/cargando";
 
-$web_etiquetas_fondo: $gray-600;
-$web_etiquetas_texto: $white;
+$web_etiquetas_fondo: var(--bs-gray-600);
+$web_etiquetas_texto: var(--bs-white);
 @import "../base/etiquetas";
 
-$web_alerta_cookies_fondo: $black;
-$web_alerta_cookies_texto: $white;
+$web_alerta_cookies_fondo: var(--bs-black);
+$web_alerta_cookies_texto: var(--bs-white);
 @import "../base/cookies";
 
 @import "../base/formularios";
