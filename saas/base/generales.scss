@@ -3,7 +3,7 @@
 // CONTENEDORES
 
 .web-cuerpo {
-    font-family: $web_cuerpo_fuente;
+    font-family: $web_fuente_base;
     font-size: 1rem;
     overflow-x: hidden;
 }
@@ -15,8 +15,8 @@
     @extend .px-0;
     @extend .py-3;
     border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem rgba($web_contenedor_sombra_color, 0.5);
-    background-color: $web_contenedor_fondo;
+    box-shadow: 0 0 1.2rem rgba(var(--bs-body-color-rgb), 0.5);
+    background-color: var(--bs-bg-color);
     width: 95%;
     max-width: 960px;
     min-width: 360px;
@@ -40,13 +40,13 @@
 // SOMBRAS
 
 .web-sombra {
-    box-shadow: 0 0.5rem 1rem rgba($web_sombra_color, .25);
+    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
 }
 .web-sombra-sm {
-    box-shadow: 0 0.1rem .5rem rgba($web_sombra_color, .25);
+    box-shadow: 0 0.1rem .5rem rgba(var(--bs-body-color-rgb), .25);
 }
 .web-sombra-lg {
-    box-shadow: 0 0.25rem 2rem rgba($web_sombra_color, .25);
+    box-shadow: 0 0.25rem 2rem rgba(var(--bs-body-color-rgb), .25);
 }
 
 // TAMAÑOS DE FUENTE
@@ -129,16 +129,16 @@
 }
 
 .web-letras-oscuras {
-    color: $web_letras_oscuras_texto;
-	text-shadow: 0 0 1px $web_letras_oscuras_sombra, -1px -1px 0 $web_letras_oscuras_sombra, 1px -1px 0 $web_letras_oscuras_sombra, -1px 1px 0 $web_letras_oscuras_sombra, 1px 1px 0 $web_letras_oscuras_sombra;
+    color: var(--bs-black);
+	text-shadow: 0 0 1px var(--bs-gray-500), -1px -1px 0 var(--bs-gray-500), 1px -1px 0 var(--bs-gray-500), -1px 1px 0 var(--bs-gray-500), 1px 1px 0 var(--bs-gray-500);
     vertical-align: middle;
     font-size: 1.4rem;
 	font-weight: 600;
     width: 100%;
 }
 .web-letras-claras {
-    color: $web_letras_claras_texto;
-	text-shadow: 0 0 1px $web_letras_claras_sombra, -1px -1px 0 $web_letras_claras_sombra, 1px -1px 0 $web_letras_claras_sombra, -1px 1px 0 $web_letras_claras_sombra, 1px 1px 0 $web_letras_claras_sombra;
+    color: var(--bs-white);
+	text-shadow: 0 0 1px var(--bs-gray-800), -1px -1px 0 var(--bs-gray-800), 1px -1px 0 var(--bs-gray-800), -1px 1px 0 var(--bs-gray-800), 1px 1px 0 var(--bs-gray-800);
     vertical-align: middle;
     font-size: 1.5rem;
 	font-weight: 500;

@@ -37,7 +37,7 @@
     };
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
       const storedTheme = getStoredTheme();
-      if (!['light', 'dark', 'rojizo', 'amarillento', 'verdoso', 'azulado', 'vinoso', 'parduzco'].includes(storedTheme)) {
+      if (!['light', 'dark', 'rojizo', 'amarillento', 'verdoso', 'azulado', 'anaranjado'].includes(storedTheme)) {
         setTheme(getPreferredTheme());
       }
     });

@@ -15,8 +15,8 @@
     border-radius: 0;
     transform: translateY(100%);
     transition: all 500ms ease-out;
-    color: $web_alerta_cookies_texto;
-    background: $web_alerta_cookies_fondo;
+    color: var(--bs-bg-color);
+    background: var(--bs-body-color);
 }
 .web-alerta-cookies.show {
     opacity: 1;
@@ -25,7 +25,7 @@
     transition-delay: 1000ms;
 }
 .web-alerta-cookies a {
-    color: $web_alerta_cookies_texto;
+    color: var(--bs-bg-color);
     text-decoration: underline
 }
 .web-alerta-cookies .web-aceptar-cookies {

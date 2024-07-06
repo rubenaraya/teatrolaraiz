@@ -32,45 +32,19 @@ $nav-tabs-border-color: $secondary;
 $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
 $nav-tabs-link-hover-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
 
+$web_fuente_base: Verdana, Geneva, Tahoma, sans-serif;
+
 // ----------------------------------------------
 // BOOTSTRAP (version 5.3.3)
 
 // Configuracion
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
-
-// ----------------------------------------------
-// Personalizacion de colores
-
-$azulino: #000080;
-$custom-colors: (
-  "azulino": $azulino
-);
-$theme-colors: map-merge($theme-colors, $custom-colors);
-
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/utilities";
 
-// Modo Light
-$custom-colors-text: ("azulino": $azulino);
-$theme-colors-text: map-merge($theme-colors-text, $custom-colors-text);
-$custom-colors-bg-subtle: ("azulino": tint-color($azulino, 80%)); 
-$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $custom-colors-bg-subtle);
-$custom-colors-border-subtle: ("azulino": tint-color($azulino, 50%)); 
-$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $custom-colors-border-subtle);
-
-// Modo Dark
-$custom-colors-text-dark: ("azulino": tint-color($azulino, 80%));
-$theme-colors-text-dark: map-merge($theme-colors-text-dark, $custom-colors-text-dark);
-$custom-colors-bg-subtle-dark: ("azulino": tint-color($azulino, 30%));
-$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $custom-colors-bg-subtle-dark);
-$custom-colors-border-subtle-dark: ("azulino": tint-color($azulino, 80%));
-$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $custom-colors-border-subtle-dark);
-
-// ----------------------------------------------
-
-// Diseño & componentes
+// Diseño & componentes & extras
 @import "../bootstrap/scss/root";
 @import "../bootstrap/scss/reboot";
 @import "../bootstrap/scss/type";
@@ -96,62 +70,26 @@ $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $c
 @import "../bootstrap/scss/tooltip";
 @import "../bootstrap/scss/carousel";
 @import "../bootstrap/scss/offcanvas";
-//@import "../bootstrap/scss/placeholders";
-//@import "../bootstrap/scss/breadcrumb";
-//@import "../bootstrap/scss/pagination";
-//@import "../bootstrap/scss/progress";
-//@import "../bootstrap/scss/popover";
-//@import "../bootstrap/scss/spinners";
-
-// Ayudantes
 @import "../bootstrap/scss/helpers";
-
-// Utilidades
 @import "../bootstrap/scss/utilities/api";
 
 // ----------------------------------------------
-// TEMAS PERSONALIZADOS (JUEGOS DE COLORES)
+// TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
 
 @import "../temas/amarillento";
 @import "../temas/azulado";
-@import "../temas/parduzco";
+@import "../temas/anaranjado";
 @import "../temas/rojizo";
 @import "../temas/verdoso";
-@import "../temas/vinoso";
 
 // ----------------------------------------------
 // ESTILOS PROPIOS DE LA PLANTILLA (WEB)
 
-$web_cuerpo_fuente: Verdana, Geneva, Tahoma, sans-serif;
-$web_sombra_color: var(--bs-body-color-rgb);
-$web_contenedor_sombra_color: var(--bs-body-color-rgb);
-$web_contenedor_fondo: var(--bs-bg-color);
-$web_letras_oscuras_sombra: var(--bs-gray-500);
-$web_letras_claras_sombra: var(--bs-gray-800);
-$web_letras_oscuras_texto: var(--bs-black);
-$web_letras_claras_texto: var(--bs-white);
 @import "../base/generales";
-
-$web_volver_arriba_fondo: var(--bs-gray-900);
-$web_volver_arriba_sobre: var(--bs-black);
-$web_imagen_galeria_borde_normal: var(--bs-gray-500);
-$web_imagen_galeria_borde_sobre: var(--bs-yellow);
-$web_imagen_galeria_borde_activo: var(--bs-yellow);
-$web_llamada_fondo: var(--bs-tertiary-bg);
-$web_llamada_borde: var(--bs-tertiary-bg);
 @import "../base/componentes";
-
-$web_cargando_fondo: var(--bs-gray-800);
 @import "../base/cargando";
-
-$web_etiquetas_fondo: var(--bs-gray-600);
-$web_etiquetas_texto: var(--bs-white);
 @import "../base/etiquetas";
-
-$web_alerta_cookies_fondo: var(--bs-black);
-$web_alerta_cookies_texto: var(--bs-white);
 @import "../base/cookies";
-
 @import "../base/formularios";
 @import "../base/tablas";
 @import "../base/menus";
