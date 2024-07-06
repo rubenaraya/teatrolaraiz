@@ -112,7 +112,12 @@ $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $c
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS (JUEGOS DE COLORES)
 
-//@import "../temas/normal";
+@import "../temas/amarillento";
+@import "../temas/azulado";
+@import "../temas/parduzco";
+@import "../temas/rojizo";
+@import "../temas/verdoso";
+@import "../temas/vinoso";
 
 // ----------------------------------------------
 // ESTILOS PROPIOS DE LA PLANTILLA (WEB)
