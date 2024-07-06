@@ -20,12 +20,14 @@ $textos = array(
 );
 
 $bloques = array(
-    '_bootstrap'=>'/html/bloques/_bootstrap.html',
+    '_bootstrap-1'=>'/html/bloques/_bootstrap-1.html',
+    '_bootstrap-2'=>'/html/bloques/_bootstrap-2.html',
     '_ga'=>'/html/bloques/_ga.html',
     '_iconos'=>'/html/bloques/_iconos.html',
     '_fuentes'=>'/html/bloques/_fuentes.html',
     '_simbolos'=>'/html/bloques/_simbolos.html',
     '_nocache'=>'/html/bloques/_nocache.html',
+    '_base'=>'/html/bloques/_base.html',
     '_metadatos'=>'/html/bloques/_metadatos.html',
 );
 

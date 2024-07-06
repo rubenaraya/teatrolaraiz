@@ -163,3 +163,15 @@
     padding: 1rem;
 }
 
+.web-caja {
+    @extend .col-4;
+    @extend .mx-4;
+    @extend .my-4;
+    @extend .py-3;
+    @extend .rounded;
+    width: 26%;
+    border: 2px solid var(--bs-body-color);
+    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
+    font-size: 0.9rem;
+}
+

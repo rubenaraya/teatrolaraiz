@@ -94,6 +94,28 @@ class Web {
 			fondo_cargando.style.display = 'none';
 		}
 	}
+	_animarElementos() {
+		const elementos = document.querySelectorAll('.web-animar');
+		function animarElemento(event) {
+		  const elemento = event.currentTarget;
+		  const animacion = elemento.dataset.webAnimacion;
+		  if (elemento && animacion) {
+			elemento.classList.remove(`${animacion}`);
+			elemento.classList.remove(`animated`);
+			void elemento.offsetWidth;
+			elemento.classList.add(`animated`);
+			elemento.classList.add(`${animacion}`);
+			elemento.addEventListener('animationend', () => {
+				  elemento.classList.remove(`${animacion}`);
+				  elemento.classList.remove(`animated`);
+			  }, { once: true });
+		  }
+		}
+		elementos.forEach(elemento => {
+		  elemento.addEventListener('click', animarElemento);
+		});
+	}
+
 	// Funciones públicas
 	volverArriba() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -177,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	W._activarTooltips();
 	W._activarMenus();
 	W._activarScrollTop();
+	W._animarElementos();
 	new WOW().init();
 	W._ocultarCargando();
 });

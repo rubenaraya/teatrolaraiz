@@ -20,6 +20,7 @@
       --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
     }
     .btn-info {}
+
     .btn-secondary {
       --bs-btn-bg: #{mix($gray-600, $blue-400, .5)};
       --bs-btn-border-color: #{rgba($white, .25)};
@@ -29,6 +30,20 @@
       --bs-btn-active-border-color: #{rgba($white, .5)};
       --bs-btn-focus-border-color: #{rgba($white, .5)};
       --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+    }
+    .btn-outline-secondary {
+      --mdb-btn-bg: #{mix($gray-600, $blue-400, .5)};
+      --mdb-btn-color: var(--mdb-white);
+      --mdb-btn-border-color: var(--mdb-white);
+      --mdb-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
+      --mdb-btn-hover-border-color: #{rgba($white, .25)};
+      --mdb-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
+      --mdb-btn-active-border-color: #{rgba($white, .5)};
+      --mdb-btn-focus-border-color: #{rgba($white, .5)};
+      --mdb-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+      --mdb-btn-hover-color: var(--mdb-white);
+      --mdb-btn-outline-focus-border-color: #{rgba($white, .5)};
+      --mdb-btn-active-color: #{rgba($white, .5)};
     }
 
     @each $state in map-keys($theme-colors) {
