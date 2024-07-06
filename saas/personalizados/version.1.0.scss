@@ -42,8 +42,9 @@ $nav-tabs-link-hover-border-color: $nav-tabs-border-color $nav-tabs-border-color
 // ----------------------------------------------
 // Personalizacion de colores
 
+$azulino: #000080;
 $custom-colors: (
-  "azulino": #000080
+  "azulino": $azulino
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
@@ -52,19 +53,19 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../bootstrap/scss/utilities";
 
 // Modo Light
-$custom-colors-text: ("azulino": #000080);
-$custom-colors-bg-subtle: ("azulino": #b0b0d7);
-$custom-colors-border-subtle: ("azulino": #7474c5);
+$custom-colors-text: ("azulino": $azulino);
 $theme-colors-text: map-merge($theme-colors-text, $custom-colors-text);
+$custom-colors-bg-subtle: ("azulino": tint-color($azulino, 80%)); 
 $theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $custom-colors-bg-subtle);
+$custom-colors-border-subtle: ("azulino": tint-color($azulino, 50%)); 
 $theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $custom-colors-border-subtle);
 
 // Modo Dark
-$custom-colors-text-dark: ("azulino": #b0b0d7);
-$custom-colors-bg-subtle-dark: ("azulino": #3d3dbd);
-$custom-colors-border-subtle-dark: ("azulino": #b0b0d7);
+$custom-colors-text-dark: ("azulino": tint-color($azulino, 80%));
 $theme-colors-text-dark: map-merge($theme-colors-text-dark, $custom-colors-text-dark);
+$custom-colors-bg-subtle-dark: ("azulino": tint-color($azulino, 30%));
 $theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $custom-colors-bg-subtle-dark);
+$custom-colors-border-subtle-dark: ("azulino": tint-color($azulino, 80%));
 $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $custom-colors-border-subtle-dark);
 
 // ----------------------------------------------
@@ -111,8 +112,8 @@ $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $c
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS (JUEGOS DE COLORES)
 
-@import "../temas/azulado";
-@import "../temas/verdoso";
+//@import "../temas/azulado";
+//@import "../temas/verdoso";
 
 // ----------------------------------------------
 // ESTILOS PROPIOS DE LA PLANTILLA (WEB)
