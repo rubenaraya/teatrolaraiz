@@ -38,9 +38,36 @@ $nav-tabs-link-hover-border-color: $nav-tabs-border-color $nav-tabs-border-color
 // Configuracion
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
+
+// ----------------------------------------------
+// Personalizacion de colores
+
+$custom-colors: (
+  "azulino": #000080
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/utilities";
+
+// Modo Light
+$custom-colors-text: ("azulino": #000080);
+$custom-colors-bg-subtle: ("azulino": #b0b0d7);
+$custom-colors-border-subtle: ("azulino": #7474c5);
+$theme-colors-text: map-merge($theme-colors-text, $custom-colors-text);
+$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $custom-colors-bg-subtle);
+$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $custom-colors-border-subtle);
+
+// Modo Dark
+$custom-colors-text-dark: ("azulino": #b0b0d7);
+$custom-colors-bg-subtle-dark: ("azulino": #3d3dbd);
+$custom-colors-border-subtle-dark: ("azulino": #b0b0d7);
+$theme-colors-text-dark: map-merge($theme-colors-text-dark, $custom-colors-text-dark);
+$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $custom-colors-bg-subtle-dark);
+$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $custom-colors-border-subtle-dark);
+
+// ----------------------------------------------
 
 // Diseño & componentes
 @import "../bootstrap/scss/root";
