@@ -6,7 +6,7 @@
 // PERSONALIZACION DE VARIABLES GLOBALES
 
 $primary:         $blue;
-//$secondary:       $gray-600;
+$secondary:       $gray-600;
 //$success:         $green;
 //$info:            $cyan;
 //$warning:         $yellow;
@@ -24,70 +24,58 @@ $link-color-dark: $body-color-dark;
 // ----------------------------------------------
 // BOOTSTRAP (version 5.3.3)
 
-// Configuracion
 @import "../bootstrap/scss/functions";
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
 
 // ----------------------------------------------
 // Personalizacion de colores
-
-$custom-colors: (
-    "azul": $azul,
-    "noche": $noche,
-    "cobalto": $cobalto,
-    "acero": $acero,
-    "zafiro": $zafiro,
-    "amatista": $amatista,
-    "cielo": $cielo,
-    "aguamarina": $aguamarina,
-    "bermellon": $bermellon,
-    "marron": $marron,
-    "vino": $vino,
-    "burdeos": $burdeos,
-    "chocolate": $chocolate,
-    "cafe": $cafe,
-    "nuez": $nuez,
-    "caoba": $caoba,
-    "rosado": $rosado,
-    "cardo": $cardo,
-    "perla": $perla,
-    "agata": $agata,
-    "gris": $gris,
-    "botella": $botella,
-    "verde": $verde,
-    "musgo": $musgo,
-    "hoja": $hoja,
-    "esmeralda": $esmeralda,
-    "verdeamar": $verdeamar,
-    "limon": $limon,
-    "icterina": $icterina,
-    "crema": $crema,
-);
-$theme-colors: map-merge($theme-colors, $custom-colors);
+@each $color, $value in $colores-claros {
+    .bg-#{$color} {
+      background-color: $value !important;
+    }
+    .text-#{$color} {
+      color: $value !important;
+    }
+}
+@each $color, $value in $colores-oscuros {
+    .bg-#{$color} {
+      background-color: $value !important;
+    }
+    .text-#{$color} {
+      color: $value !important;
+    }
+}
+$theme-colors: map-merge($theme-colors, $colores-claros);
+$theme-colors: map-merge($theme-colors, $colores-oscuros);
 
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/utilities";
 
-// Modo Light
-$custom-colors-text: ("azul": $azul);
-$custom-colors-bg-subtle: ("azul": tint-color($azul, 80%));
-$custom-colors-border-subtle: ("azul": tint-color($azul, 50%)); 
-$theme-colors-text: map-merge($theme-colors-text, $custom-colors-text);
-$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $custom-colors-bg-subtle);
-$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $custom-colors-border-subtle);
-
-// Modo Dark
-$custom-colors-text-dark: ("azul": tint-color($azul, 80%));
-$custom-colors-bg-subtle-dark: ("azul": tint-color($azul, 30%));
-$custom-colors-border-subtle-dark: ("azul": tint-color($azul, 80%));
-$theme-colors-text-dark: map-merge($theme-colors-text-dark, $custom-colors-text-dark);
-$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $custom-colors-bg-subtle-dark);
-$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $custom-colors-border-subtle-dark);
+@each $color, $value in $colores-claros {
+    // Modo Light
+    $theme-colors-text: map-merge($theme-colors-text, ($color: $value));
+    $theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, ($color: tint-color($value, 80%)));
+    $theme-colors-border-subtle: map-merge($theme-colors-border-subtle, ($color: tint-color($value, 50%)));
+    // Modo Dark
+    $theme-colors-text-dark: map-merge($theme-colors-text-dark, ($color: tint-color($value, 80%)));
+    $theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, ($color: tint-color($value, 30%)));
+    $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, ($color: tint-color($value, 80%)));
+}
+@each $color, $value in $colores-oscuros {
+    // Modo Light
+    $theme-colors-text: map-merge($theme-colors-text, ($color: $value));
+    $theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, ($color: tint-color($value, 80%)));
+    $theme-colors-border-subtle: map-merge($theme-colors-border-subtle, ($color: tint-color($value, 50%)));
+    // Modo Dark
+    $theme-colors-text-dark: map-merge($theme-colors-text-dark, ($color: tint-color($value, 80%)));
+    $theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, ($color: tint-color($value, 30%)));
+    $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, ($color: tint-color($value, 80%)));
+}
 
 // ----------------------------------------------
-// Diseño & componentes & extras
+// Diseño + componentes + utiles
 @import "../bootstrap/scss/root";
 @import "../bootstrap/scss/reboot";
 @import "../bootstrap/scss/type";
@@ -117,7 +105,40 @@ $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $c
 @import "../bootstrap/scss/utilities/api";
 
 // ----------------------------------------------
-// TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
+// TEMAS PERSONALIZADOS (JUEGOS DE COLORES)
+
+:root {
+    @each $color, $value in $colores-claros {
+        --web-color-#{$color}: #{$value};
+        --web-color-#{$color}-30: #{tint-color($value, 30%)};
+        --web-color-#{$color}-50: #{tint-color($value, 50%)};
+        --web-color-#{$color}-70: #{tint-color($value, 70%)};
+        --web-fondo-#{$color}: #{$value};
+        --web-fondo-#{$color}-rgb: #{to-rgb($value)};
+        --web-texto-#{$color}: #{$white};
+        --web-texto-#{$color}-rgb: #{to-rgb($white)};
+        --web-sombra-#{$color}: #{shade-color($value, 90%)};
+        --web-borde-#{$color}: #{shade-color($value, 50%)};
+        --web-sobre-#{$color}: #{shade-color($value, 50%)};
+        --web-primary-#{$color}: '';
+        --web-secondary-#{$color}: '';
+    }
+    @each $color, $value in $colores-oscuros {
+        --web-color-#{$color}: #{$value};
+        --web-color-#{$color}-30: #{shade-color($value, 30%)};
+        --web-color-#{$color}-50: #{shade-color($value, 50%)};
+        --web-color-#{$color}-70: #{shade-color($value, 70%)};
+        --web-fondo-#{$color}: #{$value};
+        --web-fondo-#{$color}-rgb: #{to-rgb($value)};
+        --web-texto-#{$color}: #{$white};
+        --web-texto-#{$color}-rgb: #{to-rgb($white)};
+        --web-sombra-#{$color}: #{tint-color($value, 90%)};
+        --web-borde-#{$color}: #{tint-color($value, 50%)};
+        --web-sobre-#{$color}: #{tint-color($value, 50%)};
+        --web-primary-#{$color}: '';
+        --web-secondary-#{$color}: '';
+    }
+}
 
 @import "../temas/blue";
 @import "../temas/cyan";
@@ -130,6 +151,9 @@ $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $c
 @import "../temas/teal";
 @import "../temas/yellow";
 @import "../temas/azul";
+@import "../temas/chocolate";
+@import "../temas/cielo";
+@import "../temas/crema";
 
 // ----------------------------------------------
 // ESTILOS DEFINIDOS EN LA PLANTILLA (WEB)

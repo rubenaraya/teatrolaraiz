@@ -1,0 +1,13 @@
+[data-bs-theme="crema"] {
+    --bs-body-color: var(--web-texto-crema);
+    --bs-body-color-rgb: var(--web-texto-crema-rgb);
+    --bs-body-bg: var(--web-fondo-crema);
+    --bs-body-bg-rgb: var(--web-fondo-crema-rgb);
+    --bs-tertiary-bg: var(--web-color-crema-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-crema-50);
+      --bs-dropdown-link-active-bg: var(--web-color-crema-30);
+    }
+  
+}

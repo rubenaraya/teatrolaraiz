@@ -1,14 +1,13 @@
 [data-bs-theme="azul"] {
-    --bs-body-color: var(--bs-white);
-    --bs-body-color-rgb: #{to-rgb($white)};
-    --bs-body-bg: navy;
-    --bs-body-bg-rgb: #{to-rgb(navy)};
-    --bs-tertiary-bg: #{tint-color(navy, 80%)};
+    --bs-body-color: var(--web-texto-azul);
+    --bs-body-color-rgb: var(--web-texto-azul-rgb);
+    --bs-body-bg: var(--web-fondo-azul);
+    --bs-body-bg-rgb: var(--web-fondo-azul-rgb);
+    --bs-tertiary-bg: var(--web-color-azul-70);
   
     .dropdown-menu {
-      --bs-dropdown-bg: #{mix(tint-color(navy, 50%), tint-color(navy, 40%))};
-      --bs-dropdown-link-active-bg: #{tint-color(navy, 30%)};
+      --bs-dropdown-bg: var(--web-color-azul-50);
+      --bs-dropdown-link-active-bg: var(--web-color-azul-30);
     }
   
-  }
-  
+}
