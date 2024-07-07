@@ -1,7 +1,59 @@
+//js\ajustes.js
+
+const getStoredSettings = () => {
+  const settings = localStorage.getItem('userSettings');
+  return settings ? JSON.parse(settings) : {};
+};
+const setStoredSettings = (key, value) => {
+  const settings = getStoredSettings();
+  settings[key] = value;
+  localStorage.setItem('userSettings', JSON.stringify(settings));
+};
+const getStoredTheme = () => {
+  const settings = getStoredSettings();
+  return settings.theme || 'light';
+};
+const setStoredTheme = theme => {
+  setStoredSettings('theme', theme);
+};
+const getStoredFont = () => {
+  const settings = getStoredSettings();
+  return settings.font || 'Verdana, Geneva, Tahoma, sans-serif';
+};
+const setStoredFont = font => {
+  setStoredSettings('font', font);
+};
+const applyFont = font => {
+  document.body.style.fontFamily = font;
+};
+const markActiveFont = font => {
+  document.querySelectorAll('#elegirFuente .dropdown-item').forEach(item => {
+    if (item.dataset.font === font) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+};
+
 (() => {
     'use strict'
-    const getStoredTheme = () => localStorage.getItem('theme');
-    const setStoredTheme = theme => localStorage.setItem('theme', theme);
+    const getStoredSettings = () => {
+      const settings = localStorage.getItem('userSettings');
+      return settings ? JSON.parse(settings) : {};
+    };
+    const setStoredSettings = (key, value) => {
+      const settings = getStoredSettings();
+      settings[key] = value;
+      localStorage.setItem('userSettings', JSON.stringify(settings));
+    };
+    const getStoredTheme = () => {
+      const settings = getStoredSettings();
+      return settings.theme || 'light';
+    };
+    const setStoredTheme = theme => {
+      setStoredSettings('theme', theme);
+    };
     const getPreferredTheme = () => {
       const storedTheme = getStoredTheme();
       if (storedTheme) {
@@ -50,6 +102,19 @@
           setTheme(theme);
           showActiveTheme(theme, true);
         });
+      });
+      const storedFont = getStoredFont();
+      applyFont(storedFont);
+      markActiveFont(storedFont);
+      document.querySelector('#elegirFuente').addEventListener('click', event => {
+        const target = event.target;
+        if (target.dataset.font) {
+          event.preventDefault();
+          const newFont = target.dataset.font;
+          setStoredFont(newFont);
+          applyFont(newFont);
+          markActiveFont(newFont);
+        }
       });
     });
   })();

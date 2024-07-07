@@ -155,14 +155,6 @@ class Web {
 		modal.hide();
 		this.mostrarNotificacion(mensaje, tipo);
 	}
-
-	// Funciones pendientes
-	abrirVentana(contenido, selector='web-ventana') {
-	}
-	cerrarVentana(selector='web-ventana') {
-	}
-	alternarPaneles(ocultar, mostrar) {}
-
 }
 
 /* Adaptado de: Bootstrap Cookie Alert by Wruczek
