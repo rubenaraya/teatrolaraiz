@@ -1,0 +1,14 @@
+[data-bs-theme="azul"] {
+    --bs-body-color: var(--bs-white);
+    --bs-body-color-rgb: #{to-rgb($white)};
+    --bs-body-bg: navy;
+    --bs-body-bg-rgb: #{to-rgb(navy)};
+    --bs-tertiary-bg: #{tint-color(navy, 80%)};
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: #{mix(tint-color(navy, 50%), tint-color(navy, 40%))};
+      --bs-dropdown-link-active-bg: #{tint-color(navy, 30%)};
+    }
+  
+  }
+  

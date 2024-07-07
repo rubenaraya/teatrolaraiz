@@ -24,7 +24,97 @@ $link-color-dark: $body-color-dark;
 // ----------------------------------------------
 // BOOTSTRAP (version 5.3.3)
 
-@import "../bootstrap/scss/bootstrap";
+// Configuracion
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/variables-dark";
+
+// ----------------------------------------------
+// Personalizacion de colores
+
+$custom-colors: (
+    "azul": $azul,
+    "noche": $noche,
+    "cobalto": $cobalto,
+    "acero": $acero,
+    "zafiro": $zafiro,
+    "amatista": $amatista,
+    "cielo": $cielo,
+    "aguamarina": $aguamarina,
+    "bermellon": $bermellon,
+    "marron": $marron,
+    "vino": $vino,
+    "burdeos": $burdeos,
+    "chocolate": $chocolate,
+    "cafe": $cafe,
+    "nuez": $nuez,
+    "caoba": $caoba,
+    "rosado": $rosado,
+    "cardo": $cardo,
+    "perla": $perla,
+    "agata": $agata,
+    "gris": $gris,
+    "botella": $botella,
+    "verde": $verde,
+    "musgo": $musgo,
+    "hoja": $hoja,
+    "esmeralda": $esmeralda,
+    "verdeamar": $verdeamar,
+    "limon": $limon,
+    "icterina": $icterina,
+    "crema": $crema,
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../bootstrap/scss/maps";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/utilities";
+
+// Modo Light
+$custom-colors-text: ("azul": $azul);
+$custom-colors-bg-subtle: ("azul": tint-color($azul, 80%));
+$custom-colors-border-subtle: ("azul": tint-color($azul, 50%)); 
+$theme-colors-text: map-merge($theme-colors-text, $custom-colors-text);
+$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $custom-colors-bg-subtle);
+$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $custom-colors-border-subtle);
+
+// Modo Dark
+$custom-colors-text-dark: ("azul": tint-color($azul, 80%));
+$custom-colors-bg-subtle-dark: ("azul": tint-color($azul, 30%));
+$custom-colors-border-subtle-dark: ("azul": tint-color($azul, 80%));
+$theme-colors-text-dark: map-merge($theme-colors-text-dark, $custom-colors-text-dark);
+$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $custom-colors-bg-subtle-dark);
+$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $custom-colors-border-subtle-dark);
+
+// ----------------------------------------------
+// Diseño & componentes & extras
+@import "../bootstrap/scss/root";
+@import "../bootstrap/scss/reboot";
+@import "../bootstrap/scss/type";
+@import "../bootstrap/scss/images";
+@import "../bootstrap/scss/containers";
+@import "../bootstrap/scss/grid";
+@import "../bootstrap/scss/tables";
+@import "../bootstrap/scss/forms";
+@import "../bootstrap/scss/buttons";
+@import "../bootstrap/scss/transitions";
+@import "../bootstrap/scss/dropdown";
+@import "../bootstrap/scss/button-group";
+@import "../bootstrap/scss/nav";
+@import "../bootstrap/scss/navbar";
+@import "../bootstrap/scss/card";
+@import "../bootstrap/scss/accordion";
+@import "../bootstrap/scss/badge";
+@import "../bootstrap/scss/alert";
+@import "../bootstrap/scss/list-group";
+@import "../bootstrap/scss/close";
+@import "../bootstrap/scss/toasts";
+@import "../bootstrap/scss/modal";
+@import "../bootstrap/scss/tooltip";
+@import "../bootstrap/scss/carousel";
+@import "../bootstrap/scss/offcanvas";
+@import "../bootstrap/scss/helpers";
+@import "../bootstrap/scss/utilities/api";
 
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
@@ -39,6 +129,7 @@ $link-color-dark: $body-color-dark;
 @import "../temas/red";
 @import "../temas/teal";
 @import "../temas/yellow";
+@import "../temas/azul";
 
 // ----------------------------------------------
 // ESTILOS DEFINIDOS EN LA PLANTILLA (WEB)
