@@ -1,73 +1,15 @@
 [data-bs-theme="azulado"] {
-    --bs-body-color: var(--bs-white);
-    --bs-body-color-rgb: #{to-rgb($white)};
-    --bs-body-bg: var(--bs-blue);
-    --bs-body-bg-rgb: #{to-rgb($blue)};
-    --bs-tertiary-bg: #{$blue-600};
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: #{mix($blue-500, $blue-600)};
-      --bs-dropdown-link-active-bg: #{$blue-700};
-    }
-    .btn-primary {
-      --bs-btn-bg: #{mix($blue-900, $blue-700, .5)};
-      --bs-btn-border-color: #{rgba($white, .25)};
-      --bs-btn-hover-bg: #{darken(mix($blue-900, $blue-700, .5), 5%)};
-      --bs-btn-hover-border-color: #{rgba($white, .25)};
-      --bs-btn-active-bg: #{darken(mix($blue-900, $blue-700, .5), 10%)};
-      --bs-btn-active-border-color: #{rgba($white, .5)};
-      --bs-btn-focus-border-color: #{rgba($white, .5)};
-      --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
-    }
-    .btn-info {}
+  --bs-body-color: var(--bs-white);
+  --bs-body-color-rgb: #{to-rgb($white)};
+  --bs-body-bg: var(--bs-blue);
+  --bs-body-bg-rgb: #{to-rgb($blue)};
+  --bs-tertiary-bg: #{$blue-600};
 
-    .btn-secondary {
-      --bs-btn-bg: #{mix($gray-600, $blue-400, .5)};
-      --bs-btn-border-color: #{rgba($white, .25)};
-      --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
-      --bs-btn-hover-border-color: #{rgba($white, .25)};
-      --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
-      --bs-btn-active-border-color: #{rgba($white, .5)};
-      --bs-btn-focus-border-color: #{rgba($white, .5)};
-      --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
-    }
-    .btn-outline-secondary {
-      --mdb-btn-bg: #{mix($gray-600, $blue-400, .5)};
-      --mdb-btn-color: var(--mdb-white);
-      --mdb-btn-border-color: var(--mdb-white);
-      --mdb-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
-      --mdb-btn-hover-border-color: #{rgba($white, .25)};
-      --mdb-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
-      --mdb-btn-active-border-color: #{rgba($white, .5)};
-      --mdb-btn-focus-border-color: #{rgba($white, .5)};
-      --mdb-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
-      --mdb-btn-hover-color: var(--mdb-white);
-      --mdb-btn-outline-focus-border-color: #{rgba($white, .5)};
-      --mdb-btn-active-color: #{rgba($white, .5)};
-    }
-
-    @each $state in map-keys($theme-colors) {
-      .alert-#{$state} {
-        --bs-alert-color: var(--bs-#{$state}-text-emphasis);
-        --bs-alert-bg: var(--bs-#{$state}-bg-subtle);
-        --bs-alert-border-color: var(--bs-#{$state}-border-subtle);
-        --bs-alert-link-color: var(--bs-#{$state}-text-emphasis);
-      }
-    }
-    @each $state in map-keys($theme-colors) {
-      .list-group-item-#{$state} {
-        --bs-list-group-color: var(--bs-#{$state}-text-emphasis);
-        --bs-list-group-bg: var(--bs-#{$state}-bg-subtle);
-        --bs-list-group-border-color: var(--bs-#{$state}-border-subtle);
-        --bs-list-group-action-hover-color: var(--bs-emphasis-color);
-        --bs-list-group-action-hover-bg: var(--bs-#{$state}-border-subtle);
-        --bs-list-group-action-active-color: var(--bs-emphasis-color);
-        --bs-list-group-action-active-bg: var(--bs-#{$state}-border-subtle);
-        --bs-list-group-active-color: var(--bs-#{$state}-bg-subtle);
-        --bs-list-group-active-bg: var(--bs-#{$state}-text-emphasis);
-        --bs-list-group-active-border-color: var(--bs-#{$state}-text-emphasis);
-      }
-    }
+  .dropdown-menu {
+    --bs-dropdown-bg: #{mix($blue-500, $blue-600)};
+    --bs-dropdown-link-active-bg: #{$blue-700};
   }
 
-  // sombras + pestañas + acordeon + menu-nav
+}
+
+// sombras + pestañas + acordeon + menu-nav

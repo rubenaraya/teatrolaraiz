@@ -1,3 +1,13 @@
 [data-bs-theme="anaranjado"] {
---bs-black: #000;
+  --bs-body-color: var(--bs-black);
+  --bs-body-color-rgb: #{to-rgb($black)};
+  --bs-body-bg: var(--bs-orange);
+  --bs-body-bg-rgb: #{to-rgb($orange)};
+  --bs-tertiary-bg: #{$orange-600};
+
+  .dropdown-menu {
+    --bs-dropdown-bg: #{mix($orange-500, $orange-600)};
+    --bs-dropdown-link-active-bg: #{$orange-700};
+  }
+
 }

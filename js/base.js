@@ -7,10 +7,10 @@ class Web {
 		};
 	}
 	// Funciones privadas
-	async _esperar(tiempo){
+	async #esperar(tiempo){
 		await this.sleep(tiempo);
 	}
-	_activarScrollTop() {
+	#activarScrollTop() {
 		const volver_arriba = document.querySelector('#web-volver-arriba');
 		if (volver_arriba) {
 			window.addEventListener('scroll', function() {
@@ -24,99 +24,75 @@ class Web {
 			});
 		}
 	}
-	_activarGaleria(nombre) {
-		const options = {
-			keyboard: true,
-			size: 'fullscreen',
-			gallery: nombre,
-		};
-		document.querySelectorAll('.lightbox').forEach((el) => el.addEventListener('click', (e) => {
-			e.preventDefault();
-			const lightbox = new Lightbox(el, options);
-			if (lightbox) {
-				lightbox.show();
-			}
-		}));
-	}
-	_activarTooltips() {
-		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-	}
-	_activarMenus() {
-		const alternar_menu = document.getElementById('web-alternar-menu');
-		const control_menu = document.querySelector('#web-control-menu');
-		if (alternar_menu && control_menu) {
-			control_menu.addEventListener('click', e => {
-				let elemento = e.target;
-				let esDesplegable = false;
-				while (elemento && elemento !== control_menu) {
-					if (elemento.classList.contains('dropdown')) {
-						esDesplegable = true;
-						break;
-					}
-					elemento = elemento.parentElement;
-				}
-				const esVentanaChica = window.innerWidth < 992;
-				if (!esDesplegable && esVentanaChica && !alternar_menu.classList.contains('collapsed')) {
-					alternar_menu.click();
+	#activarGaleria(nombre) {
+		const galeria = document.querySelector('#' + nombre);
+		if (galeria) {
+			galeria.addEventListener('click', (e) => {
+				const target = e.target.closest('.lightbox');
+				if (target) {
+					e.preventDefault();
+					const options = {
+						keyboard: true,
+						size: 'fullscreen',
+						gallery: nombre,
+					};
+					const lightbox = new Lightbox(target, options);
+					lightbox.show();
 				}
 			});
 		}
 	}
-	_comprobarCookie(nombre) {
-		"use strict";
-		let alertaCookies = document.querySelector(".web-alerta-cookies");
-		let aceptarCookies = document.querySelector(".web-aceptar-cookies");
-		if (!alertaCookies) {
-			return;
-		}
-		alertaCookies.offsetHeight;
-		if (leerCookie(nombre).length == 0) {
-			alertaCookies.classList.add("show");
-		}
-		aceptarCookies.addEventListener("click", function () {
-			escribirCookie(nombre, "0", 365);
-			alertaCookies.classList.remove("show");
-			window.dispatchEvent(new Event("cookieAlertAccept"))
+	#activarTooltips() {
+		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+	}
+	#activarMenus() {
+		const alternar_menu = document.getElementById('web-alternar-menu');
+		if (!alternar_menu) return;
+		document.addEventListener('click', e => {
+			const dentroDeMenu = e.target.closest('#web-control-menu');
+			const esDesplegable = e.target.closest('.dropdown');
+			const esVentanaChica = window.innerWidth < 992;
+			if (!esDesplegable && dentroDeMenu && esVentanaChica && !alternar_menu.classList.contains('collapsed')) {
+				alternar_menu.click();
+			}
 		});
 	}
-	_activarContacto(dominio) {
+	#activarContacto(dominio) {
 		const nombre = document.querySelector('#contacto');
 		if (nombre) {
 			const casilla = nombre.textContent;
 			nombre.innerHTML = '<a href="mailto:' + casilla + '@' + dominio + '">' + casilla + '@' + dominio + '</a>';
 		}
 	}
-	async _ocultarCargando() {
+	#aplicarAnimacion(elemento, animacion) {
+		elemento.classList.remove(`${animacion}`, 'animated');
+		void elemento.offsetWidth;
+		elemento.classList.add('animated', `${animacion}`);
+		elemento.addEventListener('animationend', () => {
+			elemento.classList.remove('animated', `${animacion}`);
+			}, { once: true }
+		);
+	}
+	// Funciones públicas
+	async ocultarCargando() {
 		const fondo_cargando = document.getElementById('web-fondo-cargando');
 		if (fondo_cargando) {
-			await this._esperar(100);
+			await this.#esperar(100);
 			fondo_cargando.style.display = 'none';
 		}
 	}
-	_animarElementos() {
-		const elementos = document.querySelectorAll('.web-animar');
-		function animarElemento(event) {
-		  const elemento = event.currentTarget;
-		  const animacion = elemento.dataset.webAnimacion;
-		  if (elemento && animacion) {
-			elemento.classList.remove(`${animacion}`);
-			elemento.classList.remove(`animated`);
-			void elemento.offsetWidth;
-			elemento.classList.add(`animated`);
-			elemento.classList.add(`${animacion}`);
-			elemento.addEventListener('animationend', () => {
-				  elemento.classList.remove(`${animacion}`);
-				  elemento.classList.remove(`animated`);
-			  }, { once: true });
-		  }
-		}
-		elementos.forEach(elemento => {
-		  elemento.addEventListener('click', animarElemento);
+	animarElementos(selector) {
+		document.addEventListener('click', (event) => {
+			const elemento = event.target.closest(selector);
+			if (elemento) {
+				const animacion = elemento.dataset.webAnimacion;
+				if (animacion) {
+					this.#aplicarAnimacion(elemento, animacion);
+				}
+			}
 		});
 	}
-
-	// Funciones públicas
 	volverArriba() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
@@ -155,43 +131,68 @@ class Web {
 		modal.hide();
 		this.mostrarNotificacion(mensaje, tipo);
 	}
+	iniciar(dominio, galeria) {
+		this.#activarContacto(dominio);
+		this.#activarGaleria(galeria);
+		this.#activarTooltips();
+		this.#activarMenus();
+		this.#activarScrollTop();
+	}
 }
 
-/* Adaptado de: Bootstrap Cookie Alert by Wruczek
-* https://github.com/Wruczek/Bootstrap-Cookie-Alert
-* Released under MIT license */
-function escribirCookie(cname, cvalue, exdays) {
-	let d = new Date();
-	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-	let expires = "expires=" + d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-function leerCookie(cname) {
-	let name = cname + "=";
-	let decodedCookie = decodeURIComponent(document.cookie);
-	let ca = decodedCookie.split(';');
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) === ' ') {
-			c = c.substring(1);
-		}
-		if (c.indexOf(name) === 0) {
-			return c.substring(name.length, c.length);
-		}
-	}
-	return "";
+class Cookie {
+	/* Adaptado de: Bootstrap Cookie Alert by Wruczek
+	* https://github.com/Wruczek/Bootstrap-Cookie-Alert
+	* Released under MIT license */
+    constructor() {
+        this.cookieAlertSelector = ".web-alerta-cookies";
+        this.acceptButtonSelector = ".web-aceptar-cookies";
+    }
+    comprobarCookie(nombre) {
+        "use strict";
+        const alertaCookies = document.querySelector(this.cookieAlertSelector);
+        const aceptarCookies = document.querySelector(this.acceptButtonSelector);
+        if (!alertaCookies) {
+            return;
+        }
+        alertaCookies.offsetHeight;
+        if (this.#leerCookie(nombre).length === 0) {
+            alertaCookies.classList.add("show");
+        }
+        aceptarCookies.addEventListener("click", () => {
+            this.#escribirCookie(nombre, "0", 365);
+            alertaCookies.classList.remove("show");
+            window.dispatchEvent(new Event("cookieAlertAccept"));
+        });
+    }
+    // Métodos privados
+    #escribirCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = `${cname}=${cvalue};${expires};path=/`;
+    }
+    #leerCookie(cname) {
+        const name = `${cname}=`;
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 }
 
 const W = new Web();
+const C = new Cookie();
 
 document.addEventListener('DOMContentLoaded', function() {
-    //W._comprobarCookie(cookie);
-	W._activarContacto(dominio);
-	W._activarGaleria(galeria);
-	W._activarTooltips();
-	W._activarMenus();
-	W._activarScrollTop();
-	W._animarElementos();
+	C.comprobarCookie(cookie);
+	W.iniciar(dominio, galeria);
+	W.animarElementos('.web-animar');
 	new WOW().init();
-	W._ocultarCargando();
+	W.ocultarCargando();
 });
