@@ -186,11 +186,105 @@ class Cookie {
     }
 }
 
+class Ajustes {
+    constructor() {
+        this.defaultTheme = 'light';
+        this.defaultFont = 'Verdana, Geneva, Tahoma, sans-serif';
+    }
+    iniciar() {
+        this.aplicarTema(this.#obtenerTemaGuardado());
+        this.aplicarFuente(this.#obtenerFuenteGuardada());
+        this.#registrarEventosUI();
+    }
+    aplicarTema(tema) {
+        document.documentElement.setAttribute('data-bs-theme', tema);
+        this.#mostrarTemaActivo(tema);
+    }
+    aplicarFuente(fuente) {
+        document.body.style.fontFamily = fuente;
+        this.#marcarFuenteActiva(fuente);
+    }
+    #obtenerAjustesGuardados() {
+        const settings = localStorage.getItem('userSettings');
+        return settings ? JSON.parse(settings) : {};
+    }
+    #guardarAjuste(clave, valor) {
+        const settings = this.#obtenerAjustesGuardados();
+        settings[clave] = valor;
+        localStorage.setItem('userSettings', JSON.stringify(settings));
+    }
+    #obtenerTemaGuardado() {
+        const settings = this.#obtenerAjustesGuardados();
+        return settings.theme || this.defaultTheme;
+    }
+    #guardarTema(tema) {
+        this.#guardarAjuste('theme', tema);
+    }
+    #obtenerFuenteGuardada() {
+        const settings = this.#obtenerAjustesGuardados();
+        return settings.font || this.defaultFont;
+    }
+    #guardarFuente(fuente) {
+        this.#guardarAjuste('font', fuente);
+    }
+	#registrarEventosUI() {
+		document.querySelectorAll('[data-bs-theme-value]').forEach(toggle => {
+			toggle.addEventListener('click', () => {
+				const tema = toggle.getAttribute('data-bs-theme-value');
+				this.#guardarTema(tema);
+				this.aplicarTema(tema);
+			});
+		});
+		document.querySelector('#elegirFuente').addEventListener('click', event => {
+			const target = event.target.closest('[data-font]');
+			if (target) {
+				const nuevaFuente = target.dataset.font;
+				this.#guardarFuente(nuevaFuente);
+				this.aplicarFuente(nuevaFuente);
+			}
+		});
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            this.aplicarTema(this.#obtenerTemaGuardado());
+        });
+    }
+	#mostrarTemaActivo(tema) {
+		const themeSwitcher = document.querySelector('#bd-theme');
+		if (!themeSwitcher) {
+			return;
+		}
+		const themeSwitcherText = document.querySelector('#bd-theme-text');
+		const activeThemeIcon = document.querySelector('.theme-icon-active use');
+		const btnToActive = document.querySelector(`[data-bs-theme-value="${tema}"]`);
+		if (!btnToActive) return;
+		const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href');
+		document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+			element.classList.remove('active');
+			element.setAttribute('aria-pressed', 'false');
+		});
+		btnToActive.classList.add('active');
+		btnToActive.setAttribute('aria-pressed', 'true');
+		activeThemeIcon.setAttribute('href', svgOfActiveBtn);
+		const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
+		themeSwitcher.setAttribute('aria-label', themeSwitcherLabel);
+	}
+	#marcarFuenteActiva(fuente) {
+		document.querySelectorAll('#elegirFuente .dropdown-item').forEach(item => {
+			if (item.dataset.font === fuente) {
+				item.classList.add('active');
+			} else {
+				item.classList.remove('active');
+			}
+		});
+	}
+}
+
 const W = new Web();
 const C = new Cookie();
+const A = new Ajustes();
 
 document.addEventListener('DOMContentLoaded', function() {
 	C.comprobarCookie(cookie);
+	A.iniciar();
 	W.iniciar(dominio, galeria);
 	W.animarElementos('.web-animar');
 	new WOW().init();
