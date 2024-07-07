@@ -1,19 +1,18 @@
 //saas\personalizados\teatrolaraiz.scss
 
 @import "../base/colores";
-@import "../bootstrap/scss/functions";
 
 // ----------------------------------------------
 // PERSONALIZACION DE VARIABLES GLOBALES
 
-$primary:         $indigo;
-$secondary:       $gray-600;
-$success:         $green;
-$info:            $cyan;
-$warning:         $yellow;
-$danger:          $red;
-$light:           $gray-100;
-$dark:            $gray-900;
+$primary:         $blue;
+//$secondary:       $gray-600;
+//$success:         $green;
+//$info:            $cyan;
+//$warning:         $yellow;
+//$danger:          $red;
+//$light:           $gray-100;
+//$dark:            $gray-900;
 
 $body-color:      $gray-900;
 $body-bg:         $gray-200;
@@ -22,73 +21,48 @@ $body-bg-dark:    $gray-900;
 $link-color:      $body-color;
 $link-color-dark: $body-color-dark;
 
-$accordion-button-focus-box-shadow: '';
-$accordion-icon-color-dark: $white;
-$accordion-icon-active-color-dark: $white;
-$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
-$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
-
-$nav-tabs-border-color: $secondary;
-$nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
-$nav-tabs-link-hover-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
-
-$web_fuente_base: Verdana, Geneva, Tahoma, sans-serif;
-
 // ----------------------------------------------
 // BOOTSTRAP (version 5.3.3)
 
-// Configuracion
-@import "../bootstrap/scss/variables";
-@import "../bootstrap/scss/variables-dark";
-@import "../bootstrap/scss/maps";
-@import "../bootstrap/scss/mixins";
-@import "../bootstrap/scss/utilities";
-
-// Diseño & componentes & extras
-@import "../bootstrap/scss/root";
-@import "../bootstrap/scss/reboot";
-@import "../bootstrap/scss/type";
-@import "../bootstrap/scss/images";
-@import "../bootstrap/scss/containers";
-@import "../bootstrap/scss/grid";
-@import "../bootstrap/scss/tables";
-@import "../bootstrap/scss/forms";
-@import "../bootstrap/scss/buttons";
-@import "../bootstrap/scss/transitions";
-@import "../bootstrap/scss/dropdown";
-@import "../bootstrap/scss/button-group";
-@import "../bootstrap/scss/nav";
-@import "../bootstrap/scss/navbar";
-@import "../bootstrap/scss/card";
-@import "../bootstrap/scss/accordion";
-@import "../bootstrap/scss/badge";
-@import "../bootstrap/scss/alert";
-@import "../bootstrap/scss/list-group";
-@import "../bootstrap/scss/close";
-@import "../bootstrap/scss/toasts";
-@import "../bootstrap/scss/modal";
-@import "../bootstrap/scss/tooltip";
-@import "../bootstrap/scss/carousel";
-@import "../bootstrap/scss/offcanvas";
-@import "../bootstrap/scss/helpers";
-@import "../bootstrap/scss/utilities/api";
+@import "../bootstrap/scss/bootstrap";
 
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
 
-@import "../temas/anaranjado";
-@import "../temas/amarillento";
-@import "../temas/rojizo";
-@import "../temas/azulado";
-@import "../temas/verdoso";
+@import "../temas/blue";
+@import "../temas/cyan";
+@import "../temas/green";
+@import "../temas/indigo";
+@import "../temas/orange";
+@import "../temas/pink";
+@import "../temas/purple";
+@import "../temas/red";
+@import "../temas/teal";
+@import "../temas/yellow";
 
 // ----------------------------------------------
-// ESTILOS PROPIOS DE LA PLANTILLA (WEB)
+// ESTILOS DEFINIDOS EN LA PLANTILLA (WEB)
 
+$web_fuente_base: Verdana, Geneva, Tahoma, sans-serif;
+$web_contenedor_sombra: var(--bs-body-color-rgb);
+$web_letras_oscuras_texto: var(--bs-black);
+$web_letras_oscuras_sombra: var(--bs-gray-500);
+$web_letras_claras_texto: var(--bs-white);
+$web_letras_claras_sombra: var(--bs-gray-800);
 @import "../base/generales";
+
+$web_volver_arriba_fondo_normal: var(--bs-gray-900);
+$web_volver_arriba_fondo_activo: var(--bs-black);
+$web_llamada_fondo: var(--bs-tertiary-bg);
+$web_imagen_galeria_borde: var(--bs-gray-500);
+$web_imagen_galeria_sombra: $yellow;
 @import "../base/componentes";
-@import "../base/cargando";
+
+$web_etiquetas_fondo: var(--bs-gray-500);
+$web_etiquetas_texto: var(--bs-white);
 @import "../base/etiquetas";
+
+@import "../base/cargando";
 @import "../base/cookies";
 @import "../base/formularios";
 @import "../base/tablas";

@@ -62,7 +62,7 @@
 	background-image: url(../img/arriba.png);
 	background-repeat: no-repeat;
 	background-position: 50% 48%;
-	background-color: rgba(var(--bs-gray-900), 0.5);
+	background-color: rgba($web_volver_arriba_fondo_normal, 0.5);
 	-webkit-border-radius: 100%;
 	-moz-border-radius: 100%;
 	-o-border-radius: 100%;
@@ -72,7 +72,7 @@
 	transition: all 250ms linear;	
 }
 #web-volver-arriba:hover {
-	background-color: var(--bs-black);
+	background-color: $web_volver_arriba_fondo_activo;
     position: fixed;
     display: inline;
     z-index: 2147483647;
@@ -92,16 +92,16 @@
     @extend .border-2;
     @extend .rounded;
     @extend .rounded-0;
-    border-color: var(--bs-gray-500);
+    border-color: $web_imagen_galeria_borde;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 .web-imagen-galeria:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 1rem rgba(var(--bs-yellow),0.7);
+    box-shadow: 0 0 1rem rgba($web_imagen_galeria_sombra, 0.7);
 }
 .web-imagen-galeria:active {
     transform: scale(1.15);
-    box-shadow: 0 0 1.2rem rgba(var(--bs-yellow),1);
+    box-shadow: 0 0 1.2rem rgba($web_imagen_galeria_sombra, 1);
 }
 
 // INSIGNIA (BADGE)
@@ -150,7 +150,7 @@
     position: relative;
     height: auto;
     padding: 0.9rem;
-    background: var(--bs-tertiary-bg);
+    background: $web_llamada_fondo;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -162,7 +162,7 @@
     position: absolute;
     border-style: solid;
     border-width: 15px 14px 0;
-    border-color: var(--bs-tertiary-bg) transparent;
+    border-color: $web_llamada_fondo transparent;
     display: block;
     width: 0;
     z-index: 1;
@@ -230,15 +230,24 @@
 }
 
 // PESTAÑAS
-
-.web-tabs-contenido {
-    @extend .border-start;
-    @extend .border-end;
-    @extend .border-bottom;
-    @extend .rounded-3;
-    @extend .rounded-top-0;
-    @extend .px-4;
-    @extend .py-3;
-    @extend .border-secondary;
+.nav-tabs {
+    --bs-nav-tabs-border-color: #{var(--bs-body-color)};
+    --bs-nav-tabs-link-hover-border-color: #{var(--bs-body-color)} #{var(--bs-body-color)} transparent;
+    --bs-nav-tabs-link-active-border-color: #{var(--bs-body-color)} #{var(--bs-body-color)} transparent;
 }
+.web-tabs-contenido {
+    @extend .px-3;
+    @extend .py-3;
+    border-left: 1px solid var(--bs-body-color);
+    border-right: 1px solid var(--bs-body-color);
+    border-bottom: 1px solid var(--bs-body-color);
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+// ACORDEON
+//$accordion-button-focus-box-shadow: '';
+//$accordion-icon-color-dark: $white;
+//$accordion-icon-active-color-dark: $white;
+//$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
+//$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
 

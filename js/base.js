@@ -27,10 +27,10 @@ class Web {
 	#activarGaleria(nombre) {
 		const galeria = document.querySelector('#' + nombre);
 		if (galeria) {
-			galeria.addEventListener('click', (e) => {
-				const target = e.target.closest('.lightbox');
+			galeria.addEventListener('click', (event) => {
+				const target = event.target.closest('.mi-lightbox');
 				if (target) {
-					e.preventDefault();
+					event.preventDefault();
 					const options = {
 						keyboard: true,
 						size: 'fullscreen',
@@ -49,9 +49,9 @@ class Web {
 	#activarMenus() {
 		const alternar_menu = document.getElementById('web-alternar-menu');
 		if (!alternar_menu) return;
-		document.addEventListener('click', e => {
-			const dentroDeMenu = e.target.closest('#web-control-menu');
-			const esDesplegable = e.target.closest('.dropdown');
+		document.addEventListener('click', event => {
+			const dentroDeMenu = event.target.closest('#web-control-menu');
+			const esDesplegable = event.target.closest('.dropdown');
 			const esVentanaChica = window.innerWidth < 992;
 			if (!esDesplegable && dentroDeMenu && esVentanaChica && !alternar_menu.classList.contains('collapsed')) {
 				alternar_menu.click();

@@ -1,0 +1,14 @@
+[data-bs-theme="pink"] {
+    --bs-body-color: var(--bs-white);
+    --bs-body-color-rgb: #{to-rgb($white)};
+    --bs-body-bg: var(--bs-pink);
+    --bs-body-bg-rgb: #{to-rgb($pink)};
+    --bs-tertiary-bg: #{$pink-600};
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: #{mix($pink-500, $pink-600)};
+      --bs-dropdown-link-active-bg: #{$pink-700};
+    }
+  
+  }
+  

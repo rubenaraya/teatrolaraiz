@@ -1,0 +1,14 @@
+[data-bs-theme="teal"] {
+    --bs-body-color: var(--bs-white);
+    --bs-body-color-rgb: #{to-rgb($white)};
+    --bs-body-bg: var(--bs-teal);
+    --bs-body-bg-rgb: #{to-rgb($teal)};
+    --bs-tertiary-bg: #{$teal-600};
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: #{mix($teal-500, $teal-600)};
+      --bs-dropdown-link-active-bg: #{$teal-700};
+    }
+  
+  }
+  

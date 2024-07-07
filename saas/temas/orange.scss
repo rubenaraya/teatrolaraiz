@@ -1,6 +1,6 @@
-[data-bs-theme="anaranjado"] {
-  --bs-body-color: var(--bs-black);
-  --bs-body-color-rgb: #{to-rgb($black)};
+[data-bs-theme="orange"] {
+  --bs-body-color: var(--bs-white);
+  --bs-body-color-rgb: #{to-rgb($white)};
   --bs-body-bg: var(--bs-orange);
   --bs-body-bg-rgb: #{to-rgb($orange)};
   --bs-tertiary-bg: #{$orange-600};
