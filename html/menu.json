@@ -6,10 +6,11 @@
       {"href": "prueba.php?p=4", "etiqueta": "Areas con textos", "icono": "bi bi-circle"},
       {"href": "prueba.php?p=5", "etiqueta": "Galería imágenes", "icono": "bi bi-circle"},
       {"href": "", "etiqueta": "", "icono": ""},
-      {"href": "prueba.php?p=6", "etiqueta": "Muestra de diseño", "icono": "bi bi-plus"},
+      {"href": "prueba.php?p=6", "etiqueta": "Muestra de plantilla", "icono": "bi bi-plus"},
       {"href": "prueba.php?p=7", "etiqueta": "Iconografía", "icono": "bi bi-plus"},
       {"href": "prueba.php?p=8", "etiqueta": "Fuentes disponibles", "icono": "bi bi-plus"},
-      {"href": "prueba.php?p=9", "etiqueta": "Animaciones", "icono": "bi bi-plus"}
+      {"href": "prueba.php?p=9", "etiqueta": "Animaciones", "icono": "bi bi-plus"},
+      {"href": "prueba.php?p=10", "etiqueta": "Tema de diseño", "icono": "bi bi-plus"}
     ],
     "temas": [
       {"color": "cielo"},
@@ -54,8 +55,7 @@
         {"font": "Arial, Helvetica, sans-serif", "etiqueta": "Arial"},
         {"font": "Georgia, 'Times New Roman', Times, serif", "etiqueta": "Georgia"},
         {"font": "Verdana, Geneva, Tahoma, sans-serif", "etiqueta": "Verdana"},
-        {"font": "'Shadows Into Light'", "etiqueta": "Shadows Into Light"},
+        {"font": "'Shadows Into Light Two'", "etiqueta": "Shadows Into Light"},
         {"font": "'Gochi Hand'", "etiqueta": "Gochi Hand"}
     ]
 }
-  

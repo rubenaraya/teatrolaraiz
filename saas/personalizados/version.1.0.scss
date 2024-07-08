@@ -122,8 +122,6 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
         --web-sombra-#{$color}: #{shade-color($value, 90%)};
         --web-borde-#{$color}: #{shade-color($value, 50%)};
         --web-sobre-#{$color}: #{shade-color($value, 50%)};
-        --web-primary-#{$color}: '';
-        --web-secondary-#{$color}: '';
     }
     @each $color, $value in $colores-oscuros {
         --web-color-#{$color}: #{$value};
@@ -137,9 +135,22 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
         --web-sombra-#{$color}: #{tint-color($value, 90%)};
         --web-borde-#{$color}: #{tint-color($value, 50%)};
         --web-sobre-#{$color}: #{tint-color($value, 50%)};
-        --web-primary-#{$color}: '';
-        --web-secondary-#{$color}: '';
     }
+    --web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
+    --web-fuente-talla: 1rem;
+    --web-contenedor-sombra: var(--bs-body-color-rgb);
+    --web-letras-oscuras-texto: var(--bs-black);
+    --web-letras_oscuras-sombra: var(--bs-gray-500);
+    --web-letras-claras-texto: var(--bs-white);
+    --web-letras-claras-sombra: var(--bs-gray-800);
+    --web-volver-arriba-fondo-normal: var(--bs-gray-900);
+    --web-volver-arriba-fondo-activo: var(--bs-black);
+    --web-llamada-fondo: var(--bs-tertiary-bg);
+    --web-imagen-galeria-borde: var(--bs-gray-500);
+    --web-imagen-galeria-sombra: $yellow;
+    --web-etiquetas-fondo: var(--bs-gray-500);
+    --web-etiquetas-texto: var(--bs-white);
+
 }
 
 // ----------------------------------------------
@@ -150,25 +161,9 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
 // ----------------------------------------------
 // ESTILOS ESPECIALES DE LA PLANTILLA (WEB)
 
-$web_fuente_base: Verdana, Geneva, Tahoma, sans-serif;
-$web_contenedor_sombra: var(--bs-body-color-rgb);
-$web_letras_oscuras_texto: var(--bs-black);
-$web_letras_oscuras_sombra: var(--bs-gray-500);
-$web_letras_claras_texto: var(--bs-white);
-$web_letras_claras_sombra: var(--bs-gray-800);
 @import "../base/generales";
-
-$web_volver_arriba_fondo_normal: var(--bs-gray-900);
-$web_volver_arriba_fondo_activo: var(--bs-black);
-$web_llamada_fondo: var(--bs-tertiary-bg);
-$web_imagen_galeria_borde: var(--bs-gray-500);
-$web_imagen_galeria_sombra: $yellow;
 @import "../base/componentes";
-
-$web_etiquetas_fondo: var(--bs-gray-500);
-$web_etiquetas_texto: var(--bs-white);
 @import "../base/etiquetas";
-
 @import "../base/cargando";
 @import "../base/cookies";
 @import "../base/formularios";

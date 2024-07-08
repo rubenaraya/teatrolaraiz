@@ -3,8 +3,8 @@
 // AREA ETIQUETAS
 
 .web-etiquetas {
-    background-color: $web_etiquetas_fondo;
-    color: $web_etiquetas_texto;
+    background-color: var(--web-etiquetas-fondo);
+    color: var(--web-etiquetas-texto);
 }
 
 // ETIQUETAS DE COLORES

@@ -1,13 +1,44 @@
 [data-bs-theme="esmeralda"] {
-    --bs-body-color: var(--web-texto-esmeralda);
-    --bs-body-color-rgb: var(--web-texto-esmeralda-rgb);
-    --bs-body-bg: var(--web-fondo-esmeralda);
-    --bs-body-bg-rgb: var(--web-fondo-esmeralda-rgb);
-    --bs-tertiary-bg: var(--web-color-esmeralda-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-esmeralda-50);
-      --bs-dropdown-link-active-bg: var(--web-color-esmeralda-30);
-    }
+  // ----------------------------------------------
+  //--web-texto-esmeralda
+  //--web-texto-esmeralda-rgb
+  //--web-fondo-esmeralda
+  //--web-fondo-esmeralda-rgb
+  //--web-color-esmeralda-30
+  //--web-color-esmeralda-50
+  //--web-color-esmeralda-70
+
+  //--web-color-esmeralda
+  //--web-sombra-esmeralda
+  //--web-borde-esmeralda
+  //--web-sobre-esmeralda
+
+  // ----------------------------------------------
+  --bs-body-color: var(--web-texto-esmeralda);
+  --bs-body-color-rgb: var(--web-texto-esmeralda-rgb);
+  --bs-body-bg: var(--web-fondo-esmeralda);
+  --bs-body-bg-rgb: var(--web-fondo-esmeralda-rgb);
+  --bs-tertiary-bg: var(--web-color-esmeralda-70);
+
+  // ----------------------------------------------
+  //--web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
+  //--web-fuente-talla: 1rem;
+  //--web-contenedor-sombra: var(--bs-body-color-rgb);
+  //--web-letras-oscuras-texto: var(--bs-black);
+  //--web-letras_oscuras-sombra: var(--bs-gray-500);
+  //--web-letras-claras-texto: var(--bs-white);
+  //--web-letras-claras-sombra: var(--bs-gray-800);
+  //--web-volver-arriba-fondo-normal: var(--bs-gray-900);
+  //--web-volver-arriba-fondo-activo: var(--bs-black);
+  //--web-llamada-fondo: var(--bs-tertiary-bg);
+  //--web-imagen-galeria-borde: var(--bs-gray-500);
+  //--web-imagen-galeria-sombra: $yellow;
+  //--web-etiquetas-fondo: var(--bs-gray-500);
+  //--web-etiquetas-texto: var(--bs-white);
+
+  .dropdown-menu {
+    --bs-dropdown-bg: var(--web-color-esmeralda-50);
+    --bs-dropdown-link-active-bg: var(--web-color-esmeralda-30);
+  }
   
 }
