@@ -1,0 +1,13 @@
+[data-bs-theme="gris"] {
+    --bs-body-color: var(--web-texto-gris);
+    --bs-body-color-rgb: var(--web-texto-gris-rgb);
+    --bs-body-bg: var(--web-fondo-gris);
+    --bs-body-bg-rgb: var(--web-fondo-gris-rgb);
+    --bs-tertiary-bg: var(--web-color-gris-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-gris-50);
+      --bs-dropdown-link-active-bg: var(--web-color-gris-30);
+    }
+  
+}

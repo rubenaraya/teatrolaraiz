@@ -26,20 +26,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link web-item-menu dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-stars"></i> Creaciones</a>
-    
-                        <ul class="dropdown-menu web-submenu bg-secondary" data-bs-theme="dark">
-    
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=1"><i class="bi bi-circle"></i> Encabezado y pie</a></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=2"><i class="bi bi-circle"></i> Video de fondo</a></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=5"><i class="bi bi-circle"></i> Galería imágenes</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=3"><i class="bi bi-circle"></i> Areas con gráficas</a></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=4"><i class="bi bi-circle"></i> Areas con textos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=6"><i class="bi bi-plus"></i> Muestra de diseño</a></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=7"><i class="bi bi-plus"></i> Iconografía</a></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=9"><i class="bi bi-plus"></i> Animaciones</a></li>
-                            <li><a class="dropdown-item web-item-submenu" href="prueba.php?p=8"><i class="bi bi-plus"></i> Fuentes disponibles</a></li>
+                        <ul class="dropdown-menu web-submenu bg-secondary" id="elegirPagina">
 
                         </ul>
                     </li>
@@ -68,59 +55,51 @@
                                 </button>
                             </li>
                             <li><hr class="dropdown-divider"></li>
-
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="yellow" aria-pressed="false">
-                                    <svg style="color:var(--bs-yellow)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Amarillo<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                            <li class="btn_group">
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="yellow" aria-pressed="false">
+                                    <svg style="color:var(--bs-yellow)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="red" aria-pressed="false">
+                                    <svg style="color:var(--bs-red)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="green" aria-pressed="false">
+                                    <svg style="color:var(--bs-green)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="blue" aria-pressed="false">
+                                    <svg style="color:var(--bs-blue)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="orange" aria-pressed="false">
+                                    <svg style="color:var(--bs-orange)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="cyan" aria-pressed="false">
+                                    <svg style="color:var(--bs-cyan)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="purple" aria-pressed="false">
+                                    <svg style="color:var(--bs-purple)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="teal" aria-pressed="false">
+                                    <svg style="color:var(--bs-teal)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="pink" aria-pressed="false">
+                                    <svg style="color:var(--bs-pink)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
+                                </button>
+                                <button type="button" class="web-btn-tema" data-bs-theme-value="indigo" aria-pressed="false">
+                                    <svg style="color:var(--bs-indigo)" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
                                 </button>
                             </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="red" aria-pressed="false">
-                                    <svg style="color:var(--bs-red)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Rojo<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="green" aria-pressed="false">
-                                    <svg style="color:var(--bs-green)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Verde<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="blue" aria-pressed="false">
-                                    <svg style="color:var(--bs-blue)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Azul<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="orange" aria-pressed="false">
-                                    <svg style="color:var(--bs-orange)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Naranjo<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="cyan" aria-pressed="false">
-                                    <svg style="color:var(--bs-cyan)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Celeste<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="purple" aria-pressed="false">
-                                    <svg style="color:var(--bs-purple)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Violeta<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="teal" aria-pressed="false">
-                                    <svg style="color:var(--bs-teal)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Turquesa<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="pink" aria-pressed="false">
-                                    <svg style="color:var(--bs-pink)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Fucsia<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item web-item-submenu" data-bs-theme-value="indigo" aria-pressed="false">
-                                    <svg style="color:var(--bs-indigo)" class="web-simbolo me-2"><use href="#palette-fill"></use></svg>Morado<svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="btn_group" id="elegirTema">
     
-
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle web-item-menu" href="#" role="button" id="bd-font" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Elegir fuente">
+                            <i class="bi bi-fonts"></i>
+                            <span class="d-lg-none" id="bd-font-text">Elegir fuente</span>
+                        </a>
+                        <ul id="elegirFuente" class="dropdown-menu dropdown-menu-end web-submenu bg-secondary" aria-labelledby="bd-font-text">
+    
                         </ul>
                     </li>
                 </ul>

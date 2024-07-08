@@ -1,0 +1,13 @@
+[data-bs-theme="esmeralda"] {
+    --bs-body-color: var(--web-texto-esmeralda);
+    --bs-body-color-rgb: var(--web-texto-esmeralda-rgb);
+    --bs-body-bg: var(--web-fondo-esmeralda);
+    --bs-body-bg-rgb: var(--web-fondo-esmeralda-rgb);
+    --bs-tertiary-bg: var(--web-color-esmeralda-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-esmeralda-50);
+      --bs-dropdown-link-active-bg: var(--web-color-esmeralda-30);
+    }
+  
+}

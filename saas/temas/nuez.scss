@@ -1,0 +1,13 @@
+[data-bs-theme="nuez"] {
+    --bs-body-color: var(--web-texto-nuez);
+    --bs-body-color-rgb: var(--web-texto-nuez-rgb);
+    --bs-body-bg: var(--web-fondo-nuez);
+    --bs-body-bg-rgb: var(--web-fondo-nuez-rgb);
+    --bs-tertiary-bg: var(--web-color-nuez-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-nuez-50);
+      --bs-dropdown-link-active-bg: var(--web-color-nuez-30);
+    }
+  
+}

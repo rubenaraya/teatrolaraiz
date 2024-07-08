@@ -1,0 +1,13 @@
+[data-bs-theme="bermellon"] {
+    --bs-body-color: var(--web-texto-bermellon);
+    --bs-body-color-rgb: var(--web-texto-bermellon-rgb);
+    --bs-body-bg: var(--web-fondo-bermellon);
+    --bs-body-bg-rgb: var(--web-fondo-bermellon-rgb);
+    --bs-tertiary-bg: var(--web-color-bermellon-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-bermellon-50);
+      --bs-dropdown-link-active-bg: var(--web-color-bermellon-30);
+    }
+  
+}

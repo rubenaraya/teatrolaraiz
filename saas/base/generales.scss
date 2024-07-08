@@ -175,3 +175,11 @@
     font-size: 0.9rem;
 }
 
+.web-btn-tema {
+    @extend .btn;
+    @extend .btn-sm;
+    @extend .btn-secondary;
+    @extend .px-1;
+    @extend .ms-1;
+}
+

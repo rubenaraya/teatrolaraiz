@@ -1,0 +1,13 @@
+[data-bs-theme="verde"] {
+    --bs-body-color: var(--web-texto-verde);
+    --bs-body-color-rgb: var(--web-texto-verde-rgb);
+    --bs-body-bg: var(--web-fondo-verde);
+    --bs-body-bg-rgb: var(--web-fondo-verde-rgb);
+    --bs-tertiary-bg: var(--web-color-verde-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-verde-50);
+      --bs-dropdown-link-active-bg: var(--web-color-verde-30);
+    }
+  
+}

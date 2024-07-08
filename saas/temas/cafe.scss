@@ -1,0 +1,13 @@
+[data-bs-theme="cafe"] {
+    --bs-body-color: var(--web-texto-cafe);
+    --bs-body-color-rgb: var(--web-texto-cafe-rgb);
+    --bs-body-bg: var(--web-fondo-cafe);
+    --bs-body-bg-rgb: var(--web-fondo-cafe-rgb);
+    --bs-tertiary-bg: var(--web-color-cafe-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-cafe-50);
+      --bs-dropdown-link-active-bg: var(--web-color-cafe-30);
+    }
+  
+}

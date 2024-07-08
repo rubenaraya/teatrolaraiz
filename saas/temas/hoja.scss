@@ -1,0 +1,13 @@
+[data-bs-theme="hoja"] {
+    --bs-body-color: var(--web-texto-hoja);
+    --bs-body-color-rgb: var(--web-texto-hoja-rgb);
+    --bs-body-bg: var(--web-fondo-hoja);
+    --bs-body-bg-rgb: var(--web-fondo-hoja-rgb);
+    --bs-tertiary-bg: var(--web-color-hoja-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-hoja-50);
+      --bs-dropdown-link-active-bg: var(--web-color-hoja-30);
+    }
+  
+}

@@ -1,0 +1,13 @@
+[data-bs-theme="verdeamar"] {
+    --bs-body-color: var(--web-texto-verdeamar);
+    --bs-body-color-rgb: var(--web-texto-verdeamar-rgb);
+    --bs-body-bg: var(--web-fondo-verdeamar);
+    --bs-body-bg-rgb: var(--web-fondo-verdeamar-rgb);
+    --bs-tertiary-bg: var(--web-color-verdeamar-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-verdeamar-50);
+      --bs-dropdown-link-active-bg: var(--web-color-verdeamar-30);
+    }
+  
+}

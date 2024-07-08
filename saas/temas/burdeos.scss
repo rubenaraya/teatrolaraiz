@@ -1,0 +1,13 @@
+[data-bs-theme="burdeos"] {
+    --bs-body-color: var(--web-texto-burdeos);
+    --bs-body-color-rgb: var(--web-texto-burdeos-rgb);
+    --bs-body-bg: var(--web-fondo-burdeos);
+    --bs-body-bg-rgb: var(--web-fondo-burdeos-rgb);
+    --bs-tertiary-bg: var(--web-color-burdeos-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-burdeos-50);
+      --bs-dropdown-link-active-bg: var(--web-color-burdeos-30);
+    }
+  
+}

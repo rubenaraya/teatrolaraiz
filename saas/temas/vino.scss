@@ -1,0 +1,13 @@
+[data-bs-theme="vino"] {
+    --bs-body-color: var(--web-texto-vino);
+    --bs-body-color-rgb: var(--web-texto-vino-rgb);
+    --bs-body-bg: var(--web-fondo-vino);
+    --bs-body-bg-rgb: var(--web-fondo-vino-rgb);
+    --bs-tertiary-bg: var(--web-color-vino-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-vino-50);
+      --bs-dropdown-link-active-bg: var(--web-color-vino-30);
+    }
+  
+}

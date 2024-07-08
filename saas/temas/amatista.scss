@@ -1,0 +1,13 @@
+[data-bs-theme="amatista"] {
+    --bs-body-color: var(--web-texto-amatista);
+    --bs-body-color-rgb: var(--web-texto-amatista-rgb);
+    --bs-body-bg: var(--web-fondo-amatista);
+    --bs-body-bg-rgb: var(--web-fondo-amatista-rgb);
+    --bs-tertiary-bg: var(--web-color-amatista-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-amatista-50);
+      --bs-dropdown-link-active-bg: var(--web-color-amatista-30);
+    }
+  
+}

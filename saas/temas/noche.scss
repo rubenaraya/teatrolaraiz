@@ -1,0 +1,13 @@
+[data-bs-theme="noche"] {
+    --bs-body-color: var(--web-texto-noche);
+    --bs-body-color-rgb: var(--web-texto-noche-rgb);
+    --bs-body-bg: var(--web-fondo-noche);
+    --bs-body-bg-rgb: var(--web-fondo-noche-rgb);
+    --bs-tertiary-bg: var(--web-color-noche-70);
+  
+    .dropdown-menu {
+      --bs-dropdown-bg: var(--web-color-noche-50);
+      --bs-dropdown-link-active-bg: var(--web-color-noche-30);
+    }
+  
+}

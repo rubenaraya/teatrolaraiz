@@ -74,6 +74,25 @@ class Web {
 			}, { once: true }
 		);
 	}
+	#cargarMenu(idMenu, items, keyValor, keyIcono) {
+		const menu = document.getElementById(idMenu);
+		if (!menu) return;
+		items.forEach(item => {
+			let elementoMenu;
+			if (keyIcono) {
+				if (item.href.length == 0) {
+					elementoMenu = `<hr class="dropdown-divider">`;
+				} else {
+					elementoMenu = `<a class="dropdown-item web-item-submenu" href="${item[keyValor]}"><i class="${item[keyIcono]}"></i> ${item.etiqueta}</a>`;
+				}
+			} else if (item.etiqueta) {
+				elementoMenu = `<a class="dropdown-item web-item-submenu" href="#" data-${keyValor}="${item[keyValor]}">${item.etiqueta}</a>`;
+			} else if (item.color) {
+				elementoMenu = `<button type="button" class="web-btn-tema" data-bs-theme-value="${item.color}" aria-pressed="false" onclick="A.seleccionarTema('${item.color}')"><svg style="color:var(--web-color-${item.color})" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg></button>`;
+			}
+			menu.innerHTML += elementoMenu;
+		});
+	}
 	// Funciones públicas
 	async ocultarCargando() {
 		const fondo_cargando = document.getElementById('web-fondo-cargando');
@@ -131,7 +150,17 @@ class Web {
 		modal.hide();
 		this.mostrarNotificacion(mensaje, tipo);
 	}
-	iniciar(dominio, galeria) {
+	async cargarMenus(ruta) {
+		await fetch(ruta)
+		.then(response => response.json())
+		.then(data => {
+			this.#cargarMenu('elegirPagina', data.paginas, 'href', 'icono');
+			this.#cargarMenu('elegirTema', data.temas, 'color');
+			this.#cargarMenu('elegirFuente', data.fuentes, 'font');
+		});
+	}
+	iniciar(dominio, galeria, menu) {
+		this.cargarMenus(menu);
 		this.#activarContacto(dominio);
 		this.#activarGaleria(galeria);
 		this.#activarTooltips();
@@ -190,6 +219,7 @@ class Ajustes {
     constructor() {
         this.defaultTheme = 'light';
         this.defaultFont = 'Verdana, Geneva, Tahoma, sans-serif';
+		this.iniciar();
     }
     iniciar() {
         this.aplicarTema(this.#obtenerTemaGuardado());
@@ -200,6 +230,10 @@ class Ajustes {
         document.documentElement.setAttribute('data-bs-theme', tema);
         this.#mostrarTemaActivo(tema);
     }
+	seleccionarTema(tema) {
+		this.#guardarTema(tema);
+		this.aplicarTema(tema);
+	}
     aplicarFuente(fuente) {
         document.body.style.fontFamily = fuente;
         this.#marcarFuenteActiva(fuente);
@@ -284,8 +318,7 @@ const A = new Ajustes();
 
 document.addEventListener('DOMContentLoaded', function() {
 	C.comprobarCookie(cookie);
-	A.iniciar();
-	W.iniciar(dominio, galeria);
+	W.iniciar(dominio, galeria, '/web/html/menu.json');
 	W.animarElementos('.web-animar');
 	new WOW().init();
 	W.ocultarCargando();

@@ -3,7 +3,7 @@
 @import "../base/colores";
 
 // ----------------------------------------------
-// PERSONALIZACION DE VARIABLES GLOBALES
+// PERSONALIZACION DE VARIABLES SAAS GLOBALES
 
 $primary:         $blue;
 $secondary:       $gray-600;
@@ -105,8 +105,10 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
 @import "../bootstrap/scss/utilities/api";
 
 // ----------------------------------------------
-// TEMAS PERSONALIZADOS (JUEGOS DE COLORES)
+// TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
 
+// ----------------------------------------------
+// Definicion de variables CSS por temas
 :root {
     @each $color, $value in $colores-claros {
         --web-color-#{$color}: #{$value};
@@ -140,23 +142,13 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
     }
 }
 
-@import "../temas/blue";
-@import "../temas/cyan";
-@import "../temas/green";
-@import "../temas/indigo";
-@import "../temas/orange";
-@import "../temas/pink";
-@import "../temas/purple";
-@import "../temas/red";
-@import "../temas/teal";
-@import "../temas/yellow";
-@import "../temas/azul";
-@import "../temas/chocolate";
-@import "../temas/cielo";
-@import "../temas/crema";
+// ----------------------------------------------
+// Importaciones de temas
+
+@import "../temas/acero", "../temas/agata", "../temas/aguamarina", "../temas/amatista", "../temas/azul", "../temas/bermellon", "../temas/blue", "../temas/botella", "../temas/burdeos", "../temas/cafe", "../temas/caoba", "../temas/cardo", "../temas/chocolate", "../temas/cielo", "../temas/cobalto", "../temas/crema", "../temas/cyan", "../temas/esmeralda", "../temas/green", "../temas/gris", "../temas/hoja", "../temas/icterina", "../temas/indigo", "../temas/limon", "../temas/marron", "../temas/musgo", "../temas/noche", "../temas/nuez", "../temas/orange", "../temas/perla", "../temas/pink", "../temas/purple", "../temas/red", "../temas/rosado", "../temas/teal", "../temas/verde", "../temas/verdeamar", "../temas/vino", "../temas/yellow", "../temas/zafiro";
 
 // ----------------------------------------------
-// ESTILOS DEFINIDOS EN LA PLANTILLA (WEB)
+// ESTILOS ESPECIALES DE LA PLANTILLA (WEB)
 
 $web_fuente_base: Verdana, Geneva, Tahoma, sans-serif;
 $web_contenedor_sombra: var(--bs-body-color-rgb);
