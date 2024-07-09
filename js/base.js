@@ -218,7 +218,6 @@ class Cookie {
 class Ajustes {
     constructor() {
         this.defaultTheme = 'light';
-        this.defaultFont = 'Verdana, Geneva, Tahoma, sans-serif';
 		this.iniciar();
     }
     iniciar() {
@@ -235,8 +234,10 @@ class Ajustes {
 		this.aplicarTema(tema);
 	}
     aplicarFuente(fuente) {
-        document.body.style.fontFamily = fuente;
-        this.#marcarFuenteActiva(fuente);
+		if (fuente) {
+			document.body.style.fontFamily = fuente;
+			this.#marcarFuenteActiva(fuente);
+		}
     }
     #obtenerAjustesGuardados() {
         const settings = localStorage.getItem('userSettings');
@@ -256,7 +257,7 @@ class Ajustes {
     }
     #obtenerFuenteGuardada() {
         const settings = this.#obtenerAjustesGuardados();
-        return settings.font || this.defaultFont;
+        return settings.font || null;
     }
     #guardarFuente(fuente) {
         this.#guardarAjuste('font', fuente);

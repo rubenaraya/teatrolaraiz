@@ -1,44 +1,103 @@
+@use "sass:map";
 [data-bs-theme="esmeralda"] {
+
+  $color: map.get($theme-colors, "esmeralda");
+  $fondo: $color;
+  $texto: $white;
+  $emphasis: $texto;
+  $primary: green;
+  $secondary: gray;
+  $tertiary: silver;
+
+  $fondo-secondary: tint-color($color, 50%);
+  $fondo-tertiary: tint-color($color, 70%);
+  $sombra: shade-color($color, 90%);
+  $borde: shade-color($color, 50%);
+  $sobre: shade-color($color, 50%);
+  $color-10: tint-color($color, 10%);
+  $color-20: tint-color($color, 20%);
+  $color-30: tint-color($color, 30%);
+  $color-40: tint-color($color, 40%);
+  $color-50: tint-color($color, 50%);
+  $color-60: tint-color($color, 60%);
+  $color-70: tint-color($color, 70%);
+  $color-80: tint-color($color, 80%);
+  $color-90: tint-color($color, 90%);
+  $color-rgb: to-rgb($color);
+  $fondo-rgb: to-rgb($fondo);
+  $texto-rgb: to-rgb($texto);
+  $emphasis-rgb: to-rgb($emphasis);
+  $primary-rgb: to-rgb($primary);
+  $secondary-rgb: to-rgb($secondary);
+  $tertiary-rgb: to-rgb($tertiary);
+  $fondo-secondary-rgb: to-rgb($fondo-secondary);
+  $fondo-tertiary-rgb: to-rgb($fondo-tertiary);
+
   // ----------------------------------------------
-  //--web-texto-esmeralda
-  //--web-texto-esmeralda-rgb
-  //--web-fondo-esmeralda
-  //--web-fondo-esmeralda-rgb
-  //--web-color-esmeralda-30
-  //--web-color-esmeralda-50
-  //--web-color-esmeralda-70
-
-  //--web-color-esmeralda
-  //--web-sombra-esmeralda
-  //--web-borde-esmeralda
-  //--web-sobre-esmeralda
-
-  // ----------------------------------------------
-  --bs-body-color: var(--web-texto-esmeralda);
-  --bs-body-color-rgb: var(--web-texto-esmeralda-rgb);
-  --bs-body-bg: var(--web-fondo-esmeralda);
-  --bs-body-bg-rgb: var(--web-fondo-esmeralda-rgb);
-  --bs-tertiary-bg: var(--web-color-esmeralda-70);
+  --bs-body-color: #{$texto};
+  --bs-body-color-rgb: #{$texto-rgb};
+  --bs-body-bg: #{$fondo};
+  --bs-body-bg-rgb: #{$fondo-rgb};
+  --bs-secondary-bg: #{$fondo-secondary};
+  --bs-secondary-bg-rgb: #{$fondo-secondary-rgb};
+  --bs-tertiary-bg: #{$fondo-tertiary};
+  --bs-tertiary-bg-rgb: #{$fondo-tertiary-rgb};
+  --bs-emphasis-color: #{$emphasis};
+  --bs-primary-color: #{$primary};
+  --bs-secondary-color: #{$secondary};
+  --bs-tertiary-color: #{$tertiary};
+  --bs-emphasis-color-rgb: #{$emphasis-rgb};
+  --bs-secondary-color-rgb: #{$secondary-rgb};
+  --bs-tertiary-color-rgb: #{$tertiary-rgb};
 
   // ----------------------------------------------
-  //--web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
-  //--web-fuente-talla: 1rem;
-  //--web-contenedor-sombra: var(--bs-body-color-rgb);
-  //--web-letras-oscuras-texto: var(--bs-black);
-  //--web-letras_oscuras-sombra: var(--bs-gray-500);
-  //--web-letras-claras-texto: var(--bs-white);
-  //--web-letras-claras-sombra: var(--bs-gray-800);
-  //--web-volver-arriba-fondo-normal: var(--bs-gray-900);
-  //--web-volver-arriba-fondo-activo: var(--bs-black);
-  //--web-llamada-fondo: var(--bs-tertiary-bg);
-  //--web-imagen-galeria-borde: var(--bs-gray-500);
-  //--web-imagen-galeria-sombra: $yellow;
-  //--web-etiquetas-fondo: var(--bs-gray-500);
-  //--web-etiquetas-texto: var(--bs-white);
+  
+  --bs-heading-color: #{$headings-color};
+  --bs-link-color: #{$link-color};
+  --bs-link-hover-color: #{$link-hover-color};
+  --bs-link-color-rgb: #{to-rgb($link-color)};
+  --bs-link-hover-color-rgb: #{to-rgb($link-hover-color)};
+  --bs-code-color: #{$code-color};
+  --bs-highlight-color: #{$mark-color};
+  --bs-highlight-bg: #{$mark-bg};
+  --bs-border-color: #{$border-color};
+  --bs-border-color-translucent: #{$border-color-translucent};
+  --bs-form-valid-color: #{$form-valid-color};
+  --bs-form-valid-border-color: #{$form-valid-border-color};
+  --bs-form-invalid-color: #{$form-invalid-color};
+  --bs-form-invalid-border-color: #{$form-invalid-border-color};
+  
+  @each $color, $value in $theme-colors-text {
+    --bs-#{$color}-text-emphasis: #{$value};
+  }
+  @each $color, $value in $theme-colors-bg-subtle {
+    --bs-#{$color}-bg-subtle: #{$value};
+  }
+  @each $color, $value in $theme-colors-border-subtle {
+    --bs-#{$color}-border-subtle: #{$value};
+  }
 
+  // ----------------------------------------------
+  --web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
+  --web-fuente-talla: 1rem;
+  --web-contenedor-sombra: var(--bs-body-color-rgb);
+  --web-letras-oscuras-texto: var(--bs-black);
+  --web-letras_oscuras-sombra: var(--bs-gray-500);
+  --web-letras-claras-texto: var(--bs-white);
+  --web-letras-claras-sombra: var(--bs-gray-800);
+  --web-volver-arriba-fondo-normal: var(--bs-gray-900);
+  --web-volver-arriba-fondo-activo: var(--bs-black);
+  --web-llamada-fondo: var(--bs-tertiary-bg);
+  --web-imagen-galeria-borde: var(--bs-gray-500);
+  --web-imagen-galeria-sombra: $yellow;
+  --web-etiquetas-fondo: var(--bs-gray-500);
+  --web-etiquetas-texto: var(--bs-white);
+
+  // ----------------------------------------------
   .dropdown-menu {
-    --bs-dropdown-bg: var(--web-color-esmeralda-50);
-    --bs-dropdown-link-active-bg: var(--web-color-esmeralda-30);
+    --bs-dropdown-bg: #{$color-50};
+    --bs-dropdown-link-active-bg: #{$color-30};
   }
   
 }
+

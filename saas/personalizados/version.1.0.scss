@@ -5,8 +5,8 @@
 // ----------------------------------------------
 // PERSONALIZACION DE VARIABLES SAAS GLOBALES
 
-$primary:         $blue;
-$secondary:       $gray-600;
+//$primary:         $blue;
+//$secondary:       $gray-600;
 //$success:         $green;
 //$info:            $cyan;
 //$warning:         $yellow;
@@ -106,55 +106,6 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
 
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
-
-// ----------------------------------------------
-// Definicion de variables CSS por temas
-:root {
-    @each $color, $value in $colores-claros {
-        --web-color-#{$color}: #{$value};
-        --web-color-#{$color}-30: #{tint-color($value, 30%)};
-        --web-color-#{$color}-50: #{tint-color($value, 50%)};
-        --web-color-#{$color}-70: #{tint-color($value, 70%)};
-        --web-fondo-#{$color}: #{$value};
-        --web-fondo-#{$color}-rgb: #{to-rgb($value)};
-        --web-texto-#{$color}: #{$white};
-        --web-texto-#{$color}-rgb: #{to-rgb($white)};
-        --web-sombra-#{$color}: #{shade-color($value, 90%)};
-        --web-borde-#{$color}: #{shade-color($value, 50%)};
-        --web-sobre-#{$color}: #{shade-color($value, 50%)};
-    }
-    @each $color, $value in $colores-oscuros {
-        --web-color-#{$color}: #{$value};
-        --web-color-#{$color}-30: #{shade-color($value, 30%)};
-        --web-color-#{$color}-50: #{shade-color($value, 50%)};
-        --web-color-#{$color}-70: #{shade-color($value, 70%)};
-        --web-fondo-#{$color}: #{$value};
-        --web-fondo-#{$color}-rgb: #{to-rgb($value)};
-        --web-texto-#{$color}: #{$white};
-        --web-texto-#{$color}-rgb: #{to-rgb($white)};
-        --web-sombra-#{$color}: #{tint-color($value, 90%)};
-        --web-borde-#{$color}: #{tint-color($value, 50%)};
-        --web-sobre-#{$color}: #{tint-color($value, 50%)};
-    }
-    --web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
-    --web-fuente-talla: 1rem;
-    --web-contenedor-sombra: var(--bs-body-color-rgb);
-    --web-letras-oscuras-texto: var(--bs-black);
-    --web-letras_oscuras-sombra: var(--bs-gray-500);
-    --web-letras-claras-texto: var(--bs-white);
-    --web-letras-claras-sombra: var(--bs-gray-800);
-    --web-volver-arriba-fondo-normal: var(--bs-gray-900);
-    --web-volver-arriba-fondo-activo: var(--bs-black);
-    --web-llamada-fondo: var(--bs-tertiary-bg);
-    --web-imagen-galeria-borde: var(--bs-gray-500);
-    --web-imagen-galeria-sombra: $yellow;
-    --web-etiquetas-fondo: var(--bs-gray-500);
-    --web-etiquetas-texto: var(--bs-white);
-
-}
-
-// ----------------------------------------------
-// Importaciones de temas
 
 @import "../temas/acero", "../temas/agata", "../temas/aguamarina", "../temas/amatista", "../temas/azul", "../temas/bermellon", "../temas/blue", "../temas/botella", "../temas/burdeos", "../temas/cafe", "../temas/caoba", "../temas/cardo", "../temas/chocolate", "../temas/cielo", "../temas/cobalto", "../temas/crema", "../temas/cyan", "../temas/esmeralda", "../temas/green", "../temas/gris", "../temas/hoja", "../temas/icterina", "../temas/indigo", "../temas/limon", "../temas/marron", "../temas/musgo", "../temas/noche", "../temas/nuez", "../temas/orange", "../temas/perla", "../temas/pink", "../temas/purple", "../temas/red", "../temas/rosado", "../temas/teal", "../temas/verde", "../temas/verdeamar", "../temas/vino", "../temas/yellow", "../temas/zafiro";
 
