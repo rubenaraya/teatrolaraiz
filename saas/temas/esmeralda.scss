@@ -1,54 +1,66 @@
 @use "sass:map";
+
 [data-bs-theme="esmeralda"] {
 
   $color: map.get($theme-colors, "esmeralda");
   $fondo: $color;
   $texto: $white;
-  $emphasis: $texto;
+  $enfasis: $texto;
   $primary: green;
   $secondary: gray;
   $tertiary: silver;
-
   $fondo-secondary: tint-color($color, 50%);
   $fondo-tertiary: tint-color($color, 70%);
-  $sombra: shade-color($color, 90%);
-  $borde: shade-color($color, 50%);
-  $sobre: shade-color($color, 50%);
-  $color-10: tint-color($color, 10%);
-  $color-20: tint-color($color, 20%);
-  $color-30: tint-color($color, 30%);
-  $color-40: tint-color($color, 40%);
-  $color-50: tint-color($color, 50%);
-  $color-60: tint-color($color, 60%);
-  $color-70: tint-color($color, 70%);
-  $color-80: tint-color($color, 80%);
-  $color-90: tint-color($color, 90%);
-  $color-rgb: to-rgb($color);
-  $fondo-rgb: to-rgb($fondo);
-  $texto-rgb: to-rgb($texto);
-  $emphasis-rgb: to-rgb($emphasis);
-  $primary-rgb: to-rgb($primary);
-  $secondary-rgb: to-rgb($secondary);
-  $tertiary-rgb: to-rgb($tertiary);
-  $fondo-secondary-rgb: to-rgb($fondo-secondary);
-  $fondo-tertiary-rgb: to-rgb($fondo-tertiary);
+
+  @include cssvars((
+    fondo: $fondo,
+    texto: $texto,
+    enfasis: $enfasis,
+    primary: $primary,
+    secondary: $secondary,
+    tertiary: $tertiary,
+    fondo-secondary: $fondo-secondary,
+    fondo-tertiary: $fondo-tertiary,
+    sombra: shade-color($color, 90%),
+    borde: shade-color($color, 50%),
+    sobre: shade-color($color, 50%),
+    color-10: tint-color($color, 10%),
+    color-20: tint-color($color, 20%),
+    color-30: tint-color($color, 30%),
+    color-40: tint-color($color, 40%),
+    color-50: tint-color($color, 50%),
+    color-60: tint-color($color, 60%),
+    color-70: tint-color($color, 70%),
+    color-80: tint-color($color, 80%),
+    color-90: tint-color($color, 90%),
+
+    color-rgb: to-rgb($color),
+    fondo-rgb: to-rgb($fondo),
+    texto-rgb: to-rgb($texto),
+    enfasis-rgb: to-rgb($enfasis),
+    primary-rgb: to-rgb($primary),
+    secondary-rgb: to-rgb($secondary),
+    tertiary-rgb: to-rgb($tertiary),
+    fondo-secondary-rgb: to-rgb($fondo-secondary),
+    fondo-tertiary-rgb: to-rgb($fondo-tertiary),
+  ));
 
   // ----------------------------------------------
-  --bs-body-color: #{$texto};
-  --bs-body-color-rgb: #{$texto-rgb};
-  --bs-body-bg: #{$fondo};
-  --bs-body-bg-rgb: #{$fondo-rgb};
-  --bs-secondary-bg: #{$fondo-secondary};
-  --bs-secondary-bg-rgb: #{$fondo-secondary-rgb};
-  --bs-tertiary-bg: #{$fondo-tertiary};
-  --bs-tertiary-bg-rgb: #{$fondo-tertiary-rgb};
-  --bs-emphasis-color: #{$emphasis};
-  --bs-primary-color: #{$primary};
-  --bs-secondary-color: #{$secondary};
-  --bs-tertiary-color: #{$tertiary};
-  --bs-emphasis-color-rgb: #{$emphasis-rgb};
-  --bs-secondary-color-rgb: #{$secondary-rgb};
-  --bs-tertiary-color-rgb: #{$tertiary-rgb};
+  --bs-body-color: #{cssvar(texto)};
+  --bs-body-color-rgb: #{cssvar(texto-rgb)};
+  --bs-body-bg: #{cssvar(fondo)};
+  --bs-body-bg-rgb: #{cssvar(fondo-rgb)};
+  --bs-secondary-bg: #{cssvar(fondo-secondary)};
+  --bs-secondary-bg-rgb: #{cssvar(fondo-secondary-rgb)};
+  --bs-tertiary-bg: #{cssvar(fondo-tertiary)};
+  --bs-tertiary-bg-rgb: #{cssvar(fondo-tertiary-rgb)};
+  --bs-emphasis-color: #{cssvar(enfasis)};
+  --bs-primary-color: #{cssvar(primary)};
+  --bs-secondary-color: #{cssvar(secondary)};
+  --bs-tertiary-color: #{cssvar(tertiary)};
+  --bs-emphasis-color-rgb: #{cssvar(enfasis-rgb)};
+  --bs-secondary-color-rgb: #{cssvar(secondary-rgb)};
+  --bs-tertiary-color-rgb: #{cssvar(tertiary-rgb)};
 
   // ----------------------------------------------
   
@@ -66,16 +78,6 @@
   --bs-form-valid-border-color: #{$form-valid-border-color};
   --bs-form-invalid-color: #{$form-invalid-color};
   --bs-form-invalid-border-color: #{$form-invalid-border-color};
-  
-  @each $color, $value in $theme-colors-text {
-    --bs-#{$color}-text-emphasis: #{$value};
-  }
-  @each $color, $value in $theme-colors-bg-subtle {
-    --bs-#{$color}-bg-subtle: #{$value};
-  }
-  @each $color, $value in $theme-colors-border-subtle {
-    --bs-#{$color}-border-subtle: #{$value};
-  }
 
   // ----------------------------------------------
   --web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
@@ -95,8 +97,8 @@
 
   // ----------------------------------------------
   .dropdown-menu {
-    --bs-dropdown-bg: #{$color-50};
-    --bs-dropdown-link-active-bg: #{$color-30};
+    --bs-dropdown-bg: #{cssvar(color-50)};
+    --bs-dropdown-link-active-bg: #{cssvar(color-30)};
   }
   
 }

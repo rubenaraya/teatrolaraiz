@@ -1,0 +1,13 @@
+@mixin cssvars($css_variables, $prefix: tema) {
+    @each $name, $value in $css_variables {
+        --#{$prefix}-#{$name}: #{$value};
+    }
+}
+
+@function cssvar ($name, $prefix: tema) {
+    @return var(--#{$prefix}-#{$name});
+}
+
+@mixin cssvar($name, $value: '', $prefix: tema) {
+    --#{$prefix}-#{$name}: #{$value};
+}
