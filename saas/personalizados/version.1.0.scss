@@ -31,7 +31,12 @@ $link-color-dark: $body-color-dark;
 
 // ----------------------------------------------
 // Personalizacion modos de colores
-@import "../base/modos";
+$theme-colors: map-merge($theme-colors, $colores-claros);
+$theme-colors: map-merge($theme-colors, $colores-oscuros);
+
+@import "../bootstrap/scss/maps";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/utilities";
 
 // ----------------------------------------------
 // Diseño + componentes + utiles
@@ -66,16 +71,6 @@ $link-color-dark: $body-color-dark;
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
 
-// ----------------------------------------------
-// Definicion de variables CSS por temas
-:root {
-  @each $color, $value in $theme-colors {
-      --web-color-#{$color}: #{$value};
-  }
-}
-
-// ----------------------------------------------
-// Importaciones de temas
 @import "../temas/acero", "../temas/agata", "../temas/aguamarina", "../temas/amatista", "../temas/azul", "../temas/bermellon", "../temas/blue", "../temas/botella", "../temas/burdeos", "../temas/cafe", "../temas/caoba", "../temas/cardo", "../temas/chocolate", "../temas/cielo", "../temas/cobalto", "../temas/crema", "../temas/cyan", "../temas/esmeralda", "../temas/green", "../temas/gris", "../temas/hoja", "../temas/icterina", "../temas/indigo", "../temas/limon", "../temas/marron", "../temas/musgo", "../temas/noche", "../temas/nuez", "../temas/orange", "../temas/perla", "../temas/pink", "../temas/purple", "../temas/red", "../temas/rosado", "../temas/teal", "../temas/verde", "../temas/verdeamar", "../temas/vino", "../temas/yellow", "../temas/zafiro";
 
 // ----------------------------------------------

@@ -88,7 +88,7 @@ class Web {
 			} else if (item.etiqueta) {
 				elementoMenu = `<a class="dropdown-item web-item-submenu" href="#" data-${keyValor}="${item[keyValor]}">${item.etiqueta}</a>`;
 			} else if (item.color) {
-				elementoMenu = `<button type="button" class="web-btn-tema" data-bs-theme-value="${item.color}" aria-pressed="false" onclick="A.seleccionarTema('${item.color}')"><svg style="color:var(--web-color-${item.color})" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg></button>`;
+				elementoMenu = `<button type="button" class="web-btn-tema" data-bs-theme-value="${item.color}" aria-pressed="false" onclick="A.seleccionarTema('${item.color}')"><svg style="color:var(--bs-${item.color})" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg></button>`;
 			}
 			menu.innerHTML += elementoMenu;
 		});

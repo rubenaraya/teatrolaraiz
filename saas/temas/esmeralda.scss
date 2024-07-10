@@ -5,22 +5,23 @@
   $color: map.get($theme-colors, "esmeralda");
   $fondo: $color;
   $texto: $white;
+  $fondo2: tint-color($color, 50%);
+  $texto2: $white;
+  $fondo3: tint-color($color, 70%);
+  $texto3: $white;
   $enfasis: $texto;
-  $primary: green;
-  $secondary: gray;
-  $tertiary: silver;
-  $fondo-secondary: tint-color($color, 50%);
-  $fondo-tertiary: tint-color($color, 70%);
+  $fuente-nombre: Verdana, Geneva, Tahoma, sans-serif;
+  $fuente-talla: 1rem;
 
+  // ----------------------------------------------
   @include cssvars((
     fondo: $fondo,
     texto: $texto,
+    fondo2: $fondo2,
+    texto2: $texto2,
+    fondo3: $fondo3,
+    texto3: $texto3,
     enfasis: $enfasis,
-    primary: $primary,
-    secondary: $secondary,
-    tertiary: $tertiary,
-    fondo-secondary: $fondo-secondary,
-    fondo-tertiary: $fondo-tertiary,
     sombra: shade-color($color, 90%),
     borde: shade-color($color, 50%),
     sobre: shade-color($color, 50%),
@@ -33,37 +34,93 @@
     color-70: tint-color($color, 70%),
     color-80: tint-color($color, 80%),
     color-90: tint-color($color, 90%),
-
     color-rgb: to-rgb($color),
+    enfasis-rgb: to-rgb($enfasis),
     fondo-rgb: to-rgb($fondo),
     texto-rgb: to-rgb($texto),
-    enfasis-rgb: to-rgb($enfasis),
-    primary-rgb: to-rgb($primary),
-    secondary-rgb: to-rgb($secondary),
-    tertiary-rgb: to-rgb($tertiary),
-    fondo-secondary-rgb: to-rgb($fondo-secondary),
-    fondo-tertiary-rgb: to-rgb($fondo-tertiary),
+    fondo2-rgb: to-rgb($fondo2),
+    texto2-rgb: to-rgb($texto2),
+    fondo3-rgb: to-rgb($fondo3),
+    texto3-rgb: to-rgb($texto3),
+    fuente-nombre: $fuente-nombre,
+    fuente-talla: $fuente-talla,
   ));
 
   // ----------------------------------------------
-  --bs-body-color: #{cssvar(texto)};
-  --bs-body-color-rgb: #{cssvar(texto-rgb)};
+  --bs-body-font-family: #{cssvar(fuente-nombre)};
+  --bs-body-font-size: #{cssvar(fuente-talla)};
   --bs-body-bg: #{cssvar(fondo)};
   --bs-body-bg-rgb: #{cssvar(fondo-rgb)};
-  --bs-secondary-bg: #{cssvar(fondo-secondary)};
-  --bs-secondary-bg-rgb: #{cssvar(fondo-secondary-rgb)};
-  --bs-tertiary-bg: #{cssvar(fondo-tertiary)};
-  --bs-tertiary-bg-rgb: #{cssvar(fondo-tertiary-rgb)};
+  --bs-body-color: #{cssvar(texto)};
+  --bs-body-color-rgb: #{cssvar(texto-rgb)};
+  --bs-secondary-bg: #{cssvar(fondo2)};
+  --bs-secondary-bg-rgb: #{cssvar(fondo2-rgb)};
+  --bs-secondary-color: #{cssvar(texto2)};
+  --bs-secondary-color-rgb: #{cssvar(texto2-rgb)};
+  --bs-tertiary-bg: #{cssvar(fondo3)};
+  --bs-tertiary-bg-rgb: #{cssvar(fondo3-rgb)};
+  --bs-tertiary-color: #{cssvar(texto3)};
+  --bs-tertiary-color-rgb: #{cssvar(texto3-rgb)};
   --bs-emphasis-color: #{cssvar(enfasis)};
-  --bs-primary-color: #{cssvar(primary)};
-  --bs-secondary-color: #{cssvar(secondary)};
-  --bs-tertiary-color: #{cssvar(tertiary)};
   --bs-emphasis-color-rgb: #{cssvar(enfasis-rgb)};
-  --bs-secondary-color-rgb: #{cssvar(secondary-rgb)};
-  --bs-tertiary-color-rgb: #{cssvar(tertiary-rgb)};
 
   // ----------------------------------------------
-  
+  // Crear definiciones y reemplazar
+
+  --bs-primary: #6610f2;
+  --bs-primary-rgb: 102, 16, 242;
+  --bs-primary-text-emphasis: #290661;
+  --bs-primary-bg-subtle: #e0cffc;
+  --bs-primary-border-subtle: #c29ffa;
+
+  --bs-secondary: #6c757d;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-secondary-text-emphasis: #2b2f32;
+  --bs-secondary-bg-subtle: #e2e3e5;
+  --bs-secondary-border-subtle: #c4c8cb;
+
+  --bs-success: #198754;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-success-text-emphasis: #0a3622;
+  --bs-success-bg-subtle: #d1e7dd;
+  --bs-success-border-subtle: #a3cfbb;
+
+  --bs-info: #0dcaf0;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-info-text-emphasis: #055160;
+  --bs-info-bg-subtle: #cff4fc;
+  --bs-info-border-subtle: #9eeaf9;
+
+  --bs-warning: #ffc107;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-warning-text-emphasis: #664d03;
+  --bs-warning-bg-subtle: #fff3cd;
+  --bs-warning-border-subtle: #ffe69c;
+
+  --bs-danger: #dc3545;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-danger-text-emphasis: #58151c;
+  --bs-danger-bg-subtle: #f8d7da;
+  --bs-danger-border-subtle: #f1aeb5;
+
+  --bs-light: #f8f9fa;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-light-text-emphasis: #495057;
+  --bs-light-bg-subtle: #fcfcfd;
+  --bs-light-border-subtle: #e9ecef;
+
+  --bs-dark: #212529;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-dark-text-emphasis: #495057;
+  --bs-dark-bg-subtle: #ced4da;
+  --bs-dark-border-subtle: #adb5bd;
+
+  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  --bs-focus-ring-color: rgba(102, 16, 242, 0.25);
+
   --bs-heading-color: #{$headings-color};
   --bs-link-color: #{$link-color};
   --bs-link-hover-color: #{$link-hover-color};
@@ -80,8 +137,7 @@
   --bs-form-invalid-border-color: #{$form-invalid-border-color};
 
   // ----------------------------------------------
-  --web-fuente-base: Verdana, Geneva, Tahoma, sans-serif;
-  --web-fuente-talla: 1rem;
+  //TODO: Reducir o reemplazar
   --web-contenedor-sombra: var(--bs-body-color-rgb);
   --web-letras-oscuras-texto: var(--bs-black);
   --web-letras_oscuras-sombra: var(--bs-gray-500);
