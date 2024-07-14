@@ -88,7 +88,7 @@ class Web {
 			} else if (item.etiqueta) {
 				elementoMenu = `<a class="dropdown-item web-item-submenu" href="#" data-${keyValor}="${item[keyValor]}">${item.etiqueta}</a>`;
 			} else if (item.color) {
-				elementoMenu = `<button type="button" class="web-btn-tema" data-bs-theme-value="${item.color}" aria-pressed="false" onclick="A.seleccionarTema('${item.color}')"><svg style="color:var(--bs-${item.color})" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg></button>`;
+				elementoMenu = `<button type="button" class="web-btn-tema" data-bs-theme-value="${item.color}" title="${item.color}" aria-pressed="false" onclick="A.seleccionarTema('${item.color}')"><svg style="color:var(--bs-${item.color})" class="web-simbolo mx-1"><use href="#palette-fill"></use></svg><svg class="web-simbolo ms-auto d-none"><use href="#check2"></use></svg></button>`;
 			}
 			menu.innerHTML += elementoMenu;
 		});
@@ -151,7 +151,7 @@ class Web {
 		this.mostrarNotificacion(mensaje, tipo);
 	}
 	async cargarMenus(ruta) {
-		await fetch(ruta)
+		await fetch(ruta, {cache: "no-cache"})
 		.then(response => response.json())
 		.then(data => {
 			this.#cargarMenu('elegirPagina', data.paginas, 'href', 'icono');
@@ -283,11 +283,11 @@ class Ajustes {
         });
     }
 	#mostrarTemaActivo(tema) {
-		const themeSwitcher = document.querySelector('#bd-theme');
+		const themeSwitcher = document.querySelector('#switch-theme');
 		if (!themeSwitcher) {
 			return;
 		}
-		const themeSwitcherText = document.querySelector('#bd-theme-text');
+		const themeSwitcherText = document.querySelector('#switch-theme-text');
 		const activeThemeIcon = document.querySelector('.theme-icon-active use');
 		const btnToActive = document.querySelector(`[data-bs-theme-value="${tema}"]`);
 		if (!btnToActive) return;

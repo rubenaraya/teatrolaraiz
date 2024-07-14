@@ -1,13 +1,6 @@
 [data-bs-theme="musgo"] {
-    --bs-body-color: var(--web-texto-musgo);
-    --bs-body-color-rgb: var(--web-texto-musgo-rgb);
-    --bs-body-bg: var(--web-fondo-musgo);
-    --bs-body-bg-rgb: var(--web-fondo-musgo-rgb);
-    --bs-tertiary-bg: var(--web-color-musgo-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-musgo-50);
-      --bs-dropdown-link-active-bg: var(--web-color-musgo-30);
-    }
-  
+  $color-tema: "musgo";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

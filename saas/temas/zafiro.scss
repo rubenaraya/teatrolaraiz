@@ -1,13 +1,6 @@
 [data-bs-theme="zafiro"] {
-    --bs-body-color: var(--web-texto-zafiro);
-    --bs-body-color-rgb: var(--web-texto-zafiro-rgb);
-    --bs-body-bg: var(--web-fondo-zafiro);
-    --bs-body-bg-rgb: var(--web-fondo-zafiro-rgb);
-    --bs-tertiary-bg: var(--web-color-zafiro-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-zafiro-50);
-      --bs-dropdown-link-active-bg: var(--web-color-zafiro-30);
-    }
-  
+  $color-tema: "zafiro";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

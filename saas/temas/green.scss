@@ -1,13 +1,6 @@
 [data-bs-theme="green"] {
-  --bs-body-color: var(--bs-white);
-  --bs-body-color-rgb: #{to-rgb($white)};
-  --bs-body-bg: var(--bs-green);
-  --bs-body-bg-rgb: #{to-rgb($green)};
-  --bs-tertiary-bg: #{$green-600};
-
-  .dropdown-menu {
-    --bs-dropdown-bg: #{mix($green-500, $green-600)};
-    --bs-dropdown-link-active-bg: #{$green-700};
-  }
-
+  $color-tema: "green";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

@@ -1,14 +1,6 @@
 [data-bs-theme="indigo"] {
-    --bs-body-color: var(--bs-white);
-    --bs-body-color-rgb: #{to-rgb($white)};
-    --bs-body-bg: var(--bs-indigo);
-    --bs-body-bg-rgb: #{to-rgb($indigo)};
-    --bs-tertiary-bg: #{$indigo-600};
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: #{mix($indigo-500, $indigo-600)};
-      --bs-dropdown-link-active-bg: #{$indigo-700};
-    }
-  
-  }
-  
+  $color-tema: "indigo";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
+}

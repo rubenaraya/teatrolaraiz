@@ -1,13 +1,6 @@
 [data-bs-theme="agata"] {
-    --bs-body-color: var(--web-texto-agata);
-    --bs-body-color-rgb: var(--web-texto-agata-rgb);
-    --bs-body-bg: var(--web-fondo-agata);
-    --bs-body-bg-rgb: var(--web-fondo-agata-rgb);
-    --bs-tertiary-bg: var(--web-color-agata-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-agata-50);
-      --bs-dropdown-link-active-bg: var(--web-color-agata-30);
-    }
-  
+  $color-tema: "agata";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

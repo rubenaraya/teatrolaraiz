@@ -1,13 +1,6 @@
 [data-bs-theme="caoba"] {
-    --bs-body-color: var(--web-texto-caoba);
-    --bs-body-color-rgb: var(--web-texto-caoba-rgb);
-    --bs-body-bg: var(--web-fondo-caoba);
-    --bs-body-bg-rgb: var(--web-fondo-caoba-rgb);
-    --bs-tertiary-bg: var(--web-color-caoba-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-caoba-50);
-      --bs-dropdown-link-active-bg: var(--web-color-caoba-30);
-    }
-  
+  $color-tema: "caoba";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

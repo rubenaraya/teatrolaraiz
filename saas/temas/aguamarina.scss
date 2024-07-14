@@ -1,13 +1,6 @@
 [data-bs-theme="aguamarina"] {
-    --bs-body-color: var(--web-texto-aguamarina);
-    --bs-body-color-rgb: var(--web-texto-aguamarina-rgb);
-    --bs-body-bg: var(--web-fondo-aguamarina);
-    --bs-body-bg-rgb: var(--web-fondo-aguamarina-rgb);
-    --bs-tertiary-bg: var(--web-color-aguamarina-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-aguamarina-50);
-      --bs-dropdown-link-active-bg: var(--web-color-aguamarina-30);
-    }
-  
+  $color-tema: "aguamarina";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

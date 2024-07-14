@@ -1,13 +1,6 @@
 [data-bs-theme="rosado"] {
-    --bs-body-color: var(--web-texto-rosado);
-    --bs-body-color-rgb: var(--web-texto-rosado-rgb);
-    --bs-body-bg: var(--web-fondo-rosado);
-    --bs-body-bg-rgb: var(--web-fondo-rosado-rgb);
-    --bs-tertiary-bg: var(--web-color-rosado-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-rosado-50);
-      --bs-dropdown-link-active-bg: var(--web-color-rosado-30);
-    }
-  
+  $color-tema: "rosado";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

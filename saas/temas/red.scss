@@ -1,13 +1,6 @@
 [data-bs-theme="red"] {
-  --bs-body-color: var(--bs-white);
-  --bs-body-color-rgb: #{to-rgb($white)};
-  --bs-body-bg: var(--bs-red);
-  --bs-body-bg-rgb: #{to-rgb($red)};
-  --bs-tertiary-bg: #{$red-600};
-
-  .dropdown-menu {
-    --bs-dropdown-bg: #{mix($red-500, $red-600)};
-    --bs-dropdown-link-active-bg: #{$red-700};
-  }
-
+  $color-tema: "red";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

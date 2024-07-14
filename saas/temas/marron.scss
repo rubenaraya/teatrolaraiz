@@ -1,13 +1,6 @@
 [data-bs-theme="marron"] {
-    --bs-body-color: var(--web-texto-marron);
-    --bs-body-color-rgb: var(--web-texto-marron-rgb);
-    --bs-body-bg: var(--web-fondo-marron);
-    --bs-body-bg-rgb: var(--web-fondo-marron-rgb);
-    --bs-tertiary-bg: var(--web-color-marron-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-marron-50);
-      --bs-dropdown-link-active-bg: var(--web-color-marron-30);
-    }
-  
+  $color-tema: "marron";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

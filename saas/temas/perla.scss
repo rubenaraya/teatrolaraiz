@@ -1,13 +1,6 @@
 [data-bs-theme="perla"] {
-    --bs-body-color: var(--web-texto-perla);
-    --bs-body-color-rgb: var(--web-texto-perla-rgb);
-    --bs-body-bg: var(--web-fondo-perla);
-    --bs-body-bg-rgb: var(--web-fondo-perla-rgb);
-    --bs-tertiary-bg: var(--web-color-perla-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-perla-50);
-      --bs-dropdown-link-active-bg: var(--web-color-perla-30);
-    }
-  
+  $color-tema: "perla";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

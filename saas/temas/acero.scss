@@ -1,13 +1,6 @@
 [data-bs-theme="acero"] {
-    --bs-body-color: var(--web-texto-acero);
-    --bs-body-color-rgb: var(--web-texto-acero-rgb);
-    --bs-body-bg: var(--web-fondo-acero);
-    --bs-body-bg-rgb: var(--web-fondo-acero-rgb);
-    --bs-tertiary-bg: var(--web-color-acero-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-acero-50);
-      --bs-dropdown-link-active-bg: var(--web-color-acero-30);
-    }
-  
+  $color-tema: "acero";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

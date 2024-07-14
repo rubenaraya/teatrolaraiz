@@ -1,45 +1,33 @@
-//saas\personalizados\teatrolaraiz.scss
+//saas\personalizados\version.1.0.scss
 
-@import "../base/colores";
 @import "../base/ayudantes";
+@import "../base/colores";
+
+$min-contrast-ratio: 4.5;
+$border-color:      #adb5bd;
+
+$body-color:        $gray-900;
+$body-bg:           $gray-200;
+$body-color-dark:   $gray-300;
+$body-bg-dark:      $gray-900;
+$link-color:        $body-color;
+$link-color-dark:   $body-color-dark;
 
 // ----------------------------------------------
-// PERSONALIZACION DE VARIABLES SAAS GLOBALES
-
-//$primary:         $blue;
-//$secondary:       $gray-600;
-//$success:         $green;
-//$info:            $cyan;
-//$warning:         $yellow;
-//$danger:          $red;
-//$light:           $gray-100;
-//$dark:            $gray-900;
-
-$body-color:      $gray-900;
-$body-bg:         $gray-200;
-$body-color-dark: $gray-300;
-$body-bg-dark:    $gray-900;
-$link-color:      $body-color;
-$link-color-dark: $body-color-dark;
-
-// ----------------------------------------------
-// BOOTSTRAP (version 5.3.3)
+// BOOTSTRAP 5.3.3
 
 @import "../bootstrap/scss/functions";
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
 
-// ----------------------------------------------
-// Personalizacion modos de colores
-$theme-colors: map-merge($theme-colors, $colores-claros);
-$theme-colors: map-merge($theme-colors, $colores-oscuros);
+// Personalizacion de colores
+$theme-colors: map-merge($theme-colors, $colores-personalizados);
 
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/utilities";
 
-// ----------------------------------------------
-// Diseño + componentes + utiles
+// Diseño + componentes Bootstrap
 @import "../bootstrap/scss/root";
 @import "../bootstrap/scss/reboot";
 @import "../bootstrap/scss/type";
@@ -69,21 +57,20 @@ $theme-colors: map-merge($theme-colors, $colores-oscuros);
 @import "../bootstrap/scss/utilities/api";
 
 // ----------------------------------------------
-// TEMAS PERSONALIZADOS (JUEGOS DE ESTILOS)
+// TEMAS PERSONALIZADOS
 
 @import "../temas/acero", "../temas/agata", "../temas/aguamarina", "../temas/amatista", "../temas/azul", "../temas/bermellon", "../temas/blue", "../temas/botella", "../temas/burdeos", "../temas/cafe", "../temas/caoba", "../temas/cardo", "../temas/chocolate", "../temas/cielo", "../temas/cobalto", "../temas/crema", "../temas/cyan", "../temas/esmeralda", "../temas/green", "../temas/gris", "../temas/hoja", "../temas/icterina", "../temas/indigo", "../temas/limon", "../temas/marron", "../temas/musgo", "../temas/noche", "../temas/nuez", "../temas/orange", "../temas/perla", "../temas/pink", "../temas/purple", "../temas/red", "../temas/rosado", "../temas/teal", "../temas/verde", "../temas/verdeamar", "../temas/vino", "../temas/yellow", "../temas/zafiro";
 
 // ----------------------------------------------
-// ESTILOS ESPECIALES DE LA PLANTILLA (WEB)
+// ESTILOS DEFINIDOS EN LA PLANTILLA
 
 @import "../base/generales";
 @import "../base/componentes";
+@import "../base/menus";
 @import "../base/etiquetas";
 @import "../base/cargando";
 @import "../base/cookies";
 @import "../base/formularios";
 @import "../base/tablas";
-@import "../base/menus";
 @import "../base/videos";
 @import "../base/fuentes";
-

@@ -11,3 +11,11 @@
 @mixin cssvar($name, $value: '', $prefix: tema) {
     --#{$prefix}-#{$name}: #{$value};
 }
+
+@function evalcolor ($color) {
+    @if contrast-ratio($color, $white) > $min-contrast-ratio {
+        @return 'oscuro';
+    } @else {
+        @return 'claro';
+    }
+}

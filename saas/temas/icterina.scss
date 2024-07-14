@@ -1,13 +1,6 @@
 [data-bs-theme="icterina"] {
-    --bs-body-color: var(--web-texto-icterina);
-    --bs-body-color-rgb: var(--web-texto-icterina-rgb);
-    --bs-body-bg: var(--web-fondo-icterina);
-    --bs-body-bg-rgb: var(--web-fondo-icterina-rgb);
-    --bs-tertiary-bg: var(--web-color-icterina-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-icterina-50);
-      --bs-dropdown-link-active-bg: var(--web-color-icterina-30);
-    }
-  
+  $color-tema: "icterina";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

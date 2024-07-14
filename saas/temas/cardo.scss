@@ -1,13 +1,6 @@
 [data-bs-theme="cardo"] {
-    --bs-body-color: var(--web-texto-cardo);
-    --bs-body-color-rgb: var(--web-texto-cardo-rgb);
-    --bs-body-bg: var(--web-fondo-cardo);
-    --bs-body-bg-rgb: var(--web-fondo-cardo-rgb);
-    --bs-tertiary-bg: var(--web-color-cardo-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-cardo-50);
-      --bs-dropdown-link-active-bg: var(--web-color-cardo-30);
-    }
-  
+  $color-tema: "cardo";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

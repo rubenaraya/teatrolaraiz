@@ -1,13 +1,6 @@
 [data-bs-theme="cobalto"] {
-    --bs-body-color: var(--web-texto-cobalto);
-    --bs-body-color-rgb: var(--web-texto-cobalto-rgb);
-    --bs-body-bg: var(--web-fondo-cobalto);
-    --bs-body-bg-rgb: var(--web-fondo-cobalto-rgb);
-    --bs-tertiary-bg: var(--web-color-cobalto-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-cobalto-50);
-      --bs-dropdown-link-active-bg: var(--web-color-cobalto-30);
-    }
-  
+  $color-tema: "cobalto";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

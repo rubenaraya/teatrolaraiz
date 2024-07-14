@@ -1,13 +1,6 @@
 [data-bs-theme="botella"] {
-    --bs-body-color: var(--web-texto-botella);
-    --bs-body-color-rgb: var(--web-texto-botella-rgb);
-    --bs-body-bg: var(--web-fondo-botella);
-    --bs-body-bg-rgb: var(--web-fondo-botella-rgb);
-    --bs-tertiary-bg: var(--web-color-botella-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-botella-50);
-      --bs-dropdown-link-active-bg: var(--web-color-botella-30);
-    }
-  
+  $color-tema: "botella";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

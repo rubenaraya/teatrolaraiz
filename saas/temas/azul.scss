@@ -1,13 +1,6 @@
 [data-bs-theme="azul"] {
-    --bs-body-color: var(--web-texto-azul);
-    --bs-body-color-rgb: var(--web-texto-azul-rgb);
-    --bs-body-bg: var(--web-fondo-azul);
-    --bs-body-bg-rgb: var(--web-fondo-azul-rgb);
-    --bs-tertiary-bg: var(--web-color-azul-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-azul-50);
-      --bs-dropdown-link-active-bg: var(--web-color-azul-30);
-    }
-  
+  $color-tema: "azul";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

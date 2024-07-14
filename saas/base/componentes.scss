@@ -230,11 +230,6 @@
 }
 
 // PESTAÑAS
-.nav-tabs {
-    --bs-nav-tabs-border-color: #{var(--bs-body-color)};
-    --bs-nav-tabs-link-hover-border-color: #{var(--bs-body-color)} #{var(--bs-body-color)} transparent;
-    --bs-nav-tabs-link-active-border-color: #{var(--bs-body-color)} #{var(--bs-body-color)} transparent;
-}
 .web-tabs-contenido {
     @extend .px-3;
     @extend .py-3;

@@ -1,13 +1,6 @@
 [data-bs-theme="limon"] {
-    --bs-body-color: var(--web-texto-limon);
-    --bs-body-color-rgb: var(--web-texto-limon-rgb);
-    --bs-body-bg: var(--web-fondo-limon);
-    --bs-body-bg-rgb: var(--web-fondo-limon-rgb);
-    --bs-tertiary-bg: var(--web-color-limon-70);
-  
-    .dropdown-menu {
-      --bs-dropdown-bg: var(--web-color-limon-50);
-      --bs-dropdown-link-active-bg: var(--web-color-limon-30);
-    }
-  
+  $color-tema: "limon";
+  //$colores: ("primary": '', "secondary": '');
+  @import "../base/tema";
+  @include variables-tema();
 }

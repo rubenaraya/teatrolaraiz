@@ -12,79 +12,45 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black:    #000;
 
-$blue:    #0d6efd;
-$indigo:  #6610f2;
-$purple:  #6f42c1;
-$pink:    #d63384;
-$red:     #dc3545;
-$orange:  #fd7e14;
-$yellow:  #ffc107;
-$green:   #198754;
-$teal:    #20c997;
-$cyan:    #0dcaf0;
-
-$azul:       #000080;
-$noche:      #252850;
-$cobalto:    #333c87;
-$acero:      #4682b4;
-$zafiro:     #6576b4;
-$amatista:   #898ac0;
-$cielo:      #87ceeb;
-$aguamarina: #9fd5d1;
-$bermellon:  #e62e1b;
-$marron:     #800000;
-$vino:       #5e2129;
-$burdeos:    #641c34;
-$chocolate:  #45322e;
-$cafe:       #4c2f27;
-$nuez:       #633a34;
-$caoba:      #a56d5d;
-$rosado:     #ea899a;
-$cardo:      #d8bfd8;
-$perla:      #eae6ca;
-$agata:      #b5b8b1;
-$gris:       #9b9b9b;
-$botella:    #343b29;
-$verde:      #004225;
-$musgo:      #2f4538;
-$hoja:       #2d572c;
-$esmeralda:  #287233;
-$verdeamar:  #77b95e;
-$limon:      #bfff00;
-$icterina:   #fcf75e;
-$crema:      #ffffbf;
-
-$colores-claros: (
-    "verdeamar": $verdeamar,
-    "limon": $limon,
-    "icterina": $icterina,
-    "crema": $crema,
-    "amatista": $amatista,
-    "cielo": $cielo,
-    "aguamarina": $aguamarina,
-    "caoba": $caoba,
-    "rosado": $rosado,
-    "cardo": $cardo,
-    "perla": $perla,
-    "agata": $agata,
-    "gris": $gris,
-    "acero": $acero,
-    "zafiro": $zafiro,
-);
-$colores-oscuros: (
-    "azul": $azul,
-    "noche": $noche,
-    "cobalto": $cobalto,
-    "bermellon": $bermellon,
-    "marron": $marron,
-    "vino": $vino,
-    "burdeos": $burdeos,
-    "chocolate": $chocolate,
-    "cafe": $cafe,
-    "nuez": $nuez,
-    "botella": $botella,
-    "verde": $verde,
-    "musgo": $musgo,
-    "hoja": $hoja,
-    "esmeralda": $esmeralda,
+$colores-personalizados: (
+    "blue":         #0d6efd,
+    "indigo":       #6610f2,
+    "purple":       #6f42c1,
+    "pink":         #d63384,
+    "red":          #dc3545,
+    "orange":       #fd7e14,
+    "yellow":       #ffc107,
+    "green":        #198754,
+    "teal":         #20c997,
+    "cyan":         #0dcaf0,
+    "acero":        #4682b4,
+    "agata":        #b5b8b1,
+    "aguamarina":   #9fd5d1,
+    "amatista":     #898ac0,
+    "azul":         #000080,
+    "bermellon":    #e62e1b,
+    "botella":      #343b29,
+    "burdeos":      #641c34,
+    "cafe":         #4c2f27,
+    "caoba":        #a56d5d,
+    "cardo":        #d8bfd8,
+    "chocolate":    #45322e,
+    "cielo":        #87ceeb,
+    "cobalto":      #333c87,
+    "crema":        #ffffbf,
+    "esmeralda":    #287233,
+    "gris":         #9b9b9b,
+    "hoja":         #2d572c,
+    "icterina":     #fcf75e,
+    "limon":        #bfff00,
+    "marron":       #800000,
+    "musgo":        #2f4538,
+    "noche":        #252850,
+    "nuez":         #633a34,
+    "perla":        #eae6ca,
+    "rosado":       #ea899a,
+    "verde":        #004225,
+    "verdeamar":    #77b95e,
+    "vino":         #5e2129,
+    "zafiro":       #6576b4,
 );
