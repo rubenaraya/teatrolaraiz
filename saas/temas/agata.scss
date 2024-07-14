@@ -1,6 +1,5 @@
 [data-bs-theme="agata"] {
   $color-tema: "agata";
-  //$colores: ("primary": '', "secondary": '');
   @import "../base/tema";
-  @include variables-tema();
+  @include configuracion-tema();
 }

@@ -19,3 +19,38 @@
         @return 'claro';
     }
 }
+
+@function adjust-hue($color, $degrees) {
+    @return hsl(hue($color) + $degrees, saturation($color), lightness($color));
+}
+
+@function create-color-scale($color, $variations: 5) {
+    $scale: ();
+    $increment: 15;
+    @for $i from 1 through $variations {
+        $adjusted-color: adjust-hue($color, $increment * $i);
+        $scale: map-merge($scale, ('hue' + $i: $adjusted-color));
+    }
+    @return $scale;
+}
+
+@function generar-paleta($base-color) {
+    $primary: $base-color;
+    $secondary: adjust-hue($base-color, 30);
+    $success: adjust-hue($base-color, 120);
+    $info: adjust-hue($base-color, 180);
+    $warning: adjust-hue($base-color, 60);
+    $danger: adjust-hue($base-color, -30);
+    $light: lighten($base-color, 30%);
+    $dark: darken($base-color, 30%);
+    @return (
+        'primary': $primary,
+        'secondary': $secondary,
+        'success': $success,
+        'info': $info,
+        'warning': $warning,
+        'danger': $danger,
+        'light': $light,
+        'dark': $dark
+    );
+}

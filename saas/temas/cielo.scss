@@ -1,6 +1,5 @@
 [data-bs-theme="cielo"] {
   $color-tema: "cielo";
-  //$colores: ("primary": '', "secondary": '');
   @import "../base/tema";
-  @include variables-tema();
+  @include configuracion-tema();
 }

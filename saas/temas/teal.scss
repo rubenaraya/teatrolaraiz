@@ -1,6 +1,5 @@
 [data-bs-theme="teal"] {
   $color-tema: "teal";
-  //$colores: ("primary": '', "secondary": '');
   @import "../base/tema";
-  @include variables-tema();
+  @include configuracion-tema();
 }

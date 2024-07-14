@@ -1,6 +1,5 @@
 [data-bs-theme="vino"] {
   $color-tema: "vino";
-  //$colores: ("primary": '', "secondary": '');
   @import "../base/tema";
-  @include variables-tema();
+  @include configuracion-tema();
 }

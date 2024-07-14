@@ -1,17 +1,50 @@
 @use "sass:map";
 
 // ----------------------------------------------
-// Predeterminados (si no se han establecido)
+@function generar-colores($base-color) {
+    $light-color: lighten($base-color, 15%);
+    $dark-color: darken($base-color, 15%);
+    $complementary-color: adjust-hue($base-color, 180deg);
+    @return (
+        'primary': $base-color,
+        'secondary': $complementary-color,
+        'success': $light-color,
+        'info': adjust-hue($base-color, 120deg),
+        'warning': adjust-hue($base-color, 30deg),
+        'danger': adjust-hue($base-color, 0deg),
+        'light': $light-color,
+        'dark': $dark-color,
+        'accent1': saturate($light-color, 20%),
+        'accent2': desaturate($dark-color, 20%),
+        'accent3': adjust-hue($dark-color, 90deg)
+    );
+}
+
+// ----------------------------------------------
+// Paleta de colores
+$fondo: map.get($theme-colors, $color-tema);
+$paleta: generar-colores($fondo);
 $colores: (
-    "primary": $primary,
-    "secondary": $secondary,
+    "primary": map-get($paleta, 'primary'),
+    "secondary": map-get($paleta, 'secondary'),
+    "success": map-get($paleta, 'success'),
+    "info": map-get($paleta, 'info'),
+    "warning": map-get($paleta, 'warning'),
+    "danger": map-get($paleta, 'danger'),
+    "light": map-get($paleta, 'light'),
+    "dark": map-get($paleta, 'dark'),
+    "accent1": map-get($paleta, 'accent1'),
+    "accent2": map-get($paleta, 'accent2'),
+    "accent3": map-get($paleta, 'accent3'),
 ) !default;
+
+// ----------------------------------------------
+// Predeterminados (si no se han establecido)
 $fuente: Verdana, Geneva, Tahoma, sans-serif !default;
 $talla: 1rem !default;
 
 // ----------------------------------------------
 // Valores Calculados
-$fondo: map.get($theme-colors, $color-tema);
 $texto: color-contrast($fondo);
 
 @include cssvars((
@@ -47,7 +80,7 @@ $texto: color-contrast($fondo);
     ));
 }
 
-@mixin variables-tema() {
+@mixin configuracion-tema() {
     --bs-body-font-family: #{cssvar(fuente-nombre)};
     --bs-body-font-size: #{cssvar(fuente-talla)};
     --bs-body-color: #{cssvar(texto)};
