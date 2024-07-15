@@ -227,6 +227,10 @@ class Ajustes {
     }
     aplicarTema(tema) {
         document.documentElement.setAttribute('data-bs-theme', tema);
+		let etiqueta = document.getElementById('tema-actual');
+		if (etiqueta) {
+			etiqueta.innerHTML = tema;
+		}
         this.#mostrarTemaActivo(tema);
     }
 	seleccionarTema(tema) {

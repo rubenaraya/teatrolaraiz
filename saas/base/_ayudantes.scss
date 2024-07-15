@@ -44,32 +44,32 @@
     @return color-contrast($color);
 }
 
-@function crear-escala-color($color, $variations: 8) {
+@function crear-escala-colores($color, $variations: 8) {
     $scale: ();
     $increment: 15;
     @for $i from 1 through $variations {
         $adjusted-color: adjust-hue($color, $increment * $i);
-        $scale: map-merge($scale, ('tono-p' + $i: $adjusted-color));
+        $scale: map-merge($scale, ('color-p' + $i: $adjusted-color));
     }
-    $scale: map-merge($scale, ('tono-0': $color));
+    $scale: map-merge($scale, ('color-0': $color));
     @for $i from 1 through $variations {
         $adjusted-color: adjust-hue($color, -$increment * $i);
-        $scale: map-merge($scale, ('tono-n' + $i: $adjusted-color));
+        $scale: map-merge($scale, ('color-n' + $i: $adjusted-color));
     }
     @return $scale;
 }
 
-@function crear-mapa-color($color) {
+@function crear-escala-monocromatica($color) {
     $scale: ();
     $lightness: lightness($color);
     @for $i from 1 through 9 {
         $new-color: mix($color, white, 10% * $i);
-        $scale: map-merge($scale, ('tema-' + (50 + ($i - 1) * 50): $new-color));
+        $scale: map-merge($scale, ('mono-' + (50 + ($i - 1) * 50): $new-color));
     }
-    $scale: map-merge($scale, ('tema-500': $color));
+    $scale: map-merge($scale, ('mono-500': $color));
     @for $i from 1 through 9 {
         $new-color: mix($color, black, 10% * $i);
-        $scale: map-merge($scale, ('tema-' + (950 - ($i - 1) * 50): $new-color));
+        $scale: map-merge($scale, ('mono-' + (950 - ($i - 1) * 50): $new-color));
     }
     @return $scale;
 }
@@ -79,7 +79,7 @@
     $analogo2: ajustar-matiz($color, -30deg);
     $triadico1: ajustar-matiz($color, 120deg);
     $triadico2: ajustar-matiz($color, 240deg);
-    $complementario: ajustar-matiz($color, 180deg);
+    $opuesto: ajustar-matiz($color, 180deg);
     $tetradico: ajustar-matiz($color, 60deg);
     @return (
         'analogo1': $analogo1,
@@ -87,7 +87,7 @@
         'triadico1': $triadico1,
         'triadico2': $triadico2,
         'tetradico': $tetradico,
-        'complemen': $complementario,
+        'opuesto': $opuesto,
     );
 }
 
@@ -127,6 +127,6 @@
         'dark': $dark-color,
         'accent': $accent-color,
         'grayscale': grayscale($color-base),
-        'complem': $complementary-color,
+        'opuesto': $complementary-color,
     );
 }

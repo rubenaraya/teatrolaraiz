@@ -15,7 +15,7 @@ $colores: (
     "dark": map-get($paleta, 'dark'),
     "accent": map-get($paleta, 'accent'),
     "grayscale": map-get($paleta, 'grayscale'),
-    "complem": map-get($paleta, 'complem'),
+    "opuesto": map-get($paleta, 'opuesto'),
 ) !default;
 
 // ----------------------------------------------
@@ -101,16 +101,16 @@ $texto: color-contrast($fondo);
             @include button-outline-variant($value);
         }
     }
-    $escala-color: crear-escala-color($fondo);
-    @each $key, $value in $escala-color {
-        .color-#{$key} {
+    $escala-colores: crear-escala-colores($fondo);
+    @each $key, $value in $escala-colores {
+        .escala-#{$key} {
             background-color: $value !important;
             color: color-contraste($value);
         }
     }
-    $mapa-color: crear-mapa-color($fondo);
+    $mapa-color: crear-escala-monocromatica($fondo);
     @each $key, $value in $mapa-color {
-        .color-#{$key} {
+        .escala-#{$key} {
             background-color: $value !important;
             color: color-contraste($value);
         }
