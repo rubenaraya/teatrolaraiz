@@ -14,7 +14,7 @@
     --#{$prefix}-#{$name}: #{$value};
 }
 
-@function evaluar-color ($color) {
+@function evaluar-color($color) {
     @if contrast-ratio($color, $white) > $min-contrast-ratio {
         @return 'oscuro';
     } @else {
@@ -80,13 +80,15 @@
     $triadico1: ajustar-matiz($color, 120deg);
     $triadico2: ajustar-matiz($color, 240deg);
     $opuesto: ajustar-matiz($color, 180deg);
-    $tetradico: ajustar-matiz($color, 60deg);
+    $tetradico1: ajustar-matiz($color, 60deg);
+    $tetradico2: ajustar-matiz($color, 240deg);
     @return (
         'analogo1': $analogo1,
         'analogo2': $analogo2,
         'triadico1': $triadico1,
         'triadico2': $triadico2,
-        'tetradico': $tetradico,
+        'tetradico1': $tetradico1,
+        'tetradico2': $tetradico2,
         'opuesto': $opuesto,
     );
 }
@@ -127,6 +129,5 @@
         'dark': $dark-color,
         'accent': $accent-color,
         'grayscale': grayscale($color-base),
-        'opuesto': $complementary-color,
     );
 }

@@ -15,7 +15,6 @@ $colores: (
     "dark": map-get($paleta, 'dark'),
     "accent": map-get($paleta, 'accent'),
     "grayscale": map-get($paleta, 'grayscale'),
-    "opuesto": map-get($paleta, 'opuesto'),
 ) !default;
 
 // ----------------------------------------------
@@ -83,6 +82,35 @@ $texto: color-contrast($fondo);
         --bs-#{$color}-bg-subtle: #{tint-color($value, 80%)};
         --bs-#{$color}-border-subtle: #{tint-color($value, 50%)};
     }
+
+    $escala-monocromatica: crear-escala-monocromatica($fondo);
+    @each $key, $value in $escala-monocromatica {
+        --bs-#{$key}: #{$value};
+    }
+
+    $esquema-colores: crear-esquema-color($fondo);
+    $analogo1: map-get($map: $esquema-colores, $key: 'analogo1');
+    $analogo2: map-get($map: $esquema-colores, $key: 'analogo2');
+    $triadico1: map-get($map: $esquema-colores, $key: 'triadico1');
+    $triadico2: map-get($map: $esquema-colores, $key: 'triadico2');
+    $tetradico1: map-get($map: $esquema-colores, $key: 'tetradico1');
+    $tetradico2: map-get($map: $esquema-colores, $key: 'tetradico2');
+    $opuesto: map-get($map: $esquema-colores, $key: 'opuesto');
+    --bs-analogo1: #{$analogo1};
+    --bs-analogo1-rgb: #{to-rgb($analogo1)};
+    --bs-analogo2: #{$analogo2};
+    --bs-analogo2-rgb: #{to-rgb($analogo2)};
+    --bs-triadico1: #{$triadico1};
+    --bs-triadico1-rgb: #{to-rgb($triadico1)};
+    --bs-triadico2: #{$triadico2};
+    --bs-triadico2-rgb: #{to-rgb($triadico2)};
+    --bs-tetradico1: #{$tetradico1};
+    --bs-tetradico1-rgb: #{to-rgb($tetradico1)};
+    --bs-tetradico2: #{$tetradico2};
+    --bs-tetradico2-rgb: #{to-rgb($tetradico2)};
+    --bs-opuesto: #{$opuesto};
+    --bs-opuesto-rgb: #{to-rgb($opuesto)};
+
     @each $color, $value in $colores {
         .bg-#{$color} {
             background-color: $value !important;
@@ -101,6 +129,7 @@ $texto: color-contrast($fondo);
             @include button-outline-variant($value);
         }
     }
+
     $escala-colores: crear-escala-colores($fondo);
     @each $key, $value in $escala-colores {
         .escala-#{$key} {
@@ -108,6 +137,7 @@ $texto: color-contrast($fondo);
             color: color-contraste($value);
         }
     }
+
     $mapa-color: crear-escala-monocromatica($fondo);
     @each $key, $value in $mapa-color {
         .escala-#{$key} {
