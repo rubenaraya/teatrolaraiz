@@ -111,6 +111,11 @@ $texto: color-contrast($fondo);
     --bs-opuesto: #{$opuesto};
     --bs-opuesto-rgb: #{to-rgb($opuesto)};
 
+    .text-bg-opuesto {
+        background-color: #{$opuesto} !important;
+        color: #{color-contrast($opuesto)} !important;
+    }
+
     @each $color, $value in $colores {
         .bg-#{$color} {
             background-color: $value !important;
