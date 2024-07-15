@@ -13,14 +13,9 @@ $colores: (
     "danger": map-get($paleta, 'danger'),
     "light": map-get($paleta, 'light'),
     "dark": map-get($paleta, 'dark'),
-    "acentuado": map-get($paleta, 'acentuado'),
-    "gris": map-get($paleta, 'gris'),
-    "complemen": map-get($paleta, 'complemen'),
-    "analogo1": map-get($paleta, 'analogo1'),
-    "analogo2": map-get($paleta, 'analogo2'),
-    "triadico1": map-get($paleta, 'triadico1'),
-    "triadico2": map-get($paleta, 'triadico2'),
-    "tetradico": map-get($paleta, 'tetradico'),
+    "accent": map-get($paleta, 'accent'),
+    "grayscale": map-get($paleta, 'grayscale'),
+    "complem": map-get($paleta, 'complem'),
 ) !default;
 
 // ----------------------------------------------
@@ -108,6 +103,13 @@ $texto: color-contrast($fondo);
     }
     $escala-color: crear-escala-color($fondo);
     @each $key, $value in $escala-color {
+        .color-#{$key} {
+            background-color: $value !important;
+            color: color-contraste($value);
+        }
+    }
+    $mapa-color: crear-mapa-color($fondo);
+    @each $key, $value in $mapa-color {
         .color-#{$key} {
             background-color: $value !important;
             color: color-contraste($value);

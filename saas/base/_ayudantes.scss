@@ -59,8 +59,19 @@
     @return $scale;
 }
 
-@function crear-mapa-color($color, $niveles) {
-
+@function crear-mapa-color($color) {
+    $scale: ();
+    $lightness: lightness($color);
+    @for $i from 1 through 9 {
+        $new-color: mix($color, white, 10% * $i);
+        $scale: map-merge($scale, ('tema-' + (50 + ($i - 1) * 50): $new-color));
+    }
+    $scale: map-merge($scale, ('tema-500': $color));
+    @for $i from 1 through 9 {
+        $new-color: mix($color, black, 10% * $i);
+        $scale: map-merge($scale, ('tema-' + (950 - ($i - 1) * 50): $new-color));
+    }
+    @return $scale;
 }
 
 @function crear-esquema-color($color) {
@@ -98,14 +109,13 @@
     $success-color: desaturate(lighten(ajustar-matiz-al-tema($color-base, 120), 10%), 10%);
     $info-color: desaturate(lighten($complementary-color, 10%), 10%);
     $warning-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 60), 10%), 10%);
-    $acentuado-color: ajustar-matiz($dark-color, 90deg);
+    $accent-color: ajustar-matiz($dark-color, 90deg);
     @if evaluar-color($color-base) == 'claro' {
         $danger-color: saturate(ajustar-matiz-al-tema($color-base, 0), 10%);
         $success-color: desaturate(ajustar-matiz-al-tema($color-base, 120), 10%);
         $info-color: desaturate($complementary-color, 10%);
         $warning-color: saturate(ajustar-matiz-al-tema($color-base, 60), 10%);
     }
-    $esquema: crear-esquema-color($color-base);
     @return (
         'primary': $primary-color,
         'secondary': $secondary-color,
@@ -115,13 +125,8 @@
         'danger': $danger-color,
         'light': $light-color,
         'dark': $dark-color,
-        'acentuado': $acentuado-color,
-        'gris': grayscale($color-base),
-        'complemen': map-get($esquema, 'complemen'),
-        'analogo1': map-get($esquema, 'analogo1'),
-        'analogo2': map-get($esquema, 'analogo2'),
-        'triadico1': map-get($esquema, 'triadico1'),
-        'triadico2': map-get($esquema, 'triadico2'),
-        'tetradico': map-get($esquema, 'tetradico'),
+        'accent': $accent-color,
+        'grayscale': grayscale($color-base),
+        'complem': $complementary-color,
     );
 }
