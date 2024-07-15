@@ -1,5 +1,5 @@
-[data-bs-theme="blue"] {
-  $color-tema: "blue";
+[data-bs-theme="amarillo"] {
+  $color-tema: "amarillo";
   @import "../base/tema";
   @include configuracion-tema();
 }

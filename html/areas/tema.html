@@ -1,12 +1,395 @@
 <div class="web-marco">
-    <h2 class="my-3">Tema de diseño</h2>
+    <h2 class="my-3">Tema de diseño: <span id="tema-actual"></span></h2>
+
+    <hr class="my-4">
+    <h4 class="mb-4">Escalas de colores</h4>
+    <div class="row text-start">
+      <div class="col-6">
+        <div class="text-bg-opuesto p-1">opuesto</div>
+        <div class="escala-color-p8 p-1">color-p8 triadico1</div>
+        <div class="escala-color-p7 p-1">color-p7</div>
+        <div class="escala-color-p6 p-1">color-p6</div>
+        <div class="escala-color-p5 p-1">color-p5</div>
+        <div class="escala-color-p4 p-1">color-p4 tetradico1</div>
+        <div class="escala-color-p3 p-1">color-p3</div>
+        <div class="escala-color-p2 p-1">color-p2 analogo1</div>
+        <div class="escala-color-p1 p-1">color-p1</div>
+        <div class="escala-color-0 p-1">color-0 base</div>
+        <div class="escala-color-n1 p-1">color-n1</div>
+        <div class="escala-color-n2 p-1">color-n2 analogo2</div>
+        <div class="escala-color-n3 p-1">color-n3</div>
+        <div class="escala-color-n4 p-1">color-n4</div>
+        <div class="escala-color-n5 p-1">color-n5</div>
+        <div class="escala-color-n6 p-1">color-n6</div>
+        <div class="escala-color-n7 p-1">color-n7</div>
+        <div class="escala-color-n8 p-1">color-n8 triadico2 tetradico2</div>
+      </div>
+      <div class="col-6">
+        <div class="escala-mono-50 p-1">mono-50</div>
+        <div class="escala-mono-100 p-1">mono-100</div>
+        <div class="escala-mono-150 p-1">mono-150</div>
+        <div class="escala-mono-200 p-1">mono-200</div>
+        <div class="escala-mono-250 p-1">mono-250</div>
+        <div class="escala-mono-300 p-1">mono-300</div>
+        <div class="escala-mono-350 p-1">mono-350</div>
+        <div class="escala-mono-400 p-1">mono-400</div>
+        <div class="escala-mono-450 p-1">mono-450</div>
+        <div class="escala-mono-500 p-1">mono-500 base</div>
+        <div class="escala-mono-550 p-1">mono-550</div>
+        <div class="escala-mono-600 p-1">mono-600</div>
+        <div class="escala-mono-650 p-1">mono-650</div>
+        <div class="escala-mono-700 p-1">mono-700</div>
+        <div class="escala-mono-750 p-1">mono-750</div>
+        <div class="escala-mono-800 p-1">mono-800</div>
+        <div class="escala-mono-850 p-1">mono-850</div>
+        <div class="escala-mono-900 p-1">mono-900</div>
+        <div class="escala-mono-950 p-1">mono-950</div>
+      </div>
+    </div>
+  
+    <hr class="my-4">
+    <h4 class="mb-4">Paleta de colores</h4>
+    <div>
+      <table class="web-tabla-muestra">
+        <thead>
+          <tr>
+            <th class="w-50">Descripción</th>
+            <th>Muestra</th>
+            <th>Variables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Body —</strong> primer plano (color) y fondo predeterminados, incluidos los componentes.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-body-color)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-body-color</code><br><code>--bs-body-color-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-body-bg)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-body-bg</code><br><code>--bs-body-bg-rgb</code></td>
+          </tr>
+          <tr>
+            <td><strong>Secondary —</strong> utiliza la opción <code>color</code> para texto más claro. Utiliza la opción <code>bg</code> para divisores y para indicar estados de componentes deshabilitados.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-secondary-color)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-secondary-color</code><br><code>--bs-secondary-color-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-secondary-bg)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-secondary-bg</code><br><code>--bs-secondary-bg-rgb</code></td>
+          </tr>
+          <tr>
+            <td><strong>Tertiary —</strong> utiliza la opción <code>color</code> para obtener un texto aún más claro. Utiliza la opción <code>bg</code> para dar estilos a fondos para estados hover, acentuados y hundidos.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-tertiary-color)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-tertiary-color</code><br><code>--bs-tertiary-color-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-tertiary-bg)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-tertiary-bg</code><br><code>--bs-tertiary-bg-rgb</code></td>
+          </tr>
+          <tr>
+            <td><strong>Emphasis —</strong> para texto con mayor contraste. No aplicable para fondos.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-emphasis-color)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-emphasis-color</code><br><code>--bs-emphasis-color-rgb</code></td>
+          </tr>
+          <tr>
+            <td><strong>Border —</strong> para bordes, divisores y reglas de componentes. Utiliza <code>--bs-border-color-translucent</code> para mezclar con fondos con un valor <code>rgba()</code> .</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-border-color)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-border-color</code><br><code>--bs-border-color-rgb</code></td>
+          </tr>
+          <tr>
+            <td><strong>Primary —</strong> color utilizado para hipervínculos, estilos de enfoque y estados activos de componentes y formularios.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-primary)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-primary</code><br><code>--bs-primary-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-primary-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-primary-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-primary-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-primary-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-primary-text-emphasis); font-weight: bolder; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-primary-text-emphasis</code></td>
+          </tr>
+          <tr>
+            <td><strong>Success —</strong> color utilizado para información y acciones positivas o exitosas.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-success)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-success</code><br><code>--bs-success-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-success-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-success-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-success-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-success-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-success-text-emphasis); font-weight: bolder; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-success-text-emphasis</code></td>
+          </tr>
+          <tr>
+            <td><strong>Danger —</strong> color utilizado para errores y acciones peligrosas.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-danger)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-danger</code><br><code>--bs-danger-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-danger-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-danger-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-danger-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-danger-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-danger-text-emphasis); font-weight: bolder; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-danger-text-emphasis</code></td>
+          </tr>
+          <tr>
+            <td><strong>Warning —</strong> color utilizado para mensajes de advertencia no destructivos.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-warning)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-warning</code><br><code>--bs-warning-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-warning-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-warning-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-warning-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-warning-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-warning-text-emphasis); font-weight: bolder; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-warning-text-emphasis</code></td>
+          </tr>
+          <tr>
+            <td><strong>Info —</strong> color utilizado para contenido neutral e informativo.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-info)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-info</code><br><code>--bs-info-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-info-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-info-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-info-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-info-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-info-text-emphasis); font-weight: bolder; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-info-text-emphasis</code></td>
+          </tr>
+          <!--
+          <tr>
+            <td><strong>Light —</strong> Opción adicional para colores menos contrastantes.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-light)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-light</code><br><code>--bs-light-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-light-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-light-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-light-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-light-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-light-text-emphasis); font-weight: bolder; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-light-text-emphasis</code></td>
+          </tr>
+          <tr>
+            <td><strong>Dark —</strong> opción adicional para colores de mayor contraste.</td>
+            <td><div class="web-muestra" style="background-color:var(--bs-dark)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-dark</code><br><code>--bs-dark-rgb</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="background-color:var(--bs-dark-bg-subtle)">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-dark-bg-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="border-color:var(--bs-dark-border-subtle); border-width: 6px;">&nbsp;</div></td>
+            <td class="text-center"><code>--bs-dark-border-subtle</code></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div class="web-muestra" style="color:var(--bs-dark-text-emphasis); font-weight: bolder; text-align: center; text-align: center;">Texto</div></td>
+            <td class="text-center"><code>--bs-dark-text-emphasis</code></td>
+          </tr>
+          -->
+          <tr>
+            <td colspan="3">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
     <hr class="mb-3">
-    <h4>Paleta de colores</h4>
+    <h4 class="mb-4">Botones</h4>
+    <div>
+      <a href="javascript:void(0)" class="btn btn-primary my-1">primary</a>
+      <a href="javascript:void(0)" class="btn btn-secondary my-1">secondary</a>
+      <a href="javascript:void(0)" class="btn btn-success my-1">success</a>
+      <a href="javascript:void(0)" class="btn btn-danger my-1">danger</a>
+      <a href="javascript:void(0)" class="btn btn-warning my-1">warning</a>
+      <a href="javascript:void(0)" class="btn btn-info my-1">info</a>
+      <a href="javascript:void(0)" class="btn btn-light my-1">light</a>
+      <a href="javascript:void(0)" class="btn btn-dark my-1">dark</a>
+      <a href="javascript:void(0)" class="btn btn-accent my-1">accent</a>
+      <a href="javascript:void(0)" class="btn btn-grayscale my-1">grayscale</a>
+      <div class="my-3"></div>
+      <button type="button" class="btn btn-outline-primary my-1">primary</button>
+      <button type="button" class="btn btn-outline-secondary my-1">secondary</button>
+      <button type="button" class="btn btn-outline-success my-1">success</button>
+      <button type="button" class="btn btn-outline-danger my-1">danger</button>
+      <button type="button" class="btn btn-outline-warning my-1">warning</button>
+      <button type="button" class="btn btn-outline-info my-1">info</button>
+      <button type="button" class="btn btn-outline-light my-1">light</button>
+      <button type="button" class="btn btn-outline-dark my-1">dark</button>
+      <button type="button" class="btn btn-outline-accent my-1">accent</button>
+      <button type="button" class="btn btn-outline-grayscale my-1">grayscale</button>
+      <div class="my-3"></div>
+      <a href="javascript:void(0)" class="btn btn-primary btn-lg">Grande</a>
+      <a href="javascript:void(0)" class="btn btn-primary">Normal</a>
+      <a href="javascript:void(0)" class="btn btn-primary btn-sm">Chico</a>
+    </div>
 
-    <hr class="my-3">
-    <h4>Mapa de colores</h4>
+    <hr class="my-4">
+    <h4 class="mb-4">Insignias</h4>
+    <div>
+      <span class="web-insignia text-bg-primary">primary</span>
+      <span class="web-insignia text-bg-secondary">secondary</span>
+      <span class="web-insignia text-bg-success">success</span>
+      <span class="web-insignia text-bg-danger">danger</span>
+      <span class="web-insignia text-bg-warning">warning</span>
+      <span class="web-insignia text-bg-info">info</span>
+      <span class="web-insignia text-bg-light text-dark">light</span>
+      <span class="web-insignia text-bg-dark">dark</span>
+      <span class="web-insignia text-bg-accent">accent</span>
+      <span class="web-insignia text-bg-grayscale">grayscale</span>
+    </div>
 
-    <hr class="my-3">
-    <h4></h4>
+    <hr class="my-4">
+    <h4 class="mb-4">Desplegables</h4>
+    <div>
+      <div class="btn-group m-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+        </ul>
+      </div>
+      <div class="btn-group dropup m-1">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropup
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+        </ul>
+      </div>
+      <div class="btn-group dropstart m-1">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropstart
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+        </ul>
+      </div>
+      <div class="btn-group dropend m-1">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropend
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="javascript:void(0)">Menu item</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <hr class="my-4">
+    <h4 class="mb-4">Enlaces</h4>
+    <div class="row text-start">
+      <div class="col-4">
+        <p><a href="javascript:void(0)" class="link-primary">Primary</a></p>
+        <p><a href="javascript:void(0)" class="link-secondary">Secondary</a></p>
+        <p><a href="javascript:void(0)" class="link-success">Success</a></p>
+      </div>
+      <div class="col-4">
+        <p><a href="javascript:void(0)" class="link-danger">Danger</a></p>
+        <p><a href="javascript:void(0)" class="link-warning">Warning</a></p>
+        <p><a href="javascript:void(0)" class="link-info">Info</a></p>
+      </div>
+      <div class="col-4">
+        <p><a href="javascript:void(0)" class="link-body-emphasis">Emphasis</a></p>
+        <p><a href="javascript:void(0)" class="link-dark">Dark</a></p>
+        <p><a href="javascript:void(0)" class="link-light">Light</a></p>
+      </div>
+    </div>
+
+    <hr class="my-4">
+    <h4 class="mb-4">Bordes y Sombras</h4>
+    <div class="row text-start">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-2 mx-2 my-2 border border-primary">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-secondary">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-success">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-danger">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-warning">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-info">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-light">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-dark">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-black">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-border-white">&nbsp</div>
+          <div class="col-12 my-2"></div>
+          <div class="col-2 mx-2 my-2 border border-secondary border-1">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-secondary border-2">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-secondary border-3">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-secondary border-4">&nbsp</div>
+          <div class="col-2 mx-2 my-2 border border-secondary border-5">&nbsp</div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="web-sombra-sm p-3 mb-5 me-4 rounded">Sombra chica</div>
+        <div class="web-sombra p-3 mb-5 me-4 rounded">Sombra normal</div>
+        <div class="web-sombra-lg p-3 mb-4 me-4 rounded">Sombra grande</div>
+      </div>
+    </div>
 
 </div>

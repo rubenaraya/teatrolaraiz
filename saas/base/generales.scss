@@ -181,3 +181,37 @@
     @extend .mb-1;
 }
 
+.web-muestra {
+    @extend .p-3;
+    @extend .mx-2;
+    @extend .my-1;
+    @extend .rounded;
+    @extend .rounded-3;
+    border: 2px solid $gray-500;
+}
+.web-tabla-muestra {
+    @extend .text-start;
+    background-color: lightgray;
+    color: black;
+    width: 100%;
+    vertical-align: top;
+    border-collapse: collapse;
+}
+.web-tabla-muestra td {
+    @extend .px-3;
+    @extend .py-1;
+}
+.web-tabla-muestra th {
+    @extend .text-center;
+    @extend .px-3;
+    @extend .py-1;
+    background-color: black;
+    color: white;
+}
+.web-tabla-muestra code {
+    @extend .px-1;
+    @extend .rounded;
+    @extend .rounded-1;
+    background-color: $gray-500;
+    color: $black;
+}
