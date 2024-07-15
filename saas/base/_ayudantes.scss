@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @mixin cssvars($css_variables, $prefix: tema) {
     @each $name, $value in $css_variables {
         --#{$prefix}-#{$name}: #{$value};
@@ -12,7 +14,7 @@
     --#{$prefix}-#{$name}: #{$value};
 }
 
-@function evalcolor ($color) {
+@function evaluar-color ($color) {
     @if contrast-ratio($color, $white) > $min-contrast-ratio {
         @return 'oscuro';
     } @else {
@@ -20,37 +22,101 @@
     }
 }
 
-@function adjust-hue($color, $degrees) {
+@function ajustar-matiz($color, $degrees) {
     @return hsl(hue($color) + $degrees, saturation($color), lightness($color));
 }
 
-@function create-color-scale($color, $variations: 5) {
+@function ajustar-matiz-al-tema($color, $target-hue) {
+    $current-hue: hue($color);
+    $hue-difference: $target-hue - $current-hue;
+    @if abs($hue-difference) > 180 {
+        $hue-difference: $hue-difference - 360 * if($hue-difference > 0, -1, 1);
+    }
+    @return ajustar-matiz($color, $hue-difference);
+}
+
+@function color-con-gris($color, $cantidad) {
+    $gray: mix(black, white, 50%);
+    @return mix($color, $gray, $cantidad);
+}
+
+@function color-contraste($color) {
+    @return color-contrast($color);
+}
+
+@function crear-escala-color($color, $variations: 5) {
     $scale: ();
     $increment: 15;
     @for $i from 1 through $variations {
-        $adjusted-color: adjust-hue($color, $increment * $i);
+        $adjusted-color: ajustar-matiz($color, $increment * $i);
         $scale: map-merge($scale, ('hue' + $i: $adjusted-color));
     }
     @return $scale;
 }
 
-@function generar-paleta($base-color) {
-    $primary: $base-color;
-    $secondary: adjust-hue($base-color, 30);
-    $success: adjust-hue($base-color, 120);
-    $info: adjust-hue($base-color, 180);
-    $warning: adjust-hue($base-color, 60);
-    $danger: adjust-hue($base-color, -30);
-    $light: lighten($base-color, 30%);
-    $dark: darken($base-color, 30%);
+@function crear-mapa-color($color, $niveles) {
+
+}
+
+@function crear-esquema-color($color) {
+    $analogo1: ajustar-matiz($color, 30deg);
+    $analogo2: ajustar-matiz($color, -30deg);
+    $triadico1: ajustar-matiz($color, 120deg);
+    $triadico2: ajustar-matiz($color, 240deg);
+    $complementario: ajustar-matiz($color, 180deg);
+    $tetradico: ajustar-matiz($color, 60deg);
     @return (
-        'primary': $primary,
-        'secondary': $secondary,
-        'success': $success,
-        'info': $info,
-        'warning': $warning,
-        'danger': $danger,
-        'light': $light,
-        'dark': $dark
+        'analogo1': $analogo1,
+        'analogo2': $analogo2,
+        'triadico1': $triadico1,
+        'triadico2': $triadico2,
+        'tetradico': $tetradico,
+        'complemen': $complementario,
+    );
+}
+
+@function cambiar-color($color, $weight) {
+    @if evaluar-color($color-base) == 'claro' {
+        @return if($weight > 0, mix(black, $color, $weight), mix(white, $color, -$weight));
+    } @else {
+        @return if($weight > 0, mix(white, $color, $weight), mix(black, $color, -$weight));
+    }
+}
+
+@function generar-colores($color-base) {
+    $complementary-color: ajustar-matiz($color-base, 180deg);
+    $light-color: lighten($color-base, 15%);
+    $dark-color: darken($color-base, 15%);
+    $primary-color: saturate($light-color, 20%);
+    $secondary-color: desaturate($dark-color, 20%);
+    $danger-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 0), 10%), 10%);
+    $success-color: desaturate(lighten(ajustar-matiz-al-tema($color-base, 120), 10%), 10%);
+    $info-color: desaturate(lighten($complementary-color, 10%), 10%);
+    $warning-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 60), 10%), 10%);
+    $acentuado-color: ajustar-matiz($dark-color, 90deg);
+    @if evaluar-color($color-base) == 'claro' {
+        $danger-color: saturate(ajustar-matiz-al-tema($color-base, 0), 10%);
+        $success-color: desaturate(ajustar-matiz-al-tema($color-base, 120), 10%);
+        $info-color: desaturate($complementary-color, 10%);
+        $warning-color: saturate(ajustar-matiz-al-tema($color-base, 60), 10%);
+    }
+    $esquema: crear-esquema-color($color-base);
+    @return (
+        'primary': $primary-color,
+        'secondary': $secondary-color,
+        'success': $success-color,
+        'info': $info-color,
+        'warning': $warning-color,
+        'danger': $danger-color,
+        'light': $light-color,
+        'dark': $dark-color,
+        'acentuado': $acentuado-color,
+        'gris': grayscale($color-base),
+        'complemen': map-get($esquema, 'complemen'),
+        'analogo1': map-get($esquema, 'analogo1'),
+        'analogo2': map-get($esquema, 'analogo2'),
+        'triadico1': map-get($esquema, 'triadico1'),
+        'triadico2': map-get($esquema, 'triadico2'),
+        'tetradico': map-get($esquema, 'tetradico'),
     );
 }

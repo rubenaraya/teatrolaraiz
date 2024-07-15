@@ -1,29 +1,9 @@
 @use "sass:map";
 
 // ----------------------------------------------
-@function generar-colores($base-color) {
-    $light-color: lighten($base-color, 15%);
-    $dark-color: darken($base-color, 15%);
-    $complementary-color: adjust-hue($base-color, 180deg);
-    @return (
-        'primary': $base-color,
-        'secondary': $complementary-color,
-        'success': $light-color,
-        'info': adjust-hue($base-color, 120deg),
-        'warning': adjust-hue($base-color, 30deg),
-        'danger': adjust-hue($base-color, 0deg),
-        'light': $light-color,
-        'dark': $dark-color,
-        'accent1': saturate($light-color, 20%),
-        'accent2': desaturate($dark-color, 20%),
-        'accent3': adjust-hue($dark-color, 90deg)
-    );
-}
-
-// ----------------------------------------------
 // Paleta de colores
 $fondo: map.get($theme-colors, $color-tema);
-$paleta: generar-colores($fondo);
+$paleta: generar-colores($fondo) !default;
 $colores: (
     "primary": map-get($paleta, 'primary'),
     "secondary": map-get($paleta, 'secondary'),
@@ -33,9 +13,14 @@ $colores: (
     "danger": map-get($paleta, 'danger'),
     "light": map-get($paleta, 'light'),
     "dark": map-get($paleta, 'dark'),
-    "accent1": map-get($paleta, 'accent1'),
-    "accent2": map-get($paleta, 'accent2'),
-    "accent3": map-get($paleta, 'accent3'),
+    "acentuado": map-get($paleta, 'acentuado'),
+    "gris": map-get($paleta, 'gris'),
+    "complemen": map-get($paleta, 'complemen'),
+    "analogo1": map-get($paleta, 'analogo1'),
+    "analogo2": map-get($paleta, 'analogo2'),
+    "triadico1": map-get($paleta, 'triadico1'),
+    "triadico2": map-get($paleta, 'triadico2'),
+    "tetradico": map-get($paleta, 'tetradico'),
 ) !default;
 
 // ----------------------------------------------
@@ -56,7 +41,7 @@ $texto: color-contrast($fondo);
     fuente-talla: $talla,
 ));
 
-@if evalcolor($fondo) == 'claro' {
+@if evaluar-color($fondo) == 'claro' {
     @include cssvars((
         fondo2: tint-color($fondo, 50%),
         fondo2-rgb: to-rgb(tint-color($fondo, 50%)),
