@@ -106,5 +106,12 @@ $texto: color-contrast($fondo);
             @include button-outline-variant($value);
         }
     }
-
+    $escala-color: crear-escala-color($fondo);
+    @each $key, $value in $escala-color {
+        .color-#{$key} {
+            background-color: $value !important;
+            color: color-contraste($value);
+        }
+    }
+    
 }

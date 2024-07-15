@@ -44,12 +44,17 @@
     @return color-contrast($color);
 }
 
-@function crear-escala-color($color, $variations: 5) {
+@function crear-escala-color($color, $variations: 8) {
     $scale: ();
     $increment: 15;
     @for $i from 1 through $variations {
-        $adjusted-color: ajustar-matiz($color, $increment * $i);
-        $scale: map-merge($scale, ('hue' + $i: $adjusted-color));
+        $adjusted-color: adjust-hue($color, $increment * $i);
+        $scale: map-merge($scale, ('tono-p' + $i: $adjusted-color));
+    }
+    $scale: map-merge($scale, ('tono-0': $color));
+    @for $i from 1 through $variations {
+        $adjusted-color: adjust-hue($color, -$increment * $i);
+        $scale: map-merge($scale, ('tono-n' + $i: $adjusted-color));
     }
     @return $scale;
 }
