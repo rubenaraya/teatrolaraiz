@@ -182,6 +182,16 @@ hr {
     @extend .rounded-3;
     border: 2px solid $gray-500;
 }
+.web-muestra-caja {
+    @extend .p-2;
+    @extend .mx-2;
+    @extend .my-1;
+    @extend .rounded;
+    @extend .rounded-3;
+    @extend .small;
+    border: 3px solid $gray-500;
+    min-height: 75px;
+}
 .web-tabla-muestra {
     @extend .text-start;
     background-color: lightgray;
@@ -193,6 +203,7 @@ hr {
 .web-tabla-muestra td {
     @extend .px-3;
     @extend .py-2;
+    @extend .small;
 }
 .web-tabla-muestra th {
     @extend .text-center;
@@ -207,4 +218,15 @@ hr {
     @extend .rounded-1;
     background-color: $gray-500;
     color: $black;
+}
+
+.web-tabla-muestra-tra {
+    @extend .text-center;
+    width: 100%;
+    vertical-align: top;
+    border-collapse: collapse;
+}
+.web-tabla-muestra-tra td {
+    @extend .px-2;
+    @extend .py-2;
 }

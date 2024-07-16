@@ -40,10 +40,6 @@
     @return mix($color, $gray, $cantidad);
 }
 
-@function color-contraste($color) {
-    @return color-contrast($color);
-}
-
 @function crear-escala-colores($color, $variations: 8) {
     $scale: ();
     $increment: 15;

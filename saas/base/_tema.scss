@@ -97,8 +97,10 @@ $texto-light: color-contrast($color-light);
         --bs-#{$color}: #{$value};
         --bs-#{$color}-rgb: #{to-rgb($value)};
         --bs-#{$color}-text-emphasis: #{cambiar-color($value, -20%)};
+
         --bs-#{$color}-bg-subtle: #{cambiar-color($value, 80%)};
         --bs-#{$color}-border-subtle: #{cambiar-color($value, 50%)};
+
     }
     @each $state in map-keys($colores) {
         .list-group-item-#{$state} {
@@ -157,14 +159,14 @@ $texto-light: color-contrast($color-light);
     @each $key, $value in $escala-colores {
         .escala-#{$key} {
             background-color: $value !important;
-            color: color-contraste($value);
+            color: color-contrast($value);
         }
     }
 
     @each $key, $value in $escala-monocromatica {
         .escala-#{$key} {
             background-color: $value !important;
-            color: color-contraste($value);
+            color: color-contrast($value);
         }
     }
 
