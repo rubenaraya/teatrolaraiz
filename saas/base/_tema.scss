@@ -1,7 +1,7 @@
 @use "sass:map";
 
 // ----------------------------------------------
-// Paleta de colores
+// Colores base
 $fondo: map.get($theme-colors, $color-tema);
 $paleta: generar-colores($fondo) !default;
 $colores: (
@@ -21,10 +21,23 @@ $colores: (
 // Predeterminados (si no se han establecido)
 $fuente: Verdana, Geneva, Tahoma, sans-serif !default;
 $talla: 1rem !default;
+$esquema-colores: crear-esquema-color($fondo) !default;
+$escala-monocromatica: crear-escala-monocromatica($fondo) !default;
+$escala-colores: crear-escala-colores($fondo) !default;
 
 // ----------------------------------------------
 // Valores Calculados
 $texto: color-contrast($fondo);
+$sombra-rgb: to-rgb(color-contrast($fondo));
+$analogo1: map-get($map: $esquema-colores, $key: 'analogo1');
+$analogo2: map-get($map: $esquema-colores, $key: 'analogo2');
+$triadico1: map-get($map: $esquema-colores, $key: 'triadico1');
+$triadico2: map-get($map: $esquema-colores, $key: 'triadico2');
+$tetradico1: map-get($map: $esquema-colores, $key: 'tetradico1');
+$tetradico2: map-get($map: $esquema-colores, $key: 'tetradico2');
+$opuesto: map-get($map: $esquema-colores, $key: 'opuesto');
+$color-light: map-get($paleta, 'light');
+$texto-light: color-contrast($color-light);
 
 @include cssvars((
     fondo: $fondo,
@@ -33,29 +46,27 @@ $texto: color-contrast($fondo);
     texto-rgb: to-rgb($texto),
     fuente-nombre: $fuente,
     fuente-talla: $talla,
+    sombra-color: color-contrast($fondo),
+    sombra-rgba: RGBA(($sombra-rgb), .25),
+    fondo2: cambiar-color($fondo, 50%),
+    fondo2-rgb: to-rgb(cambiar-color($fondo, 50%)),
+    texto2: color-contrast(cambiar-color($fondo, 50%)),
+    texto2-rgb: to-rgb(color-contrast(cambiar-color($fondo, 50%))),
+    fondo3: cambiar-color($fondo, 70%),
+    fondo3-rgb: to-rgb(cambiar-color($fondo, 70%)),
+    texto3: color-contrast(cambiar-color($fondo, 70%)),
+    texto3-rgb: to-rgb(color-contrast(cambiar-color($fondo, 70%))),
 ));
 
 @if evaluar-color($fondo) == 'claro' {
     @include cssvars((
-        fondo2: tint-color($fondo, 50%),
-        fondo2-rgb: to-rgb(tint-color($fondo, 50%)),
-        texto2: color-contrast(tint-color($fondo, 50%)),
-        texto2-rgb: to-rgb(color-contrast(tint-color($fondo, 50%))),
-        fondo3: tint-color($fondo, 70%),
-        fondo3-rgb: to-rgb(tint-color($fondo, 70%)),
-        texto3: color-contrast(tint-color($fondo, 70%)),
-        texto3-rgb: to-rgb(color-contrast(tint-color($fondo, 70%))),
+        borde-color: map-get($escala-monocromatica, 'mono-700'),
+        hr-color: map-get($escala-monocromatica, 'mono-700'),
     ));
 } @else {
     @include cssvars((
-        fondo2: shade-color($fondo, 50%),
-        fondo2-rgb: to-rgb(shade-color($fondo, 50%)),
-        texto2: color-contrast(shade-color($fondo, 50%)),
-        texto2-rgb: to-rgb(color-contrast(shade-color($fondo, 50%))),
-        fondo3: shade-color($fondo, 70%),
-        fondo3-rgb: to-rgb(shade-color($fondo, 70%)),
-        texto3: color-contrast(shade-color($fondo, 70%)),
-        texto3-rgb: to-rgb(color-contrast(shade-color($fondo, 70%))),
+        borde-color: map-get($escala-monocromatica, 'mono-300'),
+        hr-color: map-get($escala-monocromatica, 'mono-300'),
     ));
 }
 
@@ -66,6 +77,13 @@ $texto: color-contrast($fondo);
     --bs-body-color-rgb: #{cssvar(texto-rgb)};
     --bs-body-bg: #{cssvar(fondo)};
     --bs-body-bg-rgb: #{cssvar(fondo-rgb)};
+    --bs-box-shadow: 0 0.5rem 1rem #{cssvar(sombra-rgba)};
+    --bs-box-shadow-sm: 0 0.1rem .5rem #{cssvar(sombra-rgba)};
+    --bs-box-shadow-lg: 0 0.25rem 2rem #{cssvar(sombra-rgba)};
+    --bs-box-shadow-inset: inset 0 1px 2px #{cssvar(sombra-rgba)};
+    --bs-border-color: #{cssvar(borde-color)};
+    --bs-hr-color: #{cssvar(hr-color)};
+  
     --bs-secondary-color: #{cssvar(texto2)};
     --bs-secondary-color-rgb: #{cssvar(texto2-rgb)};
     --bs-secondary-bg: #{cssvar(fondo2)};
@@ -74,28 +92,29 @@ $texto: color-contrast($fondo);
     --bs-tertiary-color-rgb: #{cssvar(texto3-rgb)};
     --bs-tertiary-bg: #{cssvar(fondo3)};
     --bs-tertiary-bg-rgb: #{cssvar(fondo3-rgb)};
-
+  
     @each $color, $value in $colores {
         --bs-#{$color}: #{$value};
         --bs-#{$color}-rgb: #{to-rgb($value)};
-        --bs-#{$color}-text-emphasis: #{shade-color($value, 60%)};
-        --bs-#{$color}-bg-subtle: #{tint-color($value, 80%)};
-        --bs-#{$color}-border-subtle: #{tint-color($value, 50%)};
+        --bs-#{$color}-text-emphasis: #{cambiar-color($value, -20%)};
+        --bs-#{$color}-bg-subtle: #{cambiar-color($value, 80%)};
+        --bs-#{$color}-border-subtle: #{cambiar-color($value, 50%)};
+    }
+    @each $state in map-keys($colores) {
+        .list-group-item-#{$state} {
+            --bs-list-group-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-action-hover-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-action-active-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-active-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-border-color: #{cssvar(borde-color)};
+            --bs-list-group-active-border-color: #{cssvar(borde-color)};
+        }
     }
 
-    $escala-monocromatica: crear-escala-monocromatica($fondo);
     @each $key, $value in $escala-monocromatica {
         --bs-#{$key}: #{$value};
     }
 
-    $esquema-colores: crear-esquema-color($fondo);
-    $analogo1: map-get($map: $esquema-colores, $key: 'analogo1');
-    $analogo2: map-get($map: $esquema-colores, $key: 'analogo2');
-    $triadico1: map-get($map: $esquema-colores, $key: 'triadico1');
-    $triadico2: map-get($map: $esquema-colores, $key: 'triadico2');
-    $tetradico1: map-get($map: $esquema-colores, $key: 'tetradico1');
-    $tetradico2: map-get($map: $esquema-colores, $key: 'tetradico2');
-    $opuesto: map-get($map: $esquema-colores, $key: 'opuesto');
     --bs-analogo1: #{$analogo1};
     --bs-analogo1-rgb: #{to-rgb($analogo1)};
     --bs-analogo2: #{$analogo2};
@@ -110,7 +129,7 @@ $texto: color-contrast($fondo);
     --bs-tetradico2-rgb: #{to-rgb($tetradico2)};
     --bs-opuesto: #{$opuesto};
     --bs-opuesto-rgb: #{to-rgb($opuesto)};
-
+    
     .text-bg-opuesto {
         background-color: #{$opuesto} !important;
         color: #{color-contrast($opuesto)} !important;
@@ -135,7 +154,6 @@ $texto: color-contrast($fondo);
         }
     }
 
-    $escala-colores: crear-escala-colores($fondo);
     @each $key, $value in $escala-colores {
         .escala-#{$key} {
             background-color: $value !important;
@@ -143,12 +161,21 @@ $texto: color-contrast($fondo);
         }
     }
 
-    $mapa-color: crear-escala-monocromatica($fondo);
-    @each $key, $value in $mapa-color {
+    @each $key, $value in $escala-monocromatica {
         .escala-#{$key} {
             background-color: $value !important;
             color: color-contraste($value);
         }
     }
-    
+
+    .nav-tabs {
+        --bs-nav-tabs-border-color: #{cssvar(borde-color)};
+        --bs-nav-tabs-link-hover-border-color: #{cssvar(borde-color)} #{cssvar(borde-color)} transparent;
+        --bs-nav-tabs-link-active-border-color: #{cssvar(borde-color)} #{cssvar(borde-color)} transparent;
+        --bs-nav-link-color: #{cssvar(texto)};
+        --bs-nav-link-hover-color: #{cssvar(texto)};
+        --bs-nav-tabs-link-active-color: #{$texto-light};
+        --bs-nav-tabs-link-active-bg: #{$color-light};
+    }
+
 }

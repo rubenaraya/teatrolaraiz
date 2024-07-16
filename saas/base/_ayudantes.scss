@@ -94,10 +94,10 @@
 }
 
 @function cambiar-color($color, $weight) {
-    @if evaluar-color($color-base) == 'claro' {
-        @return if($weight > 0, mix(black, $color, $weight), mix(white, $color, -$weight));
+    @if evaluar-color($color) == 'oscuro' {
+        @return if($weight > 0, mix($color, black, $weight), mix($color, white, -$weight));
     } @else {
-        @return if($weight > 0, mix(white, $color, $weight), mix(black, $color, -$weight));
+        @return if($weight > 0, mix($color, white, $weight), mix($color, black, -$weight));
     }
 }
 

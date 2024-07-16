@@ -11,9 +11,9 @@
     @extend .text-center;
     @extend .my-3;
     @extend .px-0;
-    @extend .py-3;
+    @extend .pt-3;
     border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem rgba(var(--web-contenedor-sombra), 0.5);
+    box-shadow: 0 0 1.2rem var(--tema-sombra-rgba);
     background-color: var(--bs-body-bg);
     width: 95%;
     max-width: 960px;
@@ -33,18 +33,6 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-}
-
-// SOMBRAS
-
-.web-sombra {
-    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
-}
-.web-sombra-sm {
-    box-shadow: 0 0.1rem .5rem rgba(var(--bs-body-color-rgb), .25);
-}
-.web-sombra-lg {
-    box-shadow: 0 0.25rem 2rem rgba(var(--bs-body-color-rgb), .25);
 }
 
 // TAMAÑOS DE FUENTE
@@ -113,6 +101,11 @@
 }
 
 // ELEMENTOS
+
+hr {
+    color: var(--bs-hr-color);
+    opacity: 1;
+}
 
 .web-titulos {
     font-style: italic;
@@ -199,7 +192,7 @@
 }
 .web-tabla-muestra td {
     @extend .px-3;
-    @extend .py-1;
+    @extend .py-2;
 }
 .web-tabla-muestra th {
     @extend .text-center;
