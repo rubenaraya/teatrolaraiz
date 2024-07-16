@@ -1,0 +1,5 @@
+[data-bs-theme="verdesuave"] {
+  $color-tema: "verdesuave";
+  @import "../base/tema";
+  @include configuracion-tema();
+}
