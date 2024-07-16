@@ -1,0 +1,5 @@
+[data-bs-theme="coral"] {
+    $color-tema: "coral";
+    @import "../base/tema";
+    @include configuracion-tema();
+}

@@ -1,0 +1,5 @@
+[data-bs-theme="azulceleste"] {
+    $color-tema: "azulceleste";
+    @import "../base/tema";
+    @include configuracion-tema();
+}

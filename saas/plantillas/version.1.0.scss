@@ -4,14 +4,6 @@
 @import "../base/colores";
 
 $min-contrast-ratio: 3.5;
-$border-color:      #adb5bd;
-
-$body-color:        $gray-900;
-$body-bg:           $gray-200;
-$body-color-dark:   $gray-300;
-$body-bg-dark:      $gray-900;
-$link-color:        $body-color;
-$link-color-dark:   $body-color-dark;
 
 // ----------------------------------------------
 // BOOTSTRAP 5.3.3
@@ -59,7 +51,67 @@ $theme-colors: map-merge($theme-colors, $colores-personalizados);
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS
 
-@import "../temas/acero", "../temas/agata", "../temas/aguamarina", "../temas/amatista", "../temas/azulmarino", "../temas/bermellon", "../temas/azul", "../temas/botella", "../temas/burdeos", "../temas/cafe", "../temas/caoba", "../temas/cardo", "../temas/chocolate", "../temas/cielo", "../temas/cobalto", "../temas/crema", "../temas/turquesa", "../temas/esmeralda", "../temas/verde", "../temas/gris", "../temas/hoja", "../temas/icterina", "../temas/indigo", "../temas/limon", "../temas/marron", "../temas/musgo", "../temas/noche", "../temas/nuez", "../temas/naranja", "../temas/perla", "../temas/fucsia", "../temas/purpura", "../temas/rojo", "../temas/rosado", "../temas/verdeazul", "../temas/verdeoscuro", "../temas/verdeamar", "../temas/vino", "../temas/amarillo", "../temas/zafiro";
+@import 
+"../temas/acero",
+"../temas/agata",
+"../temas/aguamarina",
+"../temas/amatista",
+"../temas/azulmarino",
+"../temas/bermellon",
+"../temas/azul",
+"../temas/botella",
+"../temas/burdeos",
+"../temas/cafe",
+"../temas/caoba",
+"../temas/cardo",
+"../temas/chocolate",
+"../temas/cielo",
+"../temas/cobalto",
+"../temas/crema",
+"../temas/turquesa",
+"../temas/esmeralda",
+"../temas/verde",
+"../temas/hoja",
+"../temas/icterina",
+"../temas/indigo",
+"../temas/limon",
+"../temas/marron",
+"../temas/musgo",
+"../temas/noche",
+"../temas/nuez",
+"../temas/naranja",
+"../temas/perla",
+"../temas/fucsia",
+"../temas/purpura",
+"../temas/rojo",
+"../temas/rosado",
+"../temas/verdeazul",
+"../temas/verdeoscuro",
+"../temas/verdeamar",
+"../temas/vino",
+"../temas/amarillo",
+"../temas/miel",
+"../temas/oliva",
+"../temas/oro",
+"../temas/azulceleste",
+"../temas/oceano",
+"../temas/celeste",
+"../temas/cobre",
+"../temas/gamuza",
+"../temas/granate",
+"../temas/menta",
+"../temas/carmin",
+"../temas/azulagua",
+"../temas/violeta",
+"../temas/verdeoliva",
+"../temas/verdeclaro",
+"../temas/coral",
+"../temas/beige",
+"../temas/salmon",
+"../temas/trigo",
+"../temas/anaranjado",
+"../temas/curry",
+"../temas/zafiro";
 
 // ----------------------------------------------
 // ESTILOS DEFINIDOS EN LA PLANTILLA

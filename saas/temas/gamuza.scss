@@ -1,0 +1,5 @@
+[data-bs-theme="gamuza"] {
+    $color-tema: "gamuza";
+    @import "../base/tema";
+    @include configuracion-tema();
+}

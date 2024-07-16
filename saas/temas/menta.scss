@@ -1,0 +1,5 @@
+[data-bs-theme="menta"] {
+    $color-tema: "menta";
+    @import "../base/tema";
+    @include configuracion-tema();
+}
