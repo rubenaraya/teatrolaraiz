@@ -2,45 +2,38 @@
 
 // ----------------------------------------------
 // Colores base
-$fondo: map.get($theme-colors, $color-tema);
-$paleta: generar-colores($fondo) !default;
+$color-base: map.get($theme-colors, $color-tema);
+$paleta-basica: generar-paleta-basica($color-base) !default;
 $colores: (
-    "primary": map-get($paleta, 'primary'),
-    "secondary": map-get($paleta, 'secondary'),
-    "success": map-get($paleta, 'success'),
-    "info": map-get($paleta, 'info'),
-    "warning": map-get($paleta, 'warning'),
-    "danger": map-get($paleta, 'danger'),
-    "light": map-get($paleta, 'light'),
-    "dark": map-get($paleta, 'dark'),
-    "accent": map-get($paleta, 'accent'),
-    "grayscale": map-get($paleta, 'grayscale'),
+    "primary": map-get($paleta-basica, 'primary'),
+    "secondary": map-get($paleta-basica, 'secondary'),
+    "success": map-get($paleta-basica, 'success'),
+    "info": map-get($paleta-basica, 'info'),
+    "warning": map-get($paleta-basica, 'warning'),
+    "danger": map-get($paleta-basica, 'danger'),
+    "light": map-get($paleta-basica, 'light'),
+    "dark": map-get($paleta-basica, 'dark'),
+    "accent": map-get($paleta-basica, 'accent'),
+    "soft": map-get($paleta-basica, 'soft'),
+    "invert": map-get($paleta-basica, 'invert'),
+    "grayscale": map-get($paleta-basica, 'grayscale'),
+    "base": $color-base,
 ) !default;
+$escala-monocromatica: crear-escala-monocromatica($color-base) !default;
 
 // ----------------------------------------------
 // Predeterminados (si no se han establecido)
 $fuente: Verdana, Geneva, Tahoma, sans-serif !default;
 $talla: 1rem !default;
-$esquema-colores: crear-esquema-color($fondo) !default;
-$escala-monocromatica: crear-escala-monocromatica($fondo) !default;
-$escala-colores: crear-escala-colores($fondo) !default;
 
 // ----------------------------------------------
 // Valores Calculados
-$texto: color-contrast($fondo);
-$sombra-rgb: to-rgb(color-contrast($fondo));
-$analogo1: map-get($map: $esquema-colores, $key: 'analogo1');
-$analogo2: map-get($map: $esquema-colores, $key: 'analogo2');
-$triadico1: map-get($map: $esquema-colores, $key: 'triadico1');
-$triadico2: map-get($map: $esquema-colores, $key: 'triadico2');
-$tetradico1: map-get($map: $esquema-colores, $key: 'tetradico1');
-$tetradico2: map-get($map: $esquema-colores, $key: 'tetradico2');
-$opuesto: map-get($map: $esquema-colores, $key: 'opuesto');
-$color-light: map-get($paleta, 'light');
-$texto-light: color-contrast($color-light);
+$fondo: $color-base;
+$texto: color-contrast($color-base);
+$sombra-rgb: to-rgb(color-contrast($color-base));
 
-@include cssvars((
-    fondo: $fondo,
+@include variables-css((
+    fondo: $color-base,
     fondo-rgb: to-rgb($fondo),
     texto: $texto,
     texto-rgb: to-rgb($texto),
@@ -59,125 +52,13 @@ $texto-light: color-contrast($color-light);
 ));
 
 @if evaluar-color($fondo) == 'claro' {
-    @include cssvars((
-        borde-color: map-get($escala-monocromatica, 'mono-700'),
-        hr-color: map-get($escala-monocromatica, 'mono-700'),
+    @include variables-css((
+        borde-color: map-get($escala-monocromatica, 'mono-750'),
+        hr-color: map-get($escala-monocromatica, 'mono-750'),
     ));
 } @else {
-    @include cssvars((
-        borde-color: map-get($escala-monocromatica, 'mono-300'),
-        hr-color: map-get($escala-monocromatica, 'mono-300'),
+    @include variables-css((
+        borde-color: map-get($escala-monocromatica, 'mono-250'),
+        hr-color: map-get($escala-monocromatica, 'mono-250'),
     ));
-}
-
-@mixin configuracion-tema() {
-    --bs-body-font-family: #{cssvar(fuente-nombre)};
-    --bs-body-font-size: #{cssvar(fuente-talla)};
-    --bs-body-color: #{cssvar(texto)};
-    --bs-body-color-rgb: #{cssvar(texto-rgb)};
-    --bs-body-bg: #{cssvar(fondo)};
-    --bs-body-bg-rgb: #{cssvar(fondo-rgb)};
-    --bs-box-shadow: 0 0.5rem 1rem #{cssvar(sombra-rgba)};
-    --bs-box-shadow-sm: 0 0.1rem .5rem #{cssvar(sombra-rgba)};
-    --bs-box-shadow-lg: 0 0.25rem 2rem #{cssvar(sombra-rgba)};
-    --bs-box-shadow-inset: inset 0 1px 2px #{cssvar(sombra-rgba)};
-    --bs-border-color: #{cssvar(borde-color)};
-    --bs-hr-color: #{cssvar(hr-color)};
-  
-    --bs-secondary-color: #{cssvar(texto2)};
-    --bs-secondary-color-rgb: #{cssvar(texto2-rgb)};
-    --bs-secondary-bg: #{cssvar(fondo2)};
-    --bs-secondary-bg-rgb: #{cssvar(fondo2-rgb)};
-    --bs-tertiary-color: #{cssvar(texto3)};
-    --bs-tertiary-color-rgb: #{cssvar(texto3-rgb)};
-    --bs-tertiary-bg: #{cssvar(fondo3)};
-    --bs-tertiary-bg-rgb: #{cssvar(fondo3-rgb)};
-  
-    @each $color, $value in $colores {
-        --bs-#{$color}: #{$value};
-        --bs-#{$color}-rgb: #{to-rgb($value)};
-        --bs-#{$color}-text-emphasis: #{cambiar-color($value, -20%)};
-
-        --bs-#{$color}-bg-subtle: #{cambiar-color($value, 80%)};
-        --bs-#{$color}-border-subtle: #{cambiar-color($value, 50%)};
-
-    }
-    @each $state in map-keys($colores) {
-        .list-group-item-#{$state} {
-            --bs-list-group-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-action-hover-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-action-active-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-active-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-border-color: #{cssvar(borde-color)};
-            --bs-list-group-active-border-color: #{cssvar(borde-color)};
-        }
-    }
-
-    @each $key, $value in $escala-monocromatica {
-        --bs-#{$key}: #{$value};
-    }
-
-    --bs-analogo1: #{$analogo1};
-    --bs-analogo1-rgb: #{to-rgb($analogo1)};
-    --bs-analogo2: #{$analogo2};
-    --bs-analogo2-rgb: #{to-rgb($analogo2)};
-    --bs-triadico1: #{$triadico1};
-    --bs-triadico1-rgb: #{to-rgb($triadico1)};
-    --bs-triadico2: #{$triadico2};
-    --bs-triadico2-rgb: #{to-rgb($triadico2)};
-    --bs-tetradico1: #{$tetradico1};
-    --bs-tetradico1-rgb: #{to-rgb($tetradico1)};
-    --bs-tetradico2: #{$tetradico2};
-    --bs-tetradico2-rgb: #{to-rgb($tetradico2)};
-    --bs-opuesto: #{$opuesto};
-    --bs-opuesto-rgb: #{to-rgb($opuesto)};
-    
-    .text-bg-opuesto {
-        background-color: #{$opuesto} !important;
-        color: #{color-contrast($opuesto)} !important;
-    }
-
-    @each $color, $value in $colores {
-        .bg-#{$color} {
-            background-color: $value !important;
-        }
-        .text-#{$color} {
-            color: $value !important;
-        }
-        .text-bg-#{$color} {
-            background-color: $value !important;
-            color: color-contrast($value) !important;
-        }
-        .btn-#{$color} {
-            @include button-variant($value, $value);
-        }
-        .btn-outline-#{$color} {
-            @include button-outline-variant($value);
-        }
-    }
-
-    @each $key, $value in $escala-colores {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-
-    @each $key, $value in $escala-monocromatica {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-
-    .nav-tabs {
-        --bs-nav-tabs-border-color: #{cssvar(borde-color)};
-        --bs-nav-tabs-link-hover-border-color: #{cssvar(borde-color)} #{cssvar(borde-color)} transparent;
-        --bs-nav-tabs-link-active-border-color: #{cssvar(borde-color)} #{cssvar(borde-color)} transparent;
-        --bs-nav-link-color: #{cssvar(texto)};
-        --bs-nav-link-hover-color: #{cssvar(texto)};
-        --bs-nav-tabs-link-active-color: #{$texto-light};
-        --bs-nav-tabs-link-active-bg: #{$color-light};
-    }
-
 }

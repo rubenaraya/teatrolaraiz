@@ -1,5 +1,5 @@
 [data-bs-theme="botella"] {
   $color-tema: "botella";
   @import "../base/tema";
-  @include configuracion-tema();
+  @include configurar-tema($colores);
 }

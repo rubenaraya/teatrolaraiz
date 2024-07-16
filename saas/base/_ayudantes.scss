@@ -1,16 +1,16 @@
 @use "sass:map";
 
-@mixin cssvars($css_variables, $prefix: tema) {
+@mixin variables-css($css_variables, $prefix: tema) {
     @each $name, $value in $css_variables {
         --#{$prefix}-#{$name}: #{$value};
     }
 }
 
-@function cssvar ($name, $prefix: tema) {
+@function var-css($name, $prefix: tema) {
     @return var(--#{$prefix}-#{$name});
 }
 
-@mixin cssvar($name, $value: '', $prefix: tema) {
+@mixin asignar-var-css($name, $value: '', $prefix: tema) {
     --#{$prefix}-#{$name}: #{$value};
 }
 
@@ -35,22 +35,22 @@
     @return ajustar-matiz($color, $hue-difference);
 }
 
-@function color-con-gris($color, $cantidad) {
+@function mezclar-con-gris($color, $cantidad) {
     $gray: mix(black, white, 50%);
     @return mix($color, $gray, $cantidad);
 }
 
-@function crear-escala-colores($color, $variations: 8) {
+@function crear-escala-multicolor($color, $variations: 8) {
     $scale: ();
     $increment: 15;
     @for $i from 1 through $variations {
         $adjusted-color: adjust-hue($color, $increment * $i);
-        $scale: map-merge($scale, ('color-p' + $i: $adjusted-color));
+        $scale: map-merge($scale, ('multi-p' + $i: $adjusted-color));
     }
-    $scale: map-merge($scale, ('color-0': $color));
+    $scale: map-merge($scale, ('multi-0': $color));
     @for $i from 1 through $variations {
         $adjusted-color: adjust-hue($color, -$increment * $i);
-        $scale: map-merge($scale, ('color-n' + $i: $adjusted-color));
+        $scale: map-merge($scale, ('multi-n' + $i: $adjusted-color));
     }
     @return $scale;
 }
@@ -70,12 +70,14 @@
     @return $scale;
 }
 
-@function crear-esquema-color($color) {
+@function generar-paleta-ampliada($color) {
     $analogo1: ajustar-matiz($color, 30deg);
     $analogo2: ajustar-matiz($color, -30deg);
     $triadico1: ajustar-matiz($color, 120deg);
     $triadico2: ajustar-matiz($color, 240deg);
     $opuesto: ajustar-matiz($color, 180deg);
+    $opoana1: ajustar-matiz($opuesto, 30deg);
+    $opoana2: ajustar-matiz($opuesto, -30deg);
     $tetradico1: ajustar-matiz($color, 60deg);
     $tetradico2: ajustar-matiz($color, 240deg);
     @return (
@@ -86,32 +88,27 @@
         'tetradico1': $tetradico1,
         'tetradico2': $tetradico2,
         'opuesto': $opuesto,
+        'opoana1': $opoana1,
+        'opoana2': $opoana2,
     );
 }
 
-@function cambiar-color($color, $weight) {
-    @if evaluar-color($color) == 'oscuro' {
-        @return if($weight > 0, mix($color, black, $weight), mix($color, white, -$weight));
-    } @else {
-        @return if($weight > 0, mix($color, white, $weight), mix($color, black, -$weight));
-    }
-}
-
-@function generar-colores($color-base) {
-    $complementary-color: ajustar-matiz($color-base, 180deg);
+@function generar-paleta-basica($color-base) {
+    $invert-color: ajustar-matiz($color-base, 180deg);
     $light-color: lighten($color-base, 15%);
     $dark-color: darken($color-base, 15%);
     $primary-color: saturate($light-color, 20%);
     $secondary-color: desaturate($dark-color, 20%);
     $danger-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 0), 10%), 10%);
     $success-color: desaturate(lighten(ajustar-matiz-al-tema($color-base, 120), 10%), 10%);
-    $info-color: desaturate(lighten($complementary-color, 10%), 10%);
+    $info-color: desaturate(lighten($invert-color, 10%), 10%);
     $warning-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 60), 10%), 10%);
     $accent-color: ajustar-matiz($dark-color, 90deg);
+    $soft-color: ajustar-matiz($light-color, 90deg);
     @if evaluar-color($color-base) == 'claro' {
         $danger-color: saturate(ajustar-matiz-al-tema($color-base, 0), 10%);
         $success-color: desaturate(ajustar-matiz-al-tema($color-base, 120), 10%);
-        $info-color: desaturate($complementary-color, 10%);
+        $info-color: desaturate($invert-color, 10%);
         $warning-color: saturate(ajustar-matiz-al-tema($color-base, 60), 10%);
     }
     @return (
@@ -124,6 +121,144 @@
         'light': $light-color,
         'dark': $dark-color,
         'accent': $accent-color,
+        'soft': $soft-color,
+        'invert': $invert-color,
         'grayscale': grayscale($color-base),
     );
+}
+
+@function cambiar-color($color, $weight) {
+    @if evaluar-color($color) == 'oscuro' {
+        @return if($weight > 0, mix($color, black, $weight), mix($color, white, -$weight));
+    } @else {
+        @return if($weight > 0, mix($color, white, $weight), mix($color, black, -$weight));
+    }
+}
+
+@mixin configurar-tema($colores) {
+    $color-base: map-get($map: $colores, $key: 'base');
+    $paleta-ampliada: generar-paleta-ampliada($color-base) !default;
+    $escala-multicolor: crear-escala-multicolor($color-base) !default;
+    $escala-monocromatica: crear-escala-monocromatica($color-base) !default;
+    $analogo1: map-get($map: $paleta-ampliada, $key: 'analogo1');
+    $analogo2: map-get($map: $paleta-ampliada, $key: 'analogo2');
+    $triadico1: map-get($map: $paleta-ampliada, $key: 'triadico1');
+    $triadico2: map-get($map: $paleta-ampliada, $key: 'triadico2');
+    $tetradico1: map-get($map: $paleta-ampliada, $key: 'tetradico1');
+    $tetradico2: map-get($map: $paleta-ampliada, $key: 'tetradico2');
+    $opuesto: map-get($map: $paleta-ampliada, $key: 'opuesto');
+    $opoana1: map-get($map: $paleta-ampliada, $key: 'opoana1');
+    $opoana2: map-get($map: $paleta-ampliada, $key: 'opoana2');
+    $color-light: map-get($colores, 'light');
+    $texto-light: color-contrast($color-light);
+    
+    --bs-body-font-family: #{var-css(fuente-nombre)};
+    --bs-body-font-size: #{var-css(fuente-talla)};
+    --bs-body-color: #{var-css(texto)};
+    --bs-body-color-rgb: #{var-css(texto-rgb)};
+    --bs-body-bg: #{var-css(fondo)};
+    --bs-body-bg-rgb: #{var-css(fondo-rgb)};
+    --bs-box-shadow: 0 0.5rem 1rem #{var-css(sombra-rgba)};
+    --bs-box-shadow-sm: 0 0.1rem .5rem #{var-css(sombra-rgba)};
+    --bs-box-shadow-lg: 0 0.25rem 2rem #{var-css(sombra-rgba)};
+    --bs-box-shadow-inset: inset 0 1px 2px #{var-css(sombra-rgba)};
+    --bs-border-color: #{var-css(borde-color)};
+    --bs-hr-color: #{var-css(hr-color)};
+  
+    --bs-secondary-color: #{var-css(texto2)};
+    --bs-secondary-color-rgb: #{var-css(texto2-rgb)};
+    --bs-secondary-bg: #{var-css(fondo2)};
+    --bs-secondary-bg-rgb: #{var-css(fondo2-rgb)};
+    --bs-tertiary-color: #{var-css(texto3)};
+    --bs-tertiary-color-rgb: #{var-css(texto3-rgb)};
+    --bs-tertiary-bg: #{var-css(fondo3)};
+    --bs-tertiary-bg-rgb: #{var-css(fondo3-rgb)};
+  
+    @each $color, $value in $colores {
+        --bs-#{$color}: #{$value};
+        --bs-#{$color}-rgb: #{to-rgb($value)};
+        --bs-#{$color}-text-emphasis: #{cambiar-color($value, -20%)};
+
+        --bs-#{$color}-bg-subtle: #{cambiar-color($value, 80%)};
+        --bs-#{$color}-border-subtle: #{cambiar-color($value, 50%)};
+
+    }
+    @each $state in map-keys($colores) {
+        .list-group-item-#{$state} {
+            --bs-list-group-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-action-hover-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-action-active-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-active-color: var(--bs-#{$state}-text-emphasis);
+            --bs-list-group-border-color: #{var-css(borde-color)};
+            --bs-list-group-active-border-color: #{var-css(borde-color)};
+        }
+    }
+
+    @each $key, $value in $escala-monocromatica {
+        --bs-#{$key}: #{$value};
+    }
+
+    --bs-analogo1: #{$analogo1};
+    --bs-analogo1-rgb: #{to-rgb($analogo1)};
+    --bs-analogo2: #{$analogo2};
+    --bs-analogo2-rgb: #{to-rgb($analogo2)};
+    --bs-triadico1: #{$triadico1};
+    --bs-triadico1-rgb: #{to-rgb($triadico1)};
+    --bs-triadico2: #{$triadico2};
+    --bs-triadico2-rgb: #{to-rgb($triadico2)};
+    --bs-tetradico1: #{$tetradico1};
+    --bs-tetradico1-rgb: #{to-rgb($tetradico1)};
+    --bs-tetradico2: #{$tetradico2};
+    --bs-tetradico2-rgb: #{to-rgb($tetradico2)};
+    --bs-opuesto: #{$opuesto};
+    --bs-opuesto-rgb: #{to-rgb($opuesto)};
+    
+    .text-bg-opuesto {
+        background-color: #{$opuesto} !important;
+        color: #{color-contrast($opuesto)} !important;
+    }
+
+    @each $color, $value in $colores {
+        .bg-#{$color} {
+            background-color: $value !important;
+        }
+        .text-#{$color} {
+            color: $value !important;
+        }
+        .text-bg-#{$color} {
+            background-color: $value !important;
+            color: color-contrast($value) !important;
+        }
+        .btn-#{$color} {
+            @include button-variant($value, $value);
+        }
+        .btn-outline-#{$color} {
+            @include button-outline-variant($value);
+        }
+    }
+
+    @each $key, $value in $escala-multicolor {
+        .escala-#{$key} {
+            background-color: $value !important;
+            color: color-contrast($value);
+        }
+    }
+
+    @each $key, $value in $escala-monocromatica {
+        .escala-#{$key} {
+            background-color: $value !important;
+            color: color-contrast($value);
+        }
+    }
+
+    .nav-tabs {
+        --bs-nav-tabs-border-color: #{var-css(borde-color)};
+        --bs-nav-tabs-link-hover-border-color: #{var-css(borde-color)} #{var-css(borde-color)} transparent;
+        --bs-nav-tabs-link-active-border-color: #{var-css(borde-color)} #{var-css(borde-color)} transparent;
+        --bs-nav-link-color: #{var-css(texto)};
+        --bs-nav-link-hover-color: #{var-css(texto)};
+        --bs-nav-tabs-link-active-color: #{$texto-light};
+        --bs-nav-tabs-link-active-bg: #{$color-light};
+    }
+
 }

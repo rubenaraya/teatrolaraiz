@@ -1,5 +1,5 @@
 [data-bs-theme="burdeos"] {
   $color-tema: "burdeos";
   @import "../base/tema";
-  @include configuracion-tema();
+  @include configurar-tema($colores);
 }
