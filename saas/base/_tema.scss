@@ -4,9 +4,12 @@
 // Colores base
 $color-base: map.get($theme-colors, $color-tema);
 $paleta-basica: generar-paleta-basica($color-base) !default;
+$primary: map-get($paleta-basica, 'primary') !default;
+$secondary: map-get($paleta-basica, 'secondary') !default;
 $colores: (
-    "primary": map-get($paleta-basica, 'primary'),
-    "secondary": map-get($paleta-basica, 'secondary'),
+    "base": $color-base,
+    "primary": $primary,
+    "secondary": $secondary,
     "success": map-get($paleta-basica, 'success'),
     "info": map-get($paleta-basica, 'info'),
     "warning": map-get($paleta-basica, 'warning'),
@@ -17,14 +20,13 @@ $colores: (
     "soft": map-get($paleta-basica, 'soft'),
     "invert": map-get($paleta-basica, 'invert'),
     "grayscale": map-get($paleta-basica, 'grayscale'),
-    "base": $color-base,
 ) !default;
 $escala-monocromatica: crear-escala-monocromatica($color-base) !default;
 
 // ----------------------------------------------
 // Predeterminados (si no se han establecido)
-$fuente: Verdana, Geneva, Tahoma, sans-serif !default;
-$talla: 1rem !default;
+$fuente-base: Verdana, Geneva, Tahoma, sans-serif !default;
+$talla-base: 1rem !default;
 
 // ----------------------------------------------
 // Valores Calculados
@@ -37,28 +39,28 @@ $sombra-rgb: to-rgb(color-contrast($color-base));
     fondo-rgb: to-rgb($fondo),
     texto: $texto,
     texto-rgb: to-rgb($texto),
-    fuente-nombre: $fuente,
-    fuente-talla: $talla,
+    fuente-base: $fuente-base,
+    talla-base: $talla-base,
     sombra-color: color-contrast($fondo),
     sombra-rgba: RGBA(($sombra-rgb), .25),
-    fondo2: cambiar-color($fondo, 50%),
-    fondo2-rgb: to-rgb(cambiar-color($fondo, 50%)),
-    texto2: color-contrast(cambiar-color($fondo, 50%)),
-    texto2-rgb: to-rgb(color-contrast(cambiar-color($fondo, 50%))),
-    fondo3: cambiar-color($fondo, 70%),
-    fondo3-rgb: to-rgb(cambiar-color($fondo, 70%)),
-    texto3: color-contrast(cambiar-color($fondo, 70%)),
-    texto3-rgb: to-rgb(color-contrast(cambiar-color($fondo, 70%))),
+    fondo2: cambiar-luminosidad($fondo, 50%),
+    fondo2-rgb: to-rgb(cambiar-luminosidad($fondo, 50%)),
+    texto2: color-contrast(cambiar-luminosidad($fondo, 50%)),
+    texto2-rgb: to-rgb(color-contrast(cambiar-luminosidad($fondo, 50%))),
+    fondo3: cambiar-luminosidad($fondo, 70%),
+    fondo3-rgb: to-rgb(cambiar-luminosidad($fondo, 70%)),
+    texto3: color-contrast(cambiar-luminosidad($fondo, 70%)),
+    texto3-rgb: to-rgb(color-contrast(cambiar-luminosidad($fondo, 70%))),
 ));
 
 @if evaluar-color($fondo) == 'claro' {
     @include variables-css((
-        borde-color: map-get($escala-monocromatica, 'mono-750'),
-        hr-color: map-get($escala-monocromatica, 'mono-750'),
+        borde-color: map-get($escala-monocromatica, 'mono-650'),
+        hr-color: map-get($escala-monocromatica, 'mono-650'),
     ));
 } @else {
     @include variables-css((
-        borde-color: map-get($escala-monocromatica, 'mono-250'),
-        hr-color: map-get($escala-monocromatica, 'mono-250'),
+        borde-color: map-get($escala-monocromatica, 'mono-350'),
+        hr-color: map-get($escala-monocromatica, 'mono-350'),
     ));
 }
