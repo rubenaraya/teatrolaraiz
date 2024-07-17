@@ -97,8 +97,8 @@
 
 @function generar-paleta-basica($color-base) {
     $invert-color: cambiar-matiz($color-base, 180deg);
-    $light-color: lighten($color-base, 15%);
-    $dark-color: darken($color-base, 15%);
+    $light-color: lighten($color-base, 10%);
+    $dark-color: darken($color-base, 10%);
     $primary-color: saturate($light-color, 20%);
     $secondary-color: desaturate($dark-color, 20%);
     $danger-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 0), 10%), 10%);
@@ -106,7 +106,7 @@
     $info-color: desaturate(lighten(ajustar-matiz-al-tema($color-base, 240), 10%), 10%);
     $warning-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 60), 10%), 10%);
     $accent-color: cambiar-matiz($dark-color, 90deg);
-    $soft-color: cambiar-matiz($light-color, 90deg);
+    $softed-color: cambiar-matiz($light-color, 90deg);
     @if evaluar-color($color-base) == 'claro' {
         $danger-color: saturate(ajustar-matiz-al-tema($color-base, 0), 10%);
         $success-color: desaturate(ajustar-matiz-al-tema($color-base, 120), 10%);
@@ -123,7 +123,7 @@
         'light': $light-color,
         'dark': $dark-color,
         'accent': $accent-color,
-        'soft': $soft-color,
+        'softed': $softed-color,
         'invert': $invert-color,
         'grayscale': grayscale($color-base),
     );
@@ -134,9 +134,9 @@
     $analo-2: cambiar-matiz($color, -30deg);
     $triad-1: cambiar-matiz($color, 120deg);
     $triad-2: cambiar-matiz($color, 240deg);
-    $contra: cambiar-matiz($color, 180deg);
-    $comp-1: cambiar-matiz($contra, 15deg);
-    $comp-2: cambiar-matiz($contra, -15deg);
+    $opuesto: cambiar-matiz($color, 180deg);
+    $comp-1: cambiar-matiz($opuesto, 15deg);
+    $comp-2: cambiar-matiz($opuesto, -15deg);
     $tetra-1: cambiar-matiz($color, 60deg);
     $tetra-2: cambiar-matiz($color, -60deg);
     $cuad-1: cambiar-matiz($color, 90deg);
@@ -149,7 +149,7 @@
         'tetra-1': $tetra-1,
         'tetra-2': $tetra-2,
         'base': $color,
-        'contra': $contra,
+        'opuesto': $opuesto,
         'cuad-1': $cuad-1,
         'cuad-2': $cuad-2,
         'comp-1': $comp-1,
@@ -163,8 +163,6 @@
     $escala-multicolor: crear-escala-multicolor($color-base) !default;
     $escala-monocromatica: crear-escala-monocromatica($color-base) !default;
     $escala-saturacion: crear-escala-saturacion($color-base) !default;
-    $color-light: map-get($paleta-basica, 'light');
-    $texto-light: color-contrast($color-light);
 
     --bs-body-font-family: #{var-css(fuente-base)};
     --bs-body-font-size: #{var-css(talla-base)};
@@ -172,12 +170,11 @@
     --bs-body-color-rgb: #{var-css(texto-rgb)};
     --bs-body-bg: #{var-css(fondo)};
     --bs-body-bg-rgb: #{var-css(fondo-rgb)};
-    --bs-box-shadow: 0 0.5rem 1rem #{var-css(sombra-rgba)};
-    --bs-box-shadow-sm: 0 0.1rem .5rem #{var-css(sombra-rgba)};
-    --bs-box-shadow-lg: 0 0.25rem 2rem #{var-css(sombra-rgba)};
-    --bs-box-shadow-inset: inset 0 1px 2px #{var-css(sombra-rgba)};
-    --bs-border-color: #{var-css(borde-color)};
-    --bs-hr-color: #{var-css(hr-color)};
+    --bs-box-shadow: 0 0.5rem 1rem #{var-css(color-contra-fondo-rgba)};
+    --bs-box-shadow-sm: 0 0.1rem .5rem #{var-css(color-contra-fondo-rgba)};
+    --bs-box-shadow-lg: 0 0.25rem 2rem #{var-css(color-contra-fondo-rgba)};
+    --bs-box-shadow-inset: inset 0 1px 2px #{var-css(color-contra-fondo-rgba)};
+    --bs-border-color: #{var-css(color-separador)};
 
     --bs-secondary-color: #{var-css(texto2)};
     --bs-secondary-color-rgb: #{var-css(texto2-rgb)};
@@ -219,12 +216,11 @@
             --bs-list-group-action-hover-color: var(--bs-#{$state}-text-emphasis);
             --bs-list-group-action-active-color: var(--bs-#{$state}-text-emphasis);
             --bs-list-group-active-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-border-color: #{var-css(borde-color)};
-            --bs-list-group-active-border-color: #{var-css(borde-color)};
+            --bs-list-group-border-color: #{var-css(color-separador)};
+            --bs-list-group-active-border-color: #{var-css(color-separador)};
         }
     }
     @each $color, $value in $paleta-ampliada {
-        --bs-#{$color}: #{$value};
         .bg-#{$color} {
             background-color: $value !important;
         }
@@ -238,14 +234,12 @@
     }
 
     @each $key, $value in $escala-monocromatica {
-        --bs-#{$key}: #{$value};
         .escala-#{$key} {
             background-color: $value !important;
             color: color-contrast($value);
         }
     }
     @each $key, $value in $escala-saturacion {
-        --bs-#{$key}: #{$value};
         .escala-#{$key} {
             background-color: $value !important;
             color: color-contrast($value);
@@ -259,13 +253,13 @@
     }
 
     .nav-tabs {
-        --bs-nav-tabs-border-color: #{var-css(borde-color)};
-        --bs-nav-tabs-link-hover-border-color: #{var-css(borde-color)} #{var-css(borde-color)} transparent;
-        --bs-nav-tabs-link-active-border-color: #{var-css(borde-color)} #{var-css(borde-color)} transparent;
+        --bs-nav-tabs-border-color: #{var-css(color-separador)};
+        --bs-nav-tabs-link-hover-border-color: #{var-css(color-separador-destaca)} #{var-css(color-separador-destaca)} transparent;
+        --bs-nav-tabs-link-active-border-color: #{var-css(color-separador)} #{var-css(color-separador)} transparent;
         --bs-nav-link-color: #{var-css(texto)};
         --bs-nav-link-hover-color: #{var-css(texto)};
-        --bs-nav-tabs-link-active-color: #{$texto-light};
-        --bs-nav-tabs-link-active-bg: #{$color-light};
+        --bs-nav-tabs-link-active-color: #{var-css(texto-light)};
+        --bs-nav-tabs-link-active-bg: #{var-css(fondo-light)};
     }
 
 }

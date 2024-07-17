@@ -4,6 +4,7 @@
 // Colores base
 $color-base: map.get($theme-colors, $color-tema);
 $paleta-basica: generar-paleta-basica($color-base) !default;
+$paleta-ampliada: generar-paleta-ampliada($color-base) !default;
 $primary: map-get($paleta-basica, 'primary') !default;
 $secondary: map-get($paleta-basica, 'secondary') !default;
 $colores: (
@@ -17,11 +18,12 @@ $colores: (
     "light": map-get($paleta-basica, 'light'),
     "dark": map-get($paleta-basica, 'dark'),
     "accent": map-get($paleta-basica, 'accent'),
-    "soft": map-get($paleta-basica, 'soft'),
+    "softed": map-get($paleta-basica, 'softed'),
     "invert": map-get($paleta-basica, 'invert'),
     "grayscale": map-get($paleta-basica, 'grayscale'),
 ) !default;
 $escala-monocromatica: crear-escala-monocromatica($color-base) !default;
+$escala-saturacion: crear-escala-saturacion($color-base) !default;
 
 // ----------------------------------------------
 // Predeterminados (si no se han establecido)
@@ -32,17 +34,50 @@ $talla-base: 1rem !default;
 // Valores Calculados
 $fondo: $color-base;
 $texto: color-contrast($color-base);
-$sombra-rgb: to-rgb(color-contrast($color-base));
+$color-contra-fondo: color-contrast($fondo);
+$color-contra-fondo-rgb: to-rgb($color-contra-fondo);
+$color-opuesto: map-get($paleta-ampliada, 'opuesto');
+$fondo-light: map-get($paleta-basica, 'light');
+$texto-light: color-contrast($fondo-light);
 
 @include variables-css((
+    fuente-base: $fuente-base,
+    talla-base: $talla-base,
     fondo: $color-base,
     fondo-rgb: to-rgb($fondo),
     texto: $texto,
     texto-rgb: to-rgb($texto),
-    fuente-base: $fuente-base,
-    talla-base: $talla-base,
-    sombra-color: color-contrast($fondo),
-    sombra-rgba: RGBA(($sombra-rgb), .25),
+    fondo-light: $fondo-light,
+    fondo-light-rgb: to-rgb($fondo-light),
+    texto-light: $texto-light,
+    texto-light-rgb: to-rgb($texto-light),
+    color-mono-50: map-get($escala-monocromatica, 'mono-50'),
+    color-mono-200: map-get($escala-monocromatica, 'mono-200'),
+    color-mono-350: map-get($escala-monocromatica, 'mono-350'),
+    color-mono-650: map-get($escala-monocromatica, 'mono-650'),
+    color-mono-800: map-get($escala-monocromatica, 'mono-800'),
+    color-mono-950: map-get($escala-monocromatica, 'mono-950'),
+    color-satu-50: map-get($escala-saturacion, 'satu-50'),
+    color-satu-200: map-get($escala-saturacion, 'satu-200'),
+    color-satu-350: map-get($escala-saturacion, 'satu-350'),
+    color-satu-650: map-get($escala-saturacion, 'satu-650'),
+    color-satu-800: map-get($escala-saturacion, 'satu-800'),
+    color-satu-950: map-get($escala-saturacion, 'satu-950'),
+    color-triad-1: map-get($paleta-ampliada, 'triad-1'),
+    color-triad-2: map-get($paleta-ampliada, 'triad-2'),
+    color-cuad-1: map-get($paleta-ampliada, 'cuad-1'),
+    color-cuad-2: map-get($paleta-ampliada, 'cuad-2'),
+    color-tetra-1: map-get($paleta-ampliada, 'tetra-1'),
+    color-tetra-2: map-get($paleta-ampliada, 'tetra-2'),
+    color-analo-1: map-get($paleta-ampliada, 'analo-1'),
+    color-analo-2: map-get($paleta-ampliada, 'analo-2'),
+    color-comp-1: map-get($paleta-ampliada, 'comp-1'),
+    color-comp-2: map-get($paleta-ampliada, 'comp-2'),
+    color-opuesto: $color-opuesto,
+    color-opuesto-rgb: to-rgb($color-opuesto),
+    color-contra-fondo: $color-contra-fondo,
+    color-contra-fondo-rgba: RGBA(($color-contra-fondo-rgb), .25),
+
     fondo2: cambiar-luminosidad($fondo, 50%),
     fondo2-rgb: to-rgb(cambiar-luminosidad($fondo, 50%)),
     texto2: color-contrast(cambiar-luminosidad($fondo, 50%)),
@@ -52,15 +87,15 @@ $sombra-rgb: to-rgb(color-contrast($color-base));
     texto3: color-contrast(cambiar-luminosidad($fondo, 70%)),
     texto3-rgb: to-rgb(color-contrast(cambiar-luminosidad($fondo, 70%))),
 ));
-
+$color-separador: map-get($escala-monocromatica, 'mono-350');
+$color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
 @if evaluar-color($fondo) == 'claro' {
-    @include variables-css((
-        borde-color: map-get($escala-monocromatica, 'mono-650'),
-        hr-color: map-get($escala-monocromatica, 'mono-650'),
-    ));
-} @else {
-    @include variables-css((
-        borde-color: map-get($escala-monocromatica, 'mono-350'),
-        hr-color: map-get($escala-monocromatica, 'mono-350'),
-    ));
+    $color-separador: map-get($escala-monocromatica, 'mono-650');
+    $color-separador-destaca: map-get($escala-monocromatica, 'mono-800');
 }
+@include variables-css((
+    color-separador: $color-separador,
+    color-separador-destaca: $color-separador-destaca,
+    color-separador-rgb: to-rgb($color-separador),
+    color-separador-destaca-rgb: to-rgb($color-separador-destaca),
+));
