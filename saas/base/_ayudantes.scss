@@ -79,39 +79,39 @@
     @return $scale;
 }
 
-@function crear-escala-saturacion($color-base) {
+@function crear-escala-saturacion($color) {
     $scale: ();
     $base-level: 500;
     $incremento-saturacion: 10%;
     @for $i from 1 through 9 {
-        $color-saturado: saturate($color-base, $incremento-saturacion * $i);
-        $color-desaturado: desaturate($color-base, $incremento-saturacion * $i);
+        $color-saturado: saturate($color, $incremento-saturacion * $i);
+        $color-desaturado: desaturate($color, $incremento-saturacion * $i);
         $scale: map-merge($scale, (
             'satu-' + ($base-level - $i * 50): $color-desaturado,
             'satu-' + ($base-level + $i * 50): $color-saturado
         ));
     }
-    $scale: map-merge($scale, ('satu-500': $color-base));
+    $scale: map-merge($scale, ('satu-500': $color));
     @return $scale;
 }
 
-@function generar-paleta-basica($color-base) {
-    $invert-color: cambiar-matiz($color-base, 180deg);
-    $light-color: lighten($color-base, 10%);
-    $dark-color: darken($color-base, 10%);
-    $primary-color: saturate($light-color, 20%);
-    $secondary-color: desaturate($dark-color, 20%);
-    $danger-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 0), 10%), 10%);
-    $success-color: desaturate(lighten(ajustar-matiz-al-tema($color-base, 120), 10%), 10%);
-    $info-color: desaturate(lighten(ajustar-matiz-al-tema($color-base, 240), 10%), 10%);
-    $warning-color: saturate(lighten(ajustar-matiz-al-tema($color-base, 60), 10%), 10%);
-    $accent-color: cambiar-matiz($dark-color, 90deg);
-    $softed-color: cambiar-matiz($light-color, 90deg);
-    @if evaluar-color($color-base) == 'claro' {
-        $danger-color: saturate(ajustar-matiz-al-tema($color-base, 0), 10%);
-        $success-color: desaturate(ajustar-matiz-al-tema($color-base, 120), 10%);
-        $info-color: desaturate(ajustar-matiz-al-tema($color-base, 240), 10%);
-        $warning-color: saturate(ajustar-matiz-al-tema($color-base, 60), 10%);
+@function generar-paleta-basica($color) {
+    $invert-color: cambiar-matiz($color, 180deg);
+    $light-color: lighten($color, 10%);
+    $dark-color: darken($color, 10%);
+    $primary-color: saturate($light-color, 30%);
+    $secondary-color: desaturate($dark-color, 30%);
+    $accent-color: cambiar-matiz($light-color, -15deg);
+    $softed-color: cambiar-matiz($dark-color, 15deg);
+    $danger-color: saturate(lighten(ajustar-matiz-al-tema($color, 0), 10%), 10%);
+    $success-color: desaturate(lighten(ajustar-matiz-al-tema($color, 120), 10%), 10%);
+    $info-color: desaturate(lighten(ajustar-matiz-al-tema($color, 240), 10%), 10%);
+    $warning-color: saturate(lighten(ajustar-matiz-al-tema($color, 60), 10%), 10%);
+    @if evaluar-color($color) == 'claro' {
+        $danger-color: saturate(ajustar-matiz-al-tema($color, 0), 10%);
+        $success-color: desaturate(ajustar-matiz-al-tema($color, 120), 10%);
+        $info-color: desaturate(ajustar-matiz-al-tema($color, 240), 10%);
+        $warning-color: saturate(ajustar-matiz-al-tema($color, 60), 10%);
     }
     @return (
         'primary': $primary-color,
@@ -125,7 +125,7 @@
         'accent': $accent-color,
         'softed': $softed-color,
         'invert': $invert-color,
-        'grayscale': grayscale($color-base),
+        'grayscale': grayscale($color),
     );
 }
 
@@ -135,8 +135,8 @@
     $triad-1: cambiar-matiz($color, 120deg);
     $triad-2: cambiar-matiz($color, 240deg);
     $opuesto: cambiar-matiz($color, 180deg);
-    $comp-1: cambiar-matiz($opuesto, 15deg);
-    $comp-2: cambiar-matiz($opuesto, -15deg);
+    $comp-1: cambiar-matiz($opuesto, 30deg);
+    $comp-2: cambiar-matiz($opuesto, -30deg);
     $tetra-1: cambiar-matiz($color, 60deg);
     $tetra-2: cambiar-matiz($color, -60deg);
     $cuad-1: cambiar-matiz($color, 90deg);
@@ -155,111 +155,4 @@
         'comp-1': $comp-1,
         'comp-2': $comp-2,
     );
-}
-
-@mixin configurar-tema($paleta-basica) {
-    $color-base: map-get($paleta-basica, 'base');
-    $paleta-ampliada: generar-paleta-ampliada($color-base) !default;
-    $escala-multicolor: crear-escala-multicolor($color-base) !default;
-    $escala-monocromatica: crear-escala-monocromatica($color-base) !default;
-    $escala-saturacion: crear-escala-saturacion($color-base) !default;
-
-    --bs-body-font-family: #{var-css(fuente-base)};
-    --bs-body-font-size: #{var-css(talla-base)};
-    --bs-body-color: #{var-css(texto)};
-    --bs-body-color-rgb: #{var-css(texto-rgb)};
-    --bs-body-bg: #{var-css(fondo)};
-    --bs-body-bg-rgb: #{var-css(fondo-rgb)};
-    --bs-box-shadow: 0 0.5rem 1rem #{var-css(color-contra-fondo-rgba)};
-    --bs-box-shadow-sm: 0 0.1rem .5rem #{var-css(color-contra-fondo-rgba)};
-    --bs-box-shadow-lg: 0 0.25rem 2rem #{var-css(color-contra-fondo-rgba)};
-    --bs-box-shadow-inset: inset 0 1px 2px #{var-css(color-contra-fondo-rgba)};
-    --bs-border-color: #{var-css(color-separador)};
-
-    --bs-secondary-color: #{var-css(texto2)};
-    --bs-secondary-color-rgb: #{var-css(texto2-rgb)};
-    --bs-secondary-bg: #{var-css(fondo2)};
-    --bs-secondary-bg-rgb: #{var-css(fondo2-rgb)};
-    --bs-tertiary-color: #{var-css(texto3)};
-    --bs-tertiary-color-rgb: #{var-css(texto3-rgb)};
-    --bs-tertiary-bg: #{var-css(fondo3)};
-    --bs-tertiary-bg-rgb: #{var-css(fondo3-rgb)};
-  
-    @each $color, $value in $paleta-basica {
-        --bs-#{$color}: #{$value};
-        --bs-#{$color}-rgb: #{to-rgb($value)};
-        --bs-#{$color}-text-emphasis: #{cambiar-luminosidad($value, -20%)};
-
-        --bs-#{$color}-bg-subtle: #{cambiar-luminosidad($value, 80%)};
-        --bs-#{$color}-border-subtle: #{cambiar-luminosidad($value, 50%)};
-
-        .bg-#{$color} {
-            background-color: $value !important;
-        }
-        .text-#{$color} {
-            color: $value !important;
-        }
-        .text-bg-#{$color} {
-            background-color: $value !important;
-            color: color-contrast($value) !important;
-        }
-        .btn-#{$color} {
-            @include button-variant($value, $value);
-        }
-        .btn-outline-#{$color} {
-            @include button-outline-variant($value);
-        }
-    }
-    @each $state in map-keys($paleta-basica) {
-        .list-group-item-#{$state} {
-            --bs-list-group-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-action-hover-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-action-active-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-active-color: var(--bs-#{$state}-text-emphasis);
-            --bs-list-group-border-color: #{var-css(color-separador)};
-            --bs-list-group-active-border-color: #{var-css(color-separador)};
-        }
-    }
-    @each $color, $value in $paleta-ampliada {
-        .bg-#{$color} {
-            background-color: $value !important;
-        }
-        .text-#{$color} {
-            color: $value !important;
-        }
-        .text-bg-#{$color} {
-            background-color: $value !important;
-            color: color-contrast($value) !important;
-        }
-    }
-
-    @each $key, $value in $escala-monocromatica {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-    @each $key, $value in $escala-saturacion {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-    @each $key, $value in $escala-multicolor {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-
-    .nav-tabs {
-        --bs-nav-tabs-border-color: #{var-css(color-separador)};
-        --bs-nav-tabs-link-hover-border-color: #{var-css(color-separador-destaca)} #{var-css(color-separador-destaca)} transparent;
-        --bs-nav-tabs-link-active-border-color: #{var-css(color-separador)} #{var-css(color-separador)} transparent;
-        --bs-nav-link-color: #{var-css(texto)};
-        --bs-nav-link-hover-color: #{var-css(texto)};
-        --bs-nav-tabs-link-active-color: #{var-css(texto-light)};
-        --bs-nav-tabs-link-active-bg: #{var-css(fondo-light)};
-    }
-
 }
