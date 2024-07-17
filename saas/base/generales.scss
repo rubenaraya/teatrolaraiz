@@ -103,8 +103,10 @@
 // ELEMENTOS
 
 hr {
-    color: var(--tema-color-separador);
-    opacity: 1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--tema-color-separador);
+    opacity: 0.5;
 }
 
 .web-titulos {

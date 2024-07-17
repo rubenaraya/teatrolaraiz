@@ -4,6 +4,7 @@
 @import "../base/colores";
 
 $min-contrast-ratio: 3.5;
+$color-primary: '';
 
 // ----------------------------------------------
 // BOOTSTRAP 5.3.3
@@ -50,8 +51,6 @@ $theme-colors: map-merge($theme-colors, $colores-personalizados);
 
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS
-
-$color-primary: '';
 
 @import 
 "../temas/acero",

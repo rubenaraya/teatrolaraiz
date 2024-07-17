@@ -98,8 +98,8 @@
 @function generar-paleta-basica($color) {
     $light-color: lighten($color, 10%);
     $dark-color: darken($color, 10%);
-    $primary-color: saturate($light-color, 30%);
-    $secondary-color: desaturate($dark-color, 30%);
+    $primary-color: saturate($light-color, 50%);
+    $secondary-color: desaturate($dark-color, 50%);
     $danger-color: saturate(lighten(ajustar-matiz-al-tema($color, 0), 10%), 10%);
     $success-color: desaturate(lighten(ajustar-matiz-al-tema($color, 120), 10%), 10%);
     $info-color: desaturate(lighten(ajustar-matiz-al-tema($color, 240), 10%), 10%);
