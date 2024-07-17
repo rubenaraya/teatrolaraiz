@@ -51,6 +51,8 @@ $theme-colors: map-merge($theme-colors, $colores-personalizados);
 // ----------------------------------------------
 // TEMAS PERSONALIZADOS
 
+$color-primary: '';
+
 @import 
 "../temas/acero",
 "../temas/agata",
@@ -110,7 +112,7 @@ $theme-colors: map-merge($theme-colors, $colores-personalizados);
 "../temas/salmon",
 "../temas/trigo",
 "../temas/anaranjado",
-"../temas/curry",
+"../temas/mostaza",
 "../temas/amarillosuave",
 "../temas/verdesuave",
 "../temas/rosaceosuave",

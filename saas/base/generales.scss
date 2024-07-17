@@ -13,7 +13,7 @@
     @extend .px-0;
     @extend .pt-3;
     border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem var(--tema-color-contra-fondo-rgba);
+    box-shadow: 0 0 1.2rem var(--tema-color-sombra-fondo-rgba);
     background-color: var(--bs-body-bg);
     width: 95%;
     max-width: 960px;
@@ -190,7 +190,7 @@ hr {
     @extend .rounded-3;
     @extend .small;
     border: 3px solid $gray-500;
-    min-height: 75px;
+    min-height: 60px;
 }
 .web-tabla-muestra {
     @extend .text-start;

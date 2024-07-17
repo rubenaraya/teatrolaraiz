@@ -4,10 +4,18 @@
 // Colores base
 $color-base: map.get($theme-colors, $color-tema) !default;
 $paleta-basica: generar-paleta-basica($color-base) !default;
-$paleta-ampliada: generar-paleta-ampliada($color-base) !default;
 $escala-monocromatica: crear-escala-monocromatica($color-base) !default;
 $escala-saturacion: crear-escala-saturacion($color-base) !default;
 $escala-multicolor: crear-escala-multicolor($color-base) !default;
+
+@if ($color-primary != '') {
+    $colores-personalizados: (
+        'primary': $color-primary,
+    );
+    $theme-colors: map-merge($theme-colors, $colores-personalizados);
+    $paleta-basica: map-merge($paleta-basica, $colores-personalizados);
+}
+$paleta-ampliada: generar-paleta-ampliada($color-base);
 
 // ----------------------------------------------
 // Predeterminados (si no se han establecido)
@@ -18,17 +26,18 @@ $talla-base: 1rem !default;
 // Valores Calculados
 $fondo: $color-base;
 $texto: color-contrast($color-base);
-$color-contra-fondo: color-contrast($fondo);
-$color-contra-fondo-rgb: to-rgb($color-contra-fondo);
-$color-opuesto: map-get($paleta-ampliada, 'opuesto');
+$color-sombra-fondo: color-contrast($fondo);
+$color-sombra-fondo-rgb: to-rgb($color-sombra-fondo);
+$color-inverso: map-get($paleta-ampliada, 'inverso');
+$color-secondary: map-get($paleta-basica, 'secondary');
 $fondo-light: map-get($paleta-basica, 'light');
 $texto-light: color-contrast($fondo-light);
 
 $color-separador: map-get($escala-monocromatica, 'mono-350');
-$color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
+$color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
 @if evaluar-color($fondo) == 'claro' {
     $color-separador: map-get($escala-monocromatica, 'mono-650');
-    $color-separador-destaca: map-get($escala-monocromatica, 'mono-800');
+    $color-separador-destacado: map-get($escala-monocromatica, 'mono-800');
 }
 
 @include variables-css((
@@ -42,6 +51,8 @@ $color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
     fondo-light-rgb: to-rgb($fondo-light),
     texto-light: $texto-light,
     texto-light-rgb: to-rgb($texto-light),
+    color-secondary: $color-secondary,
+    color-secondary-rgb: to-rgb($color-secondary),
     color-mono-1: map-get($escala-monocromatica, 'mono-100'),
     color-mono-2: map-get($escala-monocromatica, 'mono-200'),
     color-mono-3: map-get($escala-monocromatica, 'mono-350'),
@@ -64,10 +75,10 @@ $color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
     color-analo-2: map-get($paleta-ampliada, 'analo-2'),
     color-comp-1: map-get($paleta-ampliada, 'comp-1'),
     color-comp-2: map-get($paleta-ampliada, 'comp-2'),
-    color-opuesto: $color-opuesto,
-    color-opuesto-rgb: to-rgb($color-opuesto),
-    color-contra-fondo: $color-contra-fondo,
-    color-contra-fondo-rgba: RGBA(($color-contra-fondo-rgb), .15),
+    color-inverso: $color-inverso,
+    color-inverso-rgb: to-rgb($color-inverso),
+    color-sombra-fondo: $color-sombra-fondo,
+    color-sombra-fondo-rgba: RGBA(($color-sombra-fondo-rgb), .15),
 
     fondo2: cambiar-luminosidad($fondo, 50%),
     fondo2-rgb: to-rgb(cambiar-luminosidad($fondo, 50%)),
@@ -79,9 +90,9 @@ $color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
     texto3-rgb: to-rgb(color-contrast(cambiar-luminosidad($fondo, 70%))),
 
     color-separador: $color-separador,
-    color-separador-destaca: $color-separador-destaca,
+    color-separador-destacado: $color-separador-destacado,
     color-separador-rgb: to-rgb($color-separador),
-    color-separador-destaca-rgb: to-rgb($color-separador-destaca),
+    color-separador-destacado-rgb: to-rgb($color-separador-destacado),
 ));
 
 @mixin configurar-tema() {
@@ -91,14 +102,14 @@ $color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
     --bs-body-color-rgb: #{var-css(texto-rgb)};
     --bs-body-bg: #{var-css(fondo)};
     --bs-body-bg-rgb: #{var-css(fondo-rgb)};
-    --bs-box-shadow: 0 0.5rem 1rem #{var-css(color-contra-fondo-rgba)};
-    --bs-box-shadow-sm: 0 0.1rem .5rem #{var-css(color-contra-fondo-rgba)};
-    --bs-box-shadow-lg: 0 0.25rem 2rem #{var-css(color-contra-fondo-rgba)};
-    --bs-box-shadow-inset: inset 0 1px 2px #{var-css(color-contra-fondo-rgba)};
+    --bs-box-shadow: 0 0.5rem 1rem #{var-css(color-sombra-fondo-rgba)};
+    --bs-box-shadow-sm: 0 0.1rem .5rem #{var-css(color-sombra-fondo-rgba)};
+    --bs-box-shadow-lg: 0 0.25rem 2rem #{var-css(color-sombra-fondo-rgba)};
+    --bs-box-shadow-inset: inset 0 1px 2px #{var-css(color-sombra-fondo-rgba)};
     --bs-border-color: #{var-css(color-separador)};
+    --bs-secondary-color: #{var-css(color-secondary)};
+    --bs-secondary-color-rgb: #{var-css(color-secondary-rgb)};
 
-    --bs-secondary-color: #{var-css(texto2)};
-    --bs-secondary-color-rgb: #{var-css(texto2-rgb)};
     --bs-secondary-bg: #{var-css(fondo2)};
     --bs-secondary-bg-rgb: #{var-css(fondo2-rgb)};
     --bs-tertiary-color: #{var-css(texto3)};
@@ -142,12 +153,6 @@ $color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
         }
     }
     @each $color, $value in $paleta-ampliada {
-        .bg-#{$color} {
-            background-color: $value !important;
-        }
-        .text-#{$color} {
-            color: $value !important;
-        }
         .text-bg-#{$color} {
             background-color: $value !important;
             color: color-contrast($value) !important;
@@ -175,7 +180,7 @@ $color-separador-destaca: map-get($escala-monocromatica, 'mono-200');
 
     .nav-tabs {
         --bs-nav-tabs-border-color: #{var-css(color-separador)};
-        --bs-nav-tabs-link-hover-border-color: #{var-css(color-separador-destaca)} #{var-css(color-separador-destaca)} transparent;
+        --bs-nav-tabs-link-hover-border-color: #{var-css(color-separador-destacado)} #{var-css(color-separador-destacado)} transparent;
         --bs-nav-tabs-link-active-border-color: #{var-css(color-separador)} #{var-css(color-separador)} transparent;
         --bs-nav-link-color: #{var-css(texto)};
         --bs-nav-link-hover-color: #{var-css(texto)};

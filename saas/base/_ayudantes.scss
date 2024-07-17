@@ -96,13 +96,10 @@
 }
 
 @function generar-paleta-basica($color) {
-    $invert-color: cambiar-matiz($color, 180deg);
     $light-color: lighten($color, 10%);
     $dark-color: darken($color, 10%);
     $primary-color: saturate($light-color, 30%);
     $secondary-color: desaturate($dark-color, 30%);
-    $accent-color: cambiar-matiz($light-color, -15deg);
-    $softed-color: cambiar-matiz($dark-color, 15deg);
     $danger-color: saturate(lighten(ajustar-matiz-al-tema($color, 0), 10%), 10%);
     $success-color: desaturate(lighten(ajustar-matiz-al-tema($color, 120), 10%), 10%);
     $info-color: desaturate(lighten(ajustar-matiz-al-tema($color, 240), 10%), 10%);
@@ -122,10 +119,6 @@
         'danger': $danger-color,
         'light': $light-color,
         'dark': $dark-color,
-        'accent': $accent-color,
-        'softed': $softed-color,
-        'invert': $invert-color,
-        'grayscale': grayscale($color),
     );
 }
 
@@ -134,9 +127,9 @@
     $analo-2: cambiar-matiz($color, -30deg);
     $triad-1: cambiar-matiz($color, 120deg);
     $triad-2: cambiar-matiz($color, 240deg);
-    $opuesto: cambiar-matiz($color, 180deg);
-    $comp-1: cambiar-matiz($opuesto, 30deg);
-    $comp-2: cambiar-matiz($opuesto, -30deg);
+    $inverso: cambiar-matiz($color, 180deg);
+    $comp-1: cambiar-matiz($inverso, 30deg);
+    $comp-2: cambiar-matiz($inverso, -30deg);
     $tetra-1: cambiar-matiz($color, 60deg);
     $tetra-2: cambiar-matiz($color, -60deg);
     $cuad-1: cambiar-matiz($color, 90deg);
@@ -149,7 +142,7 @@
         'tetra-1': $tetra-1,
         'tetra-2': $tetra-2,
         'base': $color,
-        'opuesto': $opuesto,
+        'inverso': $inverso,
         'cuad-1': $cuad-1,
         'cuad-2': $cuad-2,
         'comp-1': $comp-1,
