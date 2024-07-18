@@ -1,5 +1,59 @@
 [data-bs-theme="acero"] {
-  $color-tema: "acero";
+
+  //$color-primario: map.get($theme-colors, "acero");
+  //$color-base:      #0d6efd; //???
+  $color-primario:  #0d6efd;
+  $color-claro:     #9EC5FE;
+  $color-oscuro:    #052C65;
+
+  $paleta-basica: (
+    'primary':    $color-primario,
+    'secondary':  #6c757d,
+    'success':    #198754,
+    'info':       #0dcaf0,
+    'warning':    #ffc107,
+    'danger':     #dc3545,
+    'light':      #f8f9fa,
+    'dark':       #212529,
+  );
+  $paleta-ampliada: (
+    'analo-1':    #240DFD,
+    'analo-2':    #0DE6FD,
+    'triad-1':    #FD0D6E,
+    'triad-2':    #6EFD0D,
+    'tetra-1':    #9C0DFD,
+    'tetra-2':    #0DFD9C,
+    'primario':   $color-primario,
+    'claro':      $color-claro,
+    'oscuro':     $color-oscuro,
+    'inverso':    #FD9C0D,
+    'cuad-1':     #FD0DE6,
+    'cuad-2':     #0DFD24,
+    'comp-1':     #E6FD0D,
+    'comp-2':     #FD240D,
+  );
+  $paleta-monocromatica: (
+    'mono-1':     #CFE2FF,
+    'mono-2':     #9EC5FE,
+    'mono-3':     #569AFE,
+    'mono-4':     #0D6EFD,
+    'mono-5':     #094DB1,
+    'mono-6':     #052C65,
+    'mono-7':     #031633,
+  );
+  $paleta-saturacion: (
+    'satu-1':     #6F819B,
+    'satu-2':     #4A7AC0,
+    'satu-3':     #2573E5,
+    'satu-4':     #0D6EFD,
+    'satu-5':     #0B6EFF,
+    'satu-6':     #0B6EFF,
+    'satu-7':     #0B6EFF,
+  );
+
+  $fuente-base: Arial, Helvetica, sans-serif;
+  $talla-base: 1rem;
+  
   @import "../base/tema";
 
 }

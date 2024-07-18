@@ -1,20 +1,12 @@
-@use "sass:map";
+//saas\base\_tema.scss
 
 // ----------------------------------------------
 // Colores base
-$color-base: map.get($theme-colors, $color-tema) !default;
-@if ($color-tema-elegido != '') {
-    $colores-temas: (
-        'primary': $color-tema-elegido,
-    );
-    $theme-colors: map-merge($theme-colors, $colores-temas);
-    $color-tema-elegido: '';
-}
-$paleta-basica: generar-paleta-basica($color-base);
-$paleta-ampliada: generar-paleta-ampliada($color-base);
-$escala-monocromatica: crear-escala-monocromatica($color-base) !default;
-$escala-saturacion: crear-escala-saturacion($color-base) !default;
-$escala-multicolor: crear-escala-multicolor($color-base) !default;
+$paleta-basica: generar-paleta-basica($color-primario) !default;
+$paleta-ampliada: generar-paleta-ampliada($color-primario) !default;
+$escala-monocromatica: crear-escala-monocromatica($color-primario) !default;
+$escala-saturacion: crear-escala-saturacion($color-primario) !default;
+$escala-multicolor: crear-escala-multicolor($color-primario) !default;
 
 // ----------------------------------------------
 // Predeterminados (si no se han establecido)
@@ -23,8 +15,8 @@ $talla-base: 1rem !default;
 
 // ----------------------------------------------
 // Valores Calculados
-$fondo: $color-base;
-$texto: color-contrast($color-base);
+$fondo: $color-primario;
+$texto: color-contrast($color-primario);
 $color-sombra-fondo: color-contrast($fondo);
 $color-sombra-fondo-rgb: to-rgb($color-sombra-fondo);
 $color-inverso: map-get($paleta-ampliada, 'inverso');
@@ -48,7 +40,7 @@ $color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
 @include variables-css((
     fuente-base: $fuente-base,
     talla-base: $talla-base,
-    fondo: $color-base,
+    fondo: $color-primario,
     fondo-rgb: to-rgb($fondo),
     texto: $texto,
     texto-rgb: to-rgb($texto),

@@ -1,5 +1,5 @@
 [data-bs-theme="fucsia"] {
   $color-tema: "fucsia";
+  $color-primario: map.get($theme-colors, $color-tema);
   @import "../base/tema";
-
 }

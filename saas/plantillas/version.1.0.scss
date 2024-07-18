@@ -1,4 +1,5 @@
 //saas\plantillas\version.1.0.scss
+@use "sass:map";
 
 @import "../base/ayudantes";
 @import "../base/colores";
@@ -7,9 +8,9 @@
 // VARIABLES GLOBALES PREDEFINIDAS
 // ----------------------------------------------
 $min-contrast-ratio: 3.5;
-$color-tema-elegido: '';
+$enable-rounded: true;
 $enable-shadows: true;
-//$enable-gradients: true;
+$enable-gradients: true;
 
 // ----------------------------------------------
 // BOOTSTRAP 5.3.3
