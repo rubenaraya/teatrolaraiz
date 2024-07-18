@@ -2,7 +2,7 @@
 include('config.php');
 
 if (isset($_GET['p'])) {$p=$_GET['p'];} else {$p='1';}
-$patron = __DIR__ . '/html/prueba-{p}.html';
+$patron = __DIR__ . '/html/paginas/prueba-{p}.html';
 $archivo = str_replace('{p}', $p, $patron);
 if (file_exists($archivo)==false) {
     $archivo = str_replace('{p}', '1', $patron);

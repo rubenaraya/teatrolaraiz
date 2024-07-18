@@ -3,24 +3,29 @@
 @import "../base/ayudantes";
 @import "../base/colores";
 
+// ----------------------------------------------
+// VARIABLES GLOBALES PREDEFINIDAS
+// ----------------------------------------------
 $min-contrast-ratio: 3.5;
-$color-primary: '';
+$color-tema-elegido: '';
+$enable-shadows: true;
+//$enable-gradients: true;
 
 // ----------------------------------------------
 // BOOTSTRAP 5.3.3
+// ----------------------------------------------
 
 @import "../bootstrap/scss/functions";
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
 
-// Personalizacion de colores
-$theme-colors: map-merge($theme-colors, $colores-personalizados);
+// Integración de colores personalizados
+$theme-colors: map-merge($theme-colors, $colores-temas);
 
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/utilities";
 
-// Diseño + componentes Bootstrap
 @import "../bootstrap/scss/root";
 @import "../bootstrap/scss/reboot";
 @import "../bootstrap/scss/type";
@@ -50,7 +55,8 @@ $theme-colors: map-merge($theme-colors, $colores-personalizados);
 @import "../bootstrap/scss/utilities/api";
 
 // ----------------------------------------------
-// TEMAS PERSONALIZADOS
+// TEMAS DISPONIBLES EN LA PLANTILLA
+// ----------------------------------------------
 
 @import 
 "../temas/acero",
@@ -121,15 +127,15 @@ $theme-colors: map-merge($theme-colors, $colores-personalizados);
 "../temas/zafiro";
 
 // ----------------------------------------------
-// ESTILOS DEFINIDOS EN LA PLANTILLA
+// CLASES DEFINIDAS EN LA PLANTILLA
 
-@import "../base/generales";
-@import "../base/componentes";
-@import "../base/menus";
-@import "../base/etiquetas";
-@import "../base/cargando";
-@import "../base/cookies";
-@import "../base/formularios";
-@import "../base/tablas";
-@import "../base/videos";
-@import "../base/fuentes";
+@import "../clases/generales";
+@import "../clases/componentes";
+@import "../clases/menus";
+@import "../clases/etiquetas";
+@import "../clases/cargando";
+@import "../clases/cookies";
+@import "../clases/formularios";
+@import "../clases/tablas";
+@import "../clases/videos";
+@import "../clases/fuentes";

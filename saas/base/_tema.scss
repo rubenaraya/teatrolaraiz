@@ -3,12 +3,12 @@
 // ----------------------------------------------
 // Colores base
 $color-base: map.get($theme-colors, $color-tema) !default;
-@if ($color-primary != '') {
-    $colores-personalizados: (
-        'primary': $color-primary,
+@if ($color-tema-elegido != '') {
+    $colores-temas: (
+        'primary': $color-tema-elegido,
     );
-    $theme-colors: map-merge($theme-colors, $colores-personalizados);
-    $color-primary: '';
+    $theme-colors: map-merge($theme-colors, $colores-temas);
+    $color-tema-elegido: '';
 }
 $paleta-basica: generar-paleta-basica($color-base);
 $paleta-ampliada: generar-paleta-ampliada($color-base);
@@ -36,6 +36,8 @@ $primary-color-rgb: to-rgb($primary-color);
 $primary-texto: color-contrast($primary-color);
 $link-color: $texto;
 $link-hover-color: cambiar-luminosidad($texto, -50%);
+
+//TODO: Cambiar para que use "cambiar-luminosidad" en lugar de un "@if"
 $color-separador: map-get($escala-monocromatica, 'mono-350');
 $color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
 @if evaluar-color($fondo) == 'claro' {
@@ -82,7 +84,7 @@ $color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
     color-inverso-rgb: to-rgb($color-inverso),
     color-sombra-fondo: $color-sombra-fondo,
     color-sombra-fondo-rgba: RGBA(($color-sombra-fondo-rgb), .15),
-    focus-ring-color-rgba: RGBA(($primary-color-rgb), 0.25),
+    focus-ring-color-rgba: RGBA(($primary-color-rgb), 0.5),
     fondo2: cambiar-luminosidad($fondo, 25%),
     fondo2-rgb: to-rgb(cambiar-luminosidad($fondo, 25%)),
     texto2: color-contrast(cambiar-luminosidad($fondo, 25%)),

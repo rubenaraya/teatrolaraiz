@@ -1,6 +1,6 @@
 <?php
 include('config.php');
-$archivo = __DIR__ . '/html/inicio.html';
+$archivo = __DIR__ . '/html/paginas/inicio.html';
 
 no_cache();
 if (file_exists($archivo)) {

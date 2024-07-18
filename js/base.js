@@ -323,7 +323,7 @@ const A = new Ajustes();
 
 document.addEventListener('DOMContentLoaded', function() {
 	C.comprobarCookie(cookie);
-	W.iniciar(dominio, galeria, '/web/html/menu.json');
+	W.iniciar(dominio, galeria, '/web/html/datos/menu.json');
 	W.animarElementos('.web-animar');
 	new WOW().init();
 	W.ocultarCargando();
