@@ -1,5 +1,9 @@
 [data-bs-theme="rojo"] {
   $color-tema: "rojo";
   $color-primario: map.get($theme-colors, $color-tema);
+  $paleta-basica: null;
+  $paleta-ampliada: null;
+  $paleta-monocromatica: null;
+  $paleta-saturacion: null;
   @import "../base/tema";
 }

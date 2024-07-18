@@ -141,13 +141,37 @@
         'triad-2': $triad-2,
         'tetra-1': $tetra-1,
         'tetra-2': $tetra-2,
-        'primario': $color,
-        'claro': $color,
-        'oscuro': $color,
+        'fondo': $color,
         'inverso': $inverso,
         'cuad-1': $cuad-1,
         'cuad-2': $cuad-2,
         'comp-1': $comp-1,
         'comp-2': $comp-2,
+    );
+}
+
+@function generar-paleta-monocromatica($color) {
+    $escala-monocromatica: crear-escala-monocromatica($color);
+    @return (
+        'mono-1': map-get($escala-monocromatica, 'mono-100'),
+        'mono-2': map-get($escala-monocromatica, 'mono-200'),
+        'mono-3': map-get($escala-monocromatica, 'mono-350'),
+        'mono-4': map-get($escala-monocromatica, 'mono-500'),
+        'mono-5': map-get($escala-monocromatica, 'mono-650'),
+        'mono-6': map-get($escala-monocromatica, 'mono-800'),
+        'mono-7': map-get($escala-monocromatica, 'mono-900'),
+    );
+}
+
+@function generar-paleta-saturacion($color) {
+    $escala-saturacion: crear-escala-saturacion($color);
+    @return (
+        'satu-1': map-get($escala-saturacion, 'satu-100'),
+        'satu-2': map-get($escala-saturacion, 'satu-200'),
+        'satu-3': map-get($escala-saturacion, 'satu-400'),
+        'satu-4': map-get($escala-saturacion, 'satu-500'),
+        'satu-5': map-get($escala-saturacion, 'satu-600'),
+        'satu-6': map-get($escala-saturacion, 'satu-750'),
+        'satu-7': map-get($escala-saturacion, 'satu-900'),
     );
 }

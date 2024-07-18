@@ -1,10 +1,10 @@
 [data-bs-theme="acero"] {
 
   //$color-primario: map.get($theme-colors, "acero");
-  //$color-base:      #0d6efd; //???
+  //$color-fondo: lighten/darken($color-primario, 10%);
+
   $color-primario:  #0d6efd;
-  $color-claro:     #9EC5FE;
-  $color-oscuro:    #052C65;
+  $color-fondo:     #9EC5FE;
 
   $paleta-basica: (
     'primary':    $color-primario,
@@ -23,9 +23,7 @@
     'triad-2':    #6EFD0D,
     'tetra-1':    #9C0DFD,
     'tetra-2':    #0DFD9C,
-    'primario':   $color-primario,
-    'claro':      $color-claro,
-    'oscuro':     $color-oscuro,
+    'fondo':      $color-fondo,
     'inverso':    #FD9C0D,
     'cuad-1':     #FD0DE6,
     'cuad-2':     #0DFD24,
@@ -36,7 +34,7 @@
     'mono-1':     #CFE2FF,
     'mono-2':     #9EC5FE,
     'mono-3':     #569AFE,
-    'mono-4':     #0D6EFD,
+    'mono-4':     $color-primario,
     'mono-5':     #094DB1,
     'mono-6':     #052C65,
     'mono-7':     #031633,
@@ -45,7 +43,7 @@
     'satu-1':     #6F819B,
     'satu-2':     #4A7AC0,
     'satu-3':     #2573E5,
-    'satu-4':     #0D6EFD,
+    'satu-4':     $color-primario,
     'satu-5':     #0B6EFF,
     'satu-6':     #0B6EFF,
     'satu-7':     #0B6EFF,

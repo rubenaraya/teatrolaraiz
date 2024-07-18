@@ -4,9 +4,8 @@
 // Colores base
 $paleta-basica: generar-paleta-basica($color-primario) !default;
 $paleta-ampliada: generar-paleta-ampliada($color-primario) !default;
-$escala-monocromatica: crear-escala-monocromatica($color-primario) !default;
-$escala-saturacion: crear-escala-saturacion($color-primario) !default;
-$escala-multicolor: crear-escala-multicolor($color-primario) !default;
+$paleta-monocromatica: generar-paleta-monocromatica($color-primario) !default;
+$paleta-saturacion: generar-paleta-saturacion($color-primario) !default;
 
 // ----------------------------------------------
 // Predeterminados (si no se han establecido)
@@ -30,11 +29,11 @@ $link-color: $texto;
 $link-hover-color: cambiar-luminosidad($texto, -50%);
 
 //TODO: Cambiar para que use "cambiar-luminosidad" en lugar de un "@if"
-$color-separador: map-get($escala-monocromatica, 'mono-350');
-$color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
+$color-separador: map-get($paleta-monocromatica, 'mono-3');
+$color-separador-destacado: map-get($paleta-monocromatica, 'mono-2');
 @if evaluar-color($fondo) == 'claro' {
-    $color-separador: map-get($escala-monocromatica, 'mono-650');
-    $color-separador-destacado: map-get($escala-monocromatica, 'mono-800');
+    $color-separador: map-get($paleta-monocromatica, 'mono-5');
+    $color-separador-destacado: map-get($paleta-monocromatica, 'mono-6');
 }
 
 @include variables-css((
@@ -50,18 +49,20 @@ $color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
     texto-light-rgb: to-rgb($texto-light),
     color-secondary: $color-secondary,
     color-secondary-rgb: to-rgb($color-secondary),
-    color-mono-1: map-get($escala-monocromatica, 'mono-100'),
-    color-mono-2: map-get($escala-monocromatica, 'mono-200'),
-    color-mono-3: map-get($escala-monocromatica, 'mono-350'),
-    color-mono-4: map-get($escala-monocromatica, 'mono-650'),
-    color-mono-5: map-get($escala-monocromatica, 'mono-800'),
-    color-mono-6: map-get($escala-monocromatica, 'mono-900'),
-    color-satu-1: map-get($escala-saturacion, 'satu-100'),
-    color-satu-2: map-get($escala-saturacion, 'satu-250'),
-    color-satu-3: map-get($escala-saturacion, 'satu-400'),
-    color-satu-4: map-get($escala-saturacion, 'satu-600'),
-    color-satu-5: map-get($escala-saturacion, 'satu-750'),
-    color-satu-6: map-get($escala-saturacion, 'satu-900'),
+    color-mono-1: map-get($paleta-monocromatica, 'mono-1'),
+    color-mono-2: map-get($paleta-monocromatica, 'mono-2'),
+    color-mono-3: map-get($paleta-monocromatica, 'mono-3'),
+    color-mono-4: map-get($paleta-monocromatica, 'mono-4'),
+    color-mono-5: map-get($paleta-monocromatica, 'mono-5'),
+    color-mono-6: map-get($paleta-monocromatica, 'mono-6'),
+    color-mono-7: map-get($paleta-monocromatica, 'mono-7'),
+    color-satu-1: map-get($paleta-saturacion, 'satu-1'),
+    color-satu-2: map-get($paleta-saturacion, 'satu-2'),
+    color-satu-3: map-get($paleta-saturacion, 'satu-3'),
+    color-satu-4: map-get($paleta-saturacion, 'satu-4'),
+    color-satu-5: map-get($paleta-saturacion, 'satu-5'),
+    color-satu-6: map-get($paleta-saturacion, 'satu-6'),
+    color-satu-7: map-get($paleta-saturacion, 'satu-7'),
     color-triad-1: map-get($paleta-ampliada, 'triad-1'),
     color-triad-2: map-get($paleta-ampliada, 'triad-2'),
     color-cuad-1: map-get($paleta-ampliada, 'cuad-1'),
@@ -91,7 +92,7 @@ $color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
     color-separador-destacado-rgb: to-rgb($color-separador-destacado),
     primary-color: $primary-color,
     primary-texto: color-contrast($primary-color),
-    texto-mono-3: color-contrast(map-get($escala-monocromatica, 'mono-350')),
+    texto-mono-3: color-contrast(map-get($paleta-monocromatica, 'mono-3')),
     link-color: $link-color,
     link-hover-color: $link-hover-color,
     link-color-rgb: to-rgb($link-color),
@@ -160,25 +161,6 @@ $color-separador-destacado: map-get($escala-monocromatica, 'mono-200');
         .text-bg-#{$color} {
             background-color: $value !important;
             color: color-contrast($value) !important;
-        }
-    }
-
-    @each $key, $value in $escala-monocromatica {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-    @each $key, $value in $escala-saturacion {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
-        }
-    }
-    @each $key, $value in $escala-multicolor {
-        .escala-#{$key} {
-            background-color: $value !important;
-            color: color-contrast($value);
         }
     }
 
