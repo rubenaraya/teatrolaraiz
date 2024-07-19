@@ -13,7 +13,7 @@
     @extend .px-0;
     @extend .pt-3;
     border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem var(--tema-color-sombra-fondo-rgba);
+    box-shadow: 0 0 1.2rem var(--bsia-sombra-rgba);
     background-color: var(--bs-body-bg);
     width: 95%;
     max-width: 960px;
@@ -104,7 +104,7 @@
 hr {
     border-width: 1px;
     border-style: solid;
-    border-color: var(--tema-color-separador);
+    border-color: var(--bsia-separador);
     opacity: 0.5;
 }
 
@@ -163,7 +163,7 @@ hr {
     @extend .rounded;
     width: 26%;
     border: 2px solid var(--bs-body-color);
-    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .25);
+    box-shadow: 0 0.5rem 1rem rgba(var(--bs-body-color-rgb), .5);
     font-size: 0.9rem;
 }
 

@@ -233,9 +233,9 @@
 .web-tabs-contenido {
     @extend .px-3;
     @extend .py-3;
-    border-left: 1px solid var(--tema-color-separador);
-    border-right: 1px solid var(--tema-color-separador);
-    border-bottom: 1px solid var(--tema-color-separador);
+    border-left: 1px solid var(--bs-border-color);
+    border-right: 1px solid var(--bs-border-color);
+    border-bottom: 1px solid var(--bs-border-color);
     border-radius: 0 0 0.75rem 0.75rem;
 }
 

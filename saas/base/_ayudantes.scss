@@ -1,16 +1,16 @@
 @use "sass:map";
 
-@mixin variables-css($css_variables, $prefix: tema) {
+@mixin variables-css($css_variables, $prefix: bsia) {
     @each $name, $value in $css_variables {
         --#{$prefix}-#{$name}: #{$value};
     }
 }
 
-@function var-css($name, $prefix: tema) {
+@function var-css($name, $prefix: bsia) {
     @return var(--#{$prefix}-#{$name});
 }
 
-@mixin asignar-var-css($name, $value: '', $prefix: tema) {
+@mixin asignar-var-css($name, $value: '', $prefix: bsia) {
     --#{$prefix}-#{$name}: #{$value};
 }
 
@@ -95,61 +95,6 @@
     @return $scale;
 }
 
-@function generar-paleta-basica($color) {
-    $light-color: lighten($color, 10%);
-    $dark-color: darken($color, 10%);
-    $primary-color: saturate($light-color, 50%);
-    $secondary-color: desaturate($dark-color, 50%);
-    $danger-color: saturate(lighten(ajustar-matiz-al-tema($color, 0), 10%), 10%);
-    $success-color: desaturate(lighten(ajustar-matiz-al-tema($color, 120), 10%), 10%);
-    $info-color: desaturate(lighten(ajustar-matiz-al-tema($color, 240), 10%), 10%);
-    $warning-color: saturate(lighten(ajustar-matiz-al-tema($color, 60), 10%), 10%);
-    @if evaluar-color($color) == 'claro' {
-        $danger-color: saturate(ajustar-matiz-al-tema($color, 0), 10%);
-        $success-color: desaturate(ajustar-matiz-al-tema($color, 120), 10%);
-        $info-color: desaturate(ajustar-matiz-al-tema($color, 240), 10%);
-        $warning-color: saturate(ajustar-matiz-al-tema($color, 60), 10%);
-    }
-    @return (
-        'primary': $primary-color,
-        'secondary': $secondary-color,
-        'success': $success-color,
-        'info': $info-color,
-        'warning': $warning-color,
-        'danger': $danger-color,
-        'light': $light-color,
-        'dark': $dark-color,
-    );
-}
-
-@function generar-paleta-ampliada($color) {
-    $analo-1: cambiar-matiz($color, 30deg);
-    $analo-2: cambiar-matiz($color, -30deg);
-    $triad-1: cambiar-matiz($color, 120deg);
-    $triad-2: cambiar-matiz($color, 240deg);
-    $inverso: cambiar-matiz($color, 180deg);
-    $comp-1: cambiar-matiz($inverso, 30deg);
-    $comp-2: cambiar-matiz($inverso, -30deg);
-    $tetra-1: cambiar-matiz($color, 60deg);
-    $tetra-2: cambiar-matiz($color, -60deg);
-    $cuad-1: cambiar-matiz($color, 90deg);
-    $cuad-2: cambiar-matiz($color, -90deg);
-    @return (
-        'analo-1': $analo-1,
-        'analo-2': $analo-2,
-        'triad-1': $triad-1,
-        'triad-2': $triad-2,
-        'tetra-1': $tetra-1,
-        'tetra-2': $tetra-2,
-        'fondo': $color,
-        'inverso': $inverso,
-        'cuad-1': $cuad-1,
-        'cuad-2': $cuad-2,
-        'comp-1': $comp-1,
-        'comp-2': $comp-2,
-    );
-}
-
 @function generar-paleta-monocromatica($color) {
     $escala-monocromatica: crear-escala-monocromatica($color);
     @return (
@@ -174,4 +119,206 @@
         'satu-6': map-get($escala-saturacion, 'satu-750'),
         'satu-7': map-get($escala-saturacion, 'satu-900'),
     );
+}
+
+@function generar-paleta-ampliada($color) {
+    $fondo: desaturate(lighten($color, 20%), 20%);
+    @return (
+        'fondo':        $fondo,
+        'fondo2':       cambiar-luminosidad($fondo, 60%),
+        'fondo3':       cambiar-luminosidad($fondo, 30%),
+        'analo-1':      cambiar-matiz($color, 30deg),
+        'analo-2':      cambiar-matiz($color, -30deg),
+        'triad-1':      cambiar-matiz($color, 120deg),
+        'triad-2':      cambiar-matiz($color, 240deg),
+        'tetra-1':      cambiar-matiz($color, 60deg),
+        'tetra-2':      cambiar-matiz($color, -60deg),
+        'cuad-1':       cambiar-matiz($color, 90deg),
+        'cuad-2':       cambiar-matiz($color, -90deg),
+        'inverso':      cambiar-matiz($color, 180deg),
+        'comp-1':       cambiar-matiz(cambiar-matiz($color, 180deg), 30deg),
+        'comp-2':       cambiar-matiz(cambiar-matiz($color, 180deg), -30deg),
+        'accent':       saturate(darken($color, 10%), 50%),
+        'highlight':    saturate(lighten($color, 15%), 25%),
+        'gray':         $gray-600,
+        'white':        $white,
+        'black':        $black,
+    );
+}
+
+@function generar-paleta-basica($color) {
+    $danger:    ajustar-matiz-al-tema($color, 0);
+    $success:   ajustar-matiz-al-tema($color, 120);
+    $info:      ajustar-matiz-al-tema($color, 240);
+    $warning:   ajustar-matiz-al-tema($color, 60);
+    @if evaluar-color($color) == 'oscuro' {
+        $danger:    lighten($danger, 10%);
+        $success:   lighten($success, 10%);
+        $info:      lighten($info, 10%);
+        $warning:   lighten($warning, 10%);
+    }
+    @return (
+        'primary':      $color,
+        'light':        lighten($color, 25%),
+        'dark':         darken($color, 20%),
+        'secondary':    desaturate(darken($color, 10%), 50%),
+        'success':      desaturate($success, 10%),
+        'info':         desaturate($info, 10%),
+        'warning':      saturate($warning, 10%),
+        'danger':       saturate($danger, 10%),
+    );
+}
+
+@function generar-configuracion($paleta-basica, $paleta-ampliada, $paleta-monocromatica, $paleta-saturacion) {
+    $fondo: map-get($paleta-ampliada, 'fondo');
+    $fondo2: cambiar-luminosidad($fondo, 30%);
+    $fondo3: cambiar-luminosidad($fondo, 60%);
+
+    $borde: map-get($paleta-monocromatica, 'mono-5');
+    $borde2: map-get($paleta-monocromatica, 'mono-6');
+    $separador: map-get($paleta-monocromatica, 'mono-5');
+    $separador2: map-get($paleta-monocromatica, 'mono-6');
+    $titulo: map-get($paleta-monocromatica, 'mono-7');
+    $titulo2: map-get($paleta-monocromatica, 'mono-1');
+    @if evaluar-color($fondo) == 'oscuro' {
+        $borde: map-get($paleta-monocromatica, 'mono-3');
+        $borde2: map-get($paleta-monocromatica, 'mono-2');
+        $separador: map-get($paleta-monocromatica, 'mono-3');
+        $separador2: map-get($paleta-monocromatica, 'mono-2');
+        $titulo: map-get($paleta-monocromatica, 'mono-1');
+        $titulo2: map-get($paleta-monocromatica, 'mono-7');
+    }
+    @return (
+        fuente-base:            'Verdana, Geneva, Tahoma, sans-serif',
+        talla-base:             1rem,
+        fondo:                  $fondo,
+        fondo2:                 $fondo2,
+        fondo3:                 $fondo3,
+        texto:                  color-contrast($fondo),
+        texto2:                 color-contrast($fondo2),
+        texto3:                 color-contrast($fondo3),
+        separador:              $separador,
+        separador2:             $separador2,
+        borde:                  $borde,
+        borde2:                 $borde2,
+        titulo:                 $titulo,
+        titulo2:                $titulo2,
+        enlace:                 color-contrast($fondo),
+        enlace2:                cambiar-luminosidad(color-contrast($fondo), -50%),
+        sombra-rgba:            RGBA((to-rgb(color-contrast($fondo))), .5),
+        focusring-rgba:         RGBA((to-rgb(map-get($paleta-basica, 'primary'))), .5),
+        paleta-basica:          $paleta-basica,
+        paleta-ampliada:        $paleta-ampliada,
+        paleta-monocromatica:   $paleta-monocromatica,
+        paleta-saturacion:      $paleta-saturacion,
+    );
+}
+
+@mixin configurar-tema($config) {
+    --bsia-sombra-rgba:         #{map-get($config, sombra-rgba)};
+    --bsia-separador:           #{map-get($config, separador)};
+    --bsia-separador2:          #{map-get($config, separador2)};
+    --bsia-borde:               #{map-get($config, borde)};
+    --bsia-borde2:              #{map-get($config, borde2)};
+    --bsia-titulo:              #{map-get($config, titulo)};
+    --bsia-titulo2:             #{map-get($config, titulo2)};
+
+    --bs-body-font-family:      #{map-get($config, fuente-base)};
+    --bs-body-font-size:        #{map-get($config, talla-base)};
+    --bs-body-bg:               #{map-get($config, fondo)};
+    --bs-body-bg-rgb:           #{to-rgb(map-get($config, fondo))};
+    --bs-body-color:            #{color-contrast(map-get($config, fondo))};
+    --bs-body-color-rgb:        #{to-rgb(color-contrast(map-get($config, fondo)))};
+    --bs-link-color:            #{map-get($config, enlace)};
+    --bs-link-color-rgb:        #{to-rgb(map-get($config, enlace))};
+    --bs-link-hover-color:      #{map-get($config, enlace2)};
+    --bs-link-hover-color-rgb:  #{to-rgb(map-get($config, enlace2))};
+    --bs-secondary-bg:          #{map-get($config, fondo2)};
+    --bs-secondary-bg-rgb:      #{to-rgb(map-get($config, fondo2))};
+    --bs-secondary-color:       #{map-get($config, texto2)};
+    --bs-secondary-color-rgb:   #{to-rgb(map-get($config, texto2))};
+    --bs-tertiary-bg:           #{map-get($config, fondo3)};
+    --bs-tertiary-bg-rgb:       #{to-rgb(map-get($config, fondo3))};
+    --bs-tertiary-color:        #{map-get($config, texto3)};
+    --bs-tertiary-color-rgb:    #{to-rgb(map-get($config, texto3))};
+    --bs-border-color:          #{map-get($config, borde)};
+    --bs-box-shadow:            0 0.5rem 1rem #{map-get($config, sombra-rgba)};
+    --bs-box-shadow-sm:         0 0.1rem .5rem #{map-get($config, sombra-rgba)};
+    --bs-box-shadow-lg:         0 0.25rem 2rem #{map-get($config, sombra-rgba)};
+    --bs-box-shadow-inset:      inset 0 1px 2px #{map-get($config, sombra-rgba)};
+    --bs-focus-ring-color:      #{map-get($config, focusring-rgba)};
+    --bs-border-color-translucent: #{map-get($config, sombra-rgba)};
+
+    @each $nombre, $valor in map-get($config, paleta-basica) {
+        --bs-#{$nombre}:                #{$valor};
+        --bs-#{$nombre}-rgb:            #{to-rgb($valor)};
+        --bs-#{$nombre}-text-emphasis:  #{cambiar-luminosidad($valor, -20%)};
+        --bs-#{$nombre}-bg-subtle:      #{cambiar-luminosidad($valor, 80%)};
+        --bs-#{$nombre}-border-subtle:  #{cambiar-luminosidad($valor, 50%)};
+        .list-group-item-#{$nombre} {
+            --bs-list-group-color:                  var(--bs-#{$nombre}-text-emphasis);
+            --bs-list-group-action-hover-color:     var(--bs-#{$nombre}-text-emphasis);
+            --bs-list-group-action-active-color:    var(--bs-#{$nombre}-text-emphasis);
+            --bs-list-group-active-color:           var(--bs-#{$nombre}-text-emphasis);
+            --bs-list-group-border-color:           #{map-get($config, borde)};
+            --bs-list-group-active-border-color:    #{map-get($config, borde)};
+        }
+        .bg-#{$nombre} {
+            background-color: $valor !important;
+        }
+        .text-#{$nombre} {
+            color: $valor !important;
+        }
+        .text-bg-#{$nombre} {
+            background-color:   $valor !important;
+            color:              color-contrast($valor) !important;
+        }
+        .btn-#{$nombre} {
+            @include button-variant($valor, $valor);
+        }
+        .btn-outline-#{$nombre} {
+            @include button-outline-variant($valor);
+        }
+    }
+    @each $nombre, $valor in map-get($config, paleta-ampliada) {
+        --bsia-#{$nombre}: #{$valor};
+        .text-bg-#{$nombre} {
+            background-color:   $valor !important;
+            color:              color-contrast($valor) !important;
+        }
+    }
+    @each $nombre, $valor in map-get($config, paleta-monocromatica) {
+        --bsia-#{$nombre}: #{$valor};
+        .text-bg-#{$nombre} {
+            background-color:   $valor !important;
+            color:              color-contrast($valor) !important;
+        }
+    }
+    @each $nombre, $valor in map-get($config, paleta-saturacion) {
+        .text-bg-#{$nombre} {
+            background-color:   $valor !important;
+            color:              color-contrast($valor) !important;
+        }
+    }
+    .dropdown-menu {
+        --bs-dropdown-color:                #{map-get($config, texto)};
+        --bs-dropdown-bg:                   #{cambiar-luminosidad(map-get($config, fondo), 25%)};
+        --bs-dropdown-link-color:           #{color-contrast(cambiar-luminosidad(map-get($config, fondo), 25%))};
+        --bs-dropdown-link-hover-bg:        #{cambiar-luminosidad(map-get($config, fondo), 50%)};
+        --bs-dropdown-link-hover-color:     #{color-contrast(cambiar-luminosidad(map-get($config, fondo), 50%))};
+        --bs-dropdown-link-active-bg:       #{map-get(map-get($config, paleta-basica), 'primary')};
+        --bs-dropdown-link-active-color:    #{color-contrast(map-get(map-get($config, paleta-basica), 'primary'))};
+    }
+    .dropdown-item {
+        color: #{color-contrast(map-get($config, fondo))};
+    }
+    .nav-tabs {
+        --bs-nav-link-color:                    #{color-contrast(map-get($config, fondo))};
+        --bs-nav-link-hover-color:              #{color-contrast(map-get($config, fondo))};
+        --bs-nav-tabs-link-active-bg:           #{map-get(map-get($config, paleta-ampliada), 'highlight')};
+        --bs-nav-tabs-link-active-color:        #{color-contrast(map-get(map-get($config, paleta-ampliada), 'highlight'))};
+        --bs-nav-tabs-border-color:             #{color-contrast(map-get(map-get($config, paleta-ampliada), 'highlight'))};
+        --bs-nav-tabs-link-hover-border-color:  #{map-get($config, borde2)} #{map-get($config, borde2)} transparent;
+        --bs-nav-tabs-link-active-border-color: #{map-get($config, borde)} #{map-get($config, borde)} transparent;
+    }
 }
