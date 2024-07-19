@@ -1,5 +1,9 @@
 @use "sass:map";
 
+@function convertir-hex-rgba($color, $opacidad: .5) {
+    @return RGBA(to-rgb($color), $opacidad);
+}
+
 @function evaluar-color($color) {
     @if contrast-ratio($color, $white) > $min-contrast-ratio {
         @return 'oscuro';
@@ -159,40 +163,43 @@
     $fondo: map-get($paleta-ampliada, 'fondo');
     $fondo2: cambiar-luminosidad($fondo, 30%);
     $fondo3: cambiar-luminosidad($fondo, 60%);
-
-    $borde: map-get($paleta-monocromatica, 'mono-5');
-    $borde2: map-get($paleta-monocromatica, 'mono-6');
-    $separador: map-get($paleta-monocromatica, 'mono-5');
-    $separador2: map-get($paleta-monocromatica, 'mono-6');
+    $enlace: color-contrast($fondo);
+    $enlace2: lighten(color-contrast($fondo), 50%);
+    $borde: map-get($paleta-monocromatica, 'mono-6');
+    $borde2: map-get($paleta-monocromatica, 'mono-7');
+    $separador: map-get($paleta-monocromatica, 'mono-6');
     $titulo: map-get($paleta-monocromatica, 'mono-7');
     $titulo2: map-get($paleta-monocromatica, 'mono-1');
+    $fondo-menu: darken($fondo, 10%);
+    $fondo-menu2: darken($fondo, 50%);
     @if evaluar-color($fondo) == 'oscuro' {
-        $borde: map-get($paleta-monocromatica, 'mono-3');
-        $borde2: map-get($paleta-monocromatica, 'mono-2');
-        $separador: map-get($paleta-monocromatica, 'mono-3');
-        $separador2: map-get($paleta-monocromatica, 'mono-2');
+        $enlace2: darken(color-contrast($fondo), 20%);
+        $borde: map-get($paleta-monocromatica, 'mono-2');
+        $borde2: map-get($paleta-monocromatica, 'mono-1');
+        $separador: map-get($paleta-monocromatica, 'mono-2');
         $titulo: map-get($paleta-monocromatica, 'mono-1');
         $titulo2: map-get($paleta-monocromatica, 'mono-7');
-    }
+        $fondo-menu: lighten($fondo, 10%);
+        $fondo-menu2: lighten($fondo, 50%);
+   }
     @return (
         fuente-base:            'Verdana, Geneva, Tahoma, sans-serif',
         talla-base:             1rem,
         separador:              $separador,
-        separador2:             $separador2,
         borde:                  $borde,
         borde2:                 $borde2,
         titulo:                 $titulo,
         titulo2:                $titulo2,
+        enlace:                 $enlace,
+        enlace2:                $enlace2,
+        fondo-menu:             $fondo-menu,
+        fondo-menu2:            $fondo-menu2,
         fondo:                  $fondo,
         fondo2:                 $fondo2,
         fondo3:                 $fondo3,
         texto:                  color-contrast($fondo),
         texto2:                 color-contrast($fondo2),
         texto3:                 color-contrast($fondo3),
-        enlace:                 color-contrast($fondo),
-        enlace2:                cambiar-luminosidad(color-contrast($fondo), -50%),
-        sombra-rgba:            RGBA((to-rgb(color-contrast($fondo))), .5),
-        focusring-rgba:         RGBA((to-rgb(map-get($paleta-basica, 'primary'))), .5),
         paleta-basica:          $paleta-basica,
         paleta-ampliada:        $paleta-ampliada,
         paleta-monocromatica:   $paleta-monocromatica,
@@ -201,9 +208,8 @@
 }
 
 @mixin configurar-tema($config) {
-    --bsia-sombra-rgba:         #{map-get($config, sombra-rgba)};
+    --bsia-sombra-rgba:         #{map-get($config, convertir-hex-rgba(map-get($config, texto)))};
     --bsia-separador:           #{map-get($config, separador)};
-    --bsia-separador2:          #{map-get($config, separador2)};
     --bsia-borde:               #{map-get($config, borde)};
     --bsia-borde2:              #{map-get($config, borde2)};
     --bsia-titulo:              #{map-get($config, titulo)};
@@ -213,8 +219,10 @@
     --bs-body-font-size:        #{map-get($config, talla-base)};
     --bs-body-bg:               #{map-get($config, fondo)};
     --bs-body-bg-rgb:           #{to-rgb(map-get($config, fondo))};
-    --bs-body-color:            #{color-contrast(map-get($config, fondo))};
-    --bs-body-color-rgb:        #{to-rgb(color-contrast(map-get($config, fondo)))};
+    --bs-body-color:            #{map-get($config, texto)};
+    --bs-body-color-rgb:        #{to-rgb(map-get($config, texto))};
+    --bs-emphasis-color:        #{map-get($config, texto)};
+    --bs-emphasis-color-rgb:    #{to-rgb(map-get($config, texto))};
     --bs-link-color:            #{map-get($config, enlace)};
     --bs-link-color-rgb:        #{to-rgb(map-get($config, enlace))};
     --bs-link-hover-color:      #{map-get($config, enlace2)};
@@ -228,12 +236,14 @@
     --bs-tertiary-color:        #{map-get($config, texto3)};
     --bs-tertiary-color-rgb:    #{to-rgb(map-get($config, texto3))};
     --bs-border-color:          #{map-get($config, borde)};
-    --bs-box-shadow:            0 0.5rem 1rem #{map-get($config, sombra-rgba)};
-    --bs-box-shadow-sm:         0 0.1rem .5rem #{map-get($config, sombra-rgba)};
-    --bs-box-shadow-lg:         0 0.25rem 2rem #{map-get($config, sombra-rgba)};
-    --bs-box-shadow-inset:      inset 0 1px 2px #{map-get($config, sombra-rgba)};
-    --bs-focus-ring-color:      #{map-get($config, focusring-rgba)};
-    --bs-border-color-translucent: #{map-get($config, sombra-rgba)};
+    --bs-box-shadow-sm:         0 0.125rem .25rem #{convertir-hex-rgba(map-get($config, texto), 0.3)};
+    --bs-box-shadow:            0 0.5rem 1rem #{convertir-hex-rgba(map-get($config, texto), 0.4)};
+    --bs-box-shadow-lg:         0 1rem 3rem #{convertir-hex-rgba(map-get($config, texto), 0.5)};
+    --bs-box-shadow-inset:      inset 0 1px 2px #{convertir-hex-rgba(map-get($config, texto), 0.25)};
+    --bs-focus-ring-color:      #{convertir-hex-rgba(map-get(map-get($config, paleta-basica), 'primary'), 0.25)};
+    --bs-focus-ring-width: 0.25rem;
+    --bs-focus-ring-opacity: 0.25;
+    --bs-border-color-translucent: #{convertir-hex-rgba(map-get($config, texto))};
 
     @each $nombre, $valor in map-get($config, paleta-basica) {
         --bs-#{$nombre}:                #{$valor};
@@ -287,25 +297,22 @@
         }
     }
     .dropdown-menu {
-        --bs-dropdown-color:                #{map-get($config, texto)};
-        --bs-dropdown-bg:                   #{cambiar-luminosidad(map-get($config, fondo), 25%)};
-        --bs-dropdown-link-color:           #{color-contrast(cambiar-luminosidad(map-get($config, fondo), 25%))};
-        --bs-dropdown-link-hover-bg:        #{cambiar-luminosidad(map-get($config, fondo), 50%)};
-        --bs-dropdown-link-hover-color:     #{color-contrast(cambiar-luminosidad(map-get($config, fondo), 50%))};
-        --bs-dropdown-link-active-bg:       #{map-get(map-get($config, paleta-basica), 'primary')};
-        --bs-dropdown-link-active-color:    #{color-contrast(map-get(map-get($config, paleta-basica), 'primary'))};
-    }
-    .dropdown-item {
-        color: #{color-contrast(map-get($config, fondo))};
+        --bs-dropdown-color:                #{color-contrast(map-get($config, fondo-menu))};
+        --bs-dropdown-bg:                   #{map-get($config, fondo-menu)};
+        --bs-dropdown-link-color:           #{color-contrast(map-get($config, fondo-menu))};
+        --bs-dropdown-link-hover-bg:        #{map-get($config, fondo-menu2)};
+        --bs-dropdown-link-hover-color:     #{color-contrast(map-get($config, fondo-menu2))};
+        --bs-dropdown-link-active-bg:       #{map-get(map-get($config, paleta-ampliada), 'accent')};
+        --bs-dropdown-link-active-color:    #{color-contrast(map-get(map-get($config, paleta-ampliada), 'accent'))};
     }
     .nav-tabs {
-        --bs-nav-link-color:                    #{color-contrast(map-get($config, fondo))};
-        --bs-nav-link-hover-color:              #{color-contrast(map-get($config, fondo))};
+        --bs-nav-link-color:                    #{map-get($config, texto)};
+        --bs-nav-link-hover-color:              #{map-get($config, texto)};
         --bs-nav-tabs-link-active-bg:           #{map-get(map-get($config, paleta-ampliada), 'highlight')};
         --bs-nav-tabs-link-active-color:        #{color-contrast(map-get(map-get($config, paleta-ampliada), 'highlight'))};
 
-        --bs-nav-tabs-border-color:             #{map-get($config, borde)} #{map-get($config, borde)} transparent;
-        --bs-nav-tabs-link-hover-border-color:  #{map-get($config, borde2)} #{map-get($config, borde2)} transparent;
+        --bs-nav-tabs-border-color:             #{map-get($config, borde)};
         --bs-nav-tabs-link-active-border-color: #{map-get($config, borde)} #{map-get($config, borde)} transparent;
+        --bs-nav-tabs-link-hover-border-color:  #{map-get($config, borde2)} #{map-get($config, borde2)} transparent;
     }
 }
