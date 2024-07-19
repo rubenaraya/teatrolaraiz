@@ -53,6 +53,6 @@
     'satu-7':     #0B6EFF,
   );
 
-  @import "../base/tema";
+  @include configurar-tema(generar-configuracion($paleta-basica, $paleta-ampliada, $paleta-monocromatica, $paleta-saturacion));
 
 }

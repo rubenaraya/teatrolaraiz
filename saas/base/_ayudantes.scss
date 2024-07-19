@@ -1,19 +1,5 @@
 @use "sass:map";
 
-@mixin variables-css($css_variables, $prefix: bsia) {
-    @each $name, $value in $css_variables {
-        --#{$prefix}-#{$name}: #{$value};
-    }
-}
-
-@function var-css($name, $prefix: bsia) {
-    @return var(--#{$prefix}-#{$name});
-}
-
-@mixin asignar-var-css($name, $value: '', $prefix: bsia) {
-    --#{$prefix}-#{$name}: #{$value};
-}
-
 @function evaluar-color($color) {
     @if contrast-ratio($color, $white) > $min-contrast-ratio {
         @return 'oscuro';
@@ -191,18 +177,18 @@
     @return (
         fuente-base:            'Verdana, Geneva, Tahoma, sans-serif',
         talla-base:             1rem,
-        fondo:                  $fondo,
-        fondo2:                 $fondo2,
-        fondo3:                 $fondo3,
-        texto:                  color-contrast($fondo),
-        texto2:                 color-contrast($fondo2),
-        texto3:                 color-contrast($fondo3),
         separador:              $separador,
         separador2:             $separador2,
         borde:                  $borde,
         borde2:                 $borde2,
         titulo:                 $titulo,
         titulo2:                $titulo2,
+        fondo:                  $fondo,
+        fondo2:                 $fondo2,
+        fondo3:                 $fondo3,
+        texto:                  color-contrast($fondo),
+        texto2:                 color-contrast($fondo2),
+        texto3:                 color-contrast($fondo3),
         enlace:                 color-contrast($fondo),
         enlace2:                cambiar-luminosidad(color-contrast($fondo), -50%),
         sombra-rgba:            RGBA((to-rgb(color-contrast($fondo))), .5),
@@ -317,7 +303,8 @@
         --bs-nav-link-hover-color:              #{color-contrast(map-get($config, fondo))};
         --bs-nav-tabs-link-active-bg:           #{map-get(map-get($config, paleta-ampliada), 'highlight')};
         --bs-nav-tabs-link-active-color:        #{color-contrast(map-get(map-get($config, paleta-ampliada), 'highlight'))};
-        --bs-nav-tabs-border-color:             #{color-contrast(map-get(map-get($config, paleta-ampliada), 'highlight'))};
+
+        --bs-nav-tabs-border-color:             #{map-get($config, borde)} #{map-get($config, borde)} transparent;
         --bs-nav-tabs-link-hover-border-color:  #{map-get($config, borde2)} #{map-get($config, borde2)} transparent;
         --bs-nav-tabs-link-active-border-color: #{map-get($config, borde)} #{map-get($config, borde)} transparent;
     }
