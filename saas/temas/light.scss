@@ -34,7 +34,7 @@
     'white':      #ffffff,
     'black':      #000000,
   );
-  $paleta-monocromatica: (
+  $paleta-mono: (
     'mono-1':     #CFE2FF,
     'mono-2':     #9EC5FE,
     'mono-3':     #569AFE,
@@ -53,6 +53,6 @@
     'satu-7':     #0B6EFF,
   );
 
-  @include configurar-tema(generar-configuracion($paleta-basica, $paleta-ampliada, $paleta-monocromatica, $paleta-saturacion));
+  @include configurar-tema(definir-parametros($paleta-basica, $paleta-ampliada, $paleta-mono, $paleta-saturacion));
 
 }

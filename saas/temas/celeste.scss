@@ -3,7 +3,7 @@
     $color-primario: map.get($theme-colors, $color-tema);
     $paleta-basica: generar-paleta-basica($color-primario);
     $paleta-ampliada: generar-paleta-ampliada($color-primario);
-    $paleta-monocromatica: generar-paleta-monocromatica($color-primario);
+    $paleta-mono: generar-paleta-mono($color-primario);
     $paleta-saturacion: generar-paleta-saturacion($color-primario);
-    @include configurar-tema(generar-configuracion($paleta-basica, $paleta-ampliada, $paleta-monocromatica, $paleta-saturacion));
+    @include configurar-tema(definir-parametros($paleta-basica, $paleta-ampliada, $paleta-mono, $paleta-saturacion));
 }

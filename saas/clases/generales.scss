@@ -13,7 +13,7 @@
     @extend .px-0;
     @extend .pt-3;
     border-radius: 1.2rem;
-    box-shadow: 0 0 1.2rem var(--bsia-sombra-rgba);
+    box-shadow: 0 0 1.2rem var(--bsia-color-sombra-rgba);
     background-color: var(--bs-body-bg);
     width: 95%;
     max-width: 960px;
@@ -104,14 +104,8 @@
 hr {
     border-width: 1px;
     border-style: solid;
-    border-color: var(--bsia-separador);
+    border-color: var(--bsia-color-separador);
     opacity: 0.5;
-}
-
-.web-titulos {
-    font-style: italic;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
 }
 
 .web-logo {

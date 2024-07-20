@@ -12,11 +12,6 @@
     }
 }
 
-@function cambiar-saturacion($color, $cantidad) {
-    $gray: mix(black, white, 50%);
-    @return mix($color, $gray, $cantidad);
-}
-
 @function cambiar-luminosidad($color, $weight) {
     @if evaluar-color($color) == 'oscuro' {
         @return if($weight > 0, mix($color, black, $weight), mix($color, white, -$weight));
@@ -38,76 +33,50 @@
     @return cambiar-matiz($color, $hue-difference);
 }
 
-@function crear-escala-multicolor($color) {
-    $scale: ();
-    $increment: 15;
-    $base-level: 500;
-    $steps: 9;
-    @for $i from -$steps through $steps {
-        @if $i != 0 {
-            $adjusted-color: adjust-hue($color, $increment * $i);
-            $nivel: $base-level - $i * 50;
-            $scale: map-merge($scale, ('multi-' + $nivel: $adjusted-color));
-        }
-    }
-    $scale: map-merge($scale, ('multi-' + $base-level: $color));
-    @return $scale;
-}
-
-@function crear-escala-monocromatica($color) {
-    $scale: ();
+@function generar-paleta-mono($color) {
+    $escala: ();
     $lightness: lightness($color);
     @for $i from 1 through 9 {
         $new-color: mix($color, white, 10% * $i);
-        $scale: map-merge($scale, ('mono-' + (50 + ($i - 1) * 50): $new-color));
+        $escala: map-merge($escala, ('mono-' + (50 + ($i - 1) * 50): $new-color));
     }
-    $scale: map-merge($scale, ('mono-500': $color));
+    $escala: map-merge($escala, ('mono-500': $color));
     @for $i from 1 through 9 {
         $new-color: mix($color, black, 10% * $i);
-        $scale: map-merge($scale, ('mono-' + (950 - ($i - 1) * 50): $new-color));
+        $escala: map-merge($escala, ('mono-' + (950 - ($i - 1) * 50): $new-color));
     }
-    @return $scale;
+    @return (
+        'mono-1': map-get($escala, 'mono-100'),
+        'mono-2': map-get($escala, 'mono-200'),
+        'mono-3': map-get($escala, 'mono-350'),
+        'mono-4': map-get($escala, 'mono-500'),
+        'mono-5': map-get($escala, 'mono-650'),
+        'mono-6': map-get($escala, 'mono-800'),
+        'mono-7': map-get($escala, 'mono-900'),
+    );
 }
 
-@function crear-escala-saturacion($color) {
-    $scale: ();
+@function generar-paleta-saturacion($color) {
+    $escala: ();
     $base-level: 500;
     $incremento-saturacion: 10%;
     @for $i from 1 through 9 {
         $color-saturado: saturate($color, $incremento-saturacion * $i);
         $color-desaturado: desaturate($color, $incremento-saturacion * $i);
-        $scale: map-merge($scale, (
+        $escala: map-merge($escala, (
             'satu-' + ($base-level - $i * 50): $color-desaturado,
             'satu-' + ($base-level + $i * 50): $color-saturado
         ));
     }
-    $scale: map-merge($scale, ('satu-500': $color));
-    @return $scale;
-}
-
-@function generar-paleta-monocromatica($color) {
-    $escala-monocromatica: crear-escala-monocromatica($color);
+    $escala: map-merge($escala, ('satu-500': $color));
     @return (
-        'mono-1': map-get($escala-monocromatica, 'mono-100'),
-        'mono-2': map-get($escala-monocromatica, 'mono-200'),
-        'mono-3': map-get($escala-monocromatica, 'mono-350'),
-        'mono-4': map-get($escala-monocromatica, 'mono-500'),
-        'mono-5': map-get($escala-monocromatica, 'mono-650'),
-        'mono-6': map-get($escala-monocromatica, 'mono-800'),
-        'mono-7': map-get($escala-monocromatica, 'mono-900'),
-    );
-}
-
-@function generar-paleta-saturacion($color) {
-    $escala-saturacion: crear-escala-saturacion($color);
-    @return (
-        'satu-1': map-get($escala-saturacion, 'satu-100'),
-        'satu-2': map-get($escala-saturacion, 'satu-200'),
-        'satu-3': map-get($escala-saturacion, 'satu-400'),
-        'satu-4': map-get($escala-saturacion, 'satu-500'),
-        'satu-5': map-get($escala-saturacion, 'satu-600'),
-        'satu-6': map-get($escala-saturacion, 'satu-750'),
-        'satu-7': map-get($escala-saturacion, 'satu-900'),
+        'satu-1': map-get($escala, 'satu-100'),
+        'satu-2': map-get($escala, 'satu-200'),
+        'satu-3': map-get($escala, 'satu-400'),
+        'satu-4': map-get($escala, 'satu-500'),
+        'satu-5': map-get($escala, 'satu-600'),
+        'satu-6': map-get($escala, 'satu-750'),
+        'satu-7': map-get($escala, 'satu-900'),
     );
 }
 
@@ -159,93 +128,92 @@
     );
 }
 
-@function generar-configuracion($paleta-basica, $paleta-ampliada, $paleta-monocromatica, $paleta-saturacion) {
-    $fondo: map-get($paleta-ampliada, 'fondo');
-    $fondo2: cambiar-luminosidad($fondo, 30%);
-    $fondo3: cambiar-luminosidad($fondo, 60%);
-    $enlace: color-contrast($fondo);
-    $enlace2: lighten(color-contrast($fondo), 50%);
-    $borde: map-get($paleta-monocromatica, 'mono-6');
-    $borde2: map-get($paleta-monocromatica, 'mono-7');
-    $separador: map-get($paleta-monocromatica, 'mono-6');
-    $titulo: map-get($paleta-monocromatica, 'mono-7');
-    $titulo2: map-get($paleta-monocromatica, 'mono-1');
-    $fondo-menu: darken($fondo, 10%);
-    $fondo-menu2: darken($fondo, 50%);
-    @if evaluar-color($fondo) == 'oscuro' {
-        $enlace2: darken(color-contrast($fondo), 20%);
-        $borde: map-get($paleta-monocromatica, 'mono-2');
-        $borde2: map-get($paleta-monocromatica, 'mono-1');
-        $separador: map-get($paleta-monocromatica, 'mono-2');
-        $titulo: map-get($paleta-monocromatica, 'mono-1');
-        $titulo2: map-get($paleta-monocromatica, 'mono-7');
-        $fondo-menu: lighten($fondo, 10%);
-        $fondo-menu2: lighten($fondo, 50%);
-   }
+@function definir-parametros($paleta-basica, $paleta-ampliada, $paleta-mono, $paleta-saturacion) {
+    $color-fondo:       map-get($paleta-ampliada, 'fondo');
+    $color-fondo2:      cambiar-luminosidad($color-fondo, 30%);
+    $color-fondo3:      cambiar-luminosidad($color-fondo, 60%);
+    $color-enlace:      color-contrast($color-fondo);
+    $color-enlace2:     lighten(color-contrast($color-fondo), 50%);
+    $color-borde:       map-get($paleta-mono, 'mono-5');
+    $color-borde2:      map-get($paleta-mono, 'mono-7');
+    $color-separador:   map-get($paleta-mono, 'mono-6');
+    $estilo-titulos:    map-get($paleta-mono, 'mono-2');
+    $color-menu:        darken($color-fondo, 10%);
+    $color-menu2:       darken($color-fondo, 50%);
+    @if evaluar-color($color-fondo) == 'oscuro' {
+        $color-enlace2:     darken(color-contrast($color-fondo), 20%);
+        $color-borde:       map-get($paleta-mono, 'mono-2');
+        $color-borde2:      map-get($paleta-mono, 'mono-1');
+        $color-separador:   map-get($paleta-mono, 'mono-2');
+        $estilo-titulos:    map-get($paleta-mono, 'mono-6');
+        $color-menu:        lighten($color-fondo, 10%);
+        $color-menu2:       lighten($color-fondo, 50%);
+    }
     @return (
         fuente-base:            'Verdana, Geneva, Tahoma, sans-serif',
         talla-base:             1rem,
-        separador:              $separador,
-        borde:                  $borde,
-        borde2:                 $borde2,
-        titulo:                 $titulo,
-        titulo2:                $titulo2,
-        enlace:                 $enlace,
-        enlace2:                $enlace2,
-        fondo-menu:             $fondo-menu,
-        fondo-menu2:            $fondo-menu2,
-        fondo:                  $fondo,
-        fondo2:                 $fondo2,
-        fondo3:                 $fondo3,
-        texto:                  color-contrast($fondo),
-        texto2:                 color-contrast($fondo2),
-        texto3:                 color-contrast($fondo3),
+        color-separador:        $color-separador,
+        color-borde:            $color-borde,
+        color-borde2:           $color-borde2,
+        estilo-titulos:         $estilo-titulos,
+        color-enlace:           $color-enlace,
+        color-enlace2:          $color-enlace2,
+        color-menu:             $color-menu,
+        color-menu2:            $color-menu2,
+        color-fondo:            $color-fondo,
+        color-fondo2:           $color-fondo2,
+        color-fondo3:           $color-fondo3,
+        color-texto:            color-contrast($color-fondo),
+        color-texto2:           color-contrast($color-fondo2),
+        color-texto3:           color-contrast($color-fondo3),
         paleta-basica:          $paleta-basica,
         paleta-ampliada:        $paleta-ampliada,
-        paleta-monocromatica:   $paleta-monocromatica,
+        paleta-mono:            $paleta-mono,
         paleta-saturacion:      $paleta-saturacion,
     );
 }
 
-@mixin configurar-tema($config) {
-    --bsia-sombra-rgba:         #{map-get($config, convertir-hex-rgba(map-get($config, texto)))};
-    --bsia-separador:           #{map-get($config, separador)};
-    --bsia-borde:               #{map-get($config, borde)};
-    --bsia-borde2:              #{map-get($config, borde2)};
-    --bsia-titulo:              #{map-get($config, titulo)};
-    --bsia-titulo2:             #{map-get($config, titulo2)};
+@mixin configurar-tema($parametros) {
+    --bsia-color-sombra-rgba:   #{convertir-hex-rgba(map-get($parametros, color-texto))};
+    --bsia-color-separador:     #{map-get($parametros, color-separador)};
+    --bsia-color-borde:         #{map-get($parametros, color-borde)};
+    --bsia-color-borde2:        #{map-get($parametros, color-borde2)};
+    --bsia-estilo-titulos:      #{map-get($parametros, estilo-titulos)};
+    //--bs-heading-color: ?;
+    //+ Usar font-style: italic; margin-top: 1rem; margin-bottom: 2rem;
+    //+ text-shadow: 0.1em 0.1em 0.15em #252850
 
-    --bs-body-font-family:      #{map-get($config, fuente-base)};
-    --bs-body-font-size:        #{map-get($config, talla-base)};
-    --bs-body-bg:               #{map-get($config, fondo)};
-    --bs-body-bg-rgb:           #{to-rgb(map-get($config, fondo))};
-    --bs-body-color:            #{map-get($config, texto)};
-    --bs-body-color-rgb:        #{to-rgb(map-get($config, texto))};
-    --bs-emphasis-color:        #{map-get($config, texto)};
-    --bs-emphasis-color-rgb:    #{to-rgb(map-get($config, texto))};
-    --bs-link-color:            #{map-get($config, enlace)};
-    --bs-link-color-rgb:        #{to-rgb(map-get($config, enlace))};
-    --bs-link-hover-color:      #{map-get($config, enlace2)};
-    --bs-link-hover-color-rgb:  #{to-rgb(map-get($config, enlace2))};
-    --bs-secondary-bg:          #{map-get($config, fondo2)};
-    --bs-secondary-bg-rgb:      #{to-rgb(map-get($config, fondo2))};
-    --bs-secondary-color:       #{map-get($config, texto2)};
-    --bs-secondary-color-rgb:   #{to-rgb(map-get($config, texto2))};
-    --bs-tertiary-bg:           #{map-get($config, fondo3)};
-    --bs-tertiary-bg-rgb:       #{to-rgb(map-get($config, fondo3))};
-    --bs-tertiary-color:        #{map-get($config, texto3)};
-    --bs-tertiary-color-rgb:    #{to-rgb(map-get($config, texto3))};
-    --bs-border-color:          #{map-get($config, borde)};
-    --bs-box-shadow-sm:         0 0.125rem .25rem #{convertir-hex-rgba(map-get($config, texto), 0.3)};
-    --bs-box-shadow:            0 0.5rem 1rem #{convertir-hex-rgba(map-get($config, texto), 0.4)};
-    --bs-box-shadow-lg:         0 1rem 3rem #{convertir-hex-rgba(map-get($config, texto), 0.5)};
-    --bs-box-shadow-inset:      inset 0 1px 2px #{convertir-hex-rgba(map-get($config, texto), 0.25)};
-    --bs-focus-ring-color:      #{convertir-hex-rgba(map-get(map-get($config, paleta-basica), 'primary'), 0.25)};
-    --bs-focus-ring-width: 0.25rem;
-    --bs-focus-ring-opacity: 0.25;
-    --bs-border-color-translucent: #{convertir-hex-rgba(map-get($config, texto))};
+    --bs-body-font-family:      #{map-get($parametros, fuente-base)};
+    --bs-body-font-size:        #{map-get($parametros, talla-base)};
+    --bs-body-bg:               #{map-get($parametros, color-fondo)};
+    --bs-body-bg-rgb:           #{to-rgb(map-get($parametros, color-fondo))};
+    --bs-body-color:            #{map-get($parametros, color-texto)};
+    --bs-body-color-rgb:        #{to-rgb(map-get($parametros, color-texto))};
+    --bs-emphasis-color:        #{map-get($parametros, color-texto)};
+    --bs-emphasis-color-rgb:    #{to-rgb(map-get($parametros, color-texto))};
+    --bs-link-color:            #{map-get($parametros, color-enlace)};
+    --bs-link-color-rgb:        #{to-rgb(map-get($parametros, color-enlace))};
+    --bs-link-hover-color:      #{map-get($parametros, color-enlace2)};
+    --bs-link-hover-color-rgb:  #{to-rgb(map-get($parametros, color-enlace2))};
+    --bs-secondary-bg:          #{map-get($parametros, color-fondo2)};
+    --bs-secondary-bg-rgb:      #{to-rgb(map-get($parametros, color-fondo2))};
+    --bs-secondary-color:       #{map-get($parametros, color-texto2)};
+    --bs-secondary-color-rgb:   #{to-rgb(map-get($parametros, color-texto2))};
+    --bs-tertiary-bg:           #{map-get($parametros, color-fondo3)};
+    --bs-tertiary-bg-rgb:       #{to-rgb(map-get($parametros, color-fondo3))};
+    --bs-tertiary-color:        #{map-get($parametros, color-texto3)};
+    --bs-tertiary-color-rgb:    #{to-rgb(map-get($parametros, color-texto3))};
+    --bs-border-color:          var(--bsia-color-borde);
+    --bs-box-shadow-sm:         0 0.125rem .25rem #{convertir-hex-rgba(map-get($parametros, color-texto), 0.3)};
+    --bs-box-shadow:            0 0.5rem 1rem #{convertir-hex-rgba(map-get($parametros, color-texto), 0.4)};
+    --bs-box-shadow-lg:         0 1rem 3rem #{convertir-hex-rgba(map-get($parametros, color-texto), 0.5)};
+    --bs-box-shadow-inset:      inset 0 1px 2px #{convertir-hex-rgba(map-get($parametros, color-texto), 0.25)};
+    --bs-focus-ring-color:      #{convertir-hex-rgba(map-get(map-get($parametros, paleta-basica), 'primary'), 0.25)};
+    --bs-focus-ring-width:      0.25rem;
+    --bs-focus-ring-opacity:    0.25;
+    --bs-border-color-translucent: #{convertir-hex-rgba(map-get($parametros, color-texto))};
 
-    @each $nombre, $valor in map-get($config, paleta-basica) {
+    @each $nombre, $valor in map-get($parametros, paleta-basica) {
         --bs-#{$nombre}:                #{$valor};
         --bs-#{$nombre}-rgb:            #{to-rgb($valor)};
         --bs-#{$nombre}-text-emphasis:  #{cambiar-luminosidad($valor, -20%)};
@@ -256,8 +224,6 @@
             --bs-list-group-action-hover-color:     var(--bs-#{$nombre}-text-emphasis);
             --bs-list-group-action-active-color:    var(--bs-#{$nombre}-text-emphasis);
             --bs-list-group-active-color:           var(--bs-#{$nombre}-text-emphasis);
-            --bs-list-group-border-color:           #{map-get($config, borde)};
-            --bs-list-group-active-border-color:    #{map-get($config, borde)};
         }
         .bg-#{$nombre} {
             background-color: $valor !important;
@@ -276,43 +242,49 @@
             @include button-outline-variant($valor);
         }
     }
-    @each $nombre, $valor in map-get($config, paleta-ampliada) {
+    @each $nombre, $valor in map-get($parametros, paleta-ampliada) {
         --bsia-#{$nombre}: #{$valor};
         .text-bg-#{$nombre} {
             background-color:   $valor !important;
             color:              color-contrast($valor) !important;
         }
     }
-    @each $nombre, $valor in map-get($config, paleta-monocromatica) {
+    @each $nombre, $valor in map-get($parametros, paleta-mono) {
         --bsia-#{$nombre}: #{$valor};
         .text-bg-#{$nombre} {
             background-color:   $valor !important;
             color:              color-contrast($valor) !important;
         }
     }
-    @each $nombre, $valor in map-get($config, paleta-saturacion) {
+    @each $nombre, $valor in map-get($parametros, paleta-saturacion) {
         .text-bg-#{$nombre} {
             background-color:   $valor !important;
             color:              color-contrast($valor) !important;
         }
     }
     .dropdown-menu {
-        --bs-dropdown-color:                #{color-contrast(map-get($config, fondo-menu))};
-        --bs-dropdown-bg:                   #{map-get($config, fondo-menu)};
-        --bs-dropdown-link-color:           #{color-contrast(map-get($config, fondo-menu))};
-        --bs-dropdown-link-hover-bg:        #{map-get($config, fondo-menu2)};
-        --bs-dropdown-link-hover-color:     #{color-contrast(map-get($config, fondo-menu2))};
-        --bs-dropdown-link-active-bg:       #{map-get(map-get($config, paleta-ampliada), 'accent')};
-        --bs-dropdown-link-active-color:    #{color-contrast(map-get(map-get($config, paleta-ampliada), 'accent'))};
+        --bs-dropdown-color:                #{color-contrast(map-get($parametros, color-menu))};
+        --bs-dropdown-bg:                   #{map-get($parametros, color-menu)};
+        --bs-dropdown-link-color:           #{color-contrast(map-get($parametros, color-menu))};
+        --bs-dropdown-link-hover-bg:        #{map-get($parametros, color-menu2)};
+        --bs-dropdown-link-hover-color:     #{color-contrast(map-get($parametros, color-menu2))};
+        --bs-dropdown-link-active-bg:       #{map-get(map-get($parametros, paleta-ampliada), 'accent')};
+        --bs-dropdown-link-active-color:    #{color-contrast(map-get(map-get($parametros, paleta-ampliada), 'accent'))};
     }
     .nav-tabs {
-        --bs-nav-link-color:                    #{map-get($config, texto)};
-        --bs-nav-link-hover-color:              #{map-get($config, texto)};
-        --bs-nav-tabs-link-active-bg:           #{map-get(map-get($config, paleta-ampliada), 'highlight')};
-        --bs-nav-tabs-link-active-color:        #{color-contrast(map-get(map-get($config, paleta-ampliada), 'highlight'))};
-
-        --bs-nav-tabs-border-color:             #{map-get($config, borde)};
-        --bs-nav-tabs-link-active-border-color: #{map-get($config, borde)} #{map-get($config, borde)} transparent;
-        --bs-nav-tabs-link-hover-border-color:  #{map-get($config, borde2)} #{map-get($config, borde2)} transparent;
+        --bs-nav-link-color:                    #{map-get($parametros, color-texto)};
+        --bs-nav-link-hover-color:              #{map-get($parametros, color-texto)};
+        --bs-nav-tabs-link-active-bg:           #{map-get(map-get($parametros, paleta-ampliada), 'highlight')};
+        --bs-nav-tabs-link-active-color:        #{color-contrast(map-get(map-get($parametros, paleta-ampliada), 'highlight'))};
+        --bs-nav-tabs-border-color:             var(--bsia-color-borde);
+        --bs-nav-tabs-link-active-border-color: var(--bsia-color-borde) var(--bsia-color-borde) transparent;
+        --bs-nav-tabs-link-hover-border-color:  var(--bsia-color-borde2) var(--bsia-color-borde2) transparent;
     }
+
+    //$accordion-button-focus-box-shadow: '';
+    //$accordion-icon-color-dark: $white;
+    //$accordion-icon-active-color-dark: $white;
+    //$accordion-button-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
+    //$accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color-dark}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
+
 }
