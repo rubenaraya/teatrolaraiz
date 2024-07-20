@@ -1,0 +1,33 @@
+[data-bs-theme="acero"] {
+
+  $paleta-basica: (
+    'primary':      #0d6efd,
+    'secondary':    #38629f,
+  );
+  $paleta-ampliada: (
+    'fondo':        #80adf0, //*
+    'accent':       #0057D7,
+  );
+  $paleta-mono: (
+  );
+  $paleta-saturacion: (
+  );
+  $opciones: (
+    'fuente-base':      'Verdana, Geneva, Tahoma, sans-serif', //*
+    'talla-base':       1rem, //*
+    'color-nav':        #38629f, //*
+    'color-nav2':       #38629f, //*
+    'color-texto':      #000000,
+    'color-enlace':     #031633,
+    'color-enlace2':    #052c65,
+    'color-menu':       #9ec5fe,
+    'color-menu2':      #094db1,
+    'color-menu3':      #052c65,
+    'color-separador':  #052c65,
+    'color-borde':      #094db1,
+    'color-borde2':     #031633,
+    'estilo-titulos':   '',
+  );
+
+  @include configurar-tema(establecer-parametros($opciones, $paleta-basica, $paleta-ampliada, $paleta-mono, $paleta-saturacion));
+}
