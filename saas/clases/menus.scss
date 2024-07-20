@@ -26,6 +26,7 @@
     padding-top: 4px;
     padding-bottom: 4px;
     font-size: 0.9rem;
+    background-color: var(--bsia-color-nav);
 }
 #web-barra-horizontal .web-menu {
     @extend .navbar-nav;
@@ -44,6 +45,12 @@
     @extend .ps-2;
     @extend .pe-3;
     font-size: 0.9rem;
+    color: var(--bsia-texto-nav);
+}
+a.web-item-menu:hover,
+a.web-item-menu:active,
+a.web-item-menu:focus {
+    color: var(--bsia-texto-nav);
 }
 .web-item-submenu {
     @extend .py-2;

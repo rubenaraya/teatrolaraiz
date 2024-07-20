@@ -1,6 +1,5 @@
 [data-bs-theme="azulceleste"] {
-    $color-tema: "azulceleste";
-    $color-primario: map.get($theme-colors, $color-tema);
+    $color-primario: map.get($theme-colors, "azulceleste");
     $paleta-basica: generar-paleta-basica($color-primario);
     $paleta-ampliada: generar-paleta-ampliada($color-primario);
     $paleta-mono: generar-paleta-mono($color-primario);

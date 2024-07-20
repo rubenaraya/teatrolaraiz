@@ -12,6 +12,8 @@
     'danger':     #dc3545,
     'light':      #f8f9fa,
     'dark':       #212529,
+    'gray':       #adb5bd,
+    'white':      #ffffff,
   );
   $paleta-ampliada: (
     'analo-1':    #240DFD,
@@ -21,18 +23,17 @@
     'tetra-1':    #9C0DFD,
     'tetra-2':    #0DFD9C,
     'fondo':      $color-fondo,
-    'fondo2':     #569AFE,
-    'fondo3':     #9EC5FE,
+    'fondo2':     #B3CEF6,
+    'fondo3':     #D9E6FB,
     'inverso':    #FD9C0D,
     'cuad-1':     #FD0DE6,
     'cuad-2':     #0DFD24,
     'comp-1':     #E6FD0D,
     'comp-2':     #FD240D,
-    'accent':     #0B6EFF,
-    'highlight':  #0B6EFF,
-    'gray':       #adb5bd,
-    'white':      #ffffff,
-    'black':      #000000,
+    'accent':     #0057D7,
+    'bright':     #589BFF,
+    'marked':     #FFFF71,
+    'soft':       #7E94F1,
   );
   $paleta-mono: (
     'mono-1':     #CFE2FF,

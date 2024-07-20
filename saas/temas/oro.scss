@@ -1,6 +1,5 @@
 [data-bs-theme="oro"] {
-    $color-tema: "oro";
-    $color-primario: map.get($theme-colors, $color-tema);
+    $color-primario: map.get($theme-colors, "oro");
     $paleta-basica: generar-paleta-basica($color-primario);
     $paleta-ampliada: generar-paleta-ampliada($color-primario);
     $paleta-mono: generar-paleta-mono($color-primario);

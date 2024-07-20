@@ -1,6 +1,5 @@
 [data-bs-theme="esmeralda"] {
-  $color-tema: "esmeralda";
-  $color-primario: map.get($theme-colors, $color-tema);
+  $color-primario: map.get($theme-colors, "esmeralda");
   $paleta-basica: generar-paleta-basica($color-primario);
   $paleta-ampliada: generar-paleta-ampliada($color-primario);
   $paleta-mono: generar-paleta-mono($color-primario);
