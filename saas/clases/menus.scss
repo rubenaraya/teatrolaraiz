@@ -27,6 +27,22 @@
     padding-bottom: 4px;
     font-size: 0.9rem;
     background-color: var(--bsia-color-nav);
+    color: var(--bsia-texto-nav);
+}
+#web-barra-horizontal a.web-item-menu,
+#web-barra-horizontal a.web-marca-menu {
+    &:link,
+    &:visited {
+        color: var(--bsia-texto-nav);
+    }
+    &:active,
+    &:hover,
+    &:focus {
+        background-color: var(--bsia-color-nav2);
+        color: var(--bsia-texto-nav2);
+        @extend .rounded;
+        @extend .rounded-2;
+    }
 }
 #web-barra-horizontal .web-menu {
     @extend .navbar-nav;
@@ -47,11 +63,6 @@
     font-size: 0.9rem;
     color: var(--bsia-texto-nav);
 }
-a.web-item-menu:hover,
-a.web-item-menu:active,
-a.web-item-menu:focus {
-    color: var(--bsia-texto-nav);
-}
 .web-item-submenu {
     @extend .py-2;
     @extend .ps-2;
@@ -60,8 +71,10 @@ a.web-item-menu:focus {
 }
 .web-marca-menu {
     @extend .navbar-brand;
+    @extend .px-1;
     margin-right: 0.4rem;
     font-size: 1.6rem;
     padding-top: 0;
     padding-bottom: 0;
+    color: var(--bsia-texto-nav);
 }

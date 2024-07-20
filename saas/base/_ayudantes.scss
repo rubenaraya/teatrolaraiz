@@ -131,6 +131,7 @@
 
 @function definir-parametros($paleta-basica, $paleta-ampliada, $paleta-mono, $paleta-saturacion) {
     $color-nav:         map-get($paleta-basica, 'secondary');
+    $color-nav2:        map-get($paleta-basica, 'secondary');
     $color-fondo:       map-get($paleta-ampliada, 'fondo');
     $color-fondo2:      cambiar-luminosidad($color-fondo, 30%);
     $color-fondo3:      cambiar-luminosidad($color-fondo, 60%);
@@ -156,8 +157,8 @@
         $color-menu3:       map-get($paleta-mono, 'mono-2');
     }
     @return (
-        fuente-base:            'Verdana, Geneva, Tahoma, sans-serif',
-        talla-base:             1rem,
+        fuente-base:            'Verdana, Geneva, Tahoma, sans-serif', //*
+        talla-base:             1rem, //*
         color-separador:        $color-separador,
         color-borde:            $color-borde,
         color-borde2:           $color-borde2,
@@ -167,8 +168,9 @@
         color-menu:             $color-menu,
         color-menu2:            $color-menu2,
         color-menu3:            $color-menu3,
-        color-nav:              $color-nav,
-        color-fondo:            $color-fondo,
+        color-nav:              $color-nav, //*
+        color-nav2:             $color-nav2, //*
+        color-fondo:            $color-fondo, //*
         color-fondo2:           $color-fondo2,
         color-fondo3:           $color-fondo3,
         color-texto:            color-contrast($color-fondo),
@@ -188,7 +190,9 @@
     --bsia-color-borde2:        #{map-get($parametros, color-borde2)};
     --bsia-estilo-titulos:      #{map-get($parametros, estilo-titulos)};
     --bsia-color-nav:           #{map-get($parametros, color-nav)};
+    --bsia-color-nav2:          #{map-get($parametros, color-nav2)};
     --bsia-texto-nav:           #{color-contrast(map-get($parametros, color-nav))};
+    --bsia-texto-nav2:          #{color-contrast(map-get($parametros, color-nav2))};
 
     @each $nombre, $valor in map-get($parametros, paleta-basica) {
         --bs-#{$nombre}:                #{$valor};
