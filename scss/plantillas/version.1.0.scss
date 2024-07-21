@@ -1,8 +1,8 @@
-//scss\plantillas\version.1.0.scss
+
 @use "sass:map";
 
-@import "../base/ayudantes";
-@import "../base/colores";
+@import "../configuracion/colores";
+@import "../herramientas/ayudantes";
 
 // ----------------------------------------------
 // VARIABLES GLOBALES PREDEFINIDAS
@@ -130,13 +130,14 @@ $theme-colors: map-merge($theme-colors, $colores-temas);
 // ----------------------------------------------
 // CLASES DEFINIDAS EN LA PLANTILLA
 
-@import "../clases/generales";
-@import "../clases/componentes";
-@import "../clases/menus";
-@import "../clases/etiquetas";
-@import "../clases/cargando";
-@import "../clases/cookies";
-@import "../clases/formularios";
-@import "../clases/tablas";
-@import "../clases/videos";
-@import "../clases/fuentes";
+@import "../genericos/base";
+@import "../genericos/fuentes";
+
+@import "../componentes/objetos";
+@import "../componentes/menus";
+@import "../componentes/etiquetas";
+@import "../componentes/cargando";
+@import "../componentes/cookies";
+@import "../componentes/formularios";
+@import "../componentes/tablas";
+@import "../componentes/videos";
