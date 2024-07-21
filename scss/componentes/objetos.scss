@@ -1,4 +1,4 @@
-
+//----------------------------------------------
 // CARRUSEL (CAROUSEL)
 
 .web-carrusel .carousel-item .item {
@@ -33,6 +33,7 @@
     object-fit: cover;
 }
 
+//----------------------------------------------
 // NOTIFICACIONES (TOAST)
 
 .web-notificaciones {
@@ -49,6 +50,7 @@
     @extend .text-center;
 }
 
+//----------------------------------------------
 // BOTON FLOTANTE: VOLVER-ARRIBA
 
 #web-volver-arriba {
@@ -77,6 +79,7 @@
     z-index: 2147483647;
 }
 
+//----------------------------------------------
 // GALERIA IMAGENES (LIGHTBOX)
 
 .web-lightbox {
@@ -103,6 +106,7 @@
     box-shadow: 0 0 1.2rem rgba(var(--web-imagen-galeria-sombra), 1);
 }
 
+//----------------------------------------------
 // INSIGNIA (BADGE)
 
 .web-insignia {
@@ -111,6 +115,7 @@
     font-weight: 500;
 }
 
+//----------------------------------------------
 // INCRUSTABLES (EMBEDDINGS)
 
 .web-mapa {
@@ -128,6 +133,7 @@
     @extend .mb-4;
 }
 
+//----------------------------------------------
 // PARALAJE
 
 .web-paralaje {
@@ -143,6 +149,7 @@
 	padding-bottom: 2rem;
 }
 
+//----------------------------------------------
 // LLAMADAS
 
 .web-llamada {
@@ -169,6 +176,7 @@
     left: 30px;
 }
 
+//----------------------------------------------
 // CAJAS
 
 .web-caja-icono {
@@ -185,6 +193,7 @@
 	border-radius: 1.5rem;
 }
 
+//----------------------------------------------
 // MIEMBROS
 
 .web-miembros {
@@ -206,6 +215,7 @@
     @extend .rounded-circle;
 }
 
+//----------------------------------------------
 // PERSONAS
 
 .web-persona {
@@ -228,7 +238,9 @@
     margin-right: 10px;
 }
 
+//----------------------------------------------
 // PESTAÑAS
+
 .web-tabs-contenido {
     @extend .px-3;
     @extend .py-3;

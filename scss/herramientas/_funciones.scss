@@ -1,0 +1,185 @@
+@use "sass:map";
+//----------------------------------------------
+
+@function convertir-hex-rgba($color, $opacidad: .5) {
+    @return RGBA(to-rgb($color), $opacidad);
+}
+
+@function evaluar-color($color) {
+    @if contrast-ratio($color, $white) > $min-contrast-ratio {
+        @return 'oscuro';
+    } @else {
+        @return 'claro';
+    }
+}
+
+@function cambiar-luminosidad($color, $weight) {
+    @if evaluar-color($color) == 'oscuro' {
+        @return if($weight > 0, mix($color, black, $weight), mix($color, white, -$weight));
+    } @else {
+        @return if($weight > 0, mix($color, white, $weight), mix($color, black, -$weight));
+    }
+}
+
+@function cambiar-matiz($color, $degrees) {
+    @return hsl(hue($color) + $degrees, saturation($color), lightness($color));
+}
+
+@function ajustar-matiz-al-tema($color, $target-hue) {
+    $current-hue: hue($color);
+    $hue-difference: $target-hue - $current-hue;
+    @if abs($hue-difference) > 180 {
+        $hue-difference: $hue-difference - 360 * if($hue-difference > 0, -1, 1);
+    }
+    @return cambiar-matiz($color, $hue-difference);
+}
+
+@function generar-paleta-mono($color) {
+    $escala: ();
+    $lightness: lightness($color);
+    @for $i from 1 through 9 {
+        $new-color: mix($color, white, 10% * $i);
+        $escala: map-merge($escala, ('mono-' + (50 + ($i - 1) * 50): $new-color));
+    }
+    $escala: map-merge($escala, ('mono-500': $color));
+    @for $i from 1 through 9 {
+        $new-color: mix($color, black, 10% * $i);
+        $escala: map-merge($escala, ('mono-' + (950 - ($i - 1) * 50): $new-color));
+    }
+    @return (
+        'mono1': map-get($escala, 'mono-100'),
+        'mono2': map-get($escala, 'mono-200'),
+        'mono3': map-get($escala, 'mono-350'),
+        'mono4': map-get($escala, 'mono-500'),
+        'mono5': map-get($escala, 'mono-650'),
+        'mono6': map-get($escala, 'mono-800'),
+        'mono7': map-get($escala, 'mono-900'),
+    );
+}
+
+@function generar-paleta-saturacion($color) {
+    $escala: ();
+    $base-level: 500;
+    $incremento-saturacion: 10%;
+    @for $i from 1 through 9 {
+        $color-saturado: saturate($color, $incremento-saturacion * $i);
+        $color-desaturado: desaturate($color, $incremento-saturacion * $i);
+        $escala: map-merge($escala, (
+            'satu-' + ($base-level - $i * 50): $color-desaturado,
+            'satu-' + ($base-level + $i * 50): $color-saturado
+        ));
+    }
+    $escala: map-merge($escala, ('satu-500': $color));
+    @return (
+        'satu1': map-get($escala, 'satu-100'),
+        'satu2': map-get($escala, 'satu-200'),
+        'satu3': map-get($escala, 'satu-400'),
+        'satu4': map-get($escala, 'satu-500'),
+        'satu5': map-get($escala, 'satu-600'),
+        'satu6': map-get($escala, 'satu-750'),
+        'satu7': map-get($escala, 'satu-900'),
+    );
+}
+
+@function generar-paleta-ampliada($color) {
+    $fondo: desaturate(lighten($color, 20%), 20%);
+    @return (
+        'fondo':        $fondo,
+        'fondo2':       cambiar-luminosidad($fondo, 60%),
+        'fondo3':       cambiar-luminosidad($fondo, 30%),
+        'analo1':       cambiar-matiz($color, 30deg),
+        'analo2':       cambiar-matiz($color, -30deg),
+        'triad1':       cambiar-matiz($color, 120deg),
+        'triad2':       cambiar-matiz($color, 240deg),
+        'tetra1':       cambiar-matiz($color, 60deg),
+        'tetra2':       cambiar-matiz($color, -60deg),
+        'cuad1':        cambiar-matiz($color, 90deg),
+        'cuad2':        cambiar-matiz($color, -90deg),
+        'inverso':      cambiar-matiz($color, 180deg),
+        'comp1':        cambiar-matiz(cambiar-matiz($color, 180deg), 30deg),
+        'comp2':        cambiar-matiz(cambiar-matiz($color, 180deg), -30deg),
+        'accent':       saturate(darken($color, 10%), 50%),
+        'bright':       saturate(lighten($color, 15%), 25%),
+        'marked':       lighten(saturate(ajustar-matiz-al-tema($color, 60), 15%), 20%),
+        'soft':         rgba(lighten(desaturate(ajustar-matiz-al-tema($color, 240), 15%), 20%), .5),
+    );
+}
+
+@function generar-paleta-basica($color) {
+    $danger:    ajustar-matiz-al-tema($color, 0);
+    $success:   ajustar-matiz-al-tema($color, 120);
+    $info:      ajustar-matiz-al-tema($color, 240);
+    $warning:   ajustar-matiz-al-tema($color, 60);
+    @if evaluar-color($color) == 'oscuro' {
+        $danger:    lighten($danger, 10%);
+        $success:   lighten($success, 10%);
+        $info:      lighten($info, 10%);
+        $warning:   lighten($warning, 10%);
+    }
+    @return (
+        'primary':      $color,
+        'light':        lighten($color, 25%),
+        'dark':         darken($color, 20%),
+        'secondary':    desaturate(darken($color, 10%), 50%),
+        'success':      desaturate($success, 10%),
+        'info':         desaturate($info, 10%),
+        'warning':      saturate($warning, 10%),
+        'danger':       saturate($danger, 10%),
+        'gray':         $gray-600,
+        'white':        $white,
+    );
+}
+
+@function definir-parametros($paleta-basica, $paleta-ampliada, $paleta-mono, $paleta-saturacion) {
+    $color-nav:         map-get($paleta-basica, 'secondary');
+    $color-nav2:        map-get($paleta-basica, 'secondary');
+    $color-fondo:       map-get($paleta-ampliada, 'fondo');
+    $color-fondo2:      cambiar-luminosidad($color-fondo, 30%);
+    $color-fondo3:      cambiar-luminosidad($color-fondo, 60%);
+
+    $color-enlace:      map-get($paleta-mono, 'mono7');
+    $color-enlace2:     map-get($paleta-mono, 'mono6');
+    $color-borde:       map-get($paleta-mono, 'mono5');
+    $color-borde2:      map-get($paleta-mono, 'mono7');
+    $color-separador:   map-get($paleta-mono, 'mono6');
+    $estilo-titulos:    map-get($paleta-mono, 'mono2');
+    $color-menu:        map-get($paleta-mono, 'mono2');
+    $color-menu2:       map-get($paleta-mono, 'mono5');
+    $color-menu3:       map-get($paleta-mono, 'mono6');
+    @if evaluar-color($color-fondo) == 'oscuro' {
+        $color-enlace:      map-get($paleta-mono, 'mono1');
+        $color-enlace2:     map-get($paleta-mono, 'mono2');
+        $color-borde:       map-get($paleta-mono, 'mono2');
+        $color-borde2:      map-get($paleta-mono, 'mono1');
+        $color-separador:   map-get($paleta-mono, 'mono2');
+        $estilo-titulos:    map-get($paleta-mono, 'mono6');
+        $color-menu:        map-get($paleta-mono, 'mono3');
+        $color-menu2:       map-get($paleta-mono, 'mono1');
+        $color-menu3:       map-get($paleta-mono, 'mono2');
+    }
+    @return (
+        fuente-base:            'Verdana, Geneva, Tahoma, sans-serif',
+        talla-base:             1rem,
+        color-separador:        $color-separador,
+        color-borde:            $color-borde,
+        color-borde2:           $color-borde2,
+        estilo-titulos:         $estilo-titulos,
+        color-enlace:           $color-enlace,
+        color-enlace2:          $color-enlace2,
+        color-menu:             $color-menu,
+        color-menu2:            $color-menu2,
+        color-menu3:            $color-menu3,
+        color-nav:              $color-nav,
+        color-nav2:             $color-nav2,
+        color-fondo:            $color-fondo,
+        color-fondo2:           $color-fondo2,
+        color-fondo3:           $color-fondo3,
+        color-texto:            color-contrast($color-fondo),
+        color-texto2:           color-contrast($color-fondo2),
+        color-texto3:           color-contrast($color-fondo3),
+        paleta-basica:          $paleta-basica,
+        paleta-ampliada:        $paleta-ampliada,
+        paleta-mono:            $paleta-mono,
+        paleta-saturacion:      $paleta-saturacion,
+    );
+}

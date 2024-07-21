@@ -1,0 +1,36 @@
+@use "sass:map";
+// ----------------------------------------------
+// VARIABLES GLOBALES PREDEFINIDAS
+// ----------------------------------------------
+$min-contrast-ratio: 3.5;
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: true;
+
+// ----------------------------------------------
+// BOOTSTRAP 5.3.3
+// ----------------------------------------------
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/variables-dark";
+
+// Integración de colores personalizados
+@import "../configuracion/colores";
+$theme-colors: map-merge($theme-colors, $colores-temas);
+
+@import "../configuracion/bootstrap";
+
+// ----------------------------------------------
+// TEMAS DISPONIBLES EN LA PLANTILLA
+// ----------------------------------------------
+@import "../configuracion/fuentes";
+@import "../herramientas/funciones";
+@import "../herramientas/variables";
+@import "../temas/todos";
+
+// ----------------------------------------------
+// ESTILOS DEFINIDOS EN LA PLANTILLA
+// ----------------------------------------------
+@import "../herramientas/mixines";
+@import "../genericos/todos";
+@import "../componentes/todos";
